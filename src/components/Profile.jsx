@@ -1,5 +1,6 @@
 import { useState } from "react"
 import DropdownCell from "../utils/DropdownCell"
+import SimpleEditableTextCell from "../utils/SimpleEditableTextCell"
 
 export default function Profile() {
     const [name, setName] = useState("TickTock")
@@ -8,7 +9,7 @@ export default function Profile() {
 
     return <>
     <h4>Name:</h4>
-    <p>{name}</p>
+    <SimpleEditableTextCell startText={name} setText={setName}/>
     <h4>Role:</h4>
     <DropdownCell currentItem={role} itemSetter={setRole} optionsList={allRoles}></DropdownCell>
     </>
