@@ -1,0 +1,162 @@
+{
+    "Exec": {
+        "roleName": "teamwork",
+        "roleAbilities": [
+            {
+                "name": "teamwork",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Fixer": {
+        "roleName": "Operator",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Lawman": {
+        "roleName": "",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Media": {
+        "roleName": "",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Medtech": {
+        "roleName": "",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Netrunner": {
+        "roleName": "",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Nomad": {
+        "roleName": "",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Rockerboy": {
+        "roleName": "",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Solo": {
+        "roleName": "",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    },
+    "Tech": {
+        "roleName": "",
+        "roleAbilities": [
+            {
+                "name": "",
+                "levels": {
+                    "1": {
+                        "bonus": "bonus is..."
+                    },
+                    "2": {
+                        "bonus": "bonus is..."
+                    }
+                }
+            }
+        ]
+    }
+}

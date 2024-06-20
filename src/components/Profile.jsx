@@ -1,11 +1,13 @@
 import { useState } from "react"
 import DropdownCell from "../utils/DropdownCell"
 import SimpleEditableTextCell from "../utils/SimpleEditableTextCell"
+import rolesJson from "../data/roles.json"
+import useRole from "../hooks/useRole"
 
 export default function Profile() {
     const [name, setName] = useState("TickTock")
-    const [role, setRole] = useState("Medtech")
-    const allRoles = ["Cop", "Corporate", "Fixer", "Media", "Netrunner", "Nomad", "Rockerboy", "Solo", "Techie"]
+    const [role, setRole] = useRole()
+    const allRoles = Object.keys(rolesJson)
 
     return <>
     <h4>Name:</h4>
