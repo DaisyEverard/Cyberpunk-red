@@ -1,15 +1,28 @@
 :root {
   --dark-red-bg: #971919;
-  --light-red-bg: #dba0a0;
+  --light-red-bg-1: #fcd8d8;
+  --light-red-bg-2: #ffb9b9;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  padding-top: 50px;
   min-width: 320px;
   min-height: 100vh;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+}
 
 
