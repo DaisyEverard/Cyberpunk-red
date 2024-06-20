@@ -1,121 +1,323 @@
 {
     "Exec": {
-        "roleName": "teamwork",
+        "roleName": "Teamwork",
+        "specialties": {},
         "roleAbilities": [
             {
-                "name": "teamwork",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
-                }
+                "name": "Teamwork"
             }
-        ]
+        ],
+        "levels": {
+            "1": {
+                "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion"
+            },
+            "2": {
+                "Housing Bonus": "Corporate Housing: A corporate Conapt. No rent of fees paid as long as they are a memeber of the corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer, and even pay to move all their stuff to the new apartment"
+            },
+            "6": {
+                "Corporate Health Insurance": "The Exec is given Trauma Team Silver coverage, paid for monthly by their Corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer"
+            },
+            "7": {
+                "Housing Bonus": "The Exec's corporate housing is improved to a Beaverville House in the Executive Zone"
+            },
+            "8": {
+                "Corporate Health Insurance": "The Corporation upgrades their coverage to Trauma Team Executive."
+            },
+            "10": {
+                "Housing Bonus": "The Exec's corporate housing is improved dramatically to a Beaverville McMansion in the Executive Zone or a Luxury Penthouse in the Corporate Zone"
+            }
+        }
     },
     "Fixer": {
         "roleName": "Operator",
+        "specialties": {},
         "roleAbilities": [
             {
-                "name": "",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
-                }
+                "name": "Contacts",
+                "description": "Contacts represents who the Fixer can reach out in order to source goods, favors, or information. The Fixer will still have to pay for these, of course"
+            },
+            {
+                "name": "Reach",
+                "description": "Reach is the highest price category of items that a Fixer can always source, and if they can use their influence to gather other Fixers into creating a Night Market, which makes all price categories of items available to them for a short time"
+            },
+            {
+                "name": "Haggle",
+                "description": "Haggle is the ability of the Fixer to strike a deal. When haggling with a person, you roll COOL + Trading Skill + Your Operator Rank + 1d10 against their COOL + Trading Skill + Their Operator Rank (if they are a Fixer) + 1d10. If you succeed, you can make 1 deal of your Operator Rank or lower. Only 1 Fixer deal can be made per transaction"
+            },
+            {
+                "name": "Grease",
+                "description": "Grease represents the Fixer's ability to blend into the many cultures on and off The Street; ability to know the language, social codes, and status marks for each group or culture."
             }
-        ]
+        ],
+        "levels": {
+            "1": {
+                "Contacts": "Local honcho, gang lord, local neighborhood leadership",
+                "Reach": "You can always find a place to source Cheap and Everyday items for your clients on a piece-bypiece basis, even if they are otherwise unavailable",
+                "Haggle": "If successful, you can get 10% more or less than market price when buying or selling",
+                "Grease": "You know the cultural ins-and-outs of your immediate neighborhood including all local gangs"
+            },
+            "3": {
+                "Contacts": "City gang honcho, minor politician, Corp Exec, well known person in the neighborhood",
+                "Reach": "You can always find a place to source up to Expensive items for your clients on a piece by piece basis, even if they are otherwise unavailable",
+                "Haggle": "If successful, when you buy 5 or more of the same item, you can get one more of that item for free",
+                "Grease": "You know how to get along well with at least 1 other culture in your area as well as gaining a single language you don't already know associated with that culture at Skill Level 4"
+            },
+            "5": {
+                "Contacts": "Major City player, City politico, neighborhood celebrity",
+                "Reach": "Once per month, working with other Fixers of your rank, you can set up a Night Market. While at a Night Market that you have helped organize, you can always find a place to source up to Super Luxury items",
+                "Haggle": "If successful, you can negotiate the pay per person for a Job up 20%",
+                "Grease": "You know how to get along perfectly with 2 additional cultures (3 in total) in your area as well as gaining a single language which you don't already know associated with each culture at Skill Level 4"
+            },
+            "7": {
+                "Contacts": "Local Corp president, mayor or City manager, local celebrity",
+                "Reach": "You can always find a place to source up to Very Expensive items for your clients on a piece by piece basis, even if they are otherwise unavailable",
+                "Haggle": "If successful, when buying a Luxury or Super Luxury item, you can pay half now and half in one month. If you ever don't pay the second half on time, nobody will do this deal with you again",
+                "Grease": "You know how to blend in perfectly with 3 additional cultures (6 in total) in your area as well as a gaining single language which you don't already know associated with each culture at Skill Level 4"
+            },
+            "9": {
+                "Contacts": "Divisional Corp head, state or City zone politico, well known celebrity",
+                "Reach": "You can always find a place to source up to Luxury items for your clients on a piece by piece basis, even if they are otherwise unavailable. When you set up a Night Market, you can choose to additionally set up a Midnight Market inside it, which gathers the leadership of the criminal underworld",
+                "Haggle": "If successful, you can get 20% more or less than market price when buying or selling",
+                "Grease": "You know how to blend in perfectly with not only many cultures in your area, but also with Corporate and governmental agencies"
+            },
+            "10": {
+                "Contacts": "Major world leader, major Corporation head, world-famous celebrity",
+                "Reach": "You can always find a place to source up to Super Luxury items for your clients on a piece by piece basis, even if they are otherwise unavailable",
+                "Haggle": "If successful, you can negotiate to double the pay per person for a Dangerous Job",
+                "Grease": "You can blend in seamlessly with almost any group, including very specialized or \"tight\" groups such as secret societies, cults, or exclusive membership groups"
+            }
+        }
     },
     "Lawman": {
         "roleName": "",
+        "specialties": {},
         "roleAbilities": [
             {
-                "name": "",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
+                "name": "Combat Number",
+                "description": "A Skill Base used for both offense and defense. This number combines both STAT and Skill for them. You will add a d10 roll to this value whenever attacking with their carried weapons or equipment or defending. Backup cannot dodge bullets"
+            },
+            {
+                "name": "SP",
+                "description": "The stopping power of the armor on both their Body and Head location"
+            },
+            {
+                "name": "HP",
+                "description": "The amount of Hit Points that each member of the backup has"
+            },
+            {
+                "name": "Move & Body",
+                "description": "The backup's MOVE and BODY STAT, important for movement and for some effects that reference the target's MOVE or BODY (like Death Saves)"
+            },
+            {
+                "name": "Backup",
+                "description": "When in danger, you can call on Backup from a group of your Backup Rank or lower. As an Action, you attempt to roll equal or lower than your Backup Rank on a d10 to get someone to respond to your call. If you abuse this, your Boss will throw you off the force or fine you as they see fit. After someone responds to your call, you roll a d6 to find out in how many Rounds your backup will arrive on the scene. If you roll a 6 on this roll, instead of your typical backup, the backup that arrives will be of the next highest level of backup, unless you are Rank 10, in which case two separate backup groups will arrive. If nobody responds to your call, you can always try your backup call again next Turn."
+            }
+        ],
+        "levels": {
+            "1": {
+                "Combat Number": 8,
+                "SP": 7,
+                "HP": 20,
+                "Move & Body": 4,
+                "backup": {
+                    "description": "Corporate Security. Four local renta-cops on the scene, arriving on foot. They carry Heavy Pistols and wear Kevlar®."
+                }
+            },
+            "3": {
+                "Combat Number": 10,
+                "SP": 7,
+                "HP": 25,
+                "Move & Body": 5,
+                "backup": {
+                    "description": "Local Beat Cops. Four local cops on the beat. They arrive in two Compact Groundcars. They carry Heavy Pistols and are armored in Kevlar®."
+                }
+            },
+            "5": {
+                "Combat Number": 14,
+                "SP": 13,
+                "HP": 35,
+                "Move & Body": 4,
+                "backup": {
+                    "description": "Sheriff's Department. Two local \"County Mounties\" patrolling the exurbs and the highways around the City. They will arrive in a High Performance Groundcar, armed with Heavy Pistols and Assault Rifles. Armored in Heavy Armorjack."
+                }
+            },
+            "8": {
+                "Combat Number": 16,
+                "SP": 15,
+                "HP": 50,
+                "Move & Body": 6,
+                "backup": {
+                    "description": "Recovery Zone Marshal. Like the marshals of the Old West, these are lone Lawmen who patrol the Recovery Zones and new cities. One arrives on a Superbike, carrying a Very Heavy Pistol, Assault Rifle, Grenade Launcher, and wearing Flak Armor."
+                }
+            },
+            "9": {
+                "Combat Number": 15,
+                "SP": 18,
+                "HP": 35,
+                "Move & Body": 4,
+                "backup": {
+                    "description": "C-SWAT. Two heavy hitters from the Psycho Squad. They carry assault rifles and rocket launchers, wearing Metalgear®. Will arrive from the air in an AV-4."
+                }
+            },
+            "10": {
+                "Combat Number": 14,
+                "SP": 11,
+                "HP": 35,
+                "Move & Body": 6,
+                "backup": {
+                    "description": "National Law Enforcement/Interpol/FBI/Netwatch. These are serious hitters, operating under the control of national governments or international law enforcement groups. They travel in pairs, will arrive in an AV-4, and are outfitted with Very Heavy Pistols, Assault Rifles, in Light Armorjack. Unlike all other forms of Backup, these serious hitters stick around after the conflict ends and assist in investigating the scene. While they will not travel with the Crew on a day-to-day basis, after the first time they are called the same 2 serious hitters will always respond to calls for backup connected to the initial call until the \"case\" is closed, or they fall in the line of duty. Additionally, they can use their Combat Number for these Skills: Accounting, Acting, Conceal/Reveal Object, Criminology, Cryptography, Deduction, Education, Forgery, Interrogation, Paramedic, Perception, Personal Grooming, Resist Torture/Drugs, Stealth, and Tracking."
                 }
             }
-        ]
+        }
     },
     "Media": {
-        "roleName": "",
+        "roleName": "Credibility",
+        "specialties": {},
         "roleAbilities": [
             {
-                "name": "",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
-                }
+                "name": "Access/Sources",
+                "description": "Access/Sources represents those you can reasonably get in touch with/interview or otherwise gain information from"
+            },
+            {
+                "name": "Audience",
+                "description": "Audience is how many people your stories or exposés can reach"
+            },
+            {
+                "name": "Believability",
+                "description": "Believability is how well your story or exposé goes over with your audience. The higher your Credibility, the more likely people will believe something you have written or broadcast. You roll 1d10 based on your Believability when you publish a story and any time you want to find out whether an individual (or a group of individuals) believe your story. If your story contains even a single piece of verifiable evidence that is easily understood by the masses, the chance your audience will believe it is 1 higher. If it contains more than 4 distinct verifiable pieces of hard evidence, the chance your audience will believe it is 2 higher. These two bonuses stack with each other. LUCK can never be spent on a Believability Check"
+            },
+            {
+                "name": "Impact",
+                "description": "Impact is how much change any individual story or revelation you publish has on your audience. For example, a story about an unfair economic practice at the incremental level might just get a few local bosses to change their practices. But at higher levels of Credibility, your exposé may cause entire Megacorps to fall. Your GM will handle this. Once you publish a story/scoop you cannot publish another story on the same exact topic unless you have new information to add to the conversation"
             }
-        ]
+        ],
+        "levels": {
+            "1": {
+                "Access/Sources": "Local honcho, gang lord, local neighborhood leadership",
+                "Audience": "Immediate neighborhood.",
+                "Believability": "2 out of 10 chance the audience buys it.",
+                "Impact": "Change created by a story/scoop is small, incremental. Small-time bad guys are scared and may change their ways a little."
+            },
+            "3": {
+                "Access/Sources": "City gang honcho, minor politician, Corp Exec, well known person in the neighborhood",
+                "Audience": "You're well known as a contributor on the local screamsheet or Data Pool.",
+                "Believability": "3 out of 10 chance the audience buys it.",
+                "Impact": "Change created by a story/scoop has a direct effect; local small-time bad guys get arrested or thrown out of power, justice gets served."
+            },
+            "5": {
+                "Access/Sources": "Major City player, City politico, local celebrity",
+                "Audience": "Your stuff goes Citywide. You're a regular columnist or contributor to local screamsheets or TV.",
+                "Believability": "4 out of 10 chance the audience buys it.",
+                "Impact": "Change created by a story/scoop changes things all over the City. Higher-level bad guys may be jailed or thrown out of power. Local laws may even get passed."
+            },
+            "7": {
+                "Access/Sources": "Local Corp president, mayor or City manager, City celebrity",
+                "Audience": "Your stuff goes Statewide. You are a minor celeb in your own right.",
+                "Believability": "5 out of 10 chance the audience buys it.",
+                "Impact": "Change created by a story/scoop can change things all over several cities. Mid-level corporations or governments may be thrown out of power. Laws may be passed that affect people over several cities."
+            },
+            "9": {
+                "Access/Sources": "Divisional Corp head, State politico, well known celebrity",
+                "Audience": "You are known by many across the country, but not by everyone. If they've seen you, chances are it is on a national newsfeed.",
+                "Believability": "6 out of 10 chance the audience buys it.",
+                "Impact": "Change created by a story/scoop can change things all over a major area like a whole nation. Large corporations or local governments may be toppled. Laws may be passed that affect people over a national area."
+            },
+            "10": {
+                "Access/Sources": "Major world leader, major Corporation head, world-famous celebrity",
+                "Audience": "You are known worldwide. People stop you for autographs and people in high places use you to leak important stuff.",
+                "Believability": "7 out of 10 chance the audience buys it.",
+                "Impact": "Change created by a story/scoop can change things all over the world. Megacorps and powerful governments may fall or be overthrown. International laws may be established. Change can affect millions."
+            }
+        }
     },
     "Medtech": {
         "roleName": "",
+        "specialties": {},
         "roleAbilities": [
             {
-                "name": "",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
-                }
+                "name": "Surgery",
+                "description": "For every point you allocate to Surgery, you gain 2 points in the Surgery Skill (up to a maximum of 10). The Surgery Skill is the TECH Skill used to treat the most severe Critical Injuries, as well as implant cyberware, and is only available to Medtechs through this Medicine Specialty."
+            },
+            {
+                "name": "Medical Tech (Pharmaceuticals)",
+                "description": "For every point you allocate to Medical Tech (Pharmaceuticals), you gain 1 point in the Medical Tech Skill (up to a maximum of 10). The Medical Tech Skill is the TECH Skill used to operate, understand, and repair (as other non-vehicle Tech Skills) medical machinery. This Skill is only available to Medtechs, and only through either this Medicine Specialty or Cryosystem Operation. You can only put a maximum of 5 points into this specialty. Each time you allocate a point into Pharmaceuticals you also gain access to one of the following pharmaceuticals, which your Character can synthesize by rolling a DV13 Medical Tech Check, wasting the materials used on a failure. A Medtech can make a number of doses from 200eb of materials equal to their Medical Tech Skill in 1 hour. You can't synthesize Street Drugs with Medical Tech (Pharmaceuticals). Applying a single dose of a drug to a target takes an Action. If the target is unwilling, the Medtech can use their Action to attempt to make a single Melee Weapon Attack with their Airhypo against the target, that administers a single dose to their target on a hit instead of dealing damage. A Character who is not a Medtech cannot administer Pharmaceuticals correctly. These aren't Street Drugs, they require training to get the medically correct proportions"
+            },
+            {
+                "name": "Medical Tech (Cryosystem Operation)",
+                "description": "For every point you allocate to Medical Tech (Cryosystem Operation), you gain 1 point in the Medical Tech Skill (up to a maximum of 10). The Medical Tech Skill is the TECH Skill used to operate, understand, and repair (as other non-vehicle Tech Skills) medical machinery. This Skill is only available to Medtechs, and only through either this Medicine Specialty or Pharmaceuticals. You can only put a maximum of 5 points into this specialty. When you allocate points into Cryosystem Operation you also gain a benefit"
             }
-        ]
+        ],
+        "levels": {
+            "1": {
+                "Surgery": "+2 to Surgery Skill",
+                "Medical Tech (Pharmaceuticals)": "+1 to Medical Tech Skill, access to 1 Pharmaceutical",
+                "Medical Tech (Cryosystem Operation)": "You gain one Cryopump"
+            },
+            "2": {
+                "Surgery": "+4 to Surgery Skill",
+                "Medical Tech (Pharmaceuticals)": "+2 to Medical Tech Skill, access to 2 Pharmaceutical",
+                "Medical Tech (Cryosystem Operation)": "You become a Registered Cryotank Technician and gain unlimited 24/7 access to 1 Cryotank at a time at any cryotank facility operated by medical corporations or government agencies"
+            },
+            "3": {
+                "Surgery": "+6 to Surgery Skill",
+                "Medical Tech (Pharmaceuticals)": "+3 to Medical Tech Skill, access to 3 Pharmaceutical",
+                "Medical Tech (Cryosystem Operation)": "You gain 1 Cryotank, installed in a room of your choosing."
+            },
+            "4": {
+                "Surgery": "+8 to Surgery Skill",
+                "Medical Tech (Pharmaceuticals)": "+4 to Medical Tech Skill, access to 4 Pharmaceutical",
+                "Medical Tech (Cryosystem Operation)": "You gain 2 more Cryotanks that can fit in the same room as your first one and your Cryopump has 2 charges and its maximum carrying capacity increases to 2 people in stasis"
+            },
+            "5": {
+                "Surgery": "+10 to Surgery Skill",
+                "Medical Tech (Pharmaceuticals)": "+5 to Medical Tech Skill, access to 5 Pharmaceutical",
+                "Medical Tech (Cryosystem Operation)": "You gain 3 more Cryotanks that can fit in the same room as the first three and your Cryopump has 3 charges and its maximum carrying capacity increases to three people in stasis"
+            }
+        }
     },
     "Netrunner": {
         "roleName": "",
+        "specialties": {},
         "roleAbilities": [
             {
                 "name": "",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
-                }
+                "description": ""
             }
-        ]
+        ],
+        "levels": {
+            "1": {
+                "bonus": "bonus is..."
+            },
+            "2": {
+                "bonus": "bonus is..."
+            }
+        }
     },
     "Nomad": {
         "roleName": "",
+        "specialties": {},
         "roleAbilities": [
             {
                 "name": "",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
-                }
+                "description": ""
             }
-        ]
+        ],
+        "levels": {
+            "1": {
+                "bonus": "bonus is..."
+            },
+            "2": {
+                "bonus": "bonus is..."
+            }
+        }
     },
     "Rockerboy": {
-        "roleName": "",
+        "roleName": "Charismatic Impact",
+        "specialties": {},
         "roleAbilities": [
             {
-                "name": "",
+                "name": "Charismatic Impact",
+                "level_based": true,
                 "levels": {
                     "1": {
                         "bonus": "bonus is..."
@@ -129,34 +331,38 @@
     },
     "Solo": {
         "roleName": "",
+        "specialties": {},
         "roleAbilities": [
             {
                 "name": "",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
-                }
+                "description": ""
             }
-        ]
+        ],
+        "levels": {
+            "1": {
+                "bonus": "bonus is..."
+            },
+            "2": {
+                "bonus": "bonus is..."
+            }
+        }
     },
     "Tech": {
         "roleName": "",
+        "specialties": {},
         "roleAbilities": [
             {
                 "name": "",
-                "levels": {
-                    "1": {
-                        "bonus": "bonus is..."
-                    },
-                    "2": {
-                        "bonus": "bonus is..."
-                    }
-                }
+                "description": ""
             }
-        ]
+        ],
+        "levels": {
+            "1": {
+                "bonus": "bonus is..."
+            },
+            "2": {
+                "bonus": "bonus is..."
+            }
+        }
     }
 }
