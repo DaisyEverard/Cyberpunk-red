@@ -1,13 +1,19 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { RoleContext } from "../App"
+
+import "../style/profile.css"
+
+import rolesJson from "../data/roles.json"
+
 import DropdownCell from "../utils/DropdownCell"
 import SimpleEditableTextCell from "../utils/SimpleEditableTextCell"
-import rolesJson from "../data/roles.json"
-import useRole from "../hooks/useRole"
-import "../style/profile.css"
+
+
+
 
 export default function Profile() {
     const [name, setName] = useState("TickTock")
-    const [role, setRole] = useRole()
+    const {role, setRole} = useContext(RoleContext)
     const allRoles = Object.keys(rolesJson)
 
     return <div id="profile" className="flexRow">

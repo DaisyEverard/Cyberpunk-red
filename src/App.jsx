@@ -7,21 +7,19 @@ import RoleAbility from "./components/RoleAbility";
 import { createContext, useState } from "react";
 
 
-const Context = createContext();
-const ContextProvider = ({children}) => {
-  const value = useState("old");
-  return <Context.Provider value={value} children={children} />;
-};
+export const RoleContext = createContext({}); 
 
 function App() {
+  const [role, setRole] = useState("Medtech")
+
   return (
     <>
-    <ContextProvider>
+    <RoleContext.Provider value={{role, setRole}} setRole={setRole}>
     <Header/>
     <Profile/>
     <RoleAbility/>
     <Footer/>
-    </ContextProvider>
+    </RoleContext.Provider>
     </>
   );
 }
