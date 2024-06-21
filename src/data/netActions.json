@@ -1,0 +1,11 @@
+{
+    "Backdoor": "Allows the Netrunner to break through passwords and other obstructions in the Architecture",
+    "Cloak": "Allows the Netrunner to hide their actions in the Architecture before they leave",
+    "Control": "Allows the Netrunner to control things that are attached to the Architecture",
+    "Eye-Dee": "Allows the Netrunner to know what a found piece of data is and its value",
+    "Pathfinder": "Allows the Netrunner to learn the \"map\" of the Architecture",
+    "Scanner": "Allows the Netrunner to find out the locations of systems in an area",
+    "Slide": "Allows the Netrunner to slip away from one Black ICE that is following them",
+    "Virus": "Allows the Netrunner to leave a custom virus at the very core of the Architecture",
+    "Zap": "A basic Netrunner attack that works against both Programs and other Netrunners"
+}
