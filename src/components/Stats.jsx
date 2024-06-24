@@ -1,11 +1,22 @@
 import HideableDescriptionCell from "../utils/HideableDescriptionCell";
 import statsJson from "../data/statsDescription.json"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { StatsContext } from "../App";
 import IncrementDecrementStat from "../utils/IncrementDecrementStat";
 
 export default function Stats() {
     const {stats, setStats} = useContext(StatsContext)
+    const [remainingPoints, setRemainingPoints] = useState(42)
+
+    const getUsedPoints = (stats) => {
+        let total = 0
+        for (const key in stats) {
+            const value = stats[key]
+            total += parseInt(value)
+        }
+        return total
+        
+    }
 
     return (
         <div className="flexRow">
@@ -24,6 +35,10 @@ export default function Stats() {
             )}
             </div>
             <div className="flexCol" style={{width: "50vw", flex: 1}}>
+            <div>
+                <p><strong>Points Remaining:</strong></p>
+                <p>{remainingPoints}</p>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -40,7 +55,7 @@ export default function Stats() {
                             <tr key={index}>
                                 <th>{statName}</th>
                                 <td>{level}</td>
-                                <IncrementDecrementStat statName={statName}/>
+                                <IncrementDecrementStat statName={statName} setRemainingPoints={setRemainingPoints} remainingPoints={remainingPoints}/>
                             </tr>
                             )
                         })
