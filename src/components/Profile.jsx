@@ -12,7 +12,7 @@ import SimpleEditableTextCell from "../utils/SimpleEditableTextCell"
 
 
 export default function Profile() {
-    const [name, setName] = useState("TickTock")
+    const [name, setName] = useState("Name")
     const {role, setRole} = useContext(RoleContext)
     const allRoles = Object.keys(rolesJson)
 
