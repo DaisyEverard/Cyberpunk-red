@@ -1,7 +1,12 @@
 import HideableDescriptionCell from "../utils/HideableDescriptionCell";
-import statsJson from "../data/stats.json"
+import statsJson from "../data/statsDescription.json"
+import { useContext } from "react";
+import { StatsContext } from "../App";
+import IncrementDecrementStat from "../utils/IncrementDecrementStat";
 
 export default function Stats() {
+    const {stats, setStats} = useContext(StatsContext)
+
     return (
         <div className="flexRow">
             <div className="flexCol" style={{width: "50vw", flex:1}}>
@@ -27,10 +32,19 @@ export default function Stats() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>INT</th>
-                        <td></td>
-                    </tr>
+                    {
+                        Object.keys(stats).map((statName, index) => {
+                            const level = stats[statName]
+
+                            return (
+                            <tr key={index}>
+                                <th>{statName}</th>
+                                <td>{level}</td>
+                                <IncrementDecrementStat statName={statName}/>
+                            </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
             </div>
