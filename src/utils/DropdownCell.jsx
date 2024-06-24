@@ -1,4 +1,4 @@
-import "./dropdownCell.css"
+import "../style/dropdownCell.css"
 
 export default function DropdownCell(props) {
   let currentItem = props.currentItem

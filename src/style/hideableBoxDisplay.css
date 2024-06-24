@@ -1,0 +1,15 @@
+#hideableBoxDisplay h4 {
+    background: var(--dark-red-bg);
+    color: white;
+    width: fit-content;
+    padding: 3px;
+}
+
+#hideableBoxDisplay button {
+    margin-left: 5px;
+    background: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px;
+    font-weight: bolder;
+}

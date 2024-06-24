@@ -5,6 +5,7 @@ import './style/index.css'
 import Profile from "./components/Profile";
 import RoleAbility from "./components/RoleAbility";
 import { createContext, useState } from "react";
+import Stats from "./components/Stats";
 
 
 export const RoleContext = createContext({}); 
@@ -18,6 +19,7 @@ function App() {
     <Header/>
     <Profile/>
     <RoleAbility/>
+    <Stats/>
     <Footer/>
     </RoleContext.Provider>
     </>
