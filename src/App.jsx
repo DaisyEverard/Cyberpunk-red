@@ -14,23 +14,31 @@ import defaultStats from "./data/defaultStats.json"
 
 export const RoleContext = createContext({}); 
 export const StatsContext = createContext({});
+export const HPContext = createContext({});
 
 function App() {
+  const getHP = (stats) => {
+    const bodyWillAverage = Math.ceil((stats["BODY"] + stats["WILL"])/2)
+    return 10 + (5 * bodyWillAverage)
+}
+
   const [role, setRole] = useState("Medtech")
   const [stats, setStats] = useState(defaultStats)
+  const [HP, setHP] = useState(getHP(stats))
 
   return (
     <>
     <RoleContext.Provider value={{role, setRole}} setRole={setRole}>
     <StatsContext.Provider value={{stats, setStats}} setStats={setStats}>
+    <HPContext.Provider value={{HP, setHP}}>
     <Header/>
     <Profile/>
     <RoleAbility/>
     <Stats/>
     <Footer/>
+    </HPContext.Provider>
     </StatsContext.Provider>
     </RoleContext.Provider>
-
     </>
   );
 }

@@ -1,11 +1,12 @@
 import { useContext } from "react"
-import { StatsContext } from "../App"
+import { HPContext, StatsContext } from "../App"
 
 export default function IncrementDecrementStat(props) {
     let statName = props.statName
     const remainingPoints = props.remainingPoints
     const setRemainingPoints = props.setRemainingPoints
-
+    
+    const {HP} = useContext(HPContext)
     const {stats, setStats} = useContext(StatsContext)
 
     const increment = (stats, statName, remainingPoints, setRemainingPoints) => {
