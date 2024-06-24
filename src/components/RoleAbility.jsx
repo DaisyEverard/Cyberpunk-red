@@ -10,8 +10,6 @@ import rolesJson from "../data/roles.json"
 export default function RoleAbility() {
     const {role, setRole} = useContext(RoleContext)
     const abilityObject = rolesJson[role]
-    console.log(abilityObject)
-    // console.log(rolesJson.role)
 
     return (
         <div id="roleAbility" className="flexRow">

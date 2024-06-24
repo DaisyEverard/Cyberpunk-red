@@ -60,13 +60,13 @@
         "name": "DEX",
         "long_name": "Dexterity",
         "group": "Physical",
-        "description": ""
+        "description": "Your overall physical competence, as it pertains to balancing, leaping, jumping, combat, and other athletic activities. A gymnast would have a high Dexterity. Most importantly, this is the STAT that affects your ability to hit things with melee weapons and can help you dodge attacks"
     },
     {
         "id": 10,
         "name": "MOVE",
         "long_name": "Movement",
         "group": "Pyhsical",
-        "description": ""
-    },
+        "description": "Your speed of movement: running, leaping, swimming, etc"
+    }
 ]

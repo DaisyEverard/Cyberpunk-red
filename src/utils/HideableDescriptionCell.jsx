@@ -1,7 +1,9 @@
 import { useState } from "react"
 import "../style/hideableBoxDisplay.css"
 
-export default function HideableDescriptionCell() {
+export default function HideableDescriptionCell(props) {
+    const title = props.title
+    const descriptionArray= props.descriptionArray
 
     const [plusMinus, setPlusMinus] = useState("+")
     const [boxDisplay, setBoxDisplay] = useState('none')
@@ -19,10 +21,15 @@ export default function HideableDescriptionCell() {
 
     return (
         <div id="hideableBoxDisplay">
-            <h4>Data
-                <button onClick={(e) => {toggleDescription()}}>{plusMinus}</button>
+            <h4><span>{title}</span>
+                <button onClick={(e) => {toggleDescription()}} className="flexCol">{plusMinus}</button>
             </h4>
-            <p style={{display: boxDisplay}}>Description</p>
+            {
+                descriptionArray.map((attribute, index) => {
+                    return <p key={index} style={{display: boxDisplay}}>{attribute}</p>
+                })
+            }
+            <p style={{display: boxDisplay}}>{props.description}</p>
         </div>
     )
 }
