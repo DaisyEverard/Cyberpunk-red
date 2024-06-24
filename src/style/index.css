@@ -5,10 +5,8 @@
 }
 
 body {
-  padding-top: 50px;
-  padding-bottom: 30px;
-  min-width: 320px;
   min-height: 100vh;
+  height: fit-content;
 }
 
 * {
@@ -23,7 +21,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-width: 100vw;
 }
 
 .flexCol {
