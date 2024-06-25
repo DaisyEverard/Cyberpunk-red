@@ -5,14 +5,14 @@ import './style/index.css';
 
 import defaultStats from "./data/defaultStats.json"
 
-import { calculateHP, calculateHumanity } from "./utils/commonMethods.jsx"
+import { calculateHP, calculateHumanity } from "./utils/commonMethods"
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Stats from "./components/Stats";
 import RoleAbility from "./components/RoleAbility";
-import Effects from "./components/Effects.jsx";
+import Effects from "./components/Effects";
 
 
 
