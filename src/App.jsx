@@ -31,11 +31,13 @@ function App() {
     <RoleContext.Provider value={{role, setRole}} setRole={setRole}>
     <StatsContext.Provider value={{stats, setStats}} setStats={setStats}>
     <HPContext.Provider value={{HP, setHP}}>
+      
     <Header/>
     <Profile/>
     <RoleAbility/>
     <Stats/>
     <Footer/>
+
     </HPContext.Provider>
     </StatsContext.Provider>
     </RoleContext.Provider>
