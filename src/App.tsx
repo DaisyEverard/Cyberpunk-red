@@ -5,7 +5,7 @@ import './style/index.css';
 
 import defaultStats from "./data/defaultStats.json"
 
-import { calculateHP } from "./utils/commonMethods.jsx"
+import { calculateHP } from "./utils/commonMethods"
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
