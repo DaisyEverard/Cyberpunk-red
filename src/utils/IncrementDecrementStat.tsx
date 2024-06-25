@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { HPContext, StatsContext } from "../App"
-import { setStatsAndHP } from "./commonMethods"
+import { HPContext, HumanityContext, StatsContext } from "../App"
+import { updateHP, updateHumanity } from "./commonMethods"
 
 export default function IncrementDecrementStat(props) {
     let statName = props.statName
@@ -9,21 +9,28 @@ export default function IncrementDecrementStat(props) {
     
     const {HP, setHP} = useContext(HPContext)
     const {stats, setStats} = useContext(StatsContext)
+    const {humanity, setHumanity} = useContext(HumanityContext)
 
     const increment = (stats, statName, remainingPoints, setRemainingPoints) => {
         if (remainingPoints > 0 && stats[statName] < 8) {
             const newStats = {...stats}
         newStats[statName] += 1
-        setStatsAndHP(setHP, setStats, newStats)
+        
+        setStats(newStats)
+        updateHP(setHP, newStats)
+        updateHumanity(setHumanity, newStats)
         setRemainingPoints(remainingPoints - 1)
         }
     }
     const decrement = (stats, statName, remainingPoints, setRemainingPoints) => {
         if (stats[statName] > 2) {
             const newStats = {...stats}
-        newStats[statName] -= 1
-        setStatsAndHP(setHP, setStats, newStats)
-        setRemainingPoints(remainingPoints + 1)
+            newStats[statName] -= 1
+
+            setStats(newStats)
+            updateHP(setHP, newStats)
+            updateHumanity(setHumanity, newStats)
+            setRemainingPoints(remainingPoints + 1)
         }
     }
 
