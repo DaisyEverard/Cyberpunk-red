@@ -4,9 +4,9 @@
 // Death save = BODY stat
 
 export default function Effects() {
-    return (
-        <div id="effects">
-            <p>Effects Bar</p>
-        </div>
-    )
+  return (
+    <div id="effects">
+      <p>Effects Bar</p>
+    </div>
+  );
 }

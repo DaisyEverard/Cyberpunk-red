@@ -1,7 +1,7 @@
 {
-    "Antibiotic": "When injected with a dose of Antibiotic, a target who has already started the natural healing process heals an extra 2 Hit Points every day for a week. A person can only benefit from one use of Antibiotic at a time",
-    "Rapidetox": "When injected with a dose of Rapidetox, a target who is affected by a drug, poison, or intoxicant is immediately purged of the effects of that substance",
-    "Speedheal": "When injected with a dose of Speedheal, a target who is not in the Mortally Wounded Wound State immediately heals an amount of HP equal to their BODY + WILL. A person can only benefit from one use of Speedheal per day.",
-    "Stim": "When injected with a dose of Stim, a target can ignore all penalties from being in the Seriously Wounded Wound State for an hour. A person can only benefit from one use of Stim per day.",
-    "Surge": "When injected with a dose of Surge, a target can function unimpaired without sleep for a full 24 hours. A person can only benefit from one use of Surge per week."
+  "Antibiotic": "When injected with a dose of Antibiotic, a target who has already started the natural healing process heals an extra 2 Hit Points every day for a week. A person can only benefit from one use of Antibiotic at a time",
+  "Rapidetox": "When injected with a dose of Rapidetox, a target who is affected by a drug, poison, or intoxicant is immediately purged of the effects of that substance",
+  "Speedheal": "When injected with a dose of Speedheal, a target who is not in the Mortally Wounded Wound State immediately heals an amount of HP equal to their BODY + WILL. A person can only benefit from one use of Speedheal per day.",
+  "Stim": "When injected with a dose of Stim, a target can ignore all penalties from being in the Seriously Wounded Wound State for an hour. A person can only benefit from one use of Stim per day.",
+  "Surge": "When injected with a dose of Surge, a target can function unimpaired without sleep for a full 24 hours. A person can only benefit from one use of Surge per week."
 }
