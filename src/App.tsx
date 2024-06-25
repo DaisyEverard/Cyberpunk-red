@@ -19,7 +19,7 @@ export const StatsContext = createContext({});
 export const HPContext = createContext({});
 export const HumanityContext = createContext({});
 
-function App() {
+const App = () => {
   const [role, setRole] = useState('Medtech');
   const [stats, setStats] = useState(defaultStats);
   const [HP, setHP] = useState(calculateHP(stats));
@@ -43,6 +43,6 @@ function App() {
       </RoleContext.Provider>
     </>
   );
-}
+};
 
 export default App;

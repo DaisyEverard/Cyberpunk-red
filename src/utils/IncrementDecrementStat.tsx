@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { HPContext, HumanityContext, StatsContext } from '../App';
 import { updateHP, updateHumanity } from './commonMethods';
 
-export default function IncrementDecrementStat(props) {
+const IncrementDecrementStat = props => {
   let statName = props.statName;
   const remainingPoints = props.remainingPoints;
   const setRemainingPoints = props.setRemainingPoints;
@@ -53,4 +53,6 @@ export default function IncrementDecrementStat(props) {
       </button>
     </td>
   );
-}
+};
+
+export default IncrementDecrementStat;

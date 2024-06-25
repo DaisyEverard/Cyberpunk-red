@@ -5,7 +5,7 @@ import statsJson from '../data/statsDescription.json';
 import HideableDescriptionCell from '../utils/HideableDescriptionCell';
 import IncrementDecrementStat from '../utils/IncrementDecrementStat';
 
-export default function Stats(props) {
+const Stats = props => {
   const getHP = props.getHP;
   const { HP, setHP } = useContext(HPContext);
 
@@ -78,4 +78,6 @@ export default function Stats(props) {
       </div>
     </div>
   );
-}
+};
+
+export default Stats;

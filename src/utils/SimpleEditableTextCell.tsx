@@ -1,6 +1,6 @@
 import '../style/cells.css';
 
-export default function SimpleEditableTextCell(props) {
+const SimpleEditableTextCell = props => {
   let text = props.startText;
   let setText = props.setText;
 
@@ -15,4 +15,6 @@ export default function SimpleEditableTextCell(props) {
       {text}
     </p>
   );
-}
+};
+
+export default SimpleEditableTextCell;
