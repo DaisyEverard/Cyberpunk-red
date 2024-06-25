@@ -6,7 +6,7 @@ import '../style/profile.css';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
 
-export default function Profile() {
+const Profile = () => {
   const [name, setName] = useState('Name');
   const { role, setRole } = useContext(RoleContext);
   const { HP } = useContext(HPContext);
@@ -37,4 +37,6 @@ export default function Profile() {
       </div>
     </div>
   );
-}
+};
+
+export default Profile;

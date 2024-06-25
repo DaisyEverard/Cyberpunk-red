@@ -1,6 +1,6 @@
 import '../style/cells.css';
 
-export default function DropdownCell(props) {
+const DropdownCell = props => {
   let currentItem = props.currentItem;
   const itemSetter = props.itemSetter;
   const optionsList = props.optionsList;
@@ -24,4 +24,6 @@ export default function DropdownCell(props) {
       </div>
     </div>
   );
-}
+};
+
+export default DropdownCell;
