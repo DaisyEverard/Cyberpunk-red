@@ -67,25 +67,25 @@
     },
     {
         "name": "Drive Land Vehicle",
-        "category": "Controls",
+        "category": "Control",
         "description": "Skill of driving and maneuvering land vehicles.",
         "base_stat": "REF"
     },
     {
         "name": "Pilot Air Vehicle",
-        "category": "Controls",
+        "category": "Control",
         "description": "Skill of piloting and maneuvering air vehicles.",
         "base_stat": "REF"
     },
     {
         "name": "Pilot Sea Vehicle",
-        "category": "Controls",
+        "category": "Control",
         "description": "Skill of piloting and maneuvering sea vehicles.",
         "base_stat": "REF"
     },
     {
         "name": "Riding",
-        "category": "Controls",
+        "category": "Control",
         "description": "Skill of riding a living creature trained for the purpose.",
         "base_stat": "REF"
     },
