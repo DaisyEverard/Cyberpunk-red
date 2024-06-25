@@ -97,7 +97,7 @@
         }
     },
     "Lawman": {
-        "roleName": "",
+        "roleName": "Backup",
         "roleAbilities": [
             {
                 "name": "Combat Number",
@@ -237,7 +237,7 @@
         }
     },
     "Medtech": {
-        "roleName": "",
+        "roleName": "Medicine",
         "roleAbilities": [
             {
                 "name": "Surgery",
@@ -347,7 +347,7 @@
                 "description": "The impact your Rockerboy can have on a group of up to six fans by beating a DV10 on their Charismatic Impact Check"
             },
             {
-                "name": "The impact your Rockerboy can have on a large group of fans gathered to see them by beating a DV12 on their Charismatic Impact Check.",
+                "name": "The impact on a large group of fans",
                 "description": "The impact your Rockerboy can have on a large group of fans gathered to see them by beating a DV12 on their Charismatic Impact Check"
             }
         ],

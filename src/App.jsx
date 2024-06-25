@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Stats from "./components/Stats";
 import RoleAbility from "./components/RoleAbility";
+import Effects from "./components/Effects.jsx";
 
 
 
@@ -35,6 +36,7 @@ function App() {
       
     <Header/>
     <Profile/>
+    <Effects/>
     <RoleAbility/>
     <Stats/>
     <Footer/>

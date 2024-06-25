@@ -21,8 +21,8 @@ export default function HideableDescriptionCell(props) {
 
     return (
         <div id="hideableBoxDisplay">
-            <h4><span>{title}</span>
-                <button onClick={(e) => {toggleDescription()}} className="flexCol">{plusMinus}</button>
+            <h4 onClick={(e) => {toggleDescription()}}><span>{title}</span>
+                <button className="flexCol">{plusMinus}</button>
             </h4>
             {
                 descriptionArray.map((attribute, index) => {
