@@ -1,15 +1,18 @@
 import { createContext, useState } from "react";
 
+import "./style/App.css";
+import './style/index.css';
+
+import defaultStats from "./data/defaultStats.json"
+
+import { calculateHP } from "./utils/commonMethods.jsx"
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Stats from "./components/Stats";
 import RoleAbility from "./components/RoleAbility";
 
-import "./style/App.css";
-import './style/index.css';
-
-import defaultStats from "./data/defaultStats.json"
 
 
 export const RoleContext = createContext({}); 
@@ -17,14 +20,9 @@ export const StatsContext = createContext({});
 export const HPContext = createContext({});
 
 function App() {
-  const getHP = (stats) => {
-    const bodyWillAverage = Math.ceil((stats["BODY"] + stats["WILL"])/2)
-    return 10 + (5 * bodyWillAverage)
-}
-
   const [role, setRole] = useState("Medtech")
   const [stats, setStats] = useState(defaultStats)
-  const [HP, setHP] = useState(getHP(stats))
+  const [HP, setHP] = useState(calculateHP(stats))
 
   return (
     <>

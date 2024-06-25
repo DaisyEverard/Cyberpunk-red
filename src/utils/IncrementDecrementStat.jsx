@@ -1,19 +1,20 @@
 import { useContext } from "react"
 import { HPContext, StatsContext } from "../App"
+import { setStatsAndHP } from "./commonMethods"
 
 export default function IncrementDecrementStat(props) {
     let statName = props.statName
     const remainingPoints = props.remainingPoints
     const setRemainingPoints = props.setRemainingPoints
     
-    const {HP} = useContext(HPContext)
+    const {HP, setHP} = useContext(HPContext)
     const {stats, setStats} = useContext(StatsContext)
 
     const increment = (stats, statName, remainingPoints, setRemainingPoints) => {
         if (remainingPoints > 0 && stats[statName] < 8) {
             const newStats = {...stats}
         newStats[statName] += 1
-        setStats(newStats)
+        setStatsAndHP(setHP, setStats, newStats)
         setRemainingPoints(remainingPoints - 1)
         }
     }
@@ -21,7 +22,7 @@ export default function IncrementDecrementStat(props) {
         if (stats[statName] > 2) {
             const newStats = {...stats}
         newStats[statName] -= 1
-        setStats(newStats)
+        setStatsAndHP(setHP, setStats, newStats)
         setRemainingPoints(remainingPoints + 1)
         }
     }

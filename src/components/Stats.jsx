@@ -1,21 +1,19 @@
 import HideableDescriptionCell from "../utils/HideableDescriptionCell";
 import statsJson from "../data/statsDescription.json"
 import { useContext, useState } from "react";
-import { StatsContext } from "../App";
+import { HPContext, StatsContext } from "../App";
 import IncrementDecrementStat from "../utils/IncrementDecrementStat";
 
-export default function Stats() {
+export default function Stats(props) {
+    const getHP = props.getHP
+    const {HP, setHP} = useContext(HPContext)
+
     const {stats, setStats} = useContext(StatsContext)
     const [remainingPoints, setRemainingPoints] = useState(42)
 
-    const getUsedPoints = (stats) => {
-        let total = 0
-        for (const key in stats) {
-            const value = stats[key]
-            total += parseInt(value)
-        }
-        return total
-        
+    const setStatsAndHP = (setHP, getHP, newStats) => {
+        setHP(getHP(newStats))
+        setStats(newStats)
     }
 
     return (
