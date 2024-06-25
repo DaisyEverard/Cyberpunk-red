@@ -3,10 +3,12 @@
 // Seriously wounded threshold = half total HP (rounded up)
 // Death save = BODY stat
 
-export default function Effects() {
+const Effects = () => {
   return (
     <div id="effects">
       <p>Effects Bar</p>
     </div>
   );
-}
+};
+
+export default Effects;

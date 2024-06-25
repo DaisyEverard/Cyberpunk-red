@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import '../style/hideableBoxDisplay.css';
 
-export default function HideableDescriptionCell(props) {
+const HideableDescriptionCell = props => {
   const title = props.title;
   const descriptionArray = props.descriptionArray;
 
@@ -42,4 +42,6 @@ export default function HideableDescriptionCell(props) {
       <p style={{ display: boxDisplay }}>{props.description}</p>
     </div>
   );
-}
+};
+
+export default HideableDescriptionCell;

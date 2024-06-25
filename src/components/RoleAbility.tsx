@@ -5,7 +5,7 @@ import rolesJson from '../data/roles.json';
 import '../style/roleAbility.css';
 import HideableDescriptionCell from '../utils/HideableDescriptionCell';
 
-export default function RoleAbility() {
+const RoleAbility = () => {
   const { role, setRole } = useContext(RoleContext);
   const abilityObject = rolesJson[role];
 
@@ -69,4 +69,6 @@ export default function RoleAbility() {
       </div>
     </div>
   );
-}
+};
+
+export default RoleAbility;
