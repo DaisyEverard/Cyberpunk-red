@@ -5,7 +5,7 @@ import './style/index.css';
 
 import defaultStats from "./data/defaultStats.json"
 
-import { calculateHP } from "./utils/commonMethods.jsx"
+import { calculateHP, calculateHumanity } from "./utils/commonMethods.jsx"
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -18,17 +18,20 @@ import RoleAbility from "./components/RoleAbility";
 export const RoleContext = createContext({}); 
 export const StatsContext = createContext({});
 export const HPContext = createContext({});
+export const HumanityContext = createContext({});
 
 function App() {
-  const [role, setRole] = useState("Medtech")
-  const [stats, setStats] = useState(defaultStats)
-  const [HP, setHP] = useState(calculateHP(stats))
+  const [role, setRole] = useState("Medtech");
+  const [stats, setStats] = useState(defaultStats);
+  const [HP, setHP] = useState(calculateHP(stats));
+  const [humanity, setHumanity] = useState(calculateHumanity(stats));
 
   return (
     <>
-    <RoleContext.Provider value={{role, setRole}} setRole={setRole}>
-    <StatsContext.Provider value={{stats, setStats}} setStats={setStats}>
+    <RoleContext.Provider value={{role, setRole}}>
+    <StatsContext.Provider value={{stats, setStats}}>
     <HPContext.Provider value={{HP, setHP}}>
+    <HumanityContext.Provider value={{humanity, setHumanity}} >
       
     <Header/>
     <Profile/>
@@ -36,6 +39,7 @@ function App() {
     <Stats/>
     <Footer/>
 
+    </HumanityContext.Provider>
     </HPContext.Provider>
     </StatsContext.Provider>
     </RoleContext.Provider>

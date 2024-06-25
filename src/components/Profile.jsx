@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { HPContext, RoleContext, StatsContext } from "../App"
+import { HPContext, HumanityContext, RoleContext, StatsContext } from "../App"
 
 import "../style/profile.css"
 
@@ -15,6 +15,7 @@ export default function Profile() {
     const [name, setName] = useState("Name")
     const {role, setRole} = useContext(RoleContext)
     const {HP} = useContext(HPContext)
+    const {humanity} = useContext(HumanityContext)
 
     const allRoles = Object.keys(rolesJson)
 
@@ -26,7 +27,10 @@ export default function Profile() {
     <DropdownCell currentItem={role} itemSetter={setRole} optionsList={allRoles}></DropdownCell>
     </div>
     <div className="flexRow">
-        <p>HP: {HP}</p>
+        <h4>HP: </h4>
+        <p>{HP}</p>
+        <h4>Humanity (HUM): </h4>
+        <p>{humanity}</p>
     </div>
     </div>
 }

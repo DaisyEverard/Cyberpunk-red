@@ -1,11 +1,18 @@
+// CALCULATIONS
 const calculateHP = (stats) => {
     const bodyWillAverage = Math.ceil((stats["BODY"] + stats["WILL"])/2)
     return 10 + (5 * bodyWillAverage)
 }
-
-const setStatsAndHP = (setHP, setStats, newStats) => {
-    setHP(calculateHP(newStats))
-    setStats(newStats)
+const calculateHumanity = (stats) => {
+    return 10 * stats["EMP"]
 }
 
-export {calculateHP, setStatsAndHP}
+// DERIVED STAT UPDATERS
+const updateHP = (setHP, newStats) => {
+    setHP(calculateHP(newStats))
+}
+const updateHumanity = (setHumanity, newStats) => {
+    setHumanity(calculateHumanity(newStats))
+}
+
+export {calculateHP, calculateHumanity, updateHP, updateHumanity}
