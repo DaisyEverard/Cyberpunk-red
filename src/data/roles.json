@@ -1,435 +1,435 @@
 {
-    "Exec": {
-        "roleName": "Teamwork",
-        "roleAbilities": [
-            {
-                "name": "Teamwork",
-                "description": "Just like a real corporate executive, the Exec builds a team whose members help them accomplish their goals, whether legal or not, morale permitting. Team members have a visible job description (like secretary or driver) but also have a covert roles (such as Netrunner, bodyguard, or assassin). Plus they get free housing and nice set of clothes!"
-            }
-        ],
-        "levels": {
-            "1": {
-                "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion"
-            },
-            "2": {
-                "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
-                "Housing Bonus": "Corporate Housing: A corporate Conapt. No rent of fees paid as long as they are a memeber of the corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer, and even pay to move all their stuff to the new apartment"
-            },
-            "6": {
-                "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
-                "Housing Bonus": "Corporate Housing: A corporate Conapt. No rent of fees paid as long as they are a memeber of the corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer, and even pay to move all their stuff to the new apartment",
-                "Corporate Health Insurance": "The Exec is given Trauma Team Silver coverage, paid for monthly by their Corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer"
-            },
-            "7": {
-                "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
-                "Housing Bonus": "The Exec's corporate housing is improved to a Beaverville House in the Executive Zone",
-                "Corporate Health Insurance": "The Exec is given Trauma Team Silver coverage, paid for monthly by their Corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer"
-            },
-            "8": {
-                "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
-                "Housing Bonus": "The Exec's corporate housing is improved to a Beaverville House in the Executive Zone",
-                "Corporate Health Insurance": "The Corporation upgrades their coverage to Trauma Team Executive."
-            },
-            "10": {
-                "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
-                "Housing Bonus": "The Exec's corporate housing is improved dramatically to a Beaverville McMansion in the Executive Zone or a Luxury Penthouse in the Corporate Zone",
-                "Corporate Health Insurance": "The Corporation upgrades their coverage to Trauma Team Executive."
-            }
-        }
-    },
-    "Fixer": {
-        "roleName": "Operator",
-        "roleAbilities": [
-            {
-                "name": "Contacts",
-                "description": "Contacts represents who the Fixer can reach out in order to source goods, favors, or information. The Fixer will still have to pay for these, of course"
-            },
-            {
-                "name": "Reach",
-                "description": "Reach is the highest price category of items that a Fixer can always source, and if they can use their influence to gather other Fixers into creating a Night Market, which makes all price categories of items available to them for a short time"
-            },
-            {
-                "name": "Haggle",
-                "description": "Haggle is the ability of the Fixer to strike a deal. When haggling with a person, you roll COOL + Trading Skill + Your Operator Rank + 1d10 against their COOL + Trading Skill + Their Operator Rank (if they are a Fixer) + 1d10. If you succeed, you can make 1 deal of your Operator Rank or lower. Only 1 Fixer deal can be made per transaction"
-            },
-            {
-                "name": "Grease",
-                "description": "Grease represents the Fixer's ability to blend into the many cultures on and off The Street; ability to know the language, social codes, and status marks for each group or culture."
-            }
-        ],
-        "levels": {
-            "1": {
-                "Contacts": "Local honcho, gang lord, local neighborhood leadership",
-                "Reach": "You can always find a place to source Cheap and Everyday items for your clients on a piece-bypiece basis, even if they are otherwise unavailable",
-                "Haggle": "If successful, you can get 10% more or less than market price when buying or selling",
-                "Grease": "You know the cultural ins-and-outs of your immediate neighborhood including all local gangs"
-            },
-            "3": {
-                "Contacts": "City gang honcho, minor politician, Corp Exec, well known person in the neighborhood",
-                "Reach": "You can always find a place to source up to Expensive items for your clients on a piece by piece basis, even if they are otherwise unavailable",
-                "Haggle": "If successful, when you buy 5 or more of the same item, you can get one more of that item for free",
-                "Grease": "You know how to get along well with at least 1 other culture in your area as well as gaining a single language you don't already know associated with that culture at Skill Level 4"
-            },
-            "5": {
-                "Contacts": "Major City player, City politico, neighborhood celebrity",
-                "Reach": "Once per month, working with other Fixers of your rank, you can set up a Night Market. While at a Night Market that you have helped organize, you can always find a place to source up to Super Luxury items",
-                "Haggle": "If successful, you can negotiate the pay per person for a Job up 20%",
-                "Grease": "You know how to get along perfectly with 2 additional cultures (3 in total) in your area as well as gaining a single language which you don't already know associated with each culture at Skill Level 4"
-            },
-            "7": {
-                "Contacts": "Local Corp president, mayor or City manager, local celebrity",
-                "Reach": "You can always find a place to source up to Very Expensive items for your clients on a piece by piece basis, even if they are otherwise unavailable",
-                "Haggle": "If successful, when buying a Luxury or Super Luxury item, you can pay half now and half in one month. If you ever don't pay the second half on time, nobody will do this deal with you again",
-                "Grease": "You know how to blend in perfectly with 3 additional cultures (6 in total) in your area as well as a gaining single language which you don't already know associated with each culture at Skill Level 4"
-            },
-            "9": {
-                "Contacts": "Divisional Corp head, state or City zone politico, well known celebrity",
-                "Reach": "You can always find a place to source up to Luxury items for your clients on a piece by piece basis, even if they are otherwise unavailable. When you set up a Night Market, you can choose to additionally set up a Midnight Market inside it, which gathers the leadership of the criminal underworld",
-                "Haggle": "If successful, you can get 20% more or less than market price when buying or selling",
-                "Grease": "You know how to blend in perfectly with not only many cultures in your area, but also with Corporate and governmental agencies"
-            },
-            "10": {
-                "Contacts": "Major world leader, major Corporation head, world-famous celebrity",
-                "Reach": "You can always find a place to source up to Super Luxury items for your clients on a piece by piece basis, even if they are otherwise unavailable",
-                "Haggle": "If successful, you can negotiate to double the pay per person for a Dangerous Job",
-                "Grease": "You can blend in seamlessly with almost any group, including very specialized or \"tight\" groups such as secret societies, cults, or exclusive membership groups"
-            }
-        }
-    },
-    "Lawman": {
-        "roleName": "Backup",
-        "roleAbilities": [
-            {
-                "name": "Combat Number",
-                "description": "A Skill Base used for both offense and defense. This number combines both STAT and Skill for them. You will add a d10 roll to this value whenever attacking with their carried weapons or equipment or defending. Backup cannot dodge bullets"
-            },
-            {
-                "name": "SP",
-                "description": "The stopping power of the armor on both their Body and Head location"
-            },
-            {
-                "name": "HP",
-                "description": "The amount of Hit Points that each member of the backup has"
-            },
-            {
-                "name": "Move & Body",
-                "description": "The backup's MOVE and BODY STAT, important for movement and for some effects that reference the target's MOVE or BODY (like Death Saves)"
-            },
-            {
-                "name": "Backup",
-                "description": "When in danger, you can call on Backup from a group of your Backup Rank or lower. As an Action, you attempt to roll equal or lower than your Backup Rank on a d10 to get someone to respond to your call. If you abuse this, your Boss will throw you off the force or fine you as they see fit. After someone responds to your call, you roll a d6 to find out in how many Rounds your backup will arrive on the scene. If you roll a 6 on this roll, instead of your typical backup, the backup that arrives will be of the next highest level of backup, unless you are Rank 10, in which case two separate backup groups will arrive. If nobody responds to your call, you can always try your backup call again next Turn."
-            }
-        ],
-        "levels": {
-            "1": {
-                "Combat Number": 8,
-                "SP": 7,
-                "HP": 20,
-                "Move & Body": 4,
-                "backup": {
-                    "description": "Corporate Security. Four local renta-cops on the scene, arriving on foot. They carry Heavy Pistols and wear Kevlar®."
-                }
-            },
-            "3": {
-                "Combat Number": 10,
-                "SP": 7,
-                "HP": 25,
-                "Move & Body": 5,
-                "backup": {
-                    "description": "Local Beat Cops. Four local cops on the beat. They arrive in two Compact Groundcars. They carry Heavy Pistols and are armored in Kevlar®."
-                }
-            },
-            "5": {
-                "Combat Number": 14,
-                "SP": 13,
-                "HP": 35,
-                "Move & Body": 4,
-                "backup": {
-                    "description": "Sheriff's Department. Two local \"County Mounties\" patrolling the exurbs and the highways around the City. They will arrive in a High Performance Groundcar, armed with Heavy Pistols and Assault Rifles. Armored in Heavy Armorjack."
-                }
-            },
-            "8": {
-                "Combat Number": 16,
-                "SP": 15,
-                "HP": 50,
-                "Move & Body": 6,
-                "backup": {
-                    "description": "Recovery Zone Marshal. Like the marshals of the Old West, these are lone Lawmen who patrol the Recovery Zones and new cities. One arrives on a Superbike, carrying a Very Heavy Pistol, Assault Rifle, Grenade Launcher, and wearing Flak Armor."
-                }
-            },
-            "9": {
-                "Combat Number": 15,
-                "SP": 18,
-                "HP": 35,
-                "Move & Body": 4,
-                "backup": {
-                    "description": "C-SWAT. Two heavy hitters from the Psycho Squad. They carry assault rifles and rocket launchers, wearing Metalgear®. Will arrive from the air in an AV-4."
-                }
-            },
-            "10": {
-                "Combat Number": 14,
-                "SP": 11,
-                "HP": 35,
-                "Move & Body": 6,
-                "backup": {
-                    "description": "National Law Enforcement/Interpol/FBI/Netwatch. These are serious hitters, operating under the control of national governments or international law enforcement groups. They travel in pairs, will arrive in an AV-4, and are outfitted with Very Heavy Pistols, Assault Rifles, in Light Armorjack. Unlike all other forms of Backup, these serious hitters stick around after the conflict ends and assist in investigating the scene. While they will not travel with the Crew on a day-to-day basis, after the first time they are called the same 2 serious hitters will always respond to calls for backup connected to the initial call until the \"case\" is closed, or they fall in the line of duty. Additionally, they can use their Combat Number for these Skills: Accounting, Acting, Conceal/Reveal Object, Criminology, Cryptography, Deduction, Education, Forgery, Interrogation, Paramedic, Perception, Personal Grooming, Resist Torture/Drugs, Stealth, and Tracking."
-                }
-            }
-        }
-    },
-    "Media": {
-        "roleName": "Credibility",
-        "roleAbilities": [
-            {
-                "name": "Access/Sources",
-                "description": "Access/Sources represents those you can reasonably get in touch with/interview or otherwise gain information from"
-            },
-            {
-                "name": "Audience",
-                "description": "Audience is how many people your stories or exposés can reach"
-            },
-            {
-                "name": "Believability",
-                "description": "Believability is how well your story or exposé goes over with your audience. The higher your Credibility, the more likely people will believe something you have written or broadcast. You roll 1d10 based on your Believability when you publish a story and any time you want to find out whether an individual (or a group of individuals) believe your story. If your story contains even a single piece of verifiable evidence that is easily understood by the masses, the chance your audience will believe it is 1 higher. If it contains more than 4 distinct verifiable pieces of hard evidence, the chance your audience will believe it is 2 higher. These two bonuses stack with each other. LUCK can never be spent on a Believability Check"
-            },
-            {
-                "name": "Impact",
-                "description": "Impact is how much change any individual story or revelation you publish has on your audience. For example, a story about an unfair economic practice at the incremental level might just get a few local bosses to change their practices. But at higher levels of Credibility, your exposé may cause entire Megacorps to fall. Your GM will handle this. Once you publish a story/scoop you cannot publish another story on the same exact topic unless you have new information to add to the conversation"
-            }
-        ],
-        "levels": {
-            "1": {
-                "Access/Sources": "Local honcho, gang lord, local neighborhood leadership",
-                "Audience": "Immediate neighborhood.",
-                "Believability": "2 out of 10 chance the audience buys it.",
-                "Impact": "Change created by a story/scoop is small, incremental. Small-time bad guys are scared and may change their ways a little."
-            },
-            "3": {
-                "Access/Sources": "City gang honcho, minor politician, Corp Exec, well known person in the neighborhood",
-                "Audience": "You're well known as a contributor on the local screamsheet or Data Pool.",
-                "Believability": "3 out of 10 chance the audience buys it.",
-                "Impact": "Change created by a story/scoop has a direct effect; local small-time bad guys get arrested or thrown out of power, justice gets served."
-            },
-            "5": {
-                "Access/Sources": "Major City player, City politico, local celebrity",
-                "Audience": "Your stuff goes Citywide. You're a regular columnist or contributor to local screamsheets or TV.",
-                "Believability": "4 out of 10 chance the audience buys it.",
-                "Impact": "Change created by a story/scoop changes things all over the City. Higher-level bad guys may be jailed or thrown out of power. Local laws may even get passed."
-            },
-            "7": {
-                "Access/Sources": "Local Corp president, mayor or City manager, City celebrity",
-                "Audience": "Your stuff goes Statewide. You are a minor celeb in your own right.",
-                "Believability": "5 out of 10 chance the audience buys it.",
-                "Impact": "Change created by a story/scoop can change things all over several cities. Mid-level corporations or governments may be thrown out of power. Laws may be passed that affect people over several cities."
-            },
-            "9": {
-                "Access/Sources": "Divisional Corp head, State politico, well known celebrity",
-                "Audience": "You are known by many across the country, but not by everyone. If they've seen you, chances are it is on a national newsfeed.",
-                "Believability": "6 out of 10 chance the audience buys it.",
-                "Impact": "Change created by a story/scoop can change things all over a major area like a whole nation. Large corporations or local governments may be toppled. Laws may be passed that affect people over a national area."
-            },
-            "10": {
-                "Access/Sources": "Major world leader, major Corporation head, world-famous celebrity",
-                "Audience": "You are known worldwide. People stop you for autographs and people in high places use you to leak important stuff.",
-                "Believability": "7 out of 10 chance the audience buys it.",
-                "Impact": "Change created by a story/scoop can change things all over the world. Megacorps and powerful governments may fall or be overthrown. International laws may be established. Change can affect millions."
-            }
-        }
-    },
-    "Medtech": {
-        "roleName": "Medicine",
-        "roleAbilities": [
-            {
-                "name": "Surgery",
-                "description": "For every point you allocate to Surgery, you gain 2 points in the Surgery Skill (up to a maximum of 10). The Surgery Skill is the TECH Skill used to treat the most severe Critical Injuries, as well as implant cyberware, and is only available to Medtechs through this Medicine Specialty."
-            },
-            {
-                "name": "Medical Tech (Pharmaceuticals)",
-                "description": "For every point you allocate to Medical Tech (Pharmaceuticals), you gain 1 point in the Medical Tech Skill (up to a maximum of 10). The Medical Tech Skill is the TECH Skill used to operate, understand, and repair (as other non-vehicle Tech Skills) medical machinery. This Skill is only available to Medtechs, and only through either this Medicine Specialty or Cryosystem Operation. You can only put a maximum of 5 points into this specialty. Each time you allocate a point into Pharmaceuticals you also gain access to one of the following pharmaceuticals, which your Character can synthesize by rolling a DV13 Medical Tech Check, wasting the materials used on a failure. A Medtech can make a number of doses from 200eb of materials equal to their Medical Tech Skill in 1 hour. You can't synthesize Street Drugs with Medical Tech (Pharmaceuticals). Applying a single dose of a drug to a target takes an Action. If the target is unwilling, the Medtech can use their Action to attempt to make a single Melee Weapon Attack with their Airhypo against the target, that administers a single dose to their target on a hit instead of dealing damage. A Character who is not a Medtech cannot administer Pharmaceuticals correctly. These aren't Street Drugs, they require training to get the medically correct proportions"
-            },
-            {
-                "name": "Medical Tech (Cryosystem Operation)",
-                "description": "For every point you allocate to Medical Tech (Cryosystem Operation), you gain 1 point in the Medical Tech Skill (up to a maximum of 10). The Medical Tech Skill is the TECH Skill used to operate, understand, and repair (as other non-vehicle Tech Skills) medical machinery. This Skill is only available to Medtechs, and only through either this Medicine Specialty or Pharmaceuticals. You can only put a maximum of 5 points into this specialty. When you allocate points into Cryosystem Operation you also gain a benefit"
-            }
-        ],
-        "levels": {
-            "1": {
-                "Surgery": "+2 to Surgery Skill",
-                "Medical Tech (Pharmaceuticals)": "+1 to Medical Tech Skill, access to 1 Pharmaceutical",
-                "Medical Tech (Cryosystem Operation)": "You gain one Cryopump"
-            },
-            "2": {
-                "Surgery": "+4 to Surgery Skill",
-                "Medical Tech (Pharmaceuticals)": "+2 to Medical Tech Skill, access to 2 Pharmaceutical",
-                "Medical Tech (Cryosystem Operation)": "You become a Registered Cryotank Technician and gain unlimited 24/7 access to 1 Cryotank at a time at any cryotank facility operated by medical corporations or government agencies"
-            },
-            "3": {
-                "Surgery": "+6 to Surgery Skill",
-                "Medical Tech (Pharmaceuticals)": "+3 to Medical Tech Skill, access to 3 Pharmaceutical",
-                "Medical Tech (Cryosystem Operation)": "You gain 1 Cryotank, installed in a room of your choosing."
-            },
-            "4": {
-                "Surgery": "+8 to Surgery Skill",
-                "Medical Tech (Pharmaceuticals)": "+4 to Medical Tech Skill, access to 4 Pharmaceutical",
-                "Medical Tech (Cryosystem Operation)": "You gain 2 more Cryotanks that can fit in the same room as your first one and your Cryopump has 2 charges and its maximum carrying capacity increases to 2 people in stasis"
-            },
-            "5": {
-                "Surgery": "+10 to Surgery Skill",
-                "Medical Tech (Pharmaceuticals)": "+5 to Medical Tech Skill, access to 5 Pharmaceutical",
-                "Medical Tech (Cryosystem Operation)": "You gain 3 more Cryotanks that can fit in the same room as the first three and your Cryopump has 3 charges and its maximum carrying capacity increases to three people in stasis"
-            }
-        }
-    },
-    "Netrunner": {
-        "roleName": "Interface",
-        "roleAbilities": [
-            {
-                "name": "Interface",
-                "description": "Interface is what allows the Netrunner to Netrun—to interface with electronic mind-modems (called cyberdecks) to control computers, electronics, and associated programming. The Interface Role Ability also gives the Netrunner access to a wide suite of Abilities related to computer hacking and system control."
-            }
-        ],
-        "levels": {
-            "1": {
-                "interface": "2 NET actions per turn"
-            },
-            "4": {
-                "interface": "3 NET actions per turn"
-            },
-            "7": {
-                "interface": "4 NET actions per turn"
-            },
-            "10": {
-                "interface": "5 NET actions per turn"
-            }
-        }
-    },
-    "Nomad": {
-        "roleName": "Moto",
-        "roleAbilities": [
-            {
-                "name": "Nomad Vehicle Familiarity",
-                "description": "Being part of a Nomad Family means spending your life in the driver's seat and under the hood, improving your driving abilities and vehicle knowledge enough to get by on familiarity alone or with training to pull off impressive feats with ease. A Nomad adds their Moto Rank to any Drive Land Vehicle, Pilot Air Vehicle, Pilot Sea Vehicle, Air Vehicle Tech, Land Vehicle Tech, or Sea Vehicle Tech Skill Check they make."
-            },
-            {
-                "name": "Family Motorpool",
-                "description": "Whenever a Nomad increases their Role Ability Rank, they have the option of: 1. Either adding a stock vehicle (with minimum specs) of their Moto Rank or lower to the pool of vehicles they have permission to use from the Family Motorpool. 2. upgrading one of the Nomad's already permitted Family Vehicles with a single upgrade of their Moto Rank or lower. A Nomad can only have one of their Family Vehicles out at a time. A Nomad can call one of their Family to get their current Family Vehicle swapped out with another of their loaned Family Vehicles, and, assuming their Family is close by, the vehicle can be swapped out the following morning. If destroyed, the Family will fully repair any Family Vehicle for the Nomad, but it will take a week's time. The Nomad will also be expected to pay 500eb for the service. Even Family Heads pay this because it's a way of saving face for damaging Family property. It might be waived if you are broke, but your reputation would suffer. Daily repairs like bullet removal are the Nomad's responsibility. Upon attaining the 10th Rank in their Role Ability, a Nomad is promoted to a leadership position in their Family, with all the responsibility that entails. While leading by example, such a Nomad can have all their Family Vehicles out at a time. Any future Family Vehicles they wish to purchase are bought at market price, and any future upgrades they desire can be bought at 1,000eb a piece."
-            }
-        ],
-        "levels": {
-            "1": {
-                "Family Motorpool ": "Compact Groundcar, Gyrocopter, Jetski, Roadbike"
-            },
-            "5": {
-                "Family Motorpool ": "Compact Groundcar, Gyrocopter, Jetski, Roadbike, Helicopter, High Performance Groundcar, Speedboat"
-            },
-            "7": {
-                "Family Motorpool ": "Compact Groundcar, Gyrocopter, Jetski, Roadbike, Helicopter, High Performance Groundcar, Speedboat, AV-4, Cabin Cruiser, Superbike"
-            },
-            "9": {
-                "Family Motorpool ": "Compact Groundcar, Gyrocopter, Jetski, Roadbike, Helicopter, High Performance Groundcar, Speedboat, AV-4, Cabin Cruiser, Superbike, Aerozep, AV-9, Super Groundcar, Yacht"
-            }
-        }
-    },
-    "Rockerboy": {
-        "roleName": "Charismatic Impact",
-        "roleDescription": "A Rockerboy can only use their Charismatic Impact Role Ability on Fans. Assuming you aren't in combat, you can make people who aren't currently fans into fans (unless they actively dislike you) by rolling Charismatic Impact + 1d10 vs. a DV8 for a Single Person, DV10 for a Small Group of up to 6, or DV12 for a Huge Group. If they succeed, the fan or group of fans puts their best effort toward the favor the Rockerboy asked for. If they fail, the Rockerboy can't ask for the same favor again from those fans for a week",
-        "roleAbilities": [
-            {
-                "name": "Venues you can play",
-                "description": "The best type of venue your Rockerboy can hope to play under most circumstances"
-            },
-            {
-                "name": "Impact on a single fan",
-                "description": "The impact your Rockerboy can have on a single fan by beating a DV8 on their Charismatic Impact Check"
-            },
-            {
-                "name": "Impact on a small group of fans",
-                "description": "The impact your Rockerboy can have on a group of up to six fans by beating a DV10 on their Charismatic Impact Check"
-            },
-            {
-                "name": "The impact on a large group of fans",
-                "description": "The impact your Rockerboy can have on a large group of fans gathered to see them by beating a DV12 on their Charismatic Impact Check"
-            }
-        ],
-        "levels": {
-            "1": {
-                "Venues you can play": "Small local clubs",
-                "Impact on a single fan": "Rockerboy can convince fan to do a small favor for the Rockerboy; buy the Rockerboy a drink or meal, give them a lift somewhere.",
-                "Impact on a small group of fans": "Rockerboy has a group of up to 6 fans to ask for autographs and other personal totems; fans will stop Rockerboy in streets to befriend them.",
-                "Impact on a huge group of fans": "You're kidding, right? You don't have huge groups of fans yet"
-            },
-            "3": {
-                "Venues you can play": "Well known clubs",
-                "Impact on a single fan": "Rockerboy can convince fan to do a major favor for the Rockerboy; go to bed with the Rockerboy, put a good word in for them, etc",
-                "Impact on a small group of fans": "Convince a group of up to 6 fans to regularly hang out with Rockerboy; provide booze, drugs, or other party favors to the Rockerboy",
-                "Impact on a huge group of fans": "Rockerboy has a strong local following; fans buy their recordings and merch"
-            },
-            "5": {
-                "Venues you can play": "Large, important clubs",
-                "Impact on a single fan": "Rockerboy can convince fan to commit a minor crime for Rockerboy; shoplift, help out in a fight",
-                "Impact on a small group of fans": "Convince a group of up to 6 fans to act as the Rockerboy's personal \"posse\"; constantly hang out with them, do Rockerboy favors, and provide things for their personal needs",
-                "Impact on a huge group of fans": "Rockerboy's fans are all over the City, often in nearby cities. They are strongly loyal and will often do major favors for the Rockerboy in exchange for attention"
-            },
-            "7": {
-                "Venues you can play": "Small concert halls, local video feed",
-                "Impact on a single fan": "Fan is willing to risk their life for Rockerboy without question",
-                "Impact on a small group of fans": "Convince a group of up to 6 fans to commit a minor crime for Rockerboy; shoplift, help in a fight",
-                "Impact on a huge group of fans": "The Rockerboy's fans are rabidly loyal. They fight with rival fan groups, support strong fan information networks, will band together to help Rockerboy"
-            },
-            "9": {
-                "Venues you can play": "Large concert halls, national video feed",
-                "Impact on a single fan": "Rockerboy can convince fan to commit major crime for Rockerboy; steal expensive item, beat someone up for Rockerboy",
-                "Impact on a small group of fans": "Convince a group of up to 6 fans to commit a major crime for Rockerboy; steal expensive item, beat someone up",
-                "Impact on a huge group of fans": "The Rockerboy's fans are basically a brainwashed, cult-like following; they will riot, destroy property, and even kill for the Rockerboy"
-            },
-            "10": {
-                "Venues you can play": "Huge stadiums or international video",
-                "Impact on a single fan": "Fan is willing to sacrifice self for Rockerboy without question",
-                "Impact on a small group of fans": "Convince a group of up to 6 fans to risk their lives for the Rockerboy; to act as personal protection",
-                "Impact on a huge group of fans": "The Rockerboy's fans are now a worldwide following with strong, cult-like attributes. They will do almost anything for the Rockerboy if asked; they are a private army based on the Rockerboy's charisma"
-            }
-        }
-    },
-    "Solo": {
-        "roleName": "Combat Awareness",
-        "roleDescription": "With Combat Awareness, a Solo can call up their training to have an enhanced situational awareness of the battlefield. When combat begins (before Initiative is rolled), anytime outside of combat, or in combat with an Action, a Solo may divide the total number of points they have in their Combat Awareness Role Ability among 6 different abilities. If a Solo chooses to not change their point assignments, their previous ones persist. Activating some abilities will cost the Solo more points than others",
-        "roleAbilities": [
-            {
-                "name": "Damage Deflection",
-                "description": "For every 2 point assigned to this ability, reduce the first damage you take in a round by 1"
-            },
-            {
-                "name": "Fumble Recovery",
-                "description": "For 4 points, you ignore critical failures (1s) you roll while attacking. These rolls are still treated as 1, however"
-            },
-            {
-                "name": "Initiative Reaction",
-                "description": "Your reflexes are trained to respond instantly, without thinking, at the start of a firefight. Each point adds a +1 to Initiative rolls made"
-            },
-            {
-                "name": "Precision Attack",
-                "description": "For every 3 points assigned to this ability, add 1 to any attacks made"
-            },
-            {
-                "name": "Spot Weakness",
-                "description": "You have been trained to look for weak spots to damage even heavily armored targets. Each point adds a +1 to the damage (before armor) of your first successful Attack in a Round"
-            },
-            {
-                "name": "Threat Detection",
-                "description": "You have enhanced situational awareness. Each point adds a +1 to any Perception Checks made"
-            }
-        ],
-        "levels": {}
-    },
-    "Tech": {
-        "roleName": "Maker",
-        "roleDescription": "The Tech's Role Ability is Maker. Using the Maker Role Ability, the Tech can fix, improve, modify, make, and invent new items. Whenever a Tech increases their Maker Rank by one, they gain one rank in two different Maker Specialties of their choice, including repairing, upgrading, fabricating, and inventing",
-        "roleAbilities": [
-            {
-                "name": "",
-                "description": ""
-            }
-        ],
-        "levels": {}
+  "Exec": {
+    "roleName": "Teamwork",
+    "roleAbilities": [
+      {
+        "name": "Teamwork",
+        "description": "Just like a real corporate executive, the Exec builds a team whose members help them accomplish their goals, whether legal or not, morale permitting. Team members have a visible job description (like secretary or driver) but also have a covert roles (such as Netrunner, bodyguard, or assassin). Plus they get free housing and nice set of clothes!"
+      }
+    ],
+    "levels": {
+      "1": {
+        "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion"
+      },
+      "2": {
+        "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
+        "Housing Bonus": "Corporate Housing: A corporate Conapt. No rent of fees paid as long as they are a memeber of the corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer, and even pay to move all their stuff to the new apartment"
+      },
+      "6": {
+        "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
+        "Housing Bonus": "Corporate Housing: A corporate Conapt. No rent of fees paid as long as they are a memeber of the corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer, and even pay to move all their stuff to the new apartment",
+        "Corporate Health Insurance": "The Exec is given Trauma Team Silver coverage, paid for monthly by their Corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer"
+      },
+      "7": {
+        "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
+        "Housing Bonus": "The Exec's corporate housing is improved to a Beaverville House in the Executive Zone",
+        "Corporate Health Insurance": "The Exec is given Trauma Team Silver coverage, paid for monthly by their Corporation. If the Exec leaves to join another Corporation, they will extend to them the same offer"
+      },
+      "8": {
+        "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
+        "Housing Bonus": "The Exec's corporate housing is improved to a Beaverville House in the Executive Zone",
+        "Corporate Health Insurance": "The Corporation upgrades their coverage to Trauma Team Executive."
+      },
+      "10": {
+        "Signing Bonus": "A suit comprised of a Businesswear Jacket, Top, Bottom, and Footwear. These cannot be re-sold without raising suspicion",
+        "Housing Bonus": "The Exec's corporate housing is improved dramatically to a Beaverville McMansion in the Executive Zone or a Luxury Penthouse in the Corporate Zone",
+        "Corporate Health Insurance": "The Corporation upgrades their coverage to Trauma Team Executive."
+      }
     }
+  },
+  "Fixer": {
+    "roleName": "Operator",
+    "roleAbilities": [
+      {
+        "name": "Contacts",
+        "description": "Contacts represents who the Fixer can reach out in order to source goods, favors, or information. The Fixer will still have to pay for these, of course"
+      },
+      {
+        "name": "Reach",
+        "description": "Reach is the highest price category of items that a Fixer can always source, and if they can use their influence to gather other Fixers into creating a Night Market, which makes all price categories of items available to them for a short time"
+      },
+      {
+        "name": "Haggle",
+        "description": "Haggle is the ability of the Fixer to strike a deal. When haggling with a person, you roll COOL + Trading Skill + Your Operator Rank + 1d10 against their COOL + Trading Skill + Their Operator Rank (if they are a Fixer) + 1d10. If you succeed, you can make 1 deal of your Operator Rank or lower. Only 1 Fixer deal can be made per transaction"
+      },
+      {
+        "name": "Grease",
+        "description": "Grease represents the Fixer's ability to blend into the many cultures on and off The Street; ability to know the language, social codes, and status marks for each group or culture."
+      }
+    ],
+    "levels": {
+      "1": {
+        "Contacts": "Local honcho, gang lord, local neighborhood leadership",
+        "Reach": "You can always find a place to source Cheap and Everyday items for your clients on a piece-bypiece basis, even if they are otherwise unavailable",
+        "Haggle": "If successful, you can get 10% more or less than market price when buying or selling",
+        "Grease": "You know the cultural ins-and-outs of your immediate neighborhood including all local gangs"
+      },
+      "3": {
+        "Contacts": "City gang honcho, minor politician, Corp Exec, well known person in the neighborhood",
+        "Reach": "You can always find a place to source up to Expensive items for your clients on a piece by piece basis, even if they are otherwise unavailable",
+        "Haggle": "If successful, when you buy 5 or more of the same item, you can get one more of that item for free",
+        "Grease": "You know how to get along well with at least 1 other culture in your area as well as gaining a single language you don't already know associated with that culture at Skill Level 4"
+      },
+      "5": {
+        "Contacts": "Major City player, City politico, neighborhood celebrity",
+        "Reach": "Once per month, working with other Fixers of your rank, you can set up a Night Market. While at a Night Market that you have helped organize, you can always find a place to source up to Super Luxury items",
+        "Haggle": "If successful, you can negotiate the pay per person for a Job up 20%",
+        "Grease": "You know how to get along perfectly with 2 additional cultures (3 in total) in your area as well as gaining a single language which you don't already know associated with each culture at Skill Level 4"
+      },
+      "7": {
+        "Contacts": "Local Corp president, mayor or City manager, local celebrity",
+        "Reach": "You can always find a place to source up to Very Expensive items for your clients on a piece by piece basis, even if they are otherwise unavailable",
+        "Haggle": "If successful, when buying a Luxury or Super Luxury item, you can pay half now and half in one month. If you ever don't pay the second half on time, nobody will do this deal with you again",
+        "Grease": "You know how to blend in perfectly with 3 additional cultures (6 in total) in your area as well as a gaining single language which you don't already know associated with each culture at Skill Level 4"
+      },
+      "9": {
+        "Contacts": "Divisional Corp head, state or City zone politico, well known celebrity",
+        "Reach": "You can always find a place to source up to Luxury items for your clients on a piece by piece basis, even if they are otherwise unavailable. When you set up a Night Market, you can choose to additionally set up a Midnight Market inside it, which gathers the leadership of the criminal underworld",
+        "Haggle": "If successful, you can get 20% more or less than market price when buying or selling",
+        "Grease": "You know how to blend in perfectly with not only many cultures in your area, but also with Corporate and governmental agencies"
+      },
+      "10": {
+        "Contacts": "Major world leader, major Corporation head, world-famous celebrity",
+        "Reach": "You can always find a place to source up to Super Luxury items for your clients on a piece by piece basis, even if they are otherwise unavailable",
+        "Haggle": "If successful, you can negotiate to double the pay per person for a Dangerous Job",
+        "Grease": "You can blend in seamlessly with almost any group, including very specialized or \"tight\" groups such as secret societies, cults, or exclusive membership groups"
+      }
+    }
+  },
+  "Lawman": {
+    "roleName": "Backup",
+    "roleAbilities": [
+      {
+        "name": "Combat Number",
+        "description": "A Skill Base used for both offense and defense. This number combines both STAT and Skill for them. You will add a d10 roll to this value whenever attacking with their carried weapons or equipment or defending. Backup cannot dodge bullets"
+      },
+      {
+        "name": "SP",
+        "description": "The stopping power of the armor on both their Body and Head location"
+      },
+      {
+        "name": "HP",
+        "description": "The amount of Hit Points that each member of the backup has"
+      },
+      {
+        "name": "Move & Body",
+        "description": "The backup's MOVE and BODY STAT, important for movement and for some effects that reference the target's MOVE or BODY (like Death Saves)"
+      },
+      {
+        "name": "Backup",
+        "description": "When in danger, you can call on Backup from a group of your Backup Rank or lower. As an Action, you attempt to roll equal or lower than your Backup Rank on a d10 to get someone to respond to your call. If you abuse this, your Boss will throw you off the force or fine you as they see fit. After someone responds to your call, you roll a d6 to find out in how many Rounds your backup will arrive on the scene. If you roll a 6 on this roll, instead of your typical backup, the backup that arrives will be of the next highest level of backup, unless you are Rank 10, in which case two separate backup groups will arrive. If nobody responds to your call, you can always try your backup call again next Turn."
+      }
+    ],
+    "levels": {
+      "1": {
+        "Combat Number": 8,
+        "SP": 7,
+        "HP": 20,
+        "Move & Body": 4,
+        "backup": {
+          "description": "Corporate Security. Four local renta-cops on the scene, arriving on foot. They carry Heavy Pistols and wear Kevlar®."
+        }
+      },
+      "3": {
+        "Combat Number": 10,
+        "SP": 7,
+        "HP": 25,
+        "Move & Body": 5,
+        "backup": {
+          "description": "Local Beat Cops. Four local cops on the beat. They arrive in two Compact Groundcars. They carry Heavy Pistols and are armored in Kevlar®."
+        }
+      },
+      "5": {
+        "Combat Number": 14,
+        "SP": 13,
+        "HP": 35,
+        "Move & Body": 4,
+        "backup": {
+          "description": "Sheriff's Department. Two local \"County Mounties\" patrolling the exurbs and the highways around the City. They will arrive in a High Performance Groundcar, armed with Heavy Pistols and Assault Rifles. Armored in Heavy Armorjack."
+        }
+      },
+      "8": {
+        "Combat Number": 16,
+        "SP": 15,
+        "HP": 50,
+        "Move & Body": 6,
+        "backup": {
+          "description": "Recovery Zone Marshal. Like the marshals of the Old West, these are lone Lawmen who patrol the Recovery Zones and new cities. One arrives on a Superbike, carrying a Very Heavy Pistol, Assault Rifle, Grenade Launcher, and wearing Flak Armor."
+        }
+      },
+      "9": {
+        "Combat Number": 15,
+        "SP": 18,
+        "HP": 35,
+        "Move & Body": 4,
+        "backup": {
+          "description": "C-SWAT. Two heavy hitters from the Psycho Squad. They carry assault rifles and rocket launchers, wearing Metalgear®. Will arrive from the air in an AV-4."
+        }
+      },
+      "10": {
+        "Combat Number": 14,
+        "SP": 11,
+        "HP": 35,
+        "Move & Body": 6,
+        "backup": {
+          "description": "National Law Enforcement/Interpol/FBI/Netwatch. These are serious hitters, operating under the control of national governments or international law enforcement groups. They travel in pairs, will arrive in an AV-4, and are outfitted with Very Heavy Pistols, Assault Rifles, in Light Armorjack. Unlike all other forms of Backup, these serious hitters stick around after the conflict ends and assist in investigating the scene. While they will not travel with the Crew on a day-to-day basis, after the first time they are called the same 2 serious hitters will always respond to calls for backup connected to the initial call until the \"case\" is closed, or they fall in the line of duty. Additionally, they can use their Combat Number for these Skills: Accounting, Acting, Conceal/Reveal Object, Criminology, Cryptography, Deduction, Education, Forgery, Interrogation, Paramedic, Perception, Personal Grooming, Resist Torture/Drugs, Stealth, and Tracking."
+        }
+      }
+    }
+  },
+  "Media": {
+    "roleName": "Credibility",
+    "roleAbilities": [
+      {
+        "name": "Access/Sources",
+        "description": "Access/Sources represents those you can reasonably get in touch with/interview or otherwise gain information from"
+      },
+      {
+        "name": "Audience",
+        "description": "Audience is how many people your stories or exposés can reach"
+      },
+      {
+        "name": "Believability",
+        "description": "Believability is how well your story or exposé goes over with your audience. The higher your Credibility, the more likely people will believe something you have written or broadcast. You roll 1d10 based on your Believability when you publish a story and any time you want to find out whether an individual (or a group of individuals) believe your story. If your story contains even a single piece of verifiable evidence that is easily understood by the masses, the chance your audience will believe it is 1 higher. If it contains more than 4 distinct verifiable pieces of hard evidence, the chance your audience will believe it is 2 higher. These two bonuses stack with each other. LUCK can never be spent on a Believability Check"
+      },
+      {
+        "name": "Impact",
+        "description": "Impact is how much change any individual story or revelation you publish has on your audience. For example, a story about an unfair economic practice at the incremental level might just get a few local bosses to change their practices. But at higher levels of Credibility, your exposé may cause entire Megacorps to fall. Your GM will handle this. Once you publish a story/scoop you cannot publish another story on the same exact topic unless you have new information to add to the conversation"
+      }
+    ],
+    "levels": {
+      "1": {
+        "Access/Sources": "Local honcho, gang lord, local neighborhood leadership",
+        "Audience": "Immediate neighborhood.",
+        "Believability": "2 out of 10 chance the audience buys it.",
+        "Impact": "Change created by a story/scoop is small, incremental. Small-time bad guys are scared and may change their ways a little."
+      },
+      "3": {
+        "Access/Sources": "City gang honcho, minor politician, Corp Exec, well known person in the neighborhood",
+        "Audience": "You're well known as a contributor on the local screamsheet or Data Pool.",
+        "Believability": "3 out of 10 chance the audience buys it.",
+        "Impact": "Change created by a story/scoop has a direct effect; local small-time bad guys get arrested or thrown out of power, justice gets served."
+      },
+      "5": {
+        "Access/Sources": "Major City player, City politico, local celebrity",
+        "Audience": "Your stuff goes Citywide. You're a regular columnist or contributor to local screamsheets or TV.",
+        "Believability": "4 out of 10 chance the audience buys it.",
+        "Impact": "Change created by a story/scoop changes things all over the City. Higher-level bad guys may be jailed or thrown out of power. Local laws may even get passed."
+      },
+      "7": {
+        "Access/Sources": "Local Corp president, mayor or City manager, City celebrity",
+        "Audience": "Your stuff goes Statewide. You are a minor celeb in your own right.",
+        "Believability": "5 out of 10 chance the audience buys it.",
+        "Impact": "Change created by a story/scoop can change things all over several cities. Mid-level corporations or governments may be thrown out of power. Laws may be passed that affect people over several cities."
+      },
+      "9": {
+        "Access/Sources": "Divisional Corp head, State politico, well known celebrity",
+        "Audience": "You are known by many across the country, but not by everyone. If they've seen you, chances are it is on a national newsfeed.",
+        "Believability": "6 out of 10 chance the audience buys it.",
+        "Impact": "Change created by a story/scoop can change things all over a major area like a whole nation. Large corporations or local governments may be toppled. Laws may be passed that affect people over a national area."
+      },
+      "10": {
+        "Access/Sources": "Major world leader, major Corporation head, world-famous celebrity",
+        "Audience": "You are known worldwide. People stop you for autographs and people in high places use you to leak important stuff.",
+        "Believability": "7 out of 10 chance the audience buys it.",
+        "Impact": "Change created by a story/scoop can change things all over the world. Megacorps and powerful governments may fall or be overthrown. International laws may be established. Change can affect millions."
+      }
+    }
+  },
+  "Medtech": {
+    "roleName": "Medicine",
+    "roleAbilities": [
+      {
+        "name": "Surgery",
+        "description": "For every point you allocate to Surgery, you gain 2 points in the Surgery Skill (up to a maximum of 10). The Surgery Skill is the TECH Skill used to treat the most severe Critical Injuries, as well as implant cyberware, and is only available to Medtechs through this Medicine Specialty."
+      },
+      {
+        "name": "Medical Tech (Pharmaceuticals)",
+        "description": "For every point you allocate to Medical Tech (Pharmaceuticals), you gain 1 point in the Medical Tech Skill (up to a maximum of 10). The Medical Tech Skill is the TECH Skill used to operate, understand, and repair (as other non-vehicle Tech Skills) medical machinery. This Skill is only available to Medtechs, and only through either this Medicine Specialty or Cryosystem Operation. You can only put a maximum of 5 points into this specialty. Each time you allocate a point into Pharmaceuticals you also gain access to one of the following pharmaceuticals, which your Character can synthesize by rolling a DV13 Medical Tech Check, wasting the materials used on a failure. A Medtech can make a number of doses from 200eb of materials equal to their Medical Tech Skill in 1 hour. You can't synthesize Street Drugs with Medical Tech (Pharmaceuticals). Applying a single dose of a drug to a target takes an Action. If the target is unwilling, the Medtech can use their Action to attempt to make a single Melee Weapon Attack with their Airhypo against the target, that administers a single dose to their target on a hit instead of dealing damage. A Character who is not a Medtech cannot administer Pharmaceuticals correctly. These aren't Street Drugs, they require training to get the medically correct proportions"
+      },
+      {
+        "name": "Medical Tech (Cryosystem Operation)",
+        "description": "For every point you allocate to Medical Tech (Cryosystem Operation), you gain 1 point in the Medical Tech Skill (up to a maximum of 10). The Medical Tech Skill is the TECH Skill used to operate, understand, and repair (as other non-vehicle Tech Skills) medical machinery. This Skill is only available to Medtechs, and only through either this Medicine Specialty or Pharmaceuticals. You can only put a maximum of 5 points into this specialty. When you allocate points into Cryosystem Operation you also gain a benefit"
+      }
+    ],
+    "levels": {
+      "1": {
+        "Surgery": "+2 to Surgery Skill",
+        "Medical Tech (Pharmaceuticals)": "+1 to Medical Tech Skill, access to 1 Pharmaceutical",
+        "Medical Tech (Cryosystem Operation)": "You gain one Cryopump"
+      },
+      "2": {
+        "Surgery": "+4 to Surgery Skill",
+        "Medical Tech (Pharmaceuticals)": "+2 to Medical Tech Skill, access to 2 Pharmaceutical",
+        "Medical Tech (Cryosystem Operation)": "You become a Registered Cryotank Technician and gain unlimited 24/7 access to 1 Cryotank at a time at any cryotank facility operated by medical corporations or government agencies"
+      },
+      "3": {
+        "Surgery": "+6 to Surgery Skill",
+        "Medical Tech (Pharmaceuticals)": "+3 to Medical Tech Skill, access to 3 Pharmaceutical",
+        "Medical Tech (Cryosystem Operation)": "You gain 1 Cryotank, installed in a room of your choosing."
+      },
+      "4": {
+        "Surgery": "+8 to Surgery Skill",
+        "Medical Tech (Pharmaceuticals)": "+4 to Medical Tech Skill, access to 4 Pharmaceutical",
+        "Medical Tech (Cryosystem Operation)": "You gain 2 more Cryotanks that can fit in the same room as your first one and your Cryopump has 2 charges and its maximum carrying capacity increases to 2 people in stasis"
+      },
+      "5": {
+        "Surgery": "+10 to Surgery Skill",
+        "Medical Tech (Pharmaceuticals)": "+5 to Medical Tech Skill, access to 5 Pharmaceutical",
+        "Medical Tech (Cryosystem Operation)": "You gain 3 more Cryotanks that can fit in the same room as the first three and your Cryopump has 3 charges and its maximum carrying capacity increases to three people in stasis"
+      }
+    }
+  },
+  "Netrunner": {
+    "roleName": "Interface",
+    "roleAbilities": [
+      {
+        "name": "Interface",
+        "description": "Interface is what allows the Netrunner to Netrun—to interface with electronic mind-modems (called cyberdecks) to control computers, electronics, and associated programming. The Interface Role Ability also gives the Netrunner access to a wide suite of Abilities related to computer hacking and system control."
+      }
+    ],
+    "levels": {
+      "1": {
+        "interface": "2 NET actions per turn"
+      },
+      "4": {
+        "interface": "3 NET actions per turn"
+      },
+      "7": {
+        "interface": "4 NET actions per turn"
+      },
+      "10": {
+        "interface": "5 NET actions per turn"
+      }
+    }
+  },
+  "Nomad": {
+    "roleName": "Moto",
+    "roleAbilities": [
+      {
+        "name": "Nomad Vehicle Familiarity",
+        "description": "Being part of a Nomad Family means spending your life in the driver's seat and under the hood, improving your driving abilities and vehicle knowledge enough to get by on familiarity alone or with training to pull off impressive feats with ease. A Nomad adds their Moto Rank to any Drive Land Vehicle, Pilot Air Vehicle, Pilot Sea Vehicle, Air Vehicle Tech, Land Vehicle Tech, or Sea Vehicle Tech Skill Check they make."
+      },
+      {
+        "name": "Family Motorpool",
+        "description": "Whenever a Nomad increases their Role Ability Rank, they have the option of: 1. Either adding a stock vehicle (with minimum specs) of their Moto Rank or lower to the pool of vehicles they have permission to use from the Family Motorpool. 2. upgrading one of the Nomad's already permitted Family Vehicles with a single upgrade of their Moto Rank or lower. A Nomad can only have one of their Family Vehicles out at a time. A Nomad can call one of their Family to get their current Family Vehicle swapped out with another of their loaned Family Vehicles, and, assuming their Family is close by, the vehicle can be swapped out the following morning. If destroyed, the Family will fully repair any Family Vehicle for the Nomad, but it will take a week's time. The Nomad will also be expected to pay 500eb for the service. Even Family Heads pay this because it's a way of saving face for damaging Family property. It might be waived if you are broke, but your reputation would suffer. Daily repairs like bullet removal are the Nomad's responsibility. Upon attaining the 10th Rank in their Role Ability, a Nomad is promoted to a leadership position in their Family, with all the responsibility that entails. While leading by example, such a Nomad can have all their Family Vehicles out at a time. Any future Family Vehicles they wish to purchase are bought at market price, and any future upgrades they desire can be bought at 1,000eb a piece."
+      }
+    ],
+    "levels": {
+      "1": {
+        "Family Motorpool ": "Compact Groundcar, Gyrocopter, Jetski, Roadbike"
+      },
+      "5": {
+        "Family Motorpool ": "Compact Groundcar, Gyrocopter, Jetski, Roadbike, Helicopter, High Performance Groundcar, Speedboat"
+      },
+      "7": {
+        "Family Motorpool ": "Compact Groundcar, Gyrocopter, Jetski, Roadbike, Helicopter, High Performance Groundcar, Speedboat, AV-4, Cabin Cruiser, Superbike"
+      },
+      "9": {
+        "Family Motorpool ": "Compact Groundcar, Gyrocopter, Jetski, Roadbike, Helicopter, High Performance Groundcar, Speedboat, AV-4, Cabin Cruiser, Superbike, Aerozep, AV-9, Super Groundcar, Yacht"
+      }
+    }
+  },
+  "Rockerboy": {
+    "roleName": "Charismatic Impact",
+    "roleDescription": "A Rockerboy can only use their Charismatic Impact Role Ability on Fans. Assuming you aren't in combat, you can make people who aren't currently fans into fans (unless they actively dislike you) by rolling Charismatic Impact + 1d10 vs. a DV8 for a Single Person, DV10 for a Small Group of up to 6, or DV12 for a Huge Group. If they succeed, the fan or group of fans puts their best effort toward the favor the Rockerboy asked for. If they fail, the Rockerboy can't ask for the same favor again from those fans for a week",
+    "roleAbilities": [
+      {
+        "name": "Venues you can play",
+        "description": "The best type of venue your Rockerboy can hope to play under most circumstances"
+      },
+      {
+        "name": "Impact on a single fan",
+        "description": "The impact your Rockerboy can have on a single fan by beating a DV8 on their Charismatic Impact Check"
+      },
+      {
+        "name": "Impact on a small group of fans",
+        "description": "The impact your Rockerboy can have on a group of up to six fans by beating a DV10 on their Charismatic Impact Check"
+      },
+      {
+        "name": "The impact on a large group of fans",
+        "description": "The impact your Rockerboy can have on a large group of fans gathered to see them by beating a DV12 on their Charismatic Impact Check"
+      }
+    ],
+    "levels": {
+      "1": {
+        "Venues you can play": "Small local clubs",
+        "Impact on a single fan": "Rockerboy can convince fan to do a small favor for the Rockerboy; buy the Rockerboy a drink or meal, give them a lift somewhere.",
+        "Impact on a small group of fans": "Rockerboy has a group of up to 6 fans to ask for autographs and other personal totems; fans will stop Rockerboy in streets to befriend them.",
+        "Impact on a huge group of fans": "You're kidding, right? You don't have huge groups of fans yet"
+      },
+      "3": {
+        "Venues you can play": "Well known clubs",
+        "Impact on a single fan": "Rockerboy can convince fan to do a major favor for the Rockerboy; go to bed with the Rockerboy, put a good word in for them, etc",
+        "Impact on a small group of fans": "Convince a group of up to 6 fans to regularly hang out with Rockerboy; provide booze, drugs, or other party favors to the Rockerboy",
+        "Impact on a huge group of fans": "Rockerboy has a strong local following; fans buy their recordings and merch"
+      },
+      "5": {
+        "Venues you can play": "Large, important clubs",
+        "Impact on a single fan": "Rockerboy can convince fan to commit a minor crime for Rockerboy; shoplift, help out in a fight",
+        "Impact on a small group of fans": "Convince a group of up to 6 fans to act as the Rockerboy's personal \"posse\"; constantly hang out with them, do Rockerboy favors, and provide things for their personal needs",
+        "Impact on a huge group of fans": "Rockerboy's fans are all over the City, often in nearby cities. They are strongly loyal and will often do major favors for the Rockerboy in exchange for attention"
+      },
+      "7": {
+        "Venues you can play": "Small concert halls, local video feed",
+        "Impact on a single fan": "Fan is willing to risk their life for Rockerboy without question",
+        "Impact on a small group of fans": "Convince a group of up to 6 fans to commit a minor crime for Rockerboy; shoplift, help in a fight",
+        "Impact on a huge group of fans": "The Rockerboy's fans are rabidly loyal. They fight with rival fan groups, support strong fan information networks, will band together to help Rockerboy"
+      },
+      "9": {
+        "Venues you can play": "Large concert halls, national video feed",
+        "Impact on a single fan": "Rockerboy can convince fan to commit major crime for Rockerboy; steal expensive item, beat someone up for Rockerboy",
+        "Impact on a small group of fans": "Convince a group of up to 6 fans to commit a major crime for Rockerboy; steal expensive item, beat someone up",
+        "Impact on a huge group of fans": "The Rockerboy's fans are basically a brainwashed, cult-like following; they will riot, destroy property, and even kill for the Rockerboy"
+      },
+      "10": {
+        "Venues you can play": "Huge stadiums or international video",
+        "Impact on a single fan": "Fan is willing to sacrifice self for Rockerboy without question",
+        "Impact on a small group of fans": "Convince a group of up to 6 fans to risk their lives for the Rockerboy; to act as personal protection",
+        "Impact on a huge group of fans": "The Rockerboy's fans are now a worldwide following with strong, cult-like attributes. They will do almost anything for the Rockerboy if asked; they are a private army based on the Rockerboy's charisma"
+      }
+    }
+  },
+  "Solo": {
+    "roleName": "Combat Awareness",
+    "roleDescription": "With Combat Awareness, a Solo can call up their training to have an enhanced situational awareness of the battlefield. When combat begins (before Initiative is rolled), anytime outside of combat, or in combat with an Action, a Solo may divide the total number of points they have in their Combat Awareness Role Ability among 6 different abilities. If a Solo chooses to not change their point assignments, their previous ones persist. Activating some abilities will cost the Solo more points than others",
+    "roleAbilities": [
+      {
+        "name": "Damage Deflection",
+        "description": "For every 2 point assigned to this ability, reduce the first damage you take in a round by 1"
+      },
+      {
+        "name": "Fumble Recovery",
+        "description": "For 4 points, you ignore critical failures (1s) you roll while attacking. These rolls are still treated as 1, however"
+      },
+      {
+        "name": "Initiative Reaction",
+        "description": "Your reflexes are trained to respond instantly, without thinking, at the start of a firefight. Each point adds a +1 to Initiative rolls made"
+      },
+      {
+        "name": "Precision Attack",
+        "description": "For every 3 points assigned to this ability, add 1 to any attacks made"
+      },
+      {
+        "name": "Spot Weakness",
+        "description": "You have been trained to look for weak spots to damage even heavily armored targets. Each point adds a +1 to the damage (before armor) of your first successful Attack in a Round"
+      },
+      {
+        "name": "Threat Detection",
+        "description": "You have enhanced situational awareness. Each point adds a +1 to any Perception Checks made"
+      }
+    ],
+    "levels": {}
+  },
+  "Tech": {
+    "roleName": "Maker",
+    "roleDescription": "The Tech's Role Ability is Maker. Using the Maker Role Ability, the Tech can fix, improve, modify, make, and invent new items. Whenever a Tech increases their Maker Rank by one, they gain one rank in two different Maker Specialties of their choice, including repairing, upgrading, fabricating, and inventing",
+    "roleAbilities": [
+      {
+        "name": "",
+        "description": ""
+      }
+    ],
+    "levels": {}
+  }
 }
