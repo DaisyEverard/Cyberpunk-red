@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import '../style/hideableBoxDisplay.css';
+import '../style/hideableDescriptionCell.css';
 
 const HideableDescriptionCell = props => {
   const title = props.title;
@@ -20,7 +20,7 @@ const HideableDescriptionCell = props => {
   };
 
   return (
-    <div id="hideableBoxDisplay">
+    <div className="hideableDescriptionCell">
       <h4
         onClick={e => {
           toggleDescription();

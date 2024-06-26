@@ -1,5 +1,6 @@
 #stats {
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 #statDescriptions, #statTable {
