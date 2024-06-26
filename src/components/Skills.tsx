@@ -1,4 +1,3 @@
-import skillsJson from "../data/skills.json"
 import SingleSkillTypeTable from "./SingleSkillTypeTable"
 
 
