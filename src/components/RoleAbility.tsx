@@ -50,9 +50,9 @@ const RoleAbility = () => {
           <tbody>
             {
               // also need level in this skill, doesn't exist yet
-              allSkills.map(skill => {
+              allSkills.map((skill, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <th>{skill}</th>
                     <td>Level</td>
                   </tr>

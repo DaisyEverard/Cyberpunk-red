@@ -13,6 +13,7 @@ import './style/App.css';
 import './style/index.css';
 
 import defaultStats from './data/defaultStats.json';
+import Skills from './components/Skills';
 
 export const RoleContext = createContext({});
 export const StatsContext = createContext({});
@@ -36,6 +37,7 @@ const App = () => {
               <Effects />
               <RoleAbility />
               <Stats />
+              <Skills/>
               <Footer />
             </HumanityContext.Provider>
           </HPContext.Provider>
