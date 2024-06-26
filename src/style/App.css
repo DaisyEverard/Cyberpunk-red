@@ -4,6 +4,7 @@
   min-height: 100vh;
   padding-top: 50px;
   padding-bottom: 40px;
+  background-color: var(--body-bg-color);
 }
 
 /* COMPONENTS */
