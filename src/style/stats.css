@@ -1,0 +1,15 @@
+#stats {
+    flex-wrap: wrap;
+}
+
+#statDescriptions, #statTable {
+    width: 50%;
+    padding: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+    #statDescriptions, #statTable {
+        width: 100%;
+    }
+    
+}

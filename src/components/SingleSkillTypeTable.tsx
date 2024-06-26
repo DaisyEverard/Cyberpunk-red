@@ -12,7 +12,7 @@ const SingleSkillTypeTable = (props) => {
     }
 
     return (
-        <div>
+        <div className="singleSkillTypeTable">
             <h4>{tableSkillType} Skills:</h4>
             <table>
             <thead>

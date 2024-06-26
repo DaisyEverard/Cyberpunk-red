@@ -1,13 +1,6 @@
 #hideableBoxDisplay {
   width: 100%;
 }
-#hideableBoxDisplay h4 {
-  background: var(--dark-red-bg);
-  color: white;
-  padding: 3px;
-  min-width: 80px;
-  overflow: hidden;
-}
 
 #hideableBoxDisplay span {
   float: left;
