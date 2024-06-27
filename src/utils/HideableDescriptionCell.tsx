@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import '../style/hideableDescriptionCell.css';
+import '../style/utils.css';
 
 const HideableDescriptionCell = props => {
   const title = props.title;

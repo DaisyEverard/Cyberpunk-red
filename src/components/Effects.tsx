@@ -4,6 +4,7 @@
 // Death save = BODY stat
 import effectJson from "../data/effects.json"
 import "../style/effects.css"
+import ModalForMapState from "../utils/ModalForMapState"
 
 import bleedSVG from "../assets/icons/bleed.svg"
 import blindSVG from "../assets/icons/blind.svg"
@@ -19,6 +20,8 @@ import poisonSVG from "../assets/icons/poison.svg"
 import refreshedSVG from "../assets/icons/refreshed.svg"
 import restedSVG from "../assets/icons/rested.svg"
 import stunSVG from "../assets/icons/stun.svg"
+import { useState } from "react"
+
 
 const iconMap = {
   "bleed": bleedSVG,
@@ -38,6 +41,39 @@ const iconMap = {
 }
 
 const Effects = () => {
+  const [modalDisplays, setModalDisplays] = useState({
+  "bleed": "none",
+  "blind": "none",
+  "burn": "none",
+  "cripple": "none",
+  "drunk": "none",
+  "emp":      "none",
+  "energized": "none",
+  "hydration": "none",
+  "knockdown": "none",
+  "nourishment": "none",
+  "poison": "none",
+  "refreshed": "none",
+  "rested": "none",
+  "stun": "none"
+  })
+
+
+  const toggleModalDisplays = (modalDisplays, setModalDisplays, effect) => {
+    const effectLowerCase = effect.toLowerCase()
+    const currentDisplay = modalDisplays[effectLowerCase] 
+
+    if (currentDisplay == "none") {
+      const newModalDisplays = {...modalDisplays}
+      newModalDisplays[effectLowerCase] = "flex"
+        setModalDisplays(newModalDisplays)
+    } else {
+      const newModalDisplays = {...modalDisplays}
+      newModalDisplays[effectLowerCase] = "none"
+        setModalDisplays(newModalDisplays)
+    }
+}
+
 
   return (
    <div className="flexRow">
@@ -51,12 +87,18 @@ const Effects = () => {
           const skillLowerCase = skill["name"].toLowerCase()
           const svgPath = iconMap[skillLowerCase]
 
-          return <div className="flexCol, imgContainer">
+          return <div className="flexCol, imgContainer" key={skill["name"]}>
             <img 
-          key={skill["name"]}
           src={svgPath} 
           alt={skill["alt"]}
-          style={{height: "2rem"}}></img>
+          style={{height: "2rem"}}
+          onClick={(e) => {toggleModalDisplays(modalDisplays, setModalDisplays, skill["name"])}}></img>
+
+          <ModalForMapState title={skill["name"]} 
+          content={skill["description"]} 
+          modalDisplays={modalDisplays} 
+          setModalDisplays={setModalDisplays}
+          toggleModalDisplays={toggleModalDisplays}/>
           </div>
         })
       }
