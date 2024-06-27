@@ -24,9 +24,9 @@ const SingleSkillTypeTable = (props) => {
             </thead>
             <tbody>
             {
-                    skillsList.map((skill, index) => {
+                    skillsList.map((skill) => {
                         return (
-                            <tr>
+                            <tr key={skill["name"]}>
                 <td>{skill["name"]}</td>
                 <td>0</td>
                 <td>+-</td>
