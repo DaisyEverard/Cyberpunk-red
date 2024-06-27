@@ -1,10 +1,13 @@
+/* ROOT */
 #root {
   position: relative;
   min-height: 100vh;
   padding-top: 50px;
   padding-bottom: 40px;
+  background-color: var(--body-bg-color);
 }
 
+/* COMPONENTS */
 #header,
 #footer {
   position: absolute;
@@ -23,4 +26,31 @@
   bottom: 0;
   background-color: grey;
   height: 30px;
+}
+
+/* GENERIC ITEMS */
+h4 {
+  background: var(--dark-red-bg);
+  color: white;
+  padding: 3px;
+  min-width: 80px;
+  overflow: hidden;
+}
+
+/* tables */
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 3px;
+}
+tr {
+  background-color: var(--light-red-bg-1);
+}
+tr:nth-of-type(odd) {
+  background-color: var(--light-red-bg-2);
+}
+th {
+  background-color: var(--table-header-background);
+  color: var(--table-header-text);
 }

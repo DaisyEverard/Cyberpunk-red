@@ -6,6 +6,9 @@
   --dark-red-bg: #971919;
   --light-red-bg-1: #fcd8d8;
   --light-red-bg-2: #ffb9b9;
+  --table-header-background: #e3e3e3;
+  --table-header-text: #000;
+  --body-bg-color: #fff;
 }
 
 body {

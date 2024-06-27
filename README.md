@@ -28,6 +28,7 @@ Character Profile Sheet for Cyberpunk Red
 
 Clone the repo
 Install vite with `npm install vite`
+instal vite plugin commonjs - needed to use require()
 
 
 ## Usage

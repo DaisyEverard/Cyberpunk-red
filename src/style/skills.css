@@ -1,0 +1,9 @@
+#skills {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.singleSkillTypeTable {
+    margin-bottom: 2px;
+}

@@ -4,6 +4,7 @@ import { HPContext, StatsContext } from '../App';
 import statsJson from '../data/statsDescription.json';
 import HideableDescriptionCell from '../utils/HideableDescriptionCell';
 import IncrementDecrementStat from '../utils/IncrementDecrementStat';
+import "../style/stats.css"
 
 const Stats = props => {
   const getHP = props.getHP;
@@ -18,11 +19,8 @@ const Stats = props => {
   };
 
   return (
-    <div className="flexRow">
-      <div
-        className="flexCol"
-        style={{ width: '50vw', flex: 1 }}
-      >
+    <div className="flexRow" id="stats">
+      <div className='flexCol' id="statDescriptions">
         {statsJson.map(stat => {
           const long_name_string = `Long Name: ${stat['long_name']}\n\n`;
           const group_string = `Group: ${stat['group']}\n\n`;
@@ -42,7 +40,7 @@ const Stats = props => {
       </div>
       <div
         className="flexCol"
-        style={{ width: '50vw', flex: 1 }}
+      id="statTable"
       >
         <div>
           <p>
