@@ -40,14 +40,18 @@ const iconMap = {
 const Effects = () => {
 
   return (
-    <div id="effects" className="flexRow">
-      <p>Effects Bar</p>
+   <div className="flexRow">
+    <div className="flexCol">
+    <div className="flexRow">
+      <h2>Effects</h2>
+    </div>
+     <div id="effects" className="flexRow">
       {
         effectJson.map(skill => {
           const skillLowerCase = skill["name"].toLowerCase()
           const svgPath = iconMap[skillLowerCase]
 
-          return <div className="flexCol">
+          return <div className="flexCol, imgContainer">
             <img 
           key={skill["name"]}
           src={svgPath} 
@@ -57,6 +61,8 @@ const Effects = () => {
         })
       }
     </div>
+    </div>
+   </div>
   );
 };
 
