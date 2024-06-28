@@ -1,19 +1,17 @@
 import '../style/cells.css';
 
-const SimpleEditableTextCell = props => {
-  let text = props.startText;
-  let setText = props.setText;
+type TextInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
+export const SimpleEditableTextCell = ({ placeholder, value, onChange, disabled }: TextInputProps) => {
   return (
-    <p
-      className="simpleEditableTextCell"
-      contentEditable="True"
-      onBlur={e => {
-        setText(text);
-      }}
-    >
-      {text}
-    </p>
+    <input
+      value={value}
+      onChange={onChange}
+      type="text"
+      className={'rounded border px-2'}
+      placeholder={placeholder}
+      disabled={disabled}
+    />
   );
 };
 

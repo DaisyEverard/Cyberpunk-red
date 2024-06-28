@@ -1,39 +1,41 @@
-import { useContext, useState } from 'react';
-
-import { HPContext, HumanityContext, RoleContext, StatsContext } from '../App';
 import rolesJson from '../data/roles.json';
-import '../style/profile.css';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
 
-const Profile = () => {
-  const [name, setName] = useState('Name');
-  const { role, setRole } = useContext(RoleContext);
-  const { HP } = useContext(HPContext);
-  const { humanity } = useContext(HumanityContext);
+type ProfileProps = {
+  name: string;
+  setName: (value: string) => void;
+  role: string;
+  setRole: (value: string) => void;
+  healthPoints: number;
+  humanity: number;
+};
 
-  const allRoles = Object.keys(rolesJson);
+const allRoles = Object.keys(rolesJson);
 
+const Profile = ({ name, setName, role, setRole, healthPoints, humanity }: ProfileProps) => {
   return (
-    <div id="profile">
-      <div className="flexRow">
-        <h4>Name:</h4>
+    <div className="flex bg-red-200 rounded px-5 gap-2">
+      <div className="px-2  flex gap-2 items-center">
+        <p>Name:</p>
         <SimpleEditableTextCell
-          startText={name}
-          setText={setName}
+          value={name}
+          onChange={e => setName(e.target.value)}
         />
-        <h4>Role:</h4>
-        <DropdownCell
-          currentItem={role}
-          itemSetter={setRole}
-          optionsList={allRoles}
-        ></DropdownCell>
       </div>
-      <div className="flexRow">
-        <h4>HP: </h4>
-        <p>{HP}</p>
-        <h4>Humanity (HUM): </h4>
-        <p>{humanity}</p>
+      <div className=" px-2 flex gap-2 items-center">
+        <p>Role:</p>
+        <DropdownCell
+          value={role}
+          values={allRoles}
+          onChanged={value => setRole(value)}
+        />
+      </div>
+      <div className="px-2   flex gap-2 items-center">
+        <p>HP: {healthPoints}</p>
+      </div>
+      <div className=" px-2   flex gap-2 items-center">
+        <p>Humanity (HUM): {humanity}</p>
       </div>
     </div>
   );
