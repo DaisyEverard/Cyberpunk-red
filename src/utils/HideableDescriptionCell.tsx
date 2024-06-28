@@ -2,9 +2,12 @@ import { useState } from 'react';
 
 import '../style/utils.css';
 
-const HideableDescriptionCell = props => {
-  const title = props.title;
-  const descriptionArray = props.descriptionArray;
+
+type HideableDescriptionCellProps = {
+  title: string;
+  descriptionArray: Array<string>;
+}
+const HideableDescriptionCell = ({title, descriptionArray}: HideableDescriptionCellProps) => {
 
   const [plusMinus, setPlusMinus] = useState('+');
   const [boxDisplay, setBoxDisplay] = useState('none');
@@ -22,24 +25,24 @@ const HideableDescriptionCell = props => {
   return (
     <div className="hideableDescriptionCell">
       <h4
-        onClick={e => {
+        onClick={(e) => {
+          e.preventDefault();
           toggleDescription();
         }}
       >
         <span>{title}</span>
         <button className="text-white mr-1 float-right font-bold">{plusMinus}</button>
       </h4>
-      {descriptionArray.map((attribute, index) => {
+      {descriptionArray.map((description, index) => {
         return (
           <p
             key={index}
             style={{ display: boxDisplay }}
           >
-            {attribute}
+            {description}
           </p>
         );
       })}
-      <p style={{ display: boxDisplay }}>{props.description}</p>
     </div>
   );
 };
