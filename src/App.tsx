@@ -18,7 +18,6 @@ export const RoleContext = createContext({});
 export const StatsContext = createContext({});
 export const HPContext = createContext({});
 export const HumanityContext = createContext({});
-export const SeriouslyWoundedContext = createContext({});
 
 const App = () => {
   const [name, setName] = useState('Johnny Silverhand');
