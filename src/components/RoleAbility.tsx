@@ -9,7 +9,7 @@ const RoleAbility = () => {
   const { role, setRole } = useContext(RoleContext);
   const abilityObject = rolesJson[role];
 
-  let allSkills = [];
+  let allSkills: Array<string> = [];
   abilityObject['roleAbilities'].forEach(skill => {
     allSkills.push(skill['name']);
   });
@@ -26,7 +26,7 @@ const RoleAbility = () => {
           className="flexCol"
           style={{ width: '100%' }}
         >
-          {abilityObject['roleAbilities'].map((ability, index) => {
+          {abilityObject['roleAbilities'].map((ability, index: number) => {
             const name = ability['name'];
             const description = ability['description'];
             return (

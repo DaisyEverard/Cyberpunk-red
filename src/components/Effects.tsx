@@ -98,14 +98,15 @@ const Effects = () => {
           src={svgPath} 
           alt={skill["alt"]}
           style={{height: "2rem"}}
-          onClick={(e) => {toggleModalDisplays(modalDisplays, setModalDisplays, skill["name"])}}></img>
+          onClick={(e) => {e.preventDefault(); toggleModalDisplays(modalDisplays, setModalDisplays, skill["name"])}}></img>
 
           <ModalForMapState title={skill["name"]} 
           content={skill["description"]} 
           modalDisplays={modalDisplays} 
           setModalDisplays={setModalDisplays}
           toggleModalDisplays={toggleModalDisplays}
-          iconMap={iconMap}/>
+          iconMap={iconMap}
+          alt={skill["alt"]}/>
           </div>
         })
       }

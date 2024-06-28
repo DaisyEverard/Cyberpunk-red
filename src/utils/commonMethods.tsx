@@ -1,18 +1,18 @@
 // CALCULATIONS
-const calculateHPMax = (stats) => {
+const calculateHPMax = (stats: Record<string, number>) => {
   const bodyWillAverage = Math.ceil((stats['BODY'] + stats['WILL']) / 2);
   return 10 + (5 * bodyWillAverage);
 };
-const calculateHP = (stats) => {
+const calculateHP = (stats:  Record<string, number>) => {
   const maxHP = calculateHPMax(stats)
   return maxHP
 };
-const calculateHumanity = (stats) => {
+const calculateHumanity = (stats:  Record<string, number>) => {
   return 10 * stats['EMP'];
 };
 
 // BOOLEAN STAT CHECKS
-const isSeriouslyWounded = (stats, HP) => {
+const isSeriouslyWounded = (stats:  Record<string, number>, HP:number) => {
   const HPMax = calculateHPMax(stats)
   const seriouslyWoundedThreshold = Math.ceil(HPMax/2)
   if (HP <= seriouslyWoundedThreshold) {
@@ -23,10 +23,10 @@ const isSeriouslyWounded = (stats, HP) => {
 }
 
 // DERIVED STAT UPDATERS
-const updateHP = (setHP, newStats) => {
+const updateHP = (setHP: (newHP: number) => void, newStats:  Record<string, number>) => {
   setHP(calculateHP(newStats));
 };
-const updateHumanity = (setHumanity, newStats) => {
+const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats:  Record<string, number>) => {
   setHumanity(calculateHumanity(newStats));
 };
 
