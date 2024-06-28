@@ -1,13 +1,12 @@
 // When your Character falls to zero Hit Points, they enter the Death State (a measure of how fast they are dying)
-
-// Seriously wounded threshold = half total HP (rounded up)
 // Death save = BODY stat
 import { useState, useContext } from "react"
 import effectJson from "../data/effects.json"
 import "../style/effects.css"
 
 import ModalForMapState from "../utils/ModalForMapState"
-import { SeriouslyWoundedContext } from '../App';
+import { HPContext, StatsContext } from '../App';
+import { isSeriouslyWounded } from "../utils/commonMethods";
 
 import bleedSVG from "../assets/icons/bleed.svg"
 import blindSVG from "../assets/icons/blind.svg"
@@ -42,9 +41,7 @@ const iconMap = {
   "stun": stunSVG
 }
 
-const Effects = () => {
-  const {seriouslyWounded, setSeriouslyWounded} = useContext(SeriouslyWoundedContext)
-  const [modalDisplays, setModalDisplays] = useState({
+const defaultModalDisplays = {
   "bleed": "none",
   "blind": "none",
   "burn": "none",
@@ -59,7 +56,13 @@ const Effects = () => {
   "refreshed": "none",
   "rested": "none",
   "stun": "none"
-  })
+  }
+
+const Effects = () => {
+  const {HP, setHP} = useContext(HPContext);
+  const {stats, setStats} = useContext(StatsContext);
+
+  const [modalDisplays, setModalDisplays] = useState(defaultModalDisplays)
 
 
   const toggleModalDisplays = (modalDisplays, setModalDisplays, effect) => {
@@ -106,7 +109,8 @@ const Effects = () => {
           </div>
         })
       }
-       {seriouslyWounded === 'true' ? (
+       {  
+       isSeriouslyWounded(stats, HP) ? (
     <p className="text-warning-text-red">Seriously Wounded</p>
   ) : (
     <p className="text-inactive-grey">Seriously Wounded</p>

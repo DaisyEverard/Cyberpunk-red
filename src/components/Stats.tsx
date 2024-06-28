@@ -9,8 +9,8 @@ import "../style/stats.css"
 const Stats = props => {
   const getHP = props.getHP;
   const { HP, setHP } = useContext(HPContext);
-
   const { stats, setStats } = useContext(StatsContext);
+
   const [remainingPoints, setRemainingPoints] = useState(42);
 
   const setStatsAndHP = (setHP, getHP, newStats) => {
