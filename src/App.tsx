@@ -18,6 +18,7 @@ export const RoleContext = createContext({});
 export const StatsContext = createContext({});
 export const HPContext = createContext({});
 export const HumanityContext = createContext({});
+export const SeriouslyWoundedContext = createContext({});
 
 const App = () => {
   const [name, setName] = useState('Johnny Silverhand');
@@ -25,12 +26,14 @@ const App = () => {
   const [stats, setStats] = useState(defaultStats);
   const [HP, setHP] = useState(calculateHP(stats));
   const [humanity, setHumanity] = useState(calculateHumanity(stats));
+  const [seriouslyWounded, setSeriouslyWounded] = useState("false");
 
   return (
     <RoleContext.Provider value={{ role, setRole }}>
       <StatsContext.Provider value={{ stats, setStats }}>
         <HPContext.Provider value={{ HP, setHP }}>
           <HumanityContext.Provider value={{ humanity, setHumanity }}>
+            <SeriouslyWoundedContext.Provider value={{seriouslyWounded, setSeriouslyWounded}}>
             <div className="flex flex-col h-screen w-screen overflow-hidden gap-2">
               <Header />
               <div className="flex flex-col items-center overflow-y-scroll">
@@ -50,6 +53,7 @@ const App = () => {
                 </div>
               </div>
             </div>
+            </SeriouslyWoundedContext.Provider>
           </HumanityContext.Provider>
         </HPContext.Provider>
       </StatsContext.Provider>

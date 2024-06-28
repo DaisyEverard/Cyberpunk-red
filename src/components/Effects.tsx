@@ -2,9 +2,12 @@
 
 // Seriously wounded threshold = half total HP (rounded up)
 // Death save = BODY stat
+import { useState, useContext } from "react"
 import effectJson from "../data/effects.json"
 import "../style/effects.css"
+
 import ModalForMapState from "../utils/ModalForMapState"
+import { SeriouslyWoundedContext } from '../App';
 
 import bleedSVG from "../assets/icons/bleed.svg"
 import blindSVG from "../assets/icons/blind.svg"
@@ -20,7 +23,6 @@ import poisonSVG from "../assets/icons/poison.svg"
 import refreshedSVG from "../assets/icons/refreshed.svg"
 import restedSVG from "../assets/icons/rested.svg"
 import stunSVG from "../assets/icons/stun.svg"
-import { useState } from "react"
 
 
 const iconMap = {
@@ -41,6 +43,7 @@ const iconMap = {
 }
 
 const Effects = () => {
+  const {seriouslyWounded, setSeriouslyWounded} = useContext(SeriouslyWoundedContext)
   const [modalDisplays, setModalDisplays] = useState({
   "bleed": "none",
   "blind": "none",
@@ -103,6 +106,11 @@ const Effects = () => {
           </div>
         })
       }
+       {seriouslyWounded === 'true' ? (
+    <p className="text-warning-text-red">Seriously Wounded</p>
+  ) : (
+    <p className="text-inactive-grey">Seriously Wounded</p>
+  )}
     </div>
     </div>
    </div>
