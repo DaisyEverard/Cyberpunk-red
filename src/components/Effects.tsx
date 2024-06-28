@@ -41,7 +41,7 @@ const iconMap = {
   "stun": stunSVG
 }
 
-const defaultModalDisplays = {
+const defaultModalDisplays: Record<string, string> = {
   "bleed": "none",
   "blind": "none",
   "burn": "none",
@@ -65,7 +65,7 @@ const Effects = () => {
   const [modalDisplays, setModalDisplays] = useState(defaultModalDisplays)
 
 
-  const toggleModalDisplays = (modalDisplays, setModalDisplays, effect) => {
+  const toggleModalDisplays = (modalDisplays: Record<string, string>, setModalDisplays: (modalDisplays: Record<string, string>) => void, effect: string) => {
     const effectLowerCase = effect.toLowerCase()
     const currentDisplay = modalDisplays[effectLowerCase] 
 
