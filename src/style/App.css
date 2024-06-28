@@ -1,31 +1,24 @@
-/* ROOT */
-#root {
-  position: relative;
-  min-height: 100vh;
-  padding-top: 50px;
-  padding-bottom: 40px;
-  background-color: var(--body-bg-color);
-}
-
-/* COMPONENTS */
-#header,
-#footer {
-  position: absolute;
+/* GENERIC ITEMS */
+h4 {
   background: var(--dark-red-bg);
   color: white;
-  padding: 10px;
+  padding: 3px;
+  min-width: 80px;
+  overflow: hidden;
+}
+
+/* tables */
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
   width: 100%;
+  margin-bottom: 3px;
 }
-
-#header {
-  top: 0;
-  height: 50px;
+tr {
+  background-color: var(--light-red-bg-1);
 }
-
-#footer {
-  bottom: 0;
-  background-color: grey;
-  height: 30px;
+tr:nth-of-type(odd) {
+  background-color: var(--light-red-bg-2);
 }
 
 /* GENERIC ITEMS */
