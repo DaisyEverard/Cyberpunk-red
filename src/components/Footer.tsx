@@ -1,5 +1,5 @@
 const Footer = () => {
-  return <div className="flex h-14 items-center space-x-6 border-t px-5"></div>;
+  return <div id="footer"className="flex h-14 items-center space-x-6 border-t px-5">footer</div>;
 };
 
 export default Footer;
