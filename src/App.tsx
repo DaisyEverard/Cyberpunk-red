@@ -20,6 +20,7 @@ export const HPContext = createContext({});
 export const HumanityContext = createContext({});
 
 const App = () => {
+  const [name, setName] = useState('Johnny Silverhand');
   const [role, setRole] = useState('Medtech');
   const [stats, setStats] = useState(defaultStats);
   const [HP, setHP] = useState(calculateHP(stats));
@@ -30,11 +31,18 @@ const App = () => {
       <StatsContext.Provider value={{ stats, setStats }}>
         <HPContext.Provider value={{ HP, setHP }}>
           <HumanityContext.Provider value={{ humanity, setHumanity }}>
-            <div className="flex flex-col h-screen w-screen overflow-hidden">
+            <div className="flex flex-col h-screen w-screen overflow-hidden gap-2">
               <Header />
               <div className="flex flex-col items-center overflow-y-scroll">
-                <div className="flex flex-col max-w-7xl">
-                  <Profile />
+                <div className="flex flex-col gap-2 max-w-7xl">
+                  <Profile
+                    name={name}
+                    setName={value => setName(value)}
+                    role={role}
+                    setRole={value => setRole(value)}
+                    healthPoints={HP}
+                    humanity={humanity}
+                  />
                   <Effects />
                   <RoleAbility />
                   <Stats />
