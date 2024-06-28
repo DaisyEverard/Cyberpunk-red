@@ -5,3 +5,5 @@ raising humanity with therapy
 calculate seriously wounded/death based on HP remaining
 
 Calculate death save
+
+sort out modal on small screens

@@ -98,7 +98,8 @@ const Effects = () => {
           content={skill["description"]} 
           modalDisplays={modalDisplays} 
           setModalDisplays={setModalDisplays}
-          toggleModalDisplays={toggleModalDisplays}/>
+          toggleModalDisplays={toggleModalDisplays}
+          iconMap={iconMap}/>
           </div>
         })
       }
