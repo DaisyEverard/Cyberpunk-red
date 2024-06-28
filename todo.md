@@ -8,12 +8,23 @@ Derived Stats:
 Role Abilities:
 
 - Add levels for Role abilities
-- Sort out data structure in roles.json (it's probably going to be messy no matter what since the charater abilities work in very different ways depending on character type)
+- Sort out data structure in roles.json (it's probably going to be messy no matter what since the character abilities work in very different ways depending on character type)
 
 Modal: 
 - sort out small screen display
 - stop show button and icon being hidden beneath the top of the modal container (see emp modal)
 - hide scrollbar (is this possible with overflow: scroll?)
+- Use Portal?
+
+Skills tables:
+- remove tables and use cards for each skill instead? Maybe a row for each skill type with a card for each skill in it Would take up a lot more space but also probably look neater.
+
+Styling:
+- Convert as much CSS as possible to Tailwind classes
+- Define custome colours in tailwind.config.js for the colour pallete (currently in index.css :root selector)
+- Once all main elements are added, consider a better layout with a coherent colour scheme
+
+
 
   
 
