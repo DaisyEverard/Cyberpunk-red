@@ -3,12 +3,6 @@
 .hideableDescriptionCell {
   width: 100%;
 }
-
-.hideableDescriptionCell button {
-  float: right;
-  font-weight: bolder;
-}
-
 .hideableDescriptionCell p {
   white-space: pre-wrap;
 }

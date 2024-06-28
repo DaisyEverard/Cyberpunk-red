@@ -27,7 +27,7 @@ const HideableDescriptionCell = props => {
         }}
       >
         <span>{title}</span>
-        <button className="text-black bg-white rounded-md w-5 h-5">{plusMinus}</button>
+        <button className="text-white mr-1 float-right font-bold">{plusMinus}</button>
       </h4>
       {descriptionArray.map((attribute, index) => {
         return (
