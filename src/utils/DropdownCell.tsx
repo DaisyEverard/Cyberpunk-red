@@ -1,21 +1,21 @@
 import '../style/cells.css';
 
-const DropdownCell = props => {
-  let currentItem = props.currentItem;
-  const itemSetter = props.itemSetter;
-  const optionsList = props.optionsList;
+type DropdownCellProps = {
+  value: string;
+  values: string[];
+  onChanged: (value: string) => void;
+};
 
+const DropdownCell = ({ value, values, onChanged }: DropdownCellProps) => {
   return (
     <div className="dropdown">
-      <p className="dropbtn">{currentItem}</p>
+      <p className="dropbtn">{value}</p>
       <div className="dropdown-content">
-        {optionsList.map(role => {
+        {values.map(role => {
           return (
             <p
               key={role}
-              onClick={e => {
-                itemSetter(role);
-              }}
+              onClick={() => onChanged(role)}
             >
               {role}
             </p>
