@@ -6,15 +6,15 @@ const Skills = () => {
 
     return (
         <div className="flexRow" id="skills">
-                <SingleSkillTypeTable skillType={"Awareness"}/>
-                <SingleSkillTypeTable skillType={"Body"}/>
-                <SingleSkillTypeTable skillType={"Control"}/>
-                <SingleSkillTypeTable skillType={"Education"}/>
-                <SingleSkillTypeTable skillType={"Fighting"}/>
-                <SingleSkillTypeTable skillType={"Performance"}/>
-                <SingleSkillTypeTable skillType={"Ranged Weapon"}/>
-                <SingleSkillTypeTable skillType={"Social"}/>
-                <SingleSkillTypeTable skillType={"Technique"}/>
+                <SingleSkillTypeTable tableSkillType={"Awareness"}/>
+                <SingleSkillTypeTable tableSkillType={"Body"}/>
+                <SingleSkillTypeTable tableSkillType={"Control"}/>
+                <SingleSkillTypeTable tableSkillType={"Education"}/>
+                <SingleSkillTypeTable tableSkillType={"Fighting"}/>
+                <SingleSkillTypeTable tableSkillType={"Performance"}/>
+                <SingleSkillTypeTable tableSkillType={"Ranged Weapon"}/>
+                <SingleSkillTypeTable tableSkillType={"Social"}/>
+                <SingleSkillTypeTable tableSkillType={"Technique"}/>
         </div>
     )
 }

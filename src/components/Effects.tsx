@@ -1,10 +1,12 @@
 // When your Character falls to zero Hit Points, they enter the Death State (a measure of how fast they are dying)
-
-// Seriously wounded threshold = half total HP (rounded up)
 // Death save = BODY stat
+import { useState, useContext } from "react"
 import effectJson from "../data/effects.json"
 import "../style/effects.css"
+
 import ModalForMapState from "../utils/ModalForMapState"
+import { HPContext, StatsContext } from '../App';
+import { isSeriouslyWounded } from "../utils/commonMethods";
 
 import bleedSVG from "../assets/icons/bleed.svg"
 import blindSVG from "../assets/icons/blind.svg"
@@ -20,7 +22,6 @@ import poisonSVG from "../assets/icons/poison.svg"
 import refreshedSVG from "../assets/icons/refreshed.svg"
 import restedSVG from "../assets/icons/rested.svg"
 import stunSVG from "../assets/icons/stun.svg"
-import { useState } from "react"
 
 
 const iconMap = {
@@ -40,8 +41,7 @@ const iconMap = {
   "stun": stunSVG
 }
 
-const Effects = () => {
-  const [modalDisplays, setModalDisplays] = useState({
+const defaultModalDisplays: Record<string, string> = {
   "bleed": "none",
   "blind": "none",
   "burn": "none",
@@ -56,10 +56,16 @@ const Effects = () => {
   "refreshed": "none",
   "rested": "none",
   "stun": "none"
-  })
+  }
+
+const Effects = () => {
+  const {HP, setHP} = useContext(HPContext);
+  const {stats, setStats} = useContext(StatsContext);
+
+  const [modalDisplays, setModalDisplays] = useState(defaultModalDisplays)
 
 
-  const toggleModalDisplays = (modalDisplays, setModalDisplays, effect) => {
+  const toggleModalDisplays = (modalDisplays: Record<string, string>, setModalDisplays: (modalDisplays: Record<string, string>) => void, effect: string) => {
     const effectLowerCase = effect.toLowerCase()
     const currentDisplay = modalDisplays[effectLowerCase] 
 
@@ -92,17 +98,24 @@ const Effects = () => {
           src={svgPath} 
           alt={skill["alt"]}
           style={{height: "2rem"}}
-          onClick={(e) => {toggleModalDisplays(modalDisplays, setModalDisplays, skill["name"])}}></img>
+          onClick={(e) => {e.preventDefault(); toggleModalDisplays(modalDisplays, setModalDisplays, skill["name"])}}></img>
 
           <ModalForMapState title={skill["name"]} 
           content={skill["description"]} 
           modalDisplays={modalDisplays} 
           setModalDisplays={setModalDisplays}
           toggleModalDisplays={toggleModalDisplays}
-          iconMap={iconMap}/>
+          iconMap={iconMap}
+          alt={skill["alt"]}/>
           </div>
         })
       }
+       {  
+       isSeriouslyWounded(stats, HP) ? (
+    <p className="text-warning-text-red">Seriously Wounded</p>
+  ) : (
+    <p className="text-inactive-grey">Seriously Wounded</p>
+  )}
     </div>
     </div>
    </div>

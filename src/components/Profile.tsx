@@ -1,6 +1,8 @@
+
 import rolesJson from '../data/roles.json';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
+
 
 type ProfileProps = {
   name: string;
@@ -14,6 +16,7 @@ type ProfileProps = {
 const allRoles = Object.keys(rolesJson);
 
 const Profile = ({ name, setName, role, setRole, healthPoints, humanity }: ProfileProps) => {
+ 
   return (
     <div className="flex bg-red-200 rounded px-5 gap-2">
       <div className="px-2  flex gap-2 items-center">

@@ -1,7 +1,10 @@
 import skillsJson from "../data/skills.json"
 
-const SingleSkillTypeTable = (props) => {
-    const tableSkillType = props.skillType
+type SingleSkillTypeTableProps = {
+    tableSkillType: string;
+}
+
+const SingleSkillTypeTable = ({tableSkillType}: SingleSkillTypeTableProps) => {
     const skillsList = []
 
     for (const index in skillsJson) {

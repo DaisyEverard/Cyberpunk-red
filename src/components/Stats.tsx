@@ -1,22 +1,15 @@
 import { useContext, useState } from 'react';
 
-import { HPContext, StatsContext } from '../App';
+import { StatsContext } from '../App';
 import statsJson from '../data/statsDescription.json';
 import HideableDescriptionCell from '../utils/HideableDescriptionCell';
 import IncrementDecrementStat from '../utils/IncrementDecrementStat';
 import "../style/stats.css"
 
-const Stats = props => {
-  const getHP = props.getHP;
-  const { HP, setHP } = useContext(HPContext);
-
+const Stats = () => {
   const { stats, setStats } = useContext(StatsContext);
-  const [remainingPoints, setRemainingPoints] = useState(42);
 
-  const setStatsAndHP = (setHP, getHP, newStats) => {
-    setHP(getHP(newStats));
-    setStats(newStats);
-  };
+  const [remainingPoints, setRemainingPoints] = useState(42);
 
   return (
     <div className="flexRow" id="stats">
