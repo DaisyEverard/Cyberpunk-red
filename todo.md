@@ -20,9 +20,16 @@ Skills tables:
 - remove tables and use cards for each skill instead? Maybe a row for each skill type with a card for each skill in it Would take up a lot more space but also probably look neater.
 
 Styling:
-- Convert as much CSS as possible to Tailwind classes
 - Define custome colours in tailwind.config.js for the colour pallete (currently in index.css :root selector)
+
+Cleanup:
+- Convert as much CSS as possible to Tailwind classes
 - Once all main elements are added, consider a better layout with a coherent colour scheme
+- Sort out types:
+  - rolesJson
+  - SVG iconMap
+  - useContext states and methods do not exist on type '{}'
+
 
 
 
