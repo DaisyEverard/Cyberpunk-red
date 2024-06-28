@@ -6,13 +6,6 @@
 
 .hideableDescriptionCell button {
   float: right;
-  margin-left: 5px;
-  background: white;
-  border: none;
-  border-radius: 4px;
-  padding: 2px;
-  width: 20px;
-  height: 20px;
   font-weight: bolder;
 }
 
