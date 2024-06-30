@@ -58,11 +58,6 @@ const RoleAbility = () => {
                   </tr>
                 );
               })
-
-              //         <tr>
-              // <th>Skill Name</th>
-              // <td>Level</td>
-              // </tr>
             }
           </tbody>
         </table>
