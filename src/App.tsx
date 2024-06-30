@@ -31,10 +31,10 @@ const App = () => {
       <StatsContext.Provider value={{ stats, setStats }}>
         <HPContext.Provider value={{ HP, setHP }}>
           <HumanityContext.Provider value={{ humanity, setHumanity }}>
-            <div className="flex flex-col h-screen w-screen overflow-hidden gap-2">
+            <div className="flex flex-col h-screen w-screen overflow-hidden">
               <Header />
-              <div className="flex flex-col items-center overflow-y-scroll">
-                <div className="flex flex-col gap-2 max-w-7xl">
+              <div className="flex flex-col items-center overflow-y-scroll my-1">
+                <div className="flex flex-col gap-1 max-w-7xl">
                   <Profile
                     name={name}
                     setName={value => setName(value)}

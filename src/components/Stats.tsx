@@ -4,7 +4,6 @@ import { StatsContext } from '../App';
 import statsJson from '../data/statsDescription.json';
 import HideableDescriptionCell from '../utils/HideableDescriptionCell';
 import IncrementDecrementStat from '../utils/IncrementDecrementStat';
-import "../style/stats.css"
 
 const Stats = () => {
   const { stats, setStats } = useContext(StatsContext);
@@ -12,8 +11,8 @@ const Stats = () => {
   const [remainingPoints, setRemainingPoints] = useState(42);
 
   return (
-    <div className="flexRow" id="stats">
-      <div className='flexCol' id="statDescriptions">
+    <div className="flex gap-1">
+      <div className="box flex flex-col flex-1">
         {statsJson.map(stat => {
           const long_name_string = `Long Name: ${stat['long_name']}\n\n`;
           const group_string = `Group: ${stat['group']}\n\n`;
@@ -31,10 +30,7 @@ const Stats = () => {
           );
         })}
       </div>
-      <div
-        className="flexCol"
-      id="statTable"
-      >
+      <div className="box flex flex-col flex-1">
         <div>
           <p>
             <strong>Points Remaining:</strong>
