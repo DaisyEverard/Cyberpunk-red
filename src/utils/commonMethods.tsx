@@ -30,4 +30,4 @@ const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats:  R
   setHumanity(calculateHumanity(newStats));
 };
 
-export { calculateHP, calculateHumanity, updateHP, updateHumanity, isSeriouslyWounded};
+export { calculateHP,calculateHPMax, calculateHumanity, updateHP, updateHumanity, isSeriouslyWounded};

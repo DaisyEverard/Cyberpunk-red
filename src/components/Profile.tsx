@@ -1,6 +1,10 @@
 import rolesJson from '../data/roles.json';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
+import { calculateHPMax } from '../utils/commonMethods';
+
+import downCircle from '../assets/icons/down-circle.svg';
+import upCircle from '../assets/icons/up-circle.svg';
 
 type ProfileProps = {
   name: string;
@@ -9,16 +13,18 @@ type ProfileProps = {
   setRole: (value: string) => void;
   healthPoints: number;
   humanity: number;
+  stats: Record<string, number>;
 };
 
 const allRoles = Object.keys(rolesJson);
 
-const Profile = ({ name, setName, role, setRole, healthPoints, humanity }: ProfileProps) => {
+const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }: ProfileProps) => {
   return (
     <div className="flex gap-1">
       <div className="flex box">
         <div className="h-32 w-32 rounded-full bg-neutral-200"></div>
       </div>
+
       <div className="box flex flex-col justify-center flex-1">
         <div className="px-2 flex gap-2 items-center">
           <div>Name:</div>
@@ -36,14 +42,26 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity }: Profi
           />
         </div>
       </div>
-      <div className="box  flex flex-col justify-center items-center">
-        <div className="text-2xl">{healthPoints}</div>
+
+      <div className="box  flex justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
+        <div className="text-2xl">{healthPoints} / {calculateHPMax(stats)}</div>
         <div>Health Points (HP)</div>
       </div>
+      <div className="flex flex-col justify-center items-center ml-3">
+        {/* these should probably be green and red but ¯\_(ツ)_/¯ how fill? stroke??*/}
+        <img src={upCircle} className='h-9'/>
+        <input className='box w-1 h-1'></input>
+        <img src={downCircle} className='h-9'/>
+      </div>
+      </div>
+
       <div className="box flex flex-col justify-center items-center">
         <div className="text-2xl">{humanity}</div>
         <div>Humanity (HUM)</div>
       </div>
+
+
     </div>
   );
 };

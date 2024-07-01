@@ -42,6 +42,7 @@ const App = () => {
                     setRole={value => setRole(value)}
                     healthPoints={HP}
                     humanity={humanity}
+                    stats={stats}
                   />
                   <Effects />
                   <RoleAbility />

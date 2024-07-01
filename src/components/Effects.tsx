@@ -97,7 +97,7 @@ const Effects = () => {
                 <img
                   src={svgPath}
                   alt={skill['alt']}
-                  style={{ height: '2rem' }}
+                  className='h-9'
                   onClick={e => {
                     e.preventDefault();
                     toggleModalDisplays(modalDisplays, setModalDisplays, skill['name']);
