@@ -65,11 +65,6 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
     HPChangeInput.value = null
   }
 
-  
-
-
-
-
   return (
     <div className="flex gap-1">
       <div className="flex box">
