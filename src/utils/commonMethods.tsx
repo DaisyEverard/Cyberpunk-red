@@ -1,3 +1,23 @@
+
+// INCREMENT / DECREMENT
+const incrementHP = (HP: number, setHP: (newHP: number) => void, maxHP: number) => {
+  let success = false
+  if (HP < maxHP) {
+    setHP(HP + 1)
+    success = true
+  }
+  return success
+}
+
+const decrementHP = (HP: number, setHP: (newHP: number) => void) => {
+  let success = false
+  if (HP > 0) {
+    setHP(HP - 1)
+    success = true
+  }
+  return success
+}
+
 // CALCULATIONS
 const calculateHPMax = (stats: Record<string, number>) => {
   const bodyWillAverage = Math.ceil((stats['BODY'] + stats['WILL']) / 2);
@@ -30,4 +50,4 @@ const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats:  R
   setHumanity(calculateHumanity(newStats));
 };
 
-export { calculateHP,calculateHPMax, calculateHumanity, updateHP, updateHumanity, isSeriouslyWounded};
+export { incrementHP, decrementHP, calculateHP,calculateHPMax, calculateHumanity, updateHP, updateHumanity, isSeriouslyWounded};

@@ -1,10 +1,9 @@
+import { useContext } from 'react';
 import rolesJson from '../data/roles.json';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
-import { calculateHPMax } from '../utils/commonMethods';
-
-import downCircle from '../assets/icons/down-circle.svg';
-import upCircle from '../assets/icons/up-circle.svg';
+import { calculateHPMax, decrementHP, incrementHP } from '../utils/commonMethods';
+import { HPContext } from '../App';
 
 type ProfileProps = {
   name: string;
@@ -18,7 +17,59 @@ type ProfileProps = {
 
 const allRoles = Object.keys(rolesJson);
 
+
 const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }: ProfileProps) => {
+  const {HP, setHP} = useContext(HPContext);
+
+  const heal = (stats: Record<string, number>, HP: number, setHP: (newHP: number) => void) => {
+    const HPChangeInput = document.querySelector('#HPChangeInput')
+    const HPMax = calculateHPMax(stats)
+    let HPChange = HPChangeInput.value
+
+    if (HPChange == "") {
+      incrementHP(HP, setHP, HPMax)
+      HP += 1
+    } else {
+
+    HPChange = parseInt(HPChange)
+
+    let success = true
+    while (HPChange > 0 && success) {
+      success = incrementHP(HP, setHP, HPMax)
+      HPChange -= 1
+      HP += 1
+    }
+    }
+
+
+    HPChangeInput.value = null
+  }
+
+  const takeDamage = (HP: number, setHP: (newHP: number) => void) => {
+    const HPChangeInput = document.querySelector('#HPChangeInput')
+    let HPChange = HPChangeInput.value
+
+    if (HPChange == "") {
+      decrementHP(HP, setHP)
+      HP -= 1
+    } else {
+      HPChange = parseInt(HPChange)
+
+    let success = true
+    while (HPChange > 0 && success) {
+      success = decrementHP(HP, setHP)
+      HPChange -= 1
+      HP -= 1
+    }}
+
+    HPChangeInput.value = null
+  }
+
+  
+
+
+
+
   return (
     <div className="flex gap-1">
       <div className="flex box">
@@ -50,9 +101,14 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
       </div>
       <div className="flex flex-col justify-center items-center ml-3">
         {/* these should probably be green and red but ¯\_(ツ)_/¯ how fill? stroke??*/}
-        <img src={upCircle} className='h-9'/>
-        <input className='box w-1 h-1'></input>
-        <img src={downCircle} className='h-9'/>
+        <p 
+        className='rounded-md border-2 p-0.5 text-heal-green border-heal-green'
+        onClick={(e) => {e.preventDefault(); heal(stats, HP, setHP)}}>HEAL</p>
+        {/* don't allow negative input */}
+        <input className='box w-20 h-10' type="number" id="HPChangeInput" min={0}></input>
+        <p 
+        className='rounded-md border-2 p-0.5 text-damage-red border-damage-red'
+        onClick={(e) => {e.preventDefault(); takeDamage(HP, setHP)}}>DAMAGE</p>
       </div>
       </div>
 

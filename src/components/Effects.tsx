@@ -117,7 +117,7 @@ const Effects = () => {
             );
           })}
           {isSeriouslyWounded(stats, HP) ? (
-            <p className="text-warning-text-red">Seriously Wounded</p>
+            <p className="text-damage-red">Seriously Wounded</p>
           ) : (
             <p className="text-inactive-grey">Seriously Wounded</p>
           )}
