@@ -25,10 +25,12 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
     }
 
     const decrement = (currentSkills, setSkills, skillName, remainingPoints, setRemainingPoints, cost) => {
-        const newSkills = {...currentSkills};
+        if (currentSkills[skillName] > 0) {
+            const newSkills = {...currentSkills};
         newSkills[skillName] -= 1;
         setSkills(newSkills);
         setRemainingPoints(remainingPoints + cost)
+        }
     }
     
 
