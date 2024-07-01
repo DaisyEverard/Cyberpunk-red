@@ -1,10 +1,17 @@
+import { useContext } from "react";
 import skillsJson from "../data/skills.json"
+import IncrementDecrementSkill from "../utils/IncrementDecrementSkill";
+import { SkillsContext } from "../App";
 
 type SingleSkillTypeTableProps = {
     tableSkillType: string;
+    remainingPoints: number;
+    setRemainingPoints: (newPoints: number) => void;
 }
 
-const SingleSkillTypeTable = ({tableSkillType}: SingleSkillTypeTableProps) => {
+const SingleSkillTypeTable = ({tableSkillType, remainingPoints, setRemainingPoints}: SingleSkillTypeTableProps) => {
+    const { currentSkills, setCurrentSkills } = useContext(SkillsContext);
+
     const skillsList = []
 
     for (const index in skillsJson) {
@@ -31,12 +38,13 @@ const SingleSkillTypeTable = ({tableSkillType}: SingleSkillTypeTableProps) => {
                     skillsList.map((skill) => {
                         const skillName = skill["name"]
                         const pointCost = skill["x2"] ? 2 : 1
+                        const skillLevel = currentSkills[skillName]
                         return (
                             <tr key={skillName}>
                 <td>{skillName}</td>
                 <td>{pointCost}</td>
-                <td>0</td>
-                <td>+-</td>
+                <td>{skillLevel}</td>
+                <IncrementDecrementSkill skillName={skillName} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
                 </tr>
                         )
                     })
