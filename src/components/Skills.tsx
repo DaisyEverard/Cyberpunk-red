@@ -2,16 +2,24 @@ import SingleSkillTypeTable from './SingleSkillTypeTable';
 
 const Skills = () => {
   return (
-    <div className="box flex flex-wrap gap-2">
-      <SingleSkillTypeTable tableSkillType={'Awareness'} />
-      <SingleSkillTypeTable tableSkillType={'Body'} />
-      <SingleSkillTypeTable tableSkillType={'Control'} />
-      <SingleSkillTypeTable tableSkillType={'Education'} />
-      <SingleSkillTypeTable tableSkillType={'Fighting'} />
-      <SingleSkillTypeTable tableSkillType={'Performance'} />
-      <SingleSkillTypeTable tableSkillType={'Ranged Weapon'} />
-      <SingleSkillTypeTable tableSkillType={'Social'} />
-      <SingleSkillTypeTable tableSkillType={'Technique'} />
+    <div className="box flex gap-1">
+      <div className="flex flex-col flex-1">
+        <SingleSkillTypeTable tableSkillType={'Awareness'} />
+        <SingleSkillTypeTable tableSkillType={'Body'} />
+        <SingleSkillTypeTable tableSkillType={'Control'} />
+      </div>
+      <div className="flex flex-col flex-1">
+        <SingleSkillTypeTable tableSkillType={'Education'} />
+        <SingleSkillTypeTable tableSkillType={'Fighting'} />
+      </div>
+      <div className="flex flex-col flex-1">
+        <SingleSkillTypeTable tableSkillType={'Performance'} />
+        <SingleSkillTypeTable tableSkillType={'Ranged Weapon'} />
+        <SingleSkillTypeTable tableSkillType={'Social'} />
+      </div>
+      <div className="flex flex-col flex-1">
+        <SingleSkillTypeTable tableSkillType={'Technique'} />
+      </div>
     </div>
   );
 };
