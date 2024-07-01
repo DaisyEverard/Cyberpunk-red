@@ -18,6 +18,27 @@ const decrementHP = (HP: number, setHP: (newHP: number) => void) => {
   return success
 }
 
+const incrementHumanity = (humanity: number, setHumanity: (newHumanity: number) => void) => {
+    setHumanity(humanity + 1)
+}
+
+const decrementHumanity = (humanity: number, setHumanity: (newHumanity: number) => void, stats:  Record<string, number>, setStats: (stats:  Record<string, number>) => void) => {
+  let success = false
+  const startHumanityModulusTen = humanity % 10
+
+  if (humanity > 0 && startHumanityModulusTen == 0) {
+    // subtract one from emp
+    let newStats = {...stats}
+    newStats["EMP"] -= 1 
+    setStats(newStats)
+  }
+  if (humanity > 0) {
+    setHumanity(humanity - 1)
+    success = true
+  }
+  return success
+}
+
 // CALCULATIONS
 const calculateHPMax = (stats: Record<string, number>) => {
   const bodyWillAverage = Math.ceil((stats['BODY'] + stats['WILL']) / 2);
@@ -50,4 +71,15 @@ const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats:  R
   setHumanity(calculateHumanity(newStats));
 };
 
-export { incrementHP, decrementHP, calculateHP,calculateHPMax, calculateHumanity, updateHP, updateHumanity, isSeriouslyWounded};
+export { 
+  incrementHP, 
+  decrementHP,
+  incrementHumanity,
+  decrementHumanity,
+  calculateHP,
+  calculateHPMax, 
+  calculateHumanity, 
+  updateHP, 
+  updateHumanity, 
+  isSeriouslyWounded
+};

@@ -4,7 +4,7 @@ Derived Stats:
 Use modulus. if (humanity % 10) == 0 before removing a humanity point, EMP -= 1
 
 - raising humanity with therapy
-- calculate seriously wounded/death based on HP remaining
+- calculate death based on HP
 - Calculate death save
 
 Role Abilities:
