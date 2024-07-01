@@ -21,6 +21,7 @@ const SingleSkillTypeTable = ({tableSkillType}: SingleSkillTypeTableProps) => {
             <thead>
                 <tr>
                 <th>Skill Name</th>
+                <th>Cost</th>
                 <th>Level</th>
                 <th>adjuster buttons</th>
                 </tr>
@@ -28,9 +29,12 @@ const SingleSkillTypeTable = ({tableSkillType}: SingleSkillTypeTableProps) => {
             <tbody>
             {
                     skillsList.map((skill) => {
+                        const skillName = skill["name"]
+                        const pointCost = skill["x2"] ? 2 : 1
                         return (
-                            <tr key={skill["name"]}>
-                <td>{skill["name"]}</td>
+                            <tr key={skillName}>
+                <td>{skillName}</td>
+                <td>{pointCost}</td>
                 <td>0</td>
                 <td>+-</td>
                 </tr>
@@ -44,3 +48,12 @@ const SingleSkillTypeTable = ({tableSkillType}: SingleSkillTypeTableProps) => {
 }
 
 export default SingleSkillTypeTable
+
+//Characters get 86 Skill points to raise up any Skills they want.
+
+// No skill can be higher than 6.
+// The following Skills must be at least Level 2: Athletics, Brawling, Concentration, Conversation, Education, Evasion, First Aid, Human Perception, Language (Streetslang), Local Expert (Your Home), Perception, Persuasion, and Stealth.
+
+// Skills marked in the Master Skill List with a (x2) cost two Skill points to increase in level by one.
+//All other Skills cost one Skill point to increase in Level by one.
+// Don't forget the 4 Levels of Language you get free based on the Cultural Origin section of you Lifepath (See The Personals).

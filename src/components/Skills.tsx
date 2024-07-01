@@ -1,6 +1,16 @@
+import { useState } from 'react';
 import SingleSkillTypeTable from './SingleSkillTypeTable';
 
 const Skills = () => {
+  const [remainingPoints, setRemainingPoints] = useState(86);
+
+  const incrementRemainingPoints = (remainingPoints: number, setRemainingPoints: (newPoints: number) => void) => {
+    setRemainingPoints(remainingPoints + 1)
+  }
+  const decrementRemainingPoints = (remainingPoints: number, setRemainingPoints: (newPoints: number) => void) => {
+    setRemainingPoints(remainingPoints - 1)
+  }
+
   return (
     <div className="box flex gap-1">
       <div className="flex flex-col flex-1">
@@ -27,7 +37,6 @@ const Skills = () => {
 export default Skills;
 
 //Characters get 86 Skill points to raise up any Skills they want.
-
 // No skill can be higher than 6.
 // The following Skills must be at least Level 2: Athletics, Brawling, Concentration, Conversation, Education, Evasion, First Aid, Human Perception, Language (Streetslang), Local Expert (Your Home), Perception, Persuasion, and Stealth.
 

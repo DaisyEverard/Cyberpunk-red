@@ -1,7 +1,6 @@
 
 Derived Stats: 
-- When you lose Humanity points you will sometimes have to lower your EMP Statistic. This happens every time the tens place of your Humanity value is lowered. For instance, a Character with 44 Humanity has an EMP of 4 until their Humanity is lowered to 39, at which point their EMP lowers to 3.
-Use modulus. if (humanity % 10) == 0 before removing a humanity point, EMP -= 1
+figure out if anything except items lower humanity
 
 - raising humanity with therapy
 - calculate death based on HP
@@ -20,6 +19,7 @@ Modal:
 
 Skills tables:
 - remove tables and use cards for each skill instead? Maybe a row for each skill type with a card for each skill in it Would take up a lot more space but also probably look neater.
+- Make display responsive for small screens
 
 Styling:
 - Define custome colours in tailwind.config.js for the colour pallete (currently in index.css :root selector)
