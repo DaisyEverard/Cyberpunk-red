@@ -13,11 +13,13 @@ import './style/App.css';
 import './style/index.css';
 
 import defaultStats from './data/defaultStats.json';
+import defaultSkills from "./data/defaultSkills.json";
 
 export const RoleContext = createContext({});
 export const StatsContext = createContext({});
 export const HPContext = createContext({});
 export const HumanityContext = createContext({});
+export const SkillsContext = createContext({});
 
 const App = () => {
   const [name, setName] = useState('Johnny Silverhand');
@@ -25,12 +27,14 @@ const App = () => {
   const [stats, setStats] = useState(defaultStats);
   const [HP, setHP] = useState(calculateHP(stats));
   const [humanity, setHumanity] = useState(calculateHumanity(stats));
+  const [currentSkills, setCurrentSkills] = useState(defaultSkills);
 
   return (
     <RoleContext.Provider value={{ role, setRole }}>
       <StatsContext.Provider value={{ stats, setStats }}>
         <HPContext.Provider value={{ HP, setHP }}>
           <HumanityContext.Provider value={{ humanity, setHumanity }}>
+            <SkillsContext.Provider value={{ currentSkills, setCurrentSkills }}>
             <div className="flex flex-col h-screen w-screen overflow-hidden">
               <Header />
               <div className="flex flex-col items-center overflow-y-scroll my-1">
@@ -51,6 +55,7 @@ const App = () => {
                 </div>
               </div>
             </div>
+            </SkillsContext.Provider>
           </HumanityContext.Provider>
         </HPContext.Provider>
       </StatsContext.Provider>

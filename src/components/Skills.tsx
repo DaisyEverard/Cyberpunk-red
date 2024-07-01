@@ -1,24 +1,27 @@
+import { useState } from 'react';
 import SingleSkillTypeTable from './SingleSkillTypeTable';
 
 const Skills = () => {
+  const [remainingPoints, setRemainingPoints] = useState(86);
+
   return (
     <div className="box flex gap-1">
       <div className="flex flex-col flex-1">
-        <SingleSkillTypeTable tableSkillType={'Awareness'} />
-        <SingleSkillTypeTable tableSkillType={'Body'} />
-        <SingleSkillTypeTable tableSkillType={'Control'} />
+        <SingleSkillTypeTable tableSkillType={'Awareness'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
+        <SingleSkillTypeTable tableSkillType={'Body'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
+        <SingleSkillTypeTable tableSkillType={'Control'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
       </div>
       <div className="flex flex-col flex-1">
-        <SingleSkillTypeTable tableSkillType={'Education'} />
-        <SingleSkillTypeTable tableSkillType={'Fighting'} />
+        <SingleSkillTypeTable tableSkillType={'Education'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
+        <SingleSkillTypeTable tableSkillType={'Fighting'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
       </div>
       <div className="flex flex-col flex-1">
-        <SingleSkillTypeTable tableSkillType={'Performance'} />
-        <SingleSkillTypeTable tableSkillType={'Ranged Weapon'} />
-        <SingleSkillTypeTable tableSkillType={'Social'} />
+        <SingleSkillTypeTable tableSkillType={'Performance'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
+        <SingleSkillTypeTable tableSkillType={'Ranged Weapon'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
+        <SingleSkillTypeTable tableSkillType={'Social'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
       </div>
       <div className="flex flex-col flex-1">
-        <SingleSkillTypeTable tableSkillType={'Technique'} />
+        <SingleSkillTypeTable tableSkillType={'Technique'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
       </div>
     </div>
   );
@@ -27,7 +30,6 @@ const Skills = () => {
 export default Skills;
 
 //Characters get 86 Skill points to raise up any Skills they want.
-
 // No skill can be higher than 6.
 // The following Skills must be at least Level 2: Athletics, Brawling, Concentration, Conversation, Education, Evasion, First Aid, Human Perception, Language (Streetslang), Local Expert (Your Home), Perception, Persuasion, and Stealth.
 

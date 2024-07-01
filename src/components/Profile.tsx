@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import rolesJson from '../data/roles.json';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
-import { calculateHPMax, decrementHP, incrementHP } from '../utils/commonMethods';
+import { calculateHPMax, decrementAnyNumericalState, incrementAnyNumericalState } from '../utils/commonMethods';
 import { HPContext } from '../App';
 
 type ProfileProps = {
@@ -27,7 +27,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
     let HPChange = HPChangeInput.value
 
     if (HPChange == "") {
-      incrementHP(HP, setHP, HPMax)
+      incrementAnyNumericalState(HP, setHP, HPMax)
       HP += 1
     } else {
 
@@ -35,7 +35,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
 
     let success = true
     while (HPChange > 0 && success) {
-      success = incrementHP(HP, setHP, HPMax)
+      success = incrementAnyNumericalState(HP, setHP, HPMax)
       HPChange -= 1
       HP += 1
     }
@@ -50,14 +50,14 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
     let HPChange = HPChangeInput.value
 
     if (HPChange == "") {
-      decrementHP(HP, setHP)
+      decrementAnyNumericalState(HP, setHP)
       HP -= 1
     } else {
       HPChange = parseInt(HPChange)
 
     let success = true
     while (HPChange > 0 && success) {
-      success = decrementHP(HP, setHP)
+      success = decrementAnyNumericalState(HP, setHP)
       HPChange -= 1
       HP -= 1
     }}

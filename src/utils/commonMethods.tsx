@@ -1,18 +1,44 @@
 
 // INCREMENT / DECREMENT
-const incrementHP = (HP: number, setHP: (newHP: number) => void, maxHP: number) => {
+
+const incrementAnyNumericalState = (currentState: number, setState: (newState: number) => void, max: number = 999) => {
   let success = false
-  if (HP < maxHP) {
-    setHP(HP + 1)
+
+  const stateUnderMax = (max != 999) && (currentState < max)
+  const noMax = (max == 999)
+
+  if (stateUnderMax || noMax) {
+    setState(currentState + 1)
     success = true
   }
+
   return success
 }
 
-const decrementHP = (HP: number, setHP: (newHP: number) => void) => {
+
+const decrementAnyNumericalState = (currentState: number, setState: (newState: number) => void, min: number = 0) => {
   let success = false
-  if (HP > 0) {
-    setHP(HP - 1)
+
+  if (currentState > min) {
+    setState(currentState - 1)
+    success = true
+  }
+
+  return success
+}
+
+const decrementHumanity = (humanity: number, setHumanity: (newHumanity: number) => void, stats:  Record<string, number>, setStats: (stats:  Record<string, number>) => void) => {
+  let success = false
+  const startHumanityModulusTen = humanity % 10
+
+  if (humanity > 0 && startHumanityModulusTen == 0) {
+    // subtract one from emp
+    let newStats = {...stats}
+    newStats["EMP"] -= 1 
+    setStats(newStats)
+  }
+  if (humanity > 0) {
+    setHumanity(humanity - 1)
     success = true
   }
   return success
@@ -50,4 +76,14 @@ const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats:  R
   setHumanity(calculateHumanity(newStats));
 };
 
-export { incrementHP, decrementHP, calculateHP,calculateHPMax, calculateHumanity, updateHP, updateHumanity, isSeriouslyWounded};
+export { 
+  decrementAnyNumericalState,
+  incrementAnyNumericalState,
+  decrementHumanity,
+  calculateHP,
+  calculateHPMax, 
+  calculateHumanity, 
+  updateHP, 
+  updateHumanity, 
+  isSeriouslyWounded,
+};
