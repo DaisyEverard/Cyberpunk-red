@@ -21,6 +21,30 @@ const SingleSkillTypeTable = ({tableSkillType, remainingPoints, setRemainingPoin
         }
     }
 
+    const addNewOption = (currentSkills: Record<string, Record<string, any>>, setSkills: 
+        (currentSkills: Record<string, Record<string, any>>) => void,
+        skillName: string) => {
+            const newSkills = {...currentSkills}
+
+            const MAX_SKILL_POINTS = 6
+            let n = 1
+            let success = false
+            while (success == false && n < MAX_SKILL_POINTS) {
+                console.log(newSkills[skillName]["options"][`newOption${n}`] )
+                const optionExists = (newSkills[skillName]["options"][`newOption${n}`] || newSkills[skillName]["options"][`newOption${n}`] == 0)
+                console.log(optionExists)
+
+                if (optionExists) {
+                    n += 1;
+                    continue
+                } else {success = true}
+            }
+
+            console.log("n: ", n)
+            newSkills[skillName]["options"][`newOption${n}`] = 0
+            setSkills(newSkills)
+    }
+
     return (
         <div className="singleSkillTypeTable">
             <h4>{tableSkillType} Skills:</h4>
@@ -52,7 +76,7 @@ const SingleSkillTypeTable = ({tableSkillType, remainingPoints, setRemainingPoin
                         <IncrementDecrementSkill skillName={skillName} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
                         </tr>
 
-                        const optionsButton = hasOptions ? <tr className="font-bold bg-skill-option-bg-1" id="overwrite-nth-of-type-sorry-george"><p>+ Option</p></tr> : null
+                        const optionsButton = hasOptions ? <tr className="font-bold bg-skill-option-bg-1" id="overwrite-nth-of-type-sorry-george" onClick={(e) => {e.preventDefault(); addNewOption(currentSkills, setCurrentSkills, skillName)}}><p>+ Option</p></tr> : null
 
                         const options = []
                         if (hasOptions) {
