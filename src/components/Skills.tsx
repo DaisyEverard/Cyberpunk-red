@@ -5,7 +5,12 @@ const Skills = () => {
   const [remainingPoints, setRemainingPoints] = useState(86);
 
   return (
-    <div className="box flex gap-1">
+    <div className="box flex flex-col gap-1">
+      <div className='box flex flex-row gap-1'>
+        <p>Skill Points: </p>
+        <p>{remainingPoints}</p>
+      </div>
+      <div className='flex gap-1'>
       <div className="flex flex-col flex-1">
         <SingleSkillTypeTable tableSkillType={'Awareness'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
         <SingleSkillTypeTable tableSkillType={'Body'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
@@ -22,6 +27,7 @@ const Skills = () => {
       </div>
       <div className="flex flex-col flex-1">
         <SingleSkillTypeTable tableSkillType={'Technique'} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
+      </div>
       </div>
     </div>
   );
