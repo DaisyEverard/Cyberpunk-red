@@ -16,25 +16,25 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
     const skillStats = skillsJson.filter(skill => skill["name"] == skillName)
     const cost = skillStats[0]["x2"] ? 2 : 1
 
-    const increment = (currentSkills: Record<string, number>, setSkills: 
-      (currentSkills: Record<string, number>) => void, 
+    const increment = (currentSkills: Record<string, Record<string, any>>, setSkills: 
+      (currentSkills: Record<string, Record<string, any>>) => void, 
       skillName: string,
       remainingPoints: number,
       setRemainingPoints: (newPoints: number) => void,
       cost: number) => {
         const MAX_SKILL_LEVEL = 6
 
-        if ((currentSkills[skillName] < MAX_SKILL_LEVEL) && (remainingPoints > 0)) {
+        if ((currentSkills[skillName]["level"] < MAX_SKILL_LEVEL) && (remainingPoints > 0)) {
           const newSkills = {...currentSkills};
-          newSkills[skillName] += 1;
+          newSkills[skillName]["level"] += 1;
           setSkills(newSkills);
 
           setRemainingPoints(remainingPoints - cost)
         }
     }
 
-    const decrement = (currentSkills: Record<string, number>,
-      setSkills: (currentSkills: Record<string, number>) => void,
+    const decrement = (currentSkills: Record<string, Record<string, any>>,
+      setSkills: (currentSkills: Record<string, Record<string, any>>) => void,
       skillName: string,
       remainingPoints: number,
       setRemainingPoints: (newPoints: number) => void,
@@ -45,9 +45,9 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
           min_skill_level = 2
         }
 
-        if (currentSkills[skillName] > min_skill_level) {
+        if (currentSkills[skillName]["level"] > min_skill_level) {
             const newSkills = {...currentSkills};
-        newSkills[skillName] -= 1;
+        newSkills[skillName]["level"] -= 1;
         setSkills(newSkills);
         setRemainingPoints(remainingPoints + cost)
         }

@@ -103,7 +103,8 @@
         "level": 2,
         "has_options": true,
         "options": {
-            "Streetslang": 2
+            "Streetslang": 2,
+            "(Option From Cultural Origin)": 4
         }
     },
     "Library Search": {
