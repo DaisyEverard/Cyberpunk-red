@@ -39,9 +39,13 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
       remainingPoints: number,
       setRemainingPoints: (newPoints: number) => void,
       cost: number) => {
-        const MIN_SKILL_LEVEL = 0
+        const MIN_LEVEL_TWO_SKILLS = ["Athletics", "Brawling", "Concentration", "Conversation", "Education", "Evasion", "First Aid", "Human Perception", "Language", "Local Expert", "Perception", "Persuasion", "Stealth"]
+        let min_skill_level = 0
+        if (MIN_LEVEL_TWO_SKILLS.includes(skillName)) {
+          min_skill_level = 2
+        }
 
-        if (currentSkills[skillName] > MIN_SKILL_LEVEL) {
+        if (currentSkills[skillName] > min_skill_level) {
             const newSkills = {...currentSkills};
         newSkills[skillName] -= 1;
         setSkills(newSkills);
@@ -73,9 +77,11 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
 }
 
 export default IncrementDecrementSkill;
-//Characters get 86 Skill points to raise up any Skills they want.
-// The following Skills must be at least Level 2: Athletics, Brawling, Concentration, Conversation, Education, Evasion, First Aid, Human Perception, Language (Streetslang), Local Expert (Your Home), Perception, Persuasion, and Stealth.
 
-// Skills marked in the Master Skill List with a (x2) cost two Skill points to increase in level by one.
-//All other Skills cost one Skill point to increase in Level by one.
 // Don't forget the 4 Levels of Language you get free based on the Cultural Origin section of you Lifepath (See The Personals).
+
+// Skills where you have to choose options: 
+// Language - at least 2 in Language (Streetslang)
+// Local Expert - at least 2 in Local Expert (Your Home)
+// Instrument - choose an instrument
+// Martial Arts - (Karate, Taekwondo, Judo, aikido)
