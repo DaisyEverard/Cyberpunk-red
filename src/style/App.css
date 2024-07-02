@@ -20,7 +20,12 @@ tr {
 tr:nth-of-type(odd) {
   background-color: var(--light-red-bg-2);
 }
-
+.option-tr {
+  background-color: var(--skill-option-bg-1); 
+}
+.option-tr:nth-of-type(odd) {
+  background-color: var(--skill-option-bg-2) !important; 
+}
 /* GENERIC ITEMS */
 h4 {
   background: var(--dark-red-bg);

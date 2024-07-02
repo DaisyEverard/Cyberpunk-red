@@ -43,13 +43,29 @@ const SingleSkillTypeTable = ({tableSkillType, remainingPoints, setRemainingPoin
                         const skillName = skill["name"]
                         const pointCost = skill["x2"] ? 2 : 1
                         const skillLevel = currentSkills[skillName]["level"]
+                        const hasOptions = currentSkills[skillName]["has_options"]
+
+                        const mainHTMLRow = <tr key={skillName}>
+                        <td>{skillName}</td>
+                        <td>{pointCost}</td>
+                        <td>{skillLevel}</td>
+                        <IncrementDecrementSkill skillName={skillName} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
+                        </tr>
+
+                        const optionsButton = hasOptions ? <tr className="font-bold"><p>+ Option</p></tr> : null
+
+                        const options = []
+                        if (hasOptions) {
+                            Object.entries(currentSkills[skillName]["options"]).forEach(([optionName, level]) => {
+                                options.push (<tr className="option-tr">
+                                    <td>{optionName}</td>
+                                    <td>{level}</td>
+                                </tr>)
+                            })
+                        }
+
                         return (
-                            <tr key={skillName}>
-                <td>{skillName}</td>
-                <td>{pointCost}</td>
-                <td>{skillLevel}</td>
-                <IncrementDecrementSkill skillName={skillName} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
-                </tr>
+                            [mainHTMLRow, optionsButton, ...options]
                         )
                     })
                 }
