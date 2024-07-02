@@ -1,266 +1,68 @@
 {
-    "Concentration": {
-        "level": 2,
-        "has_options": false
-    },
-    "Conceal/Reveal Object": {
-        "level": 0,
-        "has_options": false
-    },
-    "Lip Reading": {
-        "level": 0,
-        "has_options": false
-    },
-    "Perception": {
-        "level": 2,
-        "has_options": false
-    },
-    "Tracking": {
-        "level": 0,
-        "has_options": false
-    },
-    "Athletics": {
-        "level": 2,
-        "has_options": false
-    },
-    "Contortionist": {
-        "level": 0,
-        "has_options": false
-    },
-    "Dance": {
-        "level": 0,
-        "has_options": false
-    },
-    "Endurance": {
-        "level": 0,
-        "has_options": false
-    },
-    "Resist Torture/Drugs": {
-        "level": 0,
-        "has_options": false
-    },
-    "Stealth": {
-        "level": 2,
-        "has_options": false
-    },
-    "Drive Land Vehicle": {
-        "level": 0,
-        "has_options": false
-    },
-    "Pilot Air Vehicle": {
-        "level": 0,
-        "has_options": false
-    },
-    "Pilot Sea Vehicle": {
-        "level": 0,
-        "has_options": false
-    },
-    "Riding": {
-        "level": 0,
-        "has_options": false
-    },
-    "Accounting": {
-        "level": 0,
-        "has_options": false
-    },
-    "Animal Handling": {
-        "level": 0,
-        "has_options": false
-    },
-    "Bureaucracy": {
-        "level": 0,
-        "has_options": false
-    },
-    "Business": {
-        "level": 0,
-        "has_options": false
-    },
-    "Composition": {
-        "level": 0,
-        "has_options": false
-    },
-    "Criminology": {
-        "level": 0,
-        "has_options": false
-    },
-    "Cryptography": {
-        "level": 0,
-        "has_options": false
-    },
-    "Deduction": {
-        "level": 0,
-        "has_options": false
-    },
-    "Education": {
-        "level": 2,
-        "has_options": false
-    },
-    "Gamble": {
-        "level": 0,
-        "has_options": false
-    },
-    "Language": {
-        "level": 2,
-        "has_options": true
-    },
-    "Library Search": {
-        "level": 0,
-        "has_options": false
-    },
-    "Local Expert": {
-        "level": 2,
-        "has_options": true
-    },
-    "Science": {
-        "level": 0,
-        "has_options": false
-    },
-    "Tactics": {
-        "level": 0,
-        "has_options": false
-    },
-    "Wilderness Survival": {
-        "level": 0,
-        "has_options": false
-    },
-    "Brawling": {
-        "level": 2,
-        "has_options": false
-    },
-    "Evasion": {
-        "level": 0,
-        "has_options": false
-    },
-    "Martial Arts": {
-        "level": 0,
-        "has_options": true
-    },
-    "Melee Weapon": {
-        "level": 0,
-        "has_options": false
-    },
-    "Acting": {
-        "level": 0,
-        "has_options": false
-    },
-    "Play Instrument": {
-        "level": 0,
-        "has_options": true
-    },
-    "Archery": {
-        "level": 0,
-        "has_options": false
-    },
-    "Autofire": {
-        "level": 0,
-        "has_options": false
-    },
-    "Handgun": {
-        "level": 0,
-        "has_options": false
-    },
-    "Heavy Weapons": {
-        "level": 0,
-        "has_options": false
-    },
-    "Shoulder Arms": {
-        "level": 0,
-        "has_options": false
-    },
-    "Bribery": {
-        "level": 0,
-        "has_options": false
-    },
-    "Conversation": {
-        "level": 2,
-        "has_options": false
-    },
-    "Human Perception": {
-        "level": 2,
-        "has_options": false
-    },
-    "Interrogation": {
-        "level": 0,
-        "has_options": false
-    },
-    "Persuasion": {
-        "level": 2,
-        "has_options": false
-    },
-    "Personal Grooming": {
-        "level": 0,
-        "has_options": false
-    },
-    "Streetwise": {
-        "level": 0,
-        "has_options": false
-    },
-    "Trading": {
-        "level": 0,
-        "has_options": false
-    },
-    "Wardrobe & Style": {
-        "level": 0,
-        "has_options": false
-    },
-    "Air Vehicle Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Basic Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Cybertech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Demolitions": {
-        "level": 0,
-        "has_options": false
-    },
-    "Electronics/Security Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "First Aid": {
-        "level": 2,
-        "has_options": false
-    },
-    "Forgery": {
-        "level": 0,
-        "has_options": false
-    },
-    "Land Vehicle Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Paint/Draw/Sculpt": {
-        "level": 0,
-        "has_options": false
-    },
-    "Paramedic": {
-        "level": 0,
-        "has_options": false
-    },
-    "Photography/Film": {
-        "level": 0,
-        "has_options": false
-    },
-    "Pick Lock": {
-        "level": 0,
-        "has_options": false
-    },
-    "Pick Pocket": {
-        "level": 0,
-        "has_options": false
-    },
-    "Sea Vehicle Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Weaponstech": {
-        "level": 0,
-        "has_options": false
-    }
+    "Concentration": 2,
+    "Conceal/Reveal Object": 0,
+    "Lip Reading": 0,
+    "Perception": 2,
+    "Tracking": 0,
+    "Athletics": 2,
+    "Contortionist": 0,
+    "Dance": 0,
+    "Endurance": 0,
+    "Resist Torture/Drugs": 0,
+    "Stealth": 2,
+    "Drive Land Vehicle": 0,
+    "Pilot Air Vehicle": 0,
+    "Pilot Sea Vehicle": 0,
+    "Riding": 0,
+    "Accounting": 0,
+    "Animal Handling": 0,
+    "Bureaucracy": 0,
+    "Business": 0,
+    "Composition": 0,
+    "Criminology": 0,
+    "Cryptography": 0,
+    "Deduction": 0,
+    "Education": 2,
+    "Gamble": 0,
+    "Language": 2,
+    "Library Search": 0,
+    "Local Expert": 2,
+    "Science": 0,
+    "Tactics": 0,
+    "Wilderness Survival": 0,
+    "Brawling": 2,
+    "Evasion": 0,
+    "Martial Arts": 0,
+    "Melee Weapon": 0,
+    "Acting": 0,
+    "Play Instrument": 0,
+    "Archery": 0,
+    "Autofire": 0,
+    "Handgun": 0,
+    "Heavy Weapons": 0,
+    "Shoulder Arms": 0,
+    "Bribery": 0,
+    "Conversation": 2,
+    "Human Perception": 2,
+    "Interrogation": 0,
+    "Persuasion": 2,
+    "Personal Grooming": 0,
+    "Streetwise": 0,
+    "Trading": 0,
+    "Wardrobe & Style": 0,
+    "Air Vehicle Tech": 0,
+    "Basic Tech": 0,
+    "Cybertech": 0,
+    "Demolitions": 0,
+    "Electronics/Security Tech": 0,
+    "First Aid": 2,
+    "Forgery": 0,
+    "Land Vehicle Tech": 0,
+    "Paint/Draw/Sculpt": 0,
+    "Paramedic": 0,
+    "Photography/Film": 0,
+    "Pick Lock": 0,
+    "Pick Pocket": 0,
+    "Sea Vehicle Tech": 0,
+    "Weaponstech": 0
 }
