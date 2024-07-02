@@ -10,6 +10,9 @@ export default {
         'heal-green': '#080',
         'damage-red': '#a11',
       },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
     },
   },
   plugins: [],
