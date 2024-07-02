@@ -16,28 +16,38 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
     const skillStats = skillsJson.filter(skill => skill["name"] == skillName)
     const cost = skillStats[0]["x2"] ? 2 : 1
 
-    const increment = (currentSkills: Record<string, number>, setSkills: 
-      (currentSkills: Record<string, number>) => void, 
+    const increment = (currentSkills: Record<string, Record<string, any>>, setSkills: 
+      (currentSkills: Record<string, Record<string, any>>) => void, 
       skillName: string,
       remainingPoints: number,
       setRemainingPoints: (newPoints: number) => void,
       cost: number) => {
-        const newSkills = {...currentSkills};
-        newSkills[skillName] += 1;
-        setSkills(newSkills);
+        const MAX_SKILL_LEVEL = 6
 
-        setRemainingPoints(remainingPoints - cost)
+        if ((currentSkills[skillName]["level"] < MAX_SKILL_LEVEL) && (remainingPoints > 0)) {
+          const newSkills = {...currentSkills};
+          newSkills[skillName]["level"] += 1;
+          setSkills(newSkills);
+
+          setRemainingPoints(remainingPoints - cost)
+        }
     }
 
-    const decrement = (currentSkills: Record<string, number>,
-      setSkills: (currentSkills: Record<string, number>) => void,
+    const decrement = (currentSkills: Record<string, Record<string, any>>,
+      setSkills: (currentSkills: Record<string, Record<string, any>>) => void,
       skillName: string,
       remainingPoints: number,
       setRemainingPoints: (newPoints: number) => void,
       cost: number) => {
-        if (currentSkills[skillName] > 0) {
+        const MIN_LEVEL_TWO_SKILLS = ["Athletics", "Brawling", "Concentration", "Conversation", "Education", "Evasion", "First Aid", "Human Perception", "Language", "Local Expert", "Perception", "Persuasion", "Stealth"]
+        let min_skill_level = 0
+        if (MIN_LEVEL_TWO_SKILLS.includes(skillName)) {
+          min_skill_level = 2
+        }
+
+        if (currentSkills[skillName]["level"] > min_skill_level) {
             const newSkills = {...currentSkills};
-        newSkills[skillName] -= 1;
+        newSkills[skillName]["level"] -= 1;
         setSkills(newSkills);
         setRemainingPoints(remainingPoints + cost)
         }
@@ -67,3 +77,15 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
 }
 
 export default IncrementDecrementSkill;
+
+// Don't forget the 4 Levels of Language you get free based on the Cultural Origin section of you Lifepath (See The Personals).
+
+// Skills where you have to choose options: 
+// Language - at least 2 in Language (Streetslang)
+// dealing with cultural origin. Must be at least 4 points, but they don't necessarily have to be in one language
+// provide 4 default options, total must be at least 4
+
+
+// Local Expert - at least 2 in Local Expert (Your Home)
+// Instrument - choose an instrument
+// Martial Arts - (Karate, Taekwondo, Judo, aikido) - restrict only to these options?
