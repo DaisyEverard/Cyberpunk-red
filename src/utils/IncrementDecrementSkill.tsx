@@ -14,9 +14,14 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
     const {currentSkills, setCurrentSkills} = useContext(SkillsContext)
 
     const skillStats = skillsJson.filter(skill => skill["name"] == skillName)
-    const cost = skillStats[0]["x2"]
+    const cost = skillStats[0]["x2"] ? 2 : 1
 
-    const increment = (currentSkills, setSkills, skillName, remainingPoints, setRemainingPoints, cost) => {
+    const increment = (currentSkills: Record<string, number>, setSkills: 
+      (currentSkills: Record<string, number>) => void, 
+      skillName: string,
+      remainingPoints: number,
+      setRemainingPoints: (newPoints: number) => void,
+      cost: number) => {
         const newSkills = {...currentSkills};
         newSkills[skillName] += 1;
         setSkills(newSkills);
@@ -24,7 +29,12 @@ const IncrementDecrementSkill = ({skillName, remainingPoints, setRemainingPoints
         setRemainingPoints(remainingPoints - cost)
     }
 
-    const decrement = (currentSkills, setSkills, skillName, remainingPoints, setRemainingPoints, cost) => {
+    const decrement = (currentSkills: Record<string, number>,
+      setSkills: (currentSkills: Record<string, number>) => void,
+      skillName: string,
+      remainingPoints: number,
+      setRemainingPoints: (newPoints: number) => void,
+      cost: number) => {
         if (currentSkills[skillName] > 0) {
             const newSkills = {...currentSkills};
         newSkills[skillName] -= 1;
