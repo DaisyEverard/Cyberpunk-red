@@ -104,7 +104,10 @@
         "has_options": true,
         "options": {
             "Streetslang": 2,
-            "(Option From Cultural Origin)": 4
+            "(Cultural Origin Option 1)": 1,
+            "(Cultural Origin Option 2)": 1,
+            "(Cultural Origin Option 3)": 1,
+            "(Cultural Origin Option 4)": 1
         }
     },
     "Library Search": {

@@ -82,6 +82,10 @@ export default IncrementDecrementSkill;
 
 // Skills where you have to choose options: 
 // Language - at least 2 in Language (Streetslang)
+// dealing with cultural origin. Must be at least 4 points, but they don't necessarily have to be in one language
+// provide 4 default options, total must be at least 4
+
+
 // Local Expert - at least 2 in Local Expert (Your Home)
 // Instrument - choose an instrument
-// Martial Arts - (Karate, Taekwondo, Judo, aikido)
+// Martial Arts - (Karate, Taekwondo, Judo, aikido) - restrict only to these options?
