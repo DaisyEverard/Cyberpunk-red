@@ -9,6 +9,8 @@ export default {
         'inactive-grey': '#ccc',
         'heal-green': '#080',
         'damage-red': '#a11',
+        'skill-option-bg-1': '#b1b1b1',
+        'skill-option-bg-2': '#797979',
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],

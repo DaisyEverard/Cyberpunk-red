@@ -6,26 +6,6 @@ h4 {
   min-width: 80px;
   overflow: hidden;
 }
-
-/* tables */
-table {
-  border: 2px solid black;
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 3px;
-}
-tr {
-  background-color: var(--light-red-bg-1);
-}
-tr:nth-of-type(odd) {
-  background-color: var(--light-red-bg-2);
-}
-.option-tr {
-  background-color: var(--skill-option-bg-1); 
-}
-.option-tr:nth-of-type(odd) {
-  background-color: var(--skill-option-bg-2) !important; 
-}
 /* GENERIC ITEMS */
 h4 {
   background: var(--dark-red-bg);
@@ -47,6 +27,15 @@ tr {
 }
 tr:nth-of-type(odd) {
   background-color: var(--light-red-bg-2);
+}
+.option-tr {
+  background-color: var(--skill-option-bg-1); 
+}
+.option-tr:nth-of-type(odd) {
+  background-color: var(--skill-option-bg-2) !important; 
+}
+#overwrite-nth-of-type-sorry-george {
+  background-color: var(--skill-option-bg-1); 
 }
 th {
   background-color: var(--table-header-background);
