@@ -20,9 +20,13 @@ Modal:
 Skills tables:
 - remove tables and use cards for each skill instead? Maybe a row for each skill type with a card for each skill in it Would take up a lot more space but also probably look neater.
 - Make display responsive for small screens
+- find the correct numbers for default skills
+- add logic to buy skills at character setup
 
 Styling:
 - Define custome colours in tailwind.config.js for the colour pallete (currently in index.css :root selector)
+- Create tabs: at least one for the character creation stage, and one for main play stage
+  - you can't freely change skill levels or stats after initial setup
 
 Cleanup:
 - Convert as much CSS as possible to Tailwind classes
