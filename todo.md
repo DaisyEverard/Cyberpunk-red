@@ -20,8 +20,16 @@ Modal:
 Skills tables:
 - remove tables and use cards for each skill instead? Maybe a row for each skill type with a card for each skill in it Would take up a lot more space but also probably look neater.
 - Make display responsive for small screens
-- find the correct numbers for default skills
-- add logic to buy skills at character setup
+Skills Options: 
+- customize (change names) of new options
+- Add a way to remove an option
+- Can't remove all language or local knowledge options as they have a mimum number of skills attached.
+- Can't remove local knowledge (your home) as this has a minimum of 2
+- Must keep at least one cultural background based language with a level of at least 4, or up to 4 cultural background langauges with a combined total of at least 4
+- Consider constricting options to set list for martial arts
+- Find out if there is a set list for instruments you can learn and consider constriction options for instrument
+- Find a better way to deal with the options CSS, currrently has ID to have specificitiy higher than nth-of-type selector. Tailwind version of important on the .option-tr selector.
+
 
 Styling:
 - Define custome colours in tailwind.config.js for the colour pallete (currently in index.css :root selector)

@@ -9,7 +9,6 @@ import Stats from './components/Stats';
 
 import { calculateHP, calculateHumanity } from './utils/commonMethods';
 
-import './style/App.css';
 import './style/index.css';
 
 import defaultStats from './data/defaultStats.json';
