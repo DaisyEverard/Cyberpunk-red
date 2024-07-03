@@ -54,6 +54,11 @@ body {
 @apply bg-white px-6 py-4 shadow rounded;
 }
 
+.health-button
+{
+  @apply rounded-md border-2 px-2 py-1 text-xs;
+}
+
 * {
   padding: 0;
   margin: 0;
