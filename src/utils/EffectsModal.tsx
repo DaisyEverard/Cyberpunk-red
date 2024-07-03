@@ -22,7 +22,6 @@ const EffectsModal = ({
   alt,
 }: EffectsModalProps) => {
   const key = title.toLowerCase();
-  console.log(iconMap[key]);
 
   return (
     <div style={{ display: modalDisplays[key] }}>

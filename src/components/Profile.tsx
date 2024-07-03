@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-
 import { EffectsContext, HPContext } from '../App';
+
 import rolesJson from '../data/roles.json';
 import { Effects, Stats } from '../types/types';
 import DropdownCell from '../utils/DropdownCell';
