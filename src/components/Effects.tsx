@@ -98,7 +98,7 @@ const Effects = () => {
             const skillLowerCase = skill['name'].toLowerCase();
             const svgPath = iconMap[skillLowerCase];
             const isActive = currentEffects[skillLowerCase]['active'];
-            const imageClasses = isActive ? 'h-9 underline decoration-damage-red' : 'h-9';
+            const imageClasses = isActive ? 'h-9 bg-damage-red border-2 border-black' : 'h-9';
 
             return (
               <div
@@ -127,11 +127,6 @@ const Effects = () => {
               </div>
             );
           })}
-          {/* {isSeriouslyWounded(stats, HP) ? (
-            <p className="text-damage-red">Seriously Wounded</p>
-          ) : (
-            <p className="text-inactive-grey">Seriously Wounded</p>
-          )} */}
         </div>
       </div>
     </div>

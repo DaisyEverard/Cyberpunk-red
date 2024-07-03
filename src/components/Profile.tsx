@@ -1,11 +1,17 @@
 import { useContext } from 'react';
 
-import { HPContext } from '../App';
+import { EffectsContext, HPContext } from '../App';
 import rolesJson from '../data/roles.json';
-import { Stats } from '../types/types';
+import { Effects, Stats } from '../types/types';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
-import { calculateHPMax, decrementAnyNumericalState, incrementAnyNumericalState } from '../utils/commonMethods';
+import {
+  calculateHPMax,
+  decrementAnyNumericalState,
+  incrementAnyNumericalState,
+  isSeriouslyWounded,
+  setEffect,
+} from '../utils/commonMethods';
 
 type ProfileProps = {
   name: string;
@@ -21,8 +27,15 @@ const allRoles = Object.keys(rolesJson);
 
 const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }: ProfileProps) => {
   const { HP, setHP } = useContext(HPContext);
+  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
 
-  const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
+  const heal = (
+    stats: Stats,
+    HP: number,
+    setHP: (newHP: number) => void,
+    effects: Effects,
+    setEffects: (newEffects: Effects) => void,
+  ) => {
     const HPChangeInput = document.querySelector('#HPChangeInput');
     const HPMax = calculateHPMax(stats);
     let HPChange = HPChangeInput.value;
@@ -41,10 +54,19 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
       }
     }
 
+    if (!isSeriouslyWounded(stats, HP)) {
+      setEffect(effects, setEffects, false, 'seriously wounded');
+    }
+
     HPChangeInput.value = null;
   };
 
-  const takeDamage = (HP: number, setHP: (newHP: number) => void) => {
+  const takeDamage = (
+    HP: number,
+    setHP: (newHP: number) => void,
+    effects: Effects,
+    setEffects: (newEffects: Effects) => void,
+  ) => {
     const HPChangeInput = document.querySelector('#HPChangeInput');
     let HPChange = HPChangeInput.value;
 
@@ -60,6 +82,10 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
         HPChange -= 1;
         HP -= 1;
       }
+    }
+
+    if (isSeriouslyWounded(stats, HP)) {
+      setEffect(effects, setEffects, true, 'seriously wounded');
     }
 
     HPChangeInput.value = null;
@@ -102,7 +128,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
             className="rounded-md border-2 p-0.5 text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              heal(stats, HP, setHP);
+              heal(stats, HP, setHP, currentEffects, setCurrentEffects);
             }}
           >
             HEAL
@@ -118,7 +144,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
             className="rounded-md border-2 p-0.5 text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              takeDamage(HP, setHP);
+              takeDamage(HP, setHP, currentEffects, setCurrentEffects);
             }}
           >
             DAMAGE

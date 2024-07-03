@@ -33,6 +33,14 @@ Skills tables:
 
 Critical Injuries
 
+Armour/Damage:
+Whenever you take damage:
+
+1. Your Attacker rolls the damage for their attack.
+2. Subtract your armor's SP in that location (if they didn't target your head using an Aimed Shot, this is always your body location) from the damage.\* Subtract any remaining damage from your Hit Points.
+3. If you ended up taking any damage, your armor on that location is still ablated, reducing its SP by 1 point, until it is repaired.
+   \*Some things that cause damage, like poisons and fire, bypass armor.
+
 Styling:
 
 - Define custome colours in tailwind.config.js for the colour pallete (currently in index.css :root selector)
