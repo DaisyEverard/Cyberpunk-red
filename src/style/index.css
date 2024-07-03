@@ -4,14 +4,45 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* GENERIC ITEMS */
+  h4 {
+    @apply bg-main-dark-bg;
+    @apply text-white;
+    padding: 3px;
+    min-width: 80px;
+    overflow: hidden;
+  }
+  /* TABLES */
+  table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  tr {
+    @apply bg-light-red-1;
+  }
+  tr:nth-of-type(odd) {
+    @apply bg-light-red-2;
+  }
+  .option-tr, #overwrite-nth-of-type-bg-color {
+    @apply bg-skill-option-bg-1;
+  }
+  .option-tr:nth-of-type(odd) {
+    @apply bg-skill-option-bg-2;
+  }
+  th {
+    @apply text-table-header-text;
+    @apply bg-table-header-bg;
+  }
+
+}
+
 :root {
   --dark-red-bg: #971919;
   --light-red-bg-1: #fcd8d8;
   --light-red-bg-2: #ffb9b9;
-  --skill-option-bg-1: #b1b1b1;
-  --skill-option-bg-2: #797979;
-  --table-header-background: #e3e3e3;
-  --table-header-text: #000;
   --body-bg-color: #fff;
 }
 

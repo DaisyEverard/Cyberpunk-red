@@ -76,7 +76,7 @@ const SingleSkillTypeTable = ({tableSkillType, remainingPoints, setRemainingPoin
                         <IncrementDecrementSkill skillName={skillName} remainingPoints={remainingPoints} setRemainingPoints={setRemainingPoints}/>
                         </tr>
 
-                        const optionsButton = hasOptions ? <tr className="font-bold bg-skill-option-bg-1" id="overwrite-nth-of-type-sorry-george" onClick={(e) => {e.preventDefault(); addNewOption(currentSkills, setCurrentSkills, skillName)}}><p>+ Option</p></tr> : null
+                        const optionsButton = hasOptions ? <tr className="font-bold bg-skill-option-bg-1" id="overwrite-nth-of-type-bg-color" onClick={(e) => {e.preventDefault(); addNewOption(currentSkills, setCurrentSkills, skillName)}}><p>+ Option</p></tr> : null
 
                         const options = []
                         if (hasOptions) {
