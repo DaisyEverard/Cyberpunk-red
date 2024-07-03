@@ -12,18 +12,16 @@ import empSVG from '../assets/icons/emp.svg';
 import energizedSVG from '../assets/icons/energized.svg';
 import hydrationSVG from '../assets/icons/hydration.svg';
 import knockdownSVG from '../assets/icons/knockdown.svg';
+import mortallyWoundedSVG from '../assets/icons/mortally wounded.svg';
 import nourishmentSVG from '../assets/icons/nourishment.svg';
 import poisonSVG from '../assets/icons/poison.svg';
 import refreshedSVG from '../assets/icons/refreshed.svg';
 import restedSVG from '../assets/icons/rested.svg';
+import seriouslyWoundedSVG from '../assets/icons/seriously wounded.svg';
 import stunSVG from '../assets/icons/stun.svg';
-import mortallyWoundedSVG from '../assets/icons/mortally wounded.svg'
-import seriouslyWoundedSVG from '../assets/icons/seriously wounded.svg'
-
 import effectJson from '../data/effects.json';
-
 import EffectsModal from '../utils/EffectsModal';
-import { isSeriouslyWounded, isMortallyWounded } from '../utils/commonMethods';
+import { isMortallyWounded, isSeriouslyWounded } from '../utils/commonMethods';
 
 const iconMap = {
   bleed: bleedSVG,
@@ -63,14 +61,12 @@ const defaultModalDisplays: Record<string, string> = {
   'seriously wounded': 'none',
 };
 
-const isActive = (skills, skillName: string) => {
-
-}
+const isActive = (skills, skillName: string) => {};
 
 const Effects = () => {
   const { HP, setHP } = useContext(HPContext);
   const { stats, setStats } = useContext(StatsContext);
-  const { currentEffects, setCurrentEffects } = useContext(EffectsContext); 
+  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
 
   const [modalDisplays, setModalDisplays] = useState(defaultModalDisplays);
 
@@ -98,13 +94,11 @@ const Effects = () => {
       <div className="flex flex-col gap-2">
         Effects
         <div className="flex">
-
-
           {effectJson.map(skill => {
             const skillLowerCase = skill['name'].toLowerCase();
             const svgPath = iconMap[skillLowerCase];
-            const isActive = currentEffects[skillLowerCase]["active"]
-            const imageClasses = isActive ? 'h-9 underline decoration-damage-red' : 'h-9'
+            const isActive = currentEffects[skillLowerCase]['active'];
+            const imageClasses = isActive ? 'h-9 underline decoration-damage-red' : 'h-9';
 
             return (
               <div

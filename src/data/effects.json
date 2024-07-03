@@ -1,98 +1,98 @@
 [
-    {
-        "name": "Hydration",
-        "description": "After consuming a refreshing beverage, your max Stamina is increased by 10% and your Stamina Regeneration rate is increased by 50% for 450 seconds. This duration can be increased by up to 50% with the Innovation perk",
-        "category": "Positive",
-        "alt": "Glass filled with liquid"
-    },
-    {
-        "name": "Nourishment",
-        "description": "After consuming a nourishing meal, your max Health is increased by 5% and you regenerate 0.5% Health per second outside of combat for 450 seconds. This duration can be increased by up to 50% with the Innovation perk",
-        "category": "Positive",
-        "alt": "Burger"
-    },
-    {
-        "name": "Refreshed",
-        "description": "After taking a refreshing shower in an apartment, you regenerate Health during combat for 1 hour. If you possess the Regeneration perk, it will instead increase your Health regeneration rate by 20% and your Health regeneration threshold by 20%",
-        "category": "Positive",
-        "alt": "Soap with bubble"
-    },
-    {
-        "name": "Rested",
-        "description": "After sleeping in your bed in an apartment, you will earn 20% increased experience for Skills for 1 hour. Sleeping in a bed will forward time, possibly causing you to lose benefits from other buffs as they expire",
-        "category": "Positive",
-        "alt": "3 Zs"
-    },
-    {
-        "name": "Energized",
-        "description": "After drinking coffee from either the Corpo Plaza Apartment or the Glen Apartment, your maximum stamina is increased by 25% and your stamina regeneration rate is increased by 30%. Effects also last for an hour, before wearing off. You cannot drink from the coffee machine again until leaving the apartment",
-        "category": "Positive",
-        "alt": "Steaming cup of coffee"
-    },
-    {
-        "name": "Bleed",
-        "description": "Bleed is inflicted by Physical damage, that can be dealt by various weapons. A target afflicted by a Bleed will receive Physical damage over a short duration, is unable to sprint and suffers from a reduction in jump height.\n\nV is able to become immune to the Bleed effect by equipping the Cut-It-Out Clothing Mod, or with the Supra-Dermal Weave Cyberware",
-        "category": "Negative",
-        "alt": "Blood drop with a minus symbol"
-    },
-    {
-        "name": "Blind",
-        "description": "Blind is inflicted by Device Quickhacks or X-22 Flashbang Grenades. A target affected by blind has their vision temporarily impaired, reducing their ability to detect enemies and hindering their movement for a short duration",
-        "category": "Negative",
-        "alt": "Closed eye"
-    },
-    {
-        "name": "Burn",
-        "description": "Burn is inflicted by Thermal damage, which can be dealt by various weapons, the Overheat Quickhack, exploding barrels and devices. A target afflicted by Burn will suffer high Thermal damage over short duration.\n\nV is able to become immune to the Burn effect by equipping the Coolit Clothing Mod, or with the Fireproof Coating Cyberware. Another option is the Heat Converter implant, which not only grants immunity to Burn but also grants a 10% damage increase",
-        "category": "Negative",
-        "alt": "Fire"
-    },
-    {
-        "name": "Cripple",
-        "description": "Targets can be come Crippled when shot in their limbs. When Crippled, the combat and/or movement effectiveness is severely limited depending on which limbs are hit",
-        "category": "Negative",
-        "alt": "Person with a crutch, bandages, and an IV"
-    },
-    {
-        "name": "Drunk",
-        "description": "After consuming any alcoholic beverage, the user becomes Drunk, reducing movement speed by 10% and reducing accuracy with weapons by 50% for 30 seconds",
-        "category": "Negative",
-        "alt": "Glass of beer"
-    },
-    {
-        "name": "EMP",
-        "description": "Electro-Magnetic Pulse, or EMP for short, briefly deactivates or severely limits the combat effectiveness of Mechs, Drones and Robots while also dealing additional damage to these types of Enemies. This bonus can be further increased using the Bladerunner Perk in the Engineering Perk tree.\n\nEMP's have a chance to be triggered by Electrical damage or by the Short Circuit Quickhack.\n\nV is able to become immune to the EMP effect by equipping a Superinsulator Clothing Mod, or with the Grounding Plating Cyberware, or with the Insulation perk. Another option is the Inductor implant, which not only grants immunity to EMP and Shock but also grants a 50% Armor increase, however Inductor's Armor buff is not applied if you are also using Grounding Plating",
-        "category": "Negative",
-        "alt": "Empty battery symbol with a slash through it"
-    },
-    {
-        "name": "Knockdown",
-        "description": "Targets hit with a Blunt melee weapon's heavy attack or the Gorilla Arms have a chance to be knocked down onto the ground, revealing Weakspots[citation needed].\n\nV is able to become immune to the knockdown effect from enemies with The Rock (perk)",
-        "category": "Negative",
-        "alt": "Person lying down with a leg in the air"
-    },
-    {
-        "name": "Poison",
-        "description": "Poison is inflicted by Chemical Damage, which can be dealt by various weapons or the Contagion Quickhack. A target afflicted by a Poison will receive Chemical damage over a short duration, a reduction in Armor and is unable to move faster than normal movement speed.\n\nV is able to become immune to the Poison effect by either equipping an Antivenom Clothing Mod, or with the Detoxifier Cyberware, or with the Aggressive Antitoxins perk. Another option is the Metabolic Editor implant, which regenerates health instead of reducing it",
-        "category": "Negative",
-        "alt": "A bottle with a skull and crossbones on it"
-    },
-    {
-        "name": "Stun",
-        "description": "Stuns are inflicted by Blunt melee weapons and Gorilla Arms. Targets afflicted by a Stun are immobilized for a short duration, leaving them vulnerable",
-        "category": "Negative",
-        "alt": "A stunned face"
-    },
-    {
-        "name": "Seriously Wounded",
-        "description": "Less than 1/2 HP.\n-2 to all actions.\nStabilization DV: DV13",
-        "category": "Negative",
-        "alt": ""
-    },
-    {
-        "name": "Mortally Wounded",
-        "description": "Less than 1 HP.\n-6 to all actions.\n-6 to MOVE (minimum 1)\nMust make a death save at the start of each turn\nWhen they are damaged by a Melee or Ranged Attack, they suffer a Critical Injury and their Death Save penalty increases by 1\nStabilization DV: DV15 to heal back to 1HP and Unconscious (Gone from the world for 1 minute)",
-        "category": "Negative",
-        "alt": ""
-    }
+  {
+    "name": "Hydration",
+    "description": "After consuming a refreshing beverage, your max Stamina is increased by 10% and your Stamina Regeneration rate is increased by 50% for 450 seconds. This duration can be increased by up to 50% with the Innovation perk",
+    "category": "Positive",
+    "alt": "Glass filled with liquid"
+  },
+  {
+    "name": "Nourishment",
+    "description": "After consuming a nourishing meal, your max Health is increased by 5% and you regenerate 0.5% Health per second outside of combat for 450 seconds. This duration can be increased by up to 50% with the Innovation perk",
+    "category": "Positive",
+    "alt": "Burger"
+  },
+  {
+    "name": "Refreshed",
+    "description": "After taking a refreshing shower in an apartment, you regenerate Health during combat for 1 hour. If you possess the Regeneration perk, it will instead increase your Health regeneration rate by 20% and your Health regeneration threshold by 20%",
+    "category": "Positive",
+    "alt": "Soap with bubble"
+  },
+  {
+    "name": "Rested",
+    "description": "After sleeping in your bed in an apartment, you will earn 20% increased experience for Skills for 1 hour. Sleeping in a bed will forward time, possibly causing you to lose benefits from other buffs as they expire",
+    "category": "Positive",
+    "alt": "3 Zs"
+  },
+  {
+    "name": "Energized",
+    "description": "After drinking coffee from either the Corpo Plaza Apartment or the Glen Apartment, your maximum stamina is increased by 25% and your stamina regeneration rate is increased by 30%. Effects also last for an hour, before wearing off. You cannot drink from the coffee machine again until leaving the apartment",
+    "category": "Positive",
+    "alt": "Steaming cup of coffee"
+  },
+  {
+    "name": "Bleed",
+    "description": "Bleed is inflicted by Physical damage, that can be dealt by various weapons. A target afflicted by a Bleed will receive Physical damage over a short duration, is unable to sprint and suffers from a reduction in jump height.\n\nV is able to become immune to the Bleed effect by equipping the Cut-It-Out Clothing Mod, or with the Supra-Dermal Weave Cyberware",
+    "category": "Negative",
+    "alt": "Blood drop with a minus symbol"
+  },
+  {
+    "name": "Blind",
+    "description": "Blind is inflicted by Device Quickhacks or X-22 Flashbang Grenades. A target affected by blind has their vision temporarily impaired, reducing their ability to detect enemies and hindering their movement for a short duration",
+    "category": "Negative",
+    "alt": "Closed eye"
+  },
+  {
+    "name": "Burn",
+    "description": "Burn is inflicted by Thermal damage, which can be dealt by various weapons, the Overheat Quickhack, exploding barrels and devices. A target afflicted by Burn will suffer high Thermal damage over short duration.\n\nV is able to become immune to the Burn effect by equipping the Coolit Clothing Mod, or with the Fireproof Coating Cyberware. Another option is the Heat Converter implant, which not only grants immunity to Burn but also grants a 10% damage increase",
+    "category": "Negative",
+    "alt": "Fire"
+  },
+  {
+    "name": "Cripple",
+    "description": "Targets can be come Crippled when shot in their limbs. When Crippled, the combat and/or movement effectiveness is severely limited depending on which limbs are hit",
+    "category": "Negative",
+    "alt": "Person with a crutch, bandages, and an IV"
+  },
+  {
+    "name": "Drunk",
+    "description": "After consuming any alcoholic beverage, the user becomes Drunk, reducing movement speed by 10% and reducing accuracy with weapons by 50% for 30 seconds",
+    "category": "Negative",
+    "alt": "Glass of beer"
+  },
+  {
+    "name": "EMP",
+    "description": "Electro-Magnetic Pulse, or EMP for short, briefly deactivates or severely limits the combat effectiveness of Mechs, Drones and Robots while also dealing additional damage to these types of Enemies. This bonus can be further increased using the Bladerunner Perk in the Engineering Perk tree.\n\nEMP's have a chance to be triggered by Electrical damage or by the Short Circuit Quickhack.\n\nV is able to become immune to the EMP effect by equipping a Superinsulator Clothing Mod, or with the Grounding Plating Cyberware, or with the Insulation perk. Another option is the Inductor implant, which not only grants immunity to EMP and Shock but also grants a 50% Armor increase, however Inductor's Armor buff is not applied if you are also using Grounding Plating",
+    "category": "Negative",
+    "alt": "Empty battery symbol with a slash through it"
+  },
+  {
+    "name": "Knockdown",
+    "description": "Targets hit with a Blunt melee weapon's heavy attack or the Gorilla Arms have a chance to be knocked down onto the ground, revealing Weakspots[citation needed].\n\nV is able to become immune to the knockdown effect from enemies with The Rock (perk)",
+    "category": "Negative",
+    "alt": "Person lying down with a leg in the air"
+  },
+  {
+    "name": "Poison",
+    "description": "Poison is inflicted by Chemical Damage, which can be dealt by various weapons or the Contagion Quickhack. A target afflicted by a Poison will receive Chemical damage over a short duration, a reduction in Armor and is unable to move faster than normal movement speed.\n\nV is able to become immune to the Poison effect by either equipping an Antivenom Clothing Mod, or with the Detoxifier Cyberware, or with the Aggressive Antitoxins perk. Another option is the Metabolic Editor implant, which regenerates health instead of reducing it",
+    "category": "Negative",
+    "alt": "A bottle with a skull and crossbones on it"
+  },
+  {
+    "name": "Stun",
+    "description": "Stuns are inflicted by Blunt melee weapons and Gorilla Arms. Targets afflicted by a Stun are immobilized for a short duration, leaving them vulnerable",
+    "category": "Negative",
+    "alt": "A stunned face"
+  },
+  {
+    "name": "Seriously Wounded",
+    "description": "Less than 1/2 HP.\n-2 to all actions.\nStabilization DV: DV13",
+    "category": "Negative",
+    "alt": ""
+  },
+  {
+    "name": "Mortally Wounded",
+    "description": "Less than 1 HP.\n-6 to all actions.\n-6 to MOVE (minimum 1)\nMust make a death save at the start of each turn\nWhen they are damaged by a Melee or Ranged Attack, they suffer a Critical Injury and their Death Save penalty increases by 1\nStabilization DV: DV15 to heal back to 1HP and Unconscious (Gone from the world for 1 minute)",
+    "category": "Negative",
+    "alt": ""
+  }
 ]

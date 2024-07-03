@@ -7,16 +7,19 @@ type IncrementDecrementStatProps = {
   statName: string;
   remainingPoints: number;
   setRemainingPoints: (points: number) => void;
+};
 
-}
-
-const IncrementDecrementStat = ({statName, remainingPoints, setRemainingPoints}: IncrementDecrementStatProps) => {
-
+const IncrementDecrementStat = ({ statName, remainingPoints, setRemainingPoints }: IncrementDecrementStatProps) => {
   const { HP, setHP } = useContext(HPContext);
   const { stats, setStats } = useContext(StatsContext);
   const { humanity, setHumanity } = useContext(HumanityContext);
 
-  const increment = (stats:  Record<string, number>, statName: string, remainingPoints: number, setRemainingPoints: (points: number) => void) => {
+  const increment = (
+    stats: Record<string, number>,
+    statName: string,
+    remainingPoints: number,
+    setRemainingPoints: (points: number) => void,
+  ) => {
     if (remainingPoints > 0 && stats[statName] < 8) {
       const newStats = { ...stats };
       newStats[statName] += 1;
@@ -27,7 +30,12 @@ const IncrementDecrementStat = ({statName, remainingPoints, setRemainingPoints}:
       setRemainingPoints(remainingPoints - 1);
     }
   };
-  const decrement = (stats:  Record<string, number>, statName:string, remainingPoints: number, setRemainingPoints: (points: number) => void) => {
+  const decrement = (
+    stats: Record<string, number>,
+    statName: string,
+    remainingPoints: number,
+    setRemainingPoints: (points: number) => void,
+  ) => {
     if (stats[statName] > 2) {
       const newStats = { ...stats };
       newStats[statName] -= 1;
@@ -43,7 +51,7 @@ const IncrementDecrementStat = ({statName, remainingPoints, setRemainingPoints}:
     <td>
       <button
         onClick={e => {
-          e.preventDefault()
+          e.preventDefault();
           increment(stats, statName, remainingPoints, setRemainingPoints);
         }}
       >
@@ -51,7 +59,7 @@ const IncrementDecrementStat = ({statName, remainingPoints, setRemainingPoints}:
       </button>
       <button
         onClick={e => {
-          e.preventDefault()
+          e.preventDefault();
           decrement(stats, statName, remainingPoints, setRemainingPoints);
         }}
       >

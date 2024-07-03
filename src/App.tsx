@@ -11,9 +11,9 @@ import { calculateHP, calculateHumanity } from './utils/commonMethods';
 
 import './style/index.css';
 
+import defaultEffects from './data/defaultEffects.json';
+import defaultSkills from './data/defaultSkills.json';
 import defaultStats from './data/defaultStats.json';
-import defaultSkills from "./data/defaultSkills.json";
-import defaultEffects from "./data/defaultEffects.json";
 
 export const RoleContext = createContext({});
 export const StatsContext = createContext({});
@@ -31,7 +31,6 @@ const App = () => {
   const [currentSkills, setCurrentSkills] = useState(defaultSkills);
   const [currentEffects, setCurrentEffects] = useState(defaultEffects);
 
-
   return (
     <RoleContext.Provider value={{ role, setRole }}>
       <StatsContext.Provider value={{ stats, setStats }}>
@@ -39,7 +38,6 @@ const App = () => {
           <HumanityContext.Provider value={{ humanity, setHumanity }}>
             <SkillsContext.Provider value={{ currentSkills, setCurrentSkills }}>
               <EffectsContext.Provider value={{ currentEffects, setCurrentEffects }}>
-
                 <div className="flex flex-col h-screen w-screen overflow-hidden">
                   <Header />
                   <div className="flex flex-col items-center overflow-y-scroll my-1">
@@ -60,7 +58,6 @@ const App = () => {
                     </div>
                   </div>
                 </div>
-                
               </EffectsContext.Provider>
             </SkillsContext.Provider>
           </HumanityContext.Provider>

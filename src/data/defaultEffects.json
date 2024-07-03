@@ -1,50 +1,50 @@
 {
-    "hydration": {
-        "active": false
-    },
-    "nourishment": {
-        "active": false
-    },
-    "refreshed": {
-        "active": false
-    },
-    "rested": {
-        "active": false
-    },
-    "energized": {
-        "active": false
-    },
-    "bleed": {
-        "active": false
-    },
-    "blind": {
-        "active": false
-    },
-    "burn": {
-        "active": false
-    },
-    "cripple": {
-        "active": false
-    },
-    "drunk": {
-        "active": false
-    },
-    "emp": {
-        "active": false
-    },
-    "knockdown": {
-        "active": false
-    },
-    "poison": {
-        "active": false
-    },
-    "stun": {
-        "active": false
-    },
-    "seriously wounded": {
-        "active": false
-    },
-    "mortally wounded": {
-        "active": false
-    }
+  "hydration": {
+    "active": false
+  },
+  "nourishment": {
+    "active": false
+  },
+  "refreshed": {
+    "active": false
+  },
+  "rested": {
+    "active": false
+  },
+  "energized": {
+    "active": false
+  },
+  "bleed": {
+    "active": false
+  },
+  "blind": {
+    "active": false
+  },
+  "burn": {
+    "active": false
+  },
+  "cripple": {
+    "active": false
+  },
+  "drunk": {
+    "active": false
+  },
+  "emp": {
+    "active": false
+  },
+  "knockdown": {
+    "active": false
+  },
+  "poison": {
+    "active": false
+  },
+  "stun": {
+    "active": false
+  },
+  "seriously wounded": {
+    "active": false
+  },
+  "mortally wounded": {
+    "active": false
+  }
 }
