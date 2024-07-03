@@ -28,7 +28,7 @@ Skills Options:
 - Must keep at least one cultural background based language with a level of at least 4, or up to 4 cultural background langauges with a combined total of at least 4
 - Consider constricting options to set list for martial arts
 - Find out if there is a set list for instruments you can learn and consider constriction options for instrument
-- Sort out the horror css with the nth of row tr overriding the tailwind classes, and overriding that with an ID.
+- Find a better way to deal with the options CSS, currrently has ID to have specificitiy higher than nth-of-type selector. Tailwind version of important on the .option-tr selector.
 
 
 Styling:
