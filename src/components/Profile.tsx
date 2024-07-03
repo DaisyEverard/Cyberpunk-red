@@ -125,7 +125,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
         <div className="flex flex-col justify-center items-center ml-3">
           {/* these should probably be green and red but ¯\_(ツ)_/¯ how fill? stroke??*/}
           <p
-            className="rounded-md border-2 p-0.5 text-heal-green border-heal-green"
+            className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
               heal(stats, HP, setHP, currentEffects, setCurrentEffects);
@@ -141,7 +141,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
             min={0}
           ></input>
           <p
-            className="rounded-md border-2 p-0.5 text-damage-red border-damage-red"
+            className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
               takeDamage(HP, setHP, currentEffects, setCurrentEffects);
