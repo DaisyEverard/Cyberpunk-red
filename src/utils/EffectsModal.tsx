@@ -1,4 +1,4 @@
-type ModalForMapStateProps = {
+type EffectsModalProps = {
   title: string;
   content: string;
   modalDisplays: Record<string, string>;
@@ -12,7 +12,7 @@ type ModalForMapStateProps = {
   alt: string;
 };
 
-const ModalForMapState = ({
+const EffectsModal = ({
   title,
   content,
   modalDisplays,
@@ -20,7 +20,7 @@ const ModalForMapState = ({
   toggleModalDisplays,
   iconMap,
   alt,
-}: ModalForMapStateProps) => {
+}: EffectsModalProps) => {
   const key = title.toLowerCase();
   console.log(iconMap[key]);
 
@@ -57,4 +57,4 @@ const ModalForMapState = ({
   );
 };
 
-export default ModalForMapState;
+export default EffectsModal;
