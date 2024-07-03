@@ -83,9 +83,14 @@ const isMortallyWounded = (stats: Stats, HP: number) => {
 };
 
 // TOGGLE EFFECTS
-const setSeriouslyWounded = (effects: Effects, setEffects: (newEffects: Effects) => void, trueOrFalse: boolean) => {
+const setEffect = (
+  effects: Effects,
+  setEffects: (newEffects: Effects) => void,
+  trueOrFalse: boolean,
+  effectName: string,
+) => {
   const newEffects = { ...effects };
-  newEffects['seriously wounded']['active'] = trueOrFalse;
+  newEffects[effectName]['active'] = trueOrFalse;
   setEffects(newEffects);
 };
 
@@ -108,5 +113,5 @@ export {
   updateHumanity,
   isSeriouslyWounded,
   isMortallyWounded,
-  setSeriouslyWounded,
+  setEffect,
 };
