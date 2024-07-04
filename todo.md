@@ -1,7 +1,3 @@
-Bugs:
-
-- When you adjust Will or Body stats, the HP automatically changes to be maxHP.
-
 Derived Stats:
 figure out if anything except items lower humanity
 
