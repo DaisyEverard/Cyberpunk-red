@@ -30,10 +30,8 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     let n = 1;
     let success = false;
     while (success == false && n < MAX_SKILL_POINTS) {
-      console.log(newSkills[skillName]['options'][`newOption${n}`]);
       const optionExists =
         newSkills[skillName]['options'][`newOption${n}`] || newSkills[skillName]['options'][`newOption${n}`] == 0;
-      console.log(optionExists);
 
       if (optionExists) {
         n += 1;
@@ -43,7 +41,6 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
       }
     }
 
-    console.log('n: ', n);
     newSkills[skillName]['options'][`newOption${n}`] = 0;
     setSkills(newSkills);
   };
