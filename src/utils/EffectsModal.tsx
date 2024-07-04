@@ -82,6 +82,8 @@ const EffectsModal = ({
           ></img>
           <h2>{key.toUpperCase()}</h2>
           <p>{content}</p>
+
+          {/* need to hide this button if effect is seriously wounded or mortally wounded*/}
           <button
             className={buttonStyles}
             onClick={e => {
