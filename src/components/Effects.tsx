@@ -21,7 +21,6 @@ import seriouslyWoundedSVG from '../assets/icons/seriously wounded.svg';
 import stunSVG from '../assets/icons/stun.svg';
 import effectJson from '../data/effects.json';
 import EffectsModal from '../utils/EffectsModal';
-import { isMortallyWounded, isSeriouslyWounded } from '../utils/commonMethods';
 
 const iconMap = {
   bleed: bleedSVG,
@@ -98,7 +97,13 @@ const Effects = () => {
             const skillLowerCase = skill['name'].toLowerCase();
             const svgPath = iconMap[skillLowerCase];
             const isActive = currentEffects[skillLowerCase]['active'];
-            const imageClasses = isActive ? 'h-9 bg-damage-red border-2 border-black' : 'h-9';
+
+            let activeStyles = 'h-9';
+            if (skill['category'] == 'Positive' && isActive) {
+              activeStyles = 'h-9 bg-heal-green border-2 border-black';
+            } else if (isActive) {
+              activeStyles = 'h-9 bg-damage-red border-2 border-black';
+            }
 
             return (
               <div
@@ -108,7 +113,7 @@ const Effects = () => {
                 <img
                   src={svgPath}
                   alt={skill['alt']}
-                  className={imageClasses}
+                  className={activeStyles}
                   onClick={e => {
                     e.preventDefault();
                     toggleModalDisplays(modalDisplays, setModalDisplays, skill['name']);

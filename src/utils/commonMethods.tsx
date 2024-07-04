@@ -72,8 +72,7 @@ const isSeriouslyWounded = (stats: Stats, HP: number) => {
   }
 };
 
-const isMortallyWounded = (stats: Stats, HP: number) => {
-  const HPMax = calculateHPMax(stats);
+const isMortallyWounded = (HP: number) => {
   const mortallyWoundedThreshold = 1;
   if (HP < mortallyWoundedThreshold) {
     return true;

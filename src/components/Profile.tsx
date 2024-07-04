@@ -9,6 +9,7 @@ import {
   calculateHPMax,
   decrementAnyNumericalState,
   incrementAnyNumericalState,
+  isMortallyWounded,
   isSeriouslyWounded,
   setEffect,
 } from '../utils/commonMethods';
@@ -57,6 +58,9 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
     if (!isSeriouslyWounded(stats, HP)) {
       setEffect(effects, setEffects, false, 'seriously wounded');
     }
+    if (!isMortallyWounded(HP)) {
+      setEffect(effects, setEffects, false, 'mortally wounded');
+    }
 
     HPChangeInput.value = null;
   };
@@ -86,6 +90,9 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
 
     if (isSeriouslyWounded(stats, HP)) {
       setEffect(effects, setEffects, true, 'seriously wounded');
+    }
+    if (isMortallyWounded(HP)) {
+      setEffect(effects, setEffects, true, 'mortally wounded');
     }
 
     HPChangeInput.value = null;
