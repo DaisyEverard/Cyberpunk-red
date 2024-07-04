@@ -34,6 +34,11 @@ const EffectsModal = ({
     isActive ? 'border-damage-red text-damage-red health-button' : 'border-heal-green text-heal-green health-button',
   );
 
+  let buttonDisplay = 'inline';
+  if (title == 'Mortally Wounded' || title == 'Seriously Wounded') {
+    buttonDisplay = 'hidden';
+  }
+
   const toggleActiveState = (
     currentEffects: Effects,
     setCurrentEffects: (effects: Effects) => void,
@@ -82,10 +87,8 @@ const EffectsModal = ({
           ></img>
           <h2>{key.toUpperCase()}</h2>
           <p>{content}</p>
-
-          {/* need to hide this button if effect is seriously wounded or mortally wounded*/}
           <button
-            className={buttonStyles}
+            className={buttonStyles + ' ' + buttonDisplay}
             onClick={e => {
               e.preventDefault;
               toggleActiveState(currentEffects, setCurrentEffects, key, isActive, setActiveStateText, setButtonStyles);
