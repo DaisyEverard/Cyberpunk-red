@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { EffectsContext, HPContext } from '../App';
 
+import { EffectsContext, HPContext } from '../App';
 import rolesJson from '../data/roles.json';
 import { Effects, Stats } from '../types/types';
 import DropdownCell from '../utils/DropdownCell';
@@ -30,13 +30,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
   const { HP, setHP } = useContext(HPContext);
   const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
 
-  const heal = (
-    stats: Stats,
-    HP: number,
-    setHP: (newHP: number) => void,
-    effects: Effects,
-    setEffects: (newEffects: Effects) => void,
-  ) => {
+  const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
     const HPChangeInput = document.querySelector('#HPChangeInput');
     const HPMax = calculateHPMax(stats);
     let HPChange = HPChangeInput.value;
@@ -56,21 +50,16 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
     }
 
     if (!isSeriouslyWounded(stats, HP)) {
-      setEffect(effects, setEffects, false, 'seriously wounded');
+      setEffect(currentEffects, setCurrentEffects, false, 'seriously wounded');
     }
     if (!isMortallyWounded(HP)) {
-      setEffect(effects, setEffects, false, 'mortally wounded');
+      setEffect(currentEffects, setCurrentEffects, false, 'mortally wounded');
     }
 
     HPChangeInput.value = null;
   };
 
-  const takeDamage = (
-    HP: number,
-    setHP: (newHP: number) => void,
-    effects: Effects,
-    setEffects: (newEffects: Effects) => void,
-  ) => {
+  const takeDamage = (HP: number, setHP: (newHP: number) => void) => {
     const HPChangeInput = document.querySelector('#HPChangeInput');
     let HPChange = HPChangeInput.value;
 
@@ -89,10 +78,10 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
     }
 
     if (isSeriouslyWounded(stats, HP)) {
-      setEffect(effects, setEffects, true, 'seriously wounded');
+      setEffect(currentEffects, setCurrentEffects, true, 'seriously wounded');
     }
     if (isMortallyWounded(HP)) {
-      setEffect(effects, setEffects, true, 'mortally wounded');
+      setEffect(currentEffects, setCurrentEffects, true, 'mortally wounded');
     }
 
     HPChangeInput.value = null;
@@ -135,7 +124,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              heal(stats, HP, setHP, currentEffects, setCurrentEffects);
+              heal(stats, HP, setHP);
             }}
           >
             HEAL
@@ -151,7 +140,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              takeDamage(HP, setHP, currentEffects, setCurrentEffects);
+              takeDamage(HP, setHP);
             }}
           >
             DAMAGE

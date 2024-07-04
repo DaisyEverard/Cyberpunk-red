@@ -60,8 +60,6 @@ const defaultModalDisplays: Record<string, string> = {
   'seriously wounded': 'none',
 };
 
-const isActive = (skills, skillName: string) => {};
-
 const Effects = () => {
   const { HP, setHP } = useContext(HPContext);
   const { stats, setStats } = useContext(StatsContext);

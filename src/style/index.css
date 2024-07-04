@@ -58,6 +58,11 @@ body {
   @apply rounded-md border-2 px-2 py-1 text-xs;
 }
 
+.health-button
+{
+  @apply rounded-md border-2 px-2 py-1 text-xs;
+}
+
 * {
   padding: 0;
   margin: 0;
