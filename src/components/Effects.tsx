@@ -20,6 +20,7 @@ import restedSVG from '../assets/icons/rested.svg';
 import seriouslyWoundedSVG from '../assets/icons/seriously wounded.svg';
 import stunSVG from '../assets/icons/stun.svg';
 import effectJson from '../data/effects.json';
+import { ModalDisplays } from '../types/types';
 import EffectsModal from '../utils/EffectsModal';
 
 const iconMap = {
@@ -41,7 +42,7 @@ const iconMap = {
   'seriously wounded': seriouslyWoundedSVG,
 };
 
-const defaultModalDisplays: Record<string, string> = {
+const defaultModalDisplays: ModalDisplays = {
   bleed: 'none',
   blind: 'none',
   burn: 'none',
@@ -68,8 +69,8 @@ const Effects = () => {
   const [modalDisplays, setModalDisplays] = useState(defaultModalDisplays);
 
   const toggleModalDisplays = (
-    modalDisplays: Record<string, string>,
-    setModalDisplays: (modalDisplays: Record<string, string>) => void,
+    modalDisplays: ModalDisplays,
+    setModalDisplays: (modalDisplays: ModalDisplays) => void,
     effect: string,
   ) => {
     const effectLowerCase = effect.toLowerCase();
