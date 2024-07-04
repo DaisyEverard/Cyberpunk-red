@@ -2,7 +2,7 @@
 // Death save = BODY stat
 import { useContext, useState } from 'react';
 
-import { HPContext, StatsContext } from '../App';
+import { EffectsContext, HPContext, StatsContext } from '../App';
 import bleedSVG from '../assets/icons/bleed.svg';
 import blindSVG from '../assets/icons/blind.svg';
 import burnSVG from '../assets/icons/burn.svg';
@@ -12,14 +12,15 @@ import empSVG from '../assets/icons/emp.svg';
 import energizedSVG from '../assets/icons/energized.svg';
 import hydrationSVG from '../assets/icons/hydration.svg';
 import knockdownSVG from '../assets/icons/knockdown.svg';
+import mortallyWoundedSVG from '../assets/icons/mortally wounded.svg';
 import nourishmentSVG from '../assets/icons/nourishment.svg';
 import poisonSVG from '../assets/icons/poison.svg';
 import refreshedSVG from '../assets/icons/refreshed.svg';
 import restedSVG from '../assets/icons/rested.svg';
+import seriouslyWoundedSVG from '../assets/icons/seriously wounded.svg';
 import stunSVG from '../assets/icons/stun.svg';
 import effectJson from '../data/effects.json';
-import ModalForMapState from '../utils/ModalForMapState';
-import { isSeriouslyWounded } from '../utils/commonMethods';
+import EffectsModal from '../utils/EffectsModal';
 
 const iconMap = {
   bleed: bleedSVG,
@@ -36,6 +37,8 @@ const iconMap = {
   refreshed: refreshedSVG,
   rested: restedSVG,
   stun: stunSVG,
+  'mortally wounded': mortallyWoundedSVG,
+  'seriously wounded': seriouslyWoundedSVG,
 };
 
 const defaultModalDisplays: Record<string, string> = {
@@ -53,11 +56,14 @@ const defaultModalDisplays: Record<string, string> = {
   refreshed: 'none',
   rested: 'none',
   stun: 'none',
+  'mortally wounded': 'none',
+  'seriously wounded': 'none',
 };
 
 const Effects = () => {
   const { HP, setHP } = useContext(HPContext);
   const { stats, setStats } = useContext(StatsContext);
+  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
 
   const [modalDisplays, setModalDisplays] = useState(defaultModalDisplays);
 
@@ -88,6 +94,14 @@ const Effects = () => {
           {effectJson.map(skill => {
             const skillLowerCase = skill['name'].toLowerCase();
             const svgPath = iconMap[skillLowerCase];
+            const isActive = currentEffects[skillLowerCase]['active'];
+
+            let activeStyles = 'h-9';
+            if (skill['category'] == 'Positive' && isActive) {
+              activeStyles = 'h-9 bg-heal-green border-2 border-black';
+            } else if (isActive) {
+              activeStyles = 'h-9 bg-damage-red border-2 border-black';
+            }
 
             return (
               <div
@@ -97,14 +111,14 @@ const Effects = () => {
                 <img
                   src={svgPath}
                   alt={skill['alt']}
-                  className='h-9'
+                  className={activeStyles}
                   onClick={e => {
                     e.preventDefault();
                     toggleModalDisplays(modalDisplays, setModalDisplays, skill['name']);
                   }}
                 ></img>
 
-                <ModalForMapState
+                <EffectsModal
                   title={skill['name']}
                   content={skill['description']}
                   modalDisplays={modalDisplays}
@@ -116,11 +130,6 @@ const Effects = () => {
               </div>
             );
           })}
-          {isSeriouslyWounded(stats, HP) ? (
-            <p className="text-damage-red">Seriously Wounded</p>
-          ) : (
-            <p className="text-inactive-grey">Seriously Wounded</p>
-          )}
         </div>
       </div>
     </div>

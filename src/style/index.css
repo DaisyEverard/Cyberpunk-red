@@ -25,7 +25,8 @@
   tr:nth-of-type(odd) {
     @apply bg-light-red-2;
   }
-  .option-tr, #overwrite-nth-of-type-bg-color {
+  .option-tr,
+  #overwrite-nth-of-type-bg-color {
     @apply bg-skill-option-bg-1;
   }
   .option-tr:nth-of-type(odd) {
@@ -35,7 +36,6 @@
     @apply text-table-header-text;
     @apply bg-table-header-bg;
   }
-
 }
 
 :root {
@@ -49,9 +49,13 @@ body {
   @apply bg-neutral-200 font-montserrat;
 }
 
-.box
+.box {
+  @apply bg-white px-6 py-4 shadow rounded;
+}
+
+.health-button
 {
-@apply bg-white px-6 py-4 shadow rounded;
+  @apply rounded-md border-2 px-2 py-1 text-xs;
 }
 
 .health-button

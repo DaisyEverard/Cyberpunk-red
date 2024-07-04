@@ -1,278 +1,278 @@
 {
-    "Concentration": {
-        "level": 2,
-        "has_options": false
-    },
-    "Conceal/Reveal Object": {
-        "level": 0,
-        "has_options": false
-    },
-    "Lip Reading": {
-        "level": 0,
-        "has_options": false
-    },
-    "Perception": {
-        "level": 2,
-        "has_options": false
-    },
-    "Tracking": {
-        "level": 0,
-        "has_options": false
-    },
-    "Athletics": {
-        "level": 2,
-        "has_options": false
-    },
-    "Contortionist": {
-        "level": 0,
-        "has_options": false
-    },
-    "Dance": {
-        "level": 0,
-        "has_options": false
-    },
-    "Endurance": {
-        "level": 0,
-        "has_options": false
-    },
-    "Resist Torture/Drugs": {
-        "level": 0,
-        "has_options": false
-    },
-    "Stealth": {
-        "level": 2,
-        "has_options": false
-    },
-    "Drive Land Vehicle": {
-        "level": 0,
-        "has_options": false
-    },
-    "Pilot Air Vehicle": {
-        "level": 0,
-        "has_options": false
-    },
-    "Pilot Sea Vehicle": {
-        "level": 0,
-        "has_options": false
-    },
-    "Riding": {
-        "level": 0,
-        "has_options": false
-    },
-    "Accounting": {
-        "level": 0,
-        "has_options": false
-    },
-    "Animal Handling": {
-        "level": 0,
-        "has_options": false
-    },
-    "Bureaucracy": {
-        "level": 0,
-        "has_options": false
-    },
-    "Business": {
-        "level": 0,
-        "has_options": false
-    },
-    "Composition": {
-        "level": 0,
-        "has_options": false
-    },
-    "Criminology": {
-        "level": 0,
-        "has_options": false
-    },
-    "Cryptography": {
-        "level": 0,
-        "has_options": false
-    },
-    "Deduction": {
-        "level": 0,
-        "has_options": false
-    },
-    "Education": {
-        "level": 2,
-        "has_options": false
-    },
-    "Gamble": {
-        "level": 0,
-        "has_options": false
-    },
-    "Language": {
-        "level": 2,
-        "has_options": true,
-        "options": {
-            "Streetslang": 2,
-            "(Cultural Origin Option 1)": 1,
-            "(Cultural Origin Option 2)": 1,
-            "(Cultural Origin Option 3)": 1,
-            "(Cultural Origin Option 4)": 1
-        }
-    },
-    "Library Search": {
-        "level": 0,
-        "has_options": false
-    },
-    "Local Expert": {
-        "level": 2,
-        "has_options": true,
-        "options": {
-            "Your Home": 2
-        }
-    },
-    "Science": {
-        "level": 0,
-        "has_options": false
-    },
-    "Tactics": {
-        "level": 0,
-        "has_options": false
-    },
-    "Wilderness Survival": {
-        "level": 0,
-        "has_options": false
-    },
-    "Brawling": {
-        "level": 2,
-        "has_options": false
-    },
-    "Evasion": {
-        "level": 0,
-        "has_options": false
-    },
-    "Martial Arts": {
-        "level": 0,
-        "has_options": true,
-        "options": {}
-    },
-    "Melee Weapon": {
-        "level": 0,
-        "has_options": false
-    },
-    "Acting": {
-        "level": 0,
-        "has_options": false
-    },
-    "Play Instrument": {
-        "level": 0,
-        "has_options": true,
-        "options": {}
-    },
-    "Archery": {
-        "level": 0,
-        "has_options": false
-    },
-    "Autofire": {
-        "level": 0,
-        "has_options": false
-    },
-    "Handgun": {
-        "level": 0,
-        "has_options": false
-    },
-    "Heavy Weapons": {
-        "level": 0,
-        "has_options": false
-    },
-    "Shoulder Arms": {
-        "level": 0,
-        "has_options": false
-    },
-    "Bribery": {
-        "level": 0,
-        "has_options": false
-    },
-    "Conversation": {
-        "level": 2,
-        "has_options": false
-    },
-    "Human Perception": {
-        "level": 2,
-        "has_options": false
-    },
-    "Interrogation": {
-        "level": 0,
-        "has_options": false
-    },
-    "Persuasion": {
-        "level": 2,
-        "has_options": false
-    },
-    "Personal Grooming": {
-        "level": 0,
-        "has_options": false
-    },
-    "Streetwise": {
-        "level": 0,
-        "has_options": false
-    },
-    "Trading": {
-        "level": 0,
-        "has_options": false
-    },
-    "Wardrobe & Style": {
-        "level": 0,
-        "has_options": false
-    },
-    "Air Vehicle Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Basic Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Cybertech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Demolitions": {
-        "level": 0,
-        "has_options": false
-    },
-    "Electronics/Security Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "First Aid": {
-        "level": 2,
-        "has_options": false
-    },
-    "Forgery": {
-        "level": 0,
-        "has_options": false
-    },
-    "Land Vehicle Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Paint/Draw/Sculpt": {
-        "level": 0,
-        "has_options": false
-    },
-    "Paramedic": {
-        "level": 0,
-        "has_options": false
-    },
-    "Photography/Film": {
-        "level": 0,
-        "has_options": false
-    },
-    "Pick Lock": {
-        "level": 0,
-        "has_options": false
-    },
-    "Pick Pocket": {
-        "level": 0,
-        "has_options": false
-    },
-    "Sea Vehicle Tech": {
-        "level": 0,
-        "has_options": false
-    },
-    "Weaponstech": {
-        "level": 0,
-        "has_options": false
+  "Concentration": {
+    "level": 2,
+    "has_options": false
+  },
+  "Conceal/Reveal Object": {
+    "level": 0,
+    "has_options": false
+  },
+  "Lip Reading": {
+    "level": 0,
+    "has_options": false
+  },
+  "Perception": {
+    "level": 2,
+    "has_options": false
+  },
+  "Tracking": {
+    "level": 0,
+    "has_options": false
+  },
+  "Athletics": {
+    "level": 2,
+    "has_options": false
+  },
+  "Contortionist": {
+    "level": 0,
+    "has_options": false
+  },
+  "Dance": {
+    "level": 0,
+    "has_options": false
+  },
+  "Endurance": {
+    "level": 0,
+    "has_options": false
+  },
+  "Resist Torture/Drugs": {
+    "level": 0,
+    "has_options": false
+  },
+  "Stealth": {
+    "level": 2,
+    "has_options": false
+  },
+  "Drive Land Vehicle": {
+    "level": 0,
+    "has_options": false
+  },
+  "Pilot Air Vehicle": {
+    "level": 0,
+    "has_options": false
+  },
+  "Pilot Sea Vehicle": {
+    "level": 0,
+    "has_options": false
+  },
+  "Riding": {
+    "level": 0,
+    "has_options": false
+  },
+  "Accounting": {
+    "level": 0,
+    "has_options": false
+  },
+  "Animal Handling": {
+    "level": 0,
+    "has_options": false
+  },
+  "Bureaucracy": {
+    "level": 0,
+    "has_options": false
+  },
+  "Business": {
+    "level": 0,
+    "has_options": false
+  },
+  "Composition": {
+    "level": 0,
+    "has_options": false
+  },
+  "Criminology": {
+    "level": 0,
+    "has_options": false
+  },
+  "Cryptography": {
+    "level": 0,
+    "has_options": false
+  },
+  "Deduction": {
+    "level": 0,
+    "has_options": false
+  },
+  "Education": {
+    "level": 2,
+    "has_options": false
+  },
+  "Gamble": {
+    "level": 0,
+    "has_options": false
+  },
+  "Language": {
+    "level": 2,
+    "has_options": true,
+    "options": {
+      "Streetslang": 2,
+      "(Cultural Origin Option 1)": 1,
+      "(Cultural Origin Option 2)": 1,
+      "(Cultural Origin Option 3)": 1,
+      "(Cultural Origin Option 4)": 1
     }
+  },
+  "Library Search": {
+    "level": 0,
+    "has_options": false
+  },
+  "Local Expert": {
+    "level": 2,
+    "has_options": true,
+    "options": {
+      "Your Home": 2
+    }
+  },
+  "Science": {
+    "level": 0,
+    "has_options": false
+  },
+  "Tactics": {
+    "level": 0,
+    "has_options": false
+  },
+  "Wilderness Survival": {
+    "level": 0,
+    "has_options": false
+  },
+  "Brawling": {
+    "level": 2,
+    "has_options": false
+  },
+  "Evasion": {
+    "level": 0,
+    "has_options": false
+  },
+  "Martial Arts": {
+    "level": 0,
+    "has_options": true,
+    "options": {}
+  },
+  "Melee Weapon": {
+    "level": 0,
+    "has_options": false
+  },
+  "Acting": {
+    "level": 0,
+    "has_options": false
+  },
+  "Play Instrument": {
+    "level": 0,
+    "has_options": true,
+    "options": {}
+  },
+  "Archery": {
+    "level": 0,
+    "has_options": false
+  },
+  "Autofire": {
+    "level": 0,
+    "has_options": false
+  },
+  "Handgun": {
+    "level": 0,
+    "has_options": false
+  },
+  "Heavy Weapons": {
+    "level": 0,
+    "has_options": false
+  },
+  "Shoulder Arms": {
+    "level": 0,
+    "has_options": false
+  },
+  "Bribery": {
+    "level": 0,
+    "has_options": false
+  },
+  "Conversation": {
+    "level": 2,
+    "has_options": false
+  },
+  "Human Perception": {
+    "level": 2,
+    "has_options": false
+  },
+  "Interrogation": {
+    "level": 0,
+    "has_options": false
+  },
+  "Persuasion": {
+    "level": 2,
+    "has_options": false
+  },
+  "Personal Grooming": {
+    "level": 0,
+    "has_options": false
+  },
+  "Streetwise": {
+    "level": 0,
+    "has_options": false
+  },
+  "Trading": {
+    "level": 0,
+    "has_options": false
+  },
+  "Wardrobe & Style": {
+    "level": 0,
+    "has_options": false
+  },
+  "Air Vehicle Tech": {
+    "level": 0,
+    "has_options": false
+  },
+  "Basic Tech": {
+    "level": 0,
+    "has_options": false
+  },
+  "Cybertech": {
+    "level": 0,
+    "has_options": false
+  },
+  "Demolitions": {
+    "level": 0,
+    "has_options": false
+  },
+  "Electronics/Security Tech": {
+    "level": 0,
+    "has_options": false
+  },
+  "First Aid": {
+    "level": 2,
+    "has_options": false
+  },
+  "Forgery": {
+    "level": 0,
+    "has_options": false
+  },
+  "Land Vehicle Tech": {
+    "level": 0,
+    "has_options": false
+  },
+  "Paint/Draw/Sculpt": {
+    "level": 0,
+    "has_options": false
+  },
+  "Paramedic": {
+    "level": 0,
+    "has_options": false
+  },
+  "Photography/Film": {
+    "level": 0,
+    "has_options": false
+  },
+  "Pick Lock": {
+    "level": 0,
+    "has_options": false
+  },
+  "Pick Pocket": {
+    "level": 0,
+    "has_options": false
+  },
+  "Sea Vehicle Tech": {
+    "level": 0,
+    "has_options": false
+  },
+  "Weaponstech": {
+    "level": 0,
+    "has_options": false
+  }
 }

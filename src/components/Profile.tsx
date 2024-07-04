@@ -1,10 +1,18 @@
 import { useContext } from 'react';
 
-import { HPContext } from '../App';
+import { EffectsContext, HPContext } from '../App';
 import rolesJson from '../data/roles.json';
+import { Effects, Stats } from '../types/types';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
-import { calculateHPMax, decrementAnyNumericalState, incrementAnyNumericalState } from '../utils/commonMethods';
+import {
+  calculateHPMax,
+  decrementAnyNumericalState,
+  incrementAnyNumericalState,
+  isMortallyWounded,
+  isSeriouslyWounded,
+  setEffect,
+} from '../utils/commonMethods';
 
 type ProfileProps = {
   name: string;
@@ -13,15 +21,16 @@ type ProfileProps = {
   setRole: (value: string) => void;
   healthPoints: number;
   humanity: number;
-  stats: Record<string, number>;
+  stats: Stats;
 };
 
 const allRoles = Object.keys(rolesJson);
 
 const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }: ProfileProps) => {
   const { HP, setHP } = useContext(HPContext);
+  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
 
-  const heal = (stats: Record<string, number>, HP: number, setHP: (newHP: number) => void) => {
+  const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
     const HPChangeInput = document.querySelector('#HPChangeInput');
     const HPMax = calculateHPMax(stats);
     let HPChange = HPChangeInput.value;
@@ -38,6 +47,13 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
         HPChange -= 1;
         HP += 1;
       }
+    }
+
+    if (!isSeriouslyWounded(stats, HP)) {
+      setEffect(currentEffects, setCurrentEffects, false, 'seriously wounded');
+    }
+    if (!isMortallyWounded(HP)) {
+      setEffect(currentEffects, setCurrentEffects, false, 'mortally wounded');
     }
 
     HPChangeInput.value = null;
@@ -59,6 +75,13 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
         HPChange -= 1;
         HP -= 1;
       }
+    }
+
+    if (isSeriouslyWounded(stats, HP)) {
+      setEffect(currentEffects, setCurrentEffects, true, 'seriously wounded');
+    }
+    if (isMortallyWounded(HP)) {
+      setEffect(currentEffects, setCurrentEffects, true, 'mortally wounded');
     }
 
     HPChangeInput.value = null;
