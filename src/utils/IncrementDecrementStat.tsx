@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import { HPContext, HumanityContext, StatsContext } from '../App';
+import { Stats } from '../types/types';
 import { updateHP, updateHumanity } from './commonMethods';
 
 type IncrementDecrementStatProps = {
@@ -15,7 +16,7 @@ const IncrementDecrementStat = ({ statName, remainingPoints, setRemainingPoints 
   const { humanity, setHumanity } = useContext(HumanityContext);
 
   const increment = (
-    stats: Record<string, number>,
+    stats: Stats,
     statName: string,
     remainingPoints: number,
     setRemainingPoints: (points: number) => void,
@@ -31,7 +32,7 @@ const IncrementDecrementStat = ({ statName, remainingPoints, setRemainingPoints 
     }
   };
   const decrement = (
-    stats: Record<string, number>,
+    stats: Stats,
     statName: string,
     remainingPoints: number,
     setRemainingPoints: (points: number) => void,
