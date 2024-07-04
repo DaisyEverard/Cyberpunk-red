@@ -1,4 +1,7 @@
-import { ModalDisplays } from '../types/types';
+import { useContext, useState } from 'react';
+
+import { EffectsContext } from '../App';
+import { Effects, ModalDisplays } from '../types/types';
 
 type EffectsModalProps = {
   title: string;
@@ -23,7 +26,34 @@ const EffectsModal = ({
   iconMap,
   alt,
 }: EffectsModalProps) => {
+  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
   const key = title.toLowerCase();
+  const isActive = currentEffects[key]['active'];
+  const [activeStateText, setActiveStateText] = useState(isActive ? 'Deactivate' : 'Activate');
+  const [buttonStyles, setButtonStyles] = useState(
+    isActive ? 'border-damage-red text-damage-red health-button' : 'border-heal-green text-heal-green health-button',
+  );
+
+  const toggleActiveState = (
+    currentEffects: Effects,
+    setCurrentEffects: (effects: Effects) => void,
+    key: string,
+    isActive: boolean,
+    setActiveStateText: (text: string) => void,
+    setButtonStyles: (styles: string) => void,
+  ) => {
+    const newEffects = { ...currentEffects };
+    if (isActive) {
+      newEffects[key]['active'] = false;
+      setActiveStateText('Activate');
+      setButtonStyles('border-heal-green text-heal-green health-button');
+    } else {
+      newEffects[key]['active'] = true;
+      setActiveStateText('Deactivate');
+      setButtonStyles('border-damage-red text-damage-red health-button');
+    }
+    setCurrentEffects(newEffects);
+  };
 
   return (
     <div style={{ display: modalDisplays[key] }}>
@@ -52,6 +82,15 @@ const EffectsModal = ({
           ></img>
           <h2>{key.toUpperCase()}</h2>
           <p>{content}</p>
+          <button
+            className={buttonStyles}
+            onClick={e => {
+              e.preventDefault;
+              toggleActiveState(currentEffects, setCurrentEffects, key, isActive, setActiveStateText, setButtonStyles);
+            }}
+          >
+            {activeStateText}
+          </button>
         </div>
       </div>
     </div>
