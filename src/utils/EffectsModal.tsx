@@ -1,11 +1,13 @@
+import { ModalDisplays } from '../types/types';
+
 type EffectsModalProps = {
   title: string;
   content: string;
-  modalDisplays: Record<string, string>;
-  setModalDisplays: (newModalDisplays: Record<string, string>) => void;
+  modalDisplays: ModalDisplays;
+  setModalDisplays: (newModalDisplays: ModalDisplays) => void;
   toggleModalDisplays: (
-    modalDisplays: Record<string, string>,
-    setModalDisplays: (newModalDisplays: Record<string, string>) => void,
+    modalDisplays: ModalDisplays,
+    setModalDisplays: (newModalDisplays: ModalDisplays) => void,
     key: string,
   ) => void;
   iconMap: any;
