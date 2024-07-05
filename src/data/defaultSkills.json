@@ -103,11 +103,30 @@
     "level": 2,
     "has_options": true,
     "options": {
-      "Streetslang": 2,
-      "(Cultural Origin Option 1)": 1,
-      "(Cultural Origin Option 2)": 1,
-      "(Cultural Origin Option 3)": 1,
-      "(Cultural Origin Option 4)": 1
+      "1": {
+        "name": "Streetslang",
+        "level": 2
+      },
+      "2": {
+        "name": "(Cultural Origin Option 1)",
+        "level": 0
+      },
+      "3": {
+        "name": "(Cultural Origin Option 2)",
+        "level": 0
+      },
+      "4": {
+        "name": "(Cultural Origin Option 3)",
+        "level": 0
+      },
+      "5": {
+        "name": "(Cultural Origin Option 4)",
+        "level": 0
+      },
+      "6": {
+        "name": "",
+        "level": 0
+      }
     }
   },
   "Library Search": {
@@ -118,7 +137,30 @@
     "level": 2,
     "has_options": true,
     "options": {
-      "Your Home": 2
+      "1": {
+        "name": "Your Home",
+        "level": 2
+      },
+      "2": {
+        "name": "",
+        "level": 0
+      },
+      "3": {
+        "name": "",
+        "level": 0
+      },
+      "4": {
+        "name": "",
+        "level": 0
+      },
+      "5": {
+        "name": "",
+        "level": 0
+      },
+      "6": {
+        "name": "",
+        "level": 0
+      }
     }
   },
   "Science": {
@@ -144,7 +186,24 @@
   "Martial Arts": {
     "level": 0,
     "has_options": true,
-    "options": {}
+    "options": {
+      "1": {
+        "name": "Aikido",
+        "level": 0
+      },
+      "2": {
+        "name": "Karate",
+        "level": 0
+      },
+      "3": {
+        "name": "Judo",
+        "level": 0
+      },
+      "4": {
+        "name": "Taekwondo",
+        "level": 0
+      }
+    }
   },
   "Melee Weapon": {
     "level": 0,
@@ -157,7 +216,32 @@
   "Play Instrument": {
     "level": 0,
     "has_options": true,
-    "options": {}
+    "options": {
+      "1": {
+        "name": "",
+        "level": 0
+      },
+      "2": {
+        "name": "",
+        "level": 0
+      },
+      "3": {
+        "name": "",
+        "level": 0
+      },
+      "4": {
+        "name": "",
+        "level": 0
+      },
+      "5": {
+        "name": "",
+        "level": 0
+      },
+      "6": {
+        "name": "",
+        "level": 0
+      }
+    }
   },
   "Archery": {
     "level": 0,

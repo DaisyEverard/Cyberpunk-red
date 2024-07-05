@@ -5,7 +5,6 @@ import skillsJson from '../data/skills.json';
 import { SkillsType } from '../types/types';
 import IncrementDecrementSkill from '../utils/IncrementDecrementSkill';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
-import Skills from './Skills';
 
 type SingleSkillTypeTableProps = {
   tableSkillType: string;
@@ -32,29 +31,29 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
   ) => {
     const newSkills = { ...currentSkills };
 
+    // This isn't going to work anymore when you can change the names of the options.
     const MAX_SKILL_POINTS = 6;
     let n = 1;
     let success = false;
-    while (success == false && n < MAX_SKILL_POINTS) {
+
+    while (success == false && n <= MAX_SKILL_POINTS && skillName != 'Martial Arts') {
       const optionExists =
-        newSkills[skillName]['options'][`newOption${n}`] || newSkills[skillName]['options'][`newOption${n}`] == 0;
+        newSkills[skillName]['options'][n]['name'] && newSkills[skillName]['options'][n]['name'] != '';
 
       if (optionExists) {
         n += 1;
         continue;
       } else {
+        newSkills[skillName]['options'][n]['name'] = 'New Option';
+        setSkills(newSkills);
         success = true;
       }
     }
-
-    newSkills[skillName]['options'][`newOption${n}`] = 0;
-    setSkills(newSkills);
   };
 
   // If you activate this, it moves the box to the bottom of the list of options.
   // It's activated every time you press a key so you basically can't change anything unless it's already at the bottom of the list
   // need to use onBlur or onKeyDown instead of onChange? But then how does the text actually change?
-
   // Change the data structure so that the options have a numerical indetifier to use as a key, and a name property?
   const setOptionName = (
     target: any,
@@ -62,15 +61,15 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     currentSkills: SkillsType,
     setCurrentSkills: (skills: SkillsType) => void,
   ) => {
-    const oldName = target.dataset.originalvalue;
-    const newName = target.value;
-    if (oldName === newName) {
-      return;
-    }
-    const newSkills = { ...currentSkills };
-    newSkills[skillName]['options'][newName] = newSkills[skillName]['options'][oldName];
-    delete newSkills[skillName]['options'][oldName];
-    setCurrentSkills(newSkills);
+    // const oldName = target.dataset.originalvalue;
+    // const newName = target.value;
+    // if (oldName === newName) {
+    //   return;
+    // }
+    // const newSkills = { ...currentSkills };
+    // newSkills[skillName]['options'][newName] = newSkills[skillName]['options'][oldName];
+    // delete newSkills[skillName]['options'][oldName];
+    // setCurrentSkills(newSkills);
   };
 
   return (
@@ -124,9 +123,18 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
 
             const options = [];
             if (hasOptions) {
-              Object.entries(currentSkills[skillName]['options']).forEach(([optionName, level]) => {
+              Object.entries(currentSkills[skillName]['options']).map(option => {
+                const optionID = option[0];
+                const optionName = option[1]['name'];
+                const optionLevel = option[1]['level'];
+
+                let style = 'option-tr hidden';
+                if (optionName != '') {
+                  style = 'option-tr inline';
+                }
+
                 options.push(
-                  <tr className="option-tr">
+                  <tr className={style}>
                     <td>
                       <SimpleEditableTextCell
                         value={optionName}
@@ -135,7 +143,7 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
                         }}
                       />
                     </td>
-                    <td>{level}</td>
+                    <td>{optionLevel}</td>
                   </tr>,
                 );
               });
