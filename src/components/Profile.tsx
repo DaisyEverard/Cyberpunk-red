@@ -212,36 +212,38 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
         </div>
       </div>
 
-      <div className="box flex flex-col justify-center items-center">
-        <div className="text-2xl">{humanity}</div>
-        <div>Humanity (HUM)</div>
-      </div>
-      <div className="flex flex-col justify-center items-center ml-3">
-        <p
-          className="health-button text-heal-green border-heal-green"
-          onClick={e => {
-            e.preventDefault();
-            incrementHumanity(humanity, setHumanity, stats, setStats);
-          }}
-        >
-          ADD
-        </p>
-        {/* don't allow negative input */}
-        <input
-          className="box w-20 h-10"
-          type="number"
-          id="HumanityChangeInput"
-          min={0}
-        ></input>
-        <p
-          className="health-button text-damage-red border-damage-red"
-          onClick={e => {
-            e.preventDefault();
-            decrementHumanity(humanity, setHumanity, stats, setStats);
-          }}
-        >
-          REMOVE
-        </p>
+      <div className="box flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
+          <div className="text-2xl">{humanity}</div>
+          <div>Humanity (HUM)</div>
+        </div>
+        <div className="flex flex-col justify-center items-center ml-3">
+          <p
+            className="health-button text-heal-green border-heal-green"
+            onClick={e => {
+              e.preventDefault();
+              incrementHumanity(humanity, setHumanity, stats, setStats);
+            }}
+          >
+            ADD
+          </p>
+          {/* don't allow negative input */}
+          <input
+            className="box w-20 h-10"
+            type="number"
+            id="HumanityChangeInput"
+            min={0}
+          ></input>
+          <p
+            className="health-button text-damage-red border-damage-red"
+            onClick={e => {
+              e.preventDefault();
+              decrementHumanity(humanity, setHumanity, stats, setStats);
+            }}
+          >
+            REMOVE
+          </p>
+        </div>
       </div>
     </div>
   );
