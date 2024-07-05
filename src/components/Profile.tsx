@@ -97,6 +97,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
         <div className="px-2 flex gap-2 items-center">
           <div>Name:</div>
           <SimpleEditableTextCell
+            className="rounded border"
             value={name}
             onChange={e => setName(e.target.value)}
           />

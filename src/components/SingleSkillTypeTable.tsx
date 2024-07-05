@@ -29,6 +29,9 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     setSkills: (currentSkills: SkillsType) => void,
     skillName: string,
   ) => {
+    if (skillName == 'Martial Arts') {
+      return;
+    }
     const newSkills = { ...currentSkills };
 
     // This isn't going to work anymore when you can change the names of the options.
@@ -36,7 +39,7 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     let n = 1;
     let success = false;
 
-    while (success == false && n <= MAX_SKILL_POINTS && skillName != 'Martial Arts') {
+    while (success == false && n <= MAX_SKILL_POINTS) {
       const optionExists =
         newSkills[skillName]['options'][n]['name'] && newSkills[skillName]['options'][n]['name'] != '';
 
@@ -62,6 +65,10 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     currentSkills: SkillsType,
     setCurrentSkills: (skills: SkillsType) => void,
   ) => {
+    if (skillName == 'Martial Arts') {
+      return;
+    }
+
     const newName = target.value;
     const newSkills = { ...currentSkills };
 
@@ -134,6 +141,7 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
                   <tr className={style}>
                     <td>
                       <SimpleEditableTextCell
+                        className="bg-transparent"
                         value={optionName}
                         onChange={e => {
                           setOptionName(e.target, skillName, optionID, currentSkills, setCurrentSkills);
