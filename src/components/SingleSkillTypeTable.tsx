@@ -58,18 +58,15 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
   const setOptionName = (
     target: any,
     skillName: string,
+    optionID: number,
     currentSkills: SkillsType,
     setCurrentSkills: (skills: SkillsType) => void,
   ) => {
-    // const oldName = target.dataset.originalvalue;
-    // const newName = target.value;
-    // if (oldName === newName) {
-    //   return;
-    // }
-    // const newSkills = { ...currentSkills };
-    // newSkills[skillName]['options'][newName] = newSkills[skillName]['options'][oldName];
-    // delete newSkills[skillName]['options'][oldName];
-    // setCurrentSkills(newSkills);
+    const newName = target.value;
+    const newSkills = { ...currentSkills };
+
+    newSkills[skillName]['options'][optionID]['name'] = newName;
+    setCurrentSkills(newSkills);
   };
 
   return (
@@ -139,7 +136,7 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
                       <SimpleEditableTextCell
                         value={optionName}
                         onChange={e => {
-                          setOptionName(e.target, skillName, currentSkills, setCurrentSkills);
+                          setOptionName(e.target, skillName, optionID, currentSkills, setCurrentSkills);
                         }}
                       />
                     </td>

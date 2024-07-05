@@ -5,7 +5,6 @@ type TextInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 export const SimpleEditableTextCell = ({ placeholder, value, onChange, onBlur, disabled }: TextInputProps) => {
   return (
     <input
-      data-originalValue={value}
       value={value}
       onChange={onChange}
       onBlur={onBlur}
