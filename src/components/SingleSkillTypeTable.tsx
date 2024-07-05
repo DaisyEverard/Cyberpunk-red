@@ -34,7 +34,6 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     }
     const newSkills = { ...currentSkills };
 
-    // This isn't going to work anymore when you can change the names of the options.
     const MAX_SKILL_POINTS = 6;
     let n = 1;
     let success = false;
@@ -54,10 +53,6 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     }
   };
 
-  // If you activate this, it moves the box to the bottom of the list of options.
-  // It's activated every time you press a key so you basically can't change anything unless it's already at the bottom of the list
-  // need to use onBlur or onKeyDown instead of onChange? But then how does the text actually change?
-  // Change the data structure so that the options have a numerical indetifier to use as a key, and a name property?
   const setOptionName = (
     target: any,
     skillName: string,
@@ -90,10 +85,7 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
         </thead>
         <tbody>
           {skillsList.map(skill => {
-            // need to deal with skills with options here
-            // one extra row per option
-            // need to be able to change options so cultural origin one can be set
-            // should be able to add/remove? For start can just have the max number of option rows and leave them 0
+            // need to handle cultural origin rows. At least 4 points over 1-4 languages.
             const skillName = skill['name'];
             const pointCost = skill['x2'] ? 2 : 1;
             const skillLevel = currentSkills[skillName]['level'];

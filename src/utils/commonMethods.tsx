@@ -26,6 +26,25 @@ const decrementAnyNumericalState = (currentState: number, setState: (newState: n
   return success;
 };
 
+const incrementHumanity = (
+  humanity: number,
+  setHumanity: (newHumanity: number) => void,
+  stats: Stats,
+  setStats: (stats: Stats) => void,
+) => {
+  let success = false;
+  const startHumanityModulusTen = humanity % 10;
+
+  if (startHumanityModulusTen == 9) {
+    let newStats = { ...stats };
+    newStats['EMP'] += 1;
+    setStats(newStats);
+  }
+  setHumanity(humanity + 1);
+  success = true;
+  return success;
+};
+
 const decrementHumanity = (
   humanity: number,
   setHumanity: (newHumanity: number) => void,
@@ -36,7 +55,6 @@ const decrementHumanity = (
   const startHumanityModulusTen = humanity % 10;
 
   if (humanity > 0 && startHumanityModulusTen == 0) {
-    // subtract one from emp
     let newStats = { ...stats };
     newStats['EMP'] -= 1;
     setStats(newStats);
@@ -104,6 +122,7 @@ const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats: St
 export {
   decrementAnyNumericalState,
   incrementAnyNumericalState,
+  incrementHumanity,
   decrementHumanity,
   calculateHP,
   calculateHPMax,
