@@ -131,19 +131,23 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
     }
     humanityChange = parseInt(humanityChange);
 
-    let success = false;
     const startHumanityModulusTen = humanity % 10;
+    let success = true;
 
-    if (humanity > 0 && startHumanityModulusTen == 0) {
-      let newStats = { ...stats };
-      newStats['EMP'] -= 1;
-      setStats(newStats);
+    while (humanityChange > 0 && success == true) {
+      success = false;
+      if (humanity > 0 && startHumanityModulusTen == 0) {
+        let newStats = { ...stats };
+        newStats['EMP'] -= 1;
+        setStats(newStats);
+      }
+      if (humanity > 0) {
+        setHumanity(humanity - 1);
+        humanity -= 1;
+        success = true;
+      }
+      humanityChange -= 1;
     }
-    if (humanity > 0) {
-      setHumanity(humanity - humanityChange);
-      success = true;
-    }
-    return success;
   };
 
   // COMPONENT BODY
