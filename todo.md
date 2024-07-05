@@ -1,8 +1,7 @@
 Derived Stats:
 figure out if anything except items lower humanity
 
-- raising humanity with therapy
-- calculate death based on HP
+- raising humanity with therapy. If humanity goes up a 10s place, this also brings empathy back up.
 - Calculate death save
 
 Role Abilities:
@@ -14,14 +13,16 @@ Modal:
 
 - sort out small screen display
 - stop show button and icon being hidden beneath the top of the modal container (see emp modal)
-- hide scrollbar (is this possible with overflow: scroll?)
+- hide scrollbar on boxes small enough not to need it (is this possible with overflow: scroll?)
 - Use Portal?
 
 Skills tables:
 
 - remove tables and use cards for each skill instead? Maybe a row for each skill type with a card for each skill in it Would take up a lot more space but also probably look neater.
 - Make display responsive for small screens
+
   Skills Options:
+
 - customize (change names) of new options
 - Add a way to remove an option
 - Can't remove all language or local knowledge options as they have a mimum number of skills attached.
