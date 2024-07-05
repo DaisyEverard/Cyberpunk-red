@@ -2,8 +2,10 @@ import { useContext } from 'react';
 
 import { SkillsContext } from '../App';
 import skillsJson from '../data/skills.json';
-import { Skills } from '../types/types';
+import { SkillsType } from '../types/types';
 import IncrementDecrementSkill from '../utils/IncrementDecrementSkill';
+import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
+import Skills from './Skills';
 
 type SingleSkillTypeTableProps = {
   tableSkillType: string;
@@ -23,7 +25,11 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     }
   }
 
-  const addNewOption = (currentSkills: Skills, setSkills: (currentSkills: Skills) => void, skillName: string) => {
+  const addNewOption = (
+    currentSkills: SkillsType,
+    setSkills: (currentSkills: SkillsType) => void,
+    skillName: string,
+  ) => {
     const newSkills = { ...currentSkills };
 
     const MAX_SKILL_POINTS = 6;
@@ -43,6 +49,26 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
 
     newSkills[skillName]['options'][`newOption${n}`] = 0;
     setSkills(newSkills);
+  };
+
+  // If you activate this, it moves the box to the bottom of the list of options.
+  // It's activated every time you press a key so you basically can't change anything unless it's already at the bottom of the list
+  // need to use onBlur or onKeyDown instead of onChange? But then how does the text actually change?
+  const setOptionName = (
+    target: any,
+    skillName: string,
+    currentSkills: SkillsType,
+    setCurrentSkills: (skills: SkillsType) => void,
+  ) => {
+    const oldName = target.dataset.originalvalue;
+    const newName = target.value;
+    if (oldName === newName) {
+      return;
+    }
+    const newSkills = { ...currentSkills };
+    newSkills[skillName]['options'][newName] = newSkills[skillName]['options'][oldName];
+    delete newSkills[skillName]['options'][oldName];
+    setCurrentSkills(newSkills);
   };
 
   return (
@@ -99,7 +125,14 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
               Object.entries(currentSkills[skillName]['options']).forEach(([optionName, level]) => {
                 options.push(
                   <tr className="option-tr">
-                    <td>{optionName}</td>
+                    <td>
+                      <SimpleEditableTextCell
+                        value={optionName}
+                        onChange={e => {
+                          setOptionName(e.target, skillName, currentSkills, setCurrentSkills);
+                        }}
+                      />
+                    </td>
                     <td>{level}</td>
                   </tr>,
                 );

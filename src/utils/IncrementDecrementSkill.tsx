@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { SkillsContext } from '../App';
 import skillsJson from '../data/skills.json';
-import { Skills } from '../types/types';
+import { SkillsType } from '../types/types';
 import { incrementAnyNumericalState } from './commonMethods';
 
 type IncrementDecrementSkillProps = {
@@ -18,8 +18,8 @@ const IncrementDecrementSkill = ({ skillName, remainingPoints, setRemainingPoint
   const cost = skillStats[0]['x2'] ? 2 : 1;
 
   const increment = (
-    currentSkills: Skills,
-    setSkills: (currentSkills: Skills) => void,
+    currentSkills: SkillsType,
+    setSkills: (currentSkills: SkillsType) => void,
     skillName: string,
     remainingPoints: number,
     setRemainingPoints: (newPoints: number) => void,
@@ -37,8 +37,8 @@ const IncrementDecrementSkill = ({ skillName, remainingPoints, setRemainingPoint
   };
 
   const decrement = (
-    currentSkills: Skills,
-    setSkills: (currentSkills: Skills) => void,
+    currentSkills: SkillsType,
+    setSkills: (currentSkills: SkillsType) => void,
     skillName: string,
     remainingPoints: number,
     setRemainingPoints: (newPoints: number) => void,
