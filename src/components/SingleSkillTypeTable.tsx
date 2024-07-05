@@ -54,6 +54,8 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
   // If you activate this, it moves the box to the bottom of the list of options.
   // It's activated every time you press a key so you basically can't change anything unless it's already at the bottom of the list
   // need to use onBlur or onKeyDown instead of onChange? But then how does the text actually change?
+
+  // Change the data structure so that the options have a numerical indetifier to use as a key, and a name property?
   const setOptionName = (
     target: any,
     skillName: string,
