@@ -31,8 +31,3 @@
 .dropdown:hover .dropbtn {
   background-color: var(--light-red-bg-1);
 }
-
-/* SIMPLE EDITABLE TEXT CELL */
-.simpleEditableTextCell {
-  padding: 12px;
-}

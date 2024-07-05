@@ -26,28 +26,6 @@ const decrementAnyNumericalState = (currentState: number, setState: (newState: n
   return success;
 };
 
-const decrementHumanity = (
-  humanity: number,
-  setHumanity: (newHumanity: number) => void,
-  stats: Stats,
-  setStats: (stats: Stats) => void,
-) => {
-  let success = false;
-  const startHumanityModulusTen = humanity % 10;
-
-  if (humanity > 0 && startHumanityModulusTen == 0) {
-    // subtract one from emp
-    let newStats = { ...stats };
-    newStats['EMP'] -= 1;
-    setStats(newStats);
-  }
-  if (humanity > 0) {
-    setHumanity(humanity - 1);
-    success = true;
-  }
-  return success;
-};
-
 // CALCULATIONS
 const calculateHPMax = (stats: Stats) => {
   const bodyWillAverage = Math.ceil((stats['BODY'] + stats['WILL']) / 2);
@@ -104,7 +82,6 @@ const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats: St
 export {
   decrementAnyNumericalState,
   incrementAnyNumericalState,
-  decrementHumanity,
   calculateHP,
   calculateHPMax,
   calculateHumanity,

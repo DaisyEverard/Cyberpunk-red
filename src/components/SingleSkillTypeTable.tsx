@@ -2,8 +2,9 @@ import { useContext } from 'react';
 
 import { SkillsContext } from '../App';
 import skillsJson from '../data/skills.json';
-import { Skills } from '../types/types';
+import { SkillsType } from '../types/types';
 import IncrementDecrementSkill from '../utils/IncrementDecrementSkill';
+import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
 
 type SingleSkillTypeTableProps = {
   tableSkillType: string;
@@ -23,26 +24,51 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
     }
   }
 
-  const addNewOption = (currentSkills: Skills, setSkills: (currentSkills: Skills) => void, skillName: string) => {
+  const addNewOption = (
+    currentSkills: SkillsType,
+    setSkills: (currentSkills: SkillsType) => void,
+    skillName: string,
+  ) => {
+    if (skillName == 'Martial Arts') {
+      return;
+    }
     const newSkills = { ...currentSkills };
 
     const MAX_SKILL_POINTS = 6;
     let n = 1;
     let success = false;
-    while (success == false && n < MAX_SKILL_POINTS) {
+
+    while (success == false && n <= MAX_SKILL_POINTS) {
       const optionExists =
-        newSkills[skillName]['options'][`newOption${n}`] || newSkills[skillName]['options'][`newOption${n}`] == 0;
+        newSkills[skillName]['options'][n]['name'] && newSkills[skillName]['options'][n]['name'] != '';
 
       if (optionExists) {
         n += 1;
         continue;
       } else {
+        newSkills[skillName]['options'][n]['name'] = 'New Option';
+        setSkills(newSkills);
         success = true;
       }
     }
+  };
 
-    newSkills[skillName]['options'][`newOption${n}`] = 0;
-    setSkills(newSkills);
+  const setOptionName = (
+    target: any,
+    skillName: string,
+    optionID: number,
+    currentSkills: SkillsType,
+    setCurrentSkills: (skills: SkillsType) => void,
+  ) => {
+    if (skillName == 'Martial Arts') {
+      return;
+    }
+
+    const newName = target.value;
+    const newSkills = { ...currentSkills };
+
+    newSkills[skillName]['options'][optionID]['name'] = newName;
+    setCurrentSkills(newSkills);
   };
 
   return (
@@ -59,10 +85,7 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
         </thead>
         <tbody>
           {skillsList.map(skill => {
-            // need to deal with skills with options here
-            // one extra row per option
-            // need to be able to change options so cultural origin one can be set
-            // should be able to add/remove? For start can just have the max number of option rows and leave them 0
+            // need to handle cultural origin rows. At least 4 points over 1-4 languages.
             const skillName = skill['name'];
             const pointCost = skill['x2'] ? 2 : 1;
             const skillLevel = currentSkills[skillName]['level'];
@@ -96,11 +119,28 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
 
             const options = [];
             if (hasOptions) {
-              Object.entries(currentSkills[skillName]['options']).forEach(([optionName, level]) => {
+              Object.entries(currentSkills[skillName]['options']).map(option => {
+                const optionID = option[0];
+                const optionName = option[1]['name'];
+                const optionLevel = option[1]['level'];
+
+                let style = 'option-tr hidden';
+                if (optionName != '') {
+                  style = 'option-tr inline';
+                }
+
                 options.push(
-                  <tr className="option-tr">
-                    <td>{optionName}</td>
-                    <td>{level}</td>
+                  <tr className={style}>
+                    <td>
+                      <SimpleEditableTextCell
+                        className="bg-transparent"
+                        value={optionName}
+                        onChange={e => {
+                          setOptionName(e.target, skillName, optionID, currentSkills, setCurrentSkills);
+                        }}
+                      />
+                    </td>
+                    <td>{optionLevel}</td>
                   </tr>,
                 );
               });

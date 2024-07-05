@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import { EffectsContext, HPContext } from '../App';
+import { EffectsContext, HPContext, HumanityContext, StatsContext } from '../App';
 import rolesJson from '../data/roles.json';
-import { Effects, Stats } from '../types/types';
+import { Stats } from '../types/types';
 import DropdownCell from '../utils/DropdownCell';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
 import {
@@ -20,16 +20,18 @@ type ProfileProps = {
   role: string;
   setRole: (value: string) => void;
   healthPoints: number;
-  humanity: number;
-  stats: Stats;
 };
 
 const allRoles = Object.keys(rolesJson);
 
-const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }: ProfileProps) => {
+// COMPONENT START
+const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) => {
   const { HP, setHP } = useContext(HPContext);
   const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
+  const { humanity, setHumanity } = useContext(HumanityContext);
+  const { stats, setStats } = useContext(StatsContext);
 
+  // HEAL METHOD
   const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
     const HPChangeInput = document.querySelector('#HPChangeInput');
     const HPMax = calculateHPMax(stats);
@@ -59,6 +61,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
     HPChangeInput.value = null;
   };
 
+  // TAKE DAMAGE METHOD
   const takeDamage = (HP: number, setHP: (newHP: number) => void) => {
     const HPChangeInput = document.querySelector('#HPChangeInput');
     let HPChange = HPChangeInput.value;
@@ -87,6 +90,67 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
     HPChangeInput.value = null;
   };
 
+  // INCREMENT HUMANITY METHOD
+  const incrementHumanity = (
+    humanity: number,
+    setHumanity: (newHumanity: number) => void,
+    stats: Stats,
+    setStats: (stats: Stats) => void,
+  ) => {
+    const humanityChangeInput = document.querySelector('#HumanityChangeInput');
+    let humanityChange = humanityChangeInput.value;
+    if (humanityChange == '') {
+      humanityChange = 1;
+    }
+    humanityChange = parseInt(humanityChange);
+
+    let success = false;
+    const startHumanityModulusTen = humanity % 10;
+
+    if (startHumanityModulusTen == 9) {
+      let newStats = { ...stats };
+      newStats['EMP'] += 1;
+      setStats(newStats);
+    }
+    setHumanity(humanity + humanityChange);
+    success = true;
+    return success;
+  };
+
+  // DECREMENT HUMANITY METHOD
+  const decrementHumanity = (
+    humanity: number,
+    setHumanity: (newHumanity: number) => void,
+    stats: Stats,
+    setStats: (stats: Stats) => void,
+  ) => {
+    const humanityChangeInput = document.querySelector('#HumanityChangeInput');
+    let humanityChange = humanityChangeInput.value;
+    if (humanityChange == '') {
+      humanityChange = 1;
+    }
+    humanityChange = parseInt(humanityChange);
+
+    const startHumanityModulusTen = humanity % 10;
+    let success = true;
+
+    while (humanityChange > 0 && success == true) {
+      success = false;
+      if (humanity > 0 && startHumanityModulusTen == 0) {
+        let newStats = { ...stats };
+        newStats['EMP'] -= 1;
+        setStats(newStats);
+      }
+      if (humanity > 0) {
+        setHumanity(humanity - 1);
+        humanity -= 1;
+        success = true;
+      }
+      humanityChange -= 1;
+    }
+  };
+
+  // COMPONENT BODY
   return (
     <div className="flex gap-1">
       <div className="flex box">
@@ -97,6 +161,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
         <div className="px-2 flex gap-2 items-center">
           <div>Name:</div>
           <SimpleEditableTextCell
+            className="rounded border"
             value={name}
             onChange={e => setName(e.target.value)}
           />
@@ -119,7 +184,6 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
           <div>Health Points (HP)</div>
         </div>
         <div className="flex flex-col justify-center items-center ml-3">
-          {/* these should probably be green and red but ¯\_(ツ)_/¯ how fill? stroke??*/}
           <p
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
@@ -151,6 +215,33 @@ const Profile = ({ name, setName, role, setRole, healthPoints, humanity, stats }
       <div className="box flex flex-col justify-center items-center">
         <div className="text-2xl">{humanity}</div>
         <div>Humanity (HUM)</div>
+      </div>
+      <div className="flex flex-col justify-center items-center ml-3">
+        <p
+          className="health-button text-heal-green border-heal-green"
+          onClick={e => {
+            e.preventDefault();
+            incrementHumanity(humanity, setHumanity, stats, setStats);
+          }}
+        >
+          ADD
+        </p>
+        {/* don't allow negative input */}
+        <input
+          className="box w-20 h-10"
+          type="number"
+          id="HumanityChangeInput"
+          min={0}
+        ></input>
+        <p
+          className="health-button text-damage-red border-damage-red"
+          onClick={e => {
+            e.preventDefault();
+            decrementHumanity(humanity, setHumanity, stats, setStats);
+          }}
+        >
+          REMOVE
+        </p>
       </div>
     </div>
   );
