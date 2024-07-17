@@ -113,7 +113,9 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
                   addNewOption(currentSkills, setCurrentSkills, skillName);
                 }}
               >
-                <p>+ Option</p>
+                <td colSpan={4}>
+                  <p>+ Option</p>
+                </td>
               </tr>
             ) : null;
 
@@ -126,7 +128,7 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
 
                 let style = 'option-tr hidden';
                 if (optionName != '') {
-                  style = 'option-tr inline';
+                  style = 'option-tr';
                 }
 
                 options.push(
@@ -140,7 +142,9 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
                         }}
                       />
                     </td>
+                    <td></td>
                     <td>{optionLevel}</td>
+                    <td></td>
                   </tr>,
                 );
               });
