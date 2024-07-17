@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { EffectsContext, HPContext, HumanityContext, StatsContext } from '../App';
+import { CharacterContext } from '../context/Character';
 import rolesJson from '../data/roles.json';
 import { Stats } from '../types/types';
 import DropdownCell from '../utils/DropdownCell';
@@ -25,11 +25,21 @@ type ProfileProps = {
 const allRoles = Object.keys(rolesJson);
 
 // COMPONENT START
-const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) => {
-  const { HP, setHP } = useContext(HPContext);
-  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
-  const { humanity, setHumanity } = useContext(HumanityContext);
-  const { stats, setStats } = useContext(StatsContext);
+const Profile = () => {
+  const {
+    getName,
+    setName,
+    getRole,
+    setRole,
+    getStats,
+    setStats,
+    getHP,
+    setHP,
+    getHumanity,
+    setHumanity,
+    getCurrentEffects,
+    setCurrentEffects,
+  } = useContext(CharacterContext);
 
   // HEAL METHOD
   const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
@@ -52,10 +62,10 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
     }
 
     if (!isSeriouslyWounded(stats, HP)) {
-      setEffect(currentEffects, setCurrentEffects, false, 'seriously wounded');
+      setEffect(getCurrentEffects(), setCurrentEffects, false, 'seriously wounded');
     }
     if (!isMortallyWounded(HP)) {
-      setEffect(currentEffects, setCurrentEffects, false, 'mortally wounded');
+      setEffect(getCurrentEffects(), setCurrentEffects, false, 'mortally wounded');
     }
 
     HPChangeInput.value = null;
@@ -80,11 +90,11 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
       }
     }
 
-    if (isSeriouslyWounded(stats, HP)) {
-      setEffect(currentEffects, setCurrentEffects, true, 'seriously wounded');
+    if (isSeriouslyWounded(getStats(), HP)) {
+      setEffect(getCurrentEffects(), setCurrentEffects, true, 'seriously wounded');
     }
     if (isMortallyWounded(HP)) {
-      setEffect(currentEffects, setCurrentEffects, true, 'mortally wounded');
+      setEffect(getCurrentEffects(), setCurrentEffects, true, 'mortally wounded');
     }
 
     HPChangeInput.value = null;
@@ -162,14 +172,14 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
           <div>Name:</div>
           <SimpleEditableTextCell
             className="rounded border"
-            value={name}
+            value={getName()}
             onChange={e => setName(e.target.value)}
           />
         </div>
         <div className=" px-2 flex gap-2 items-center">
           <div>Role:</div>
           <DropdownCell
-            value={role}
+            value={getRole()}
             values={allRoles}
             onChanged={value => setRole(value)}
           />
@@ -179,7 +189,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
       <div className="box  flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
           <div className="text-2xl">
-            {healthPoints} / {calculateHPMax(stats)}
+            {getHP()} / {calculateHPMax(getStats())}
           </div>
           <div>Health Points (HP)</div>
         </div>
@@ -188,7 +198,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              heal(stats, HP, setHP);
+              heal(getStats(), getHP(), setHP);
             }}
           >
             HEAL
@@ -204,7 +214,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              takeDamage(HP, setHP);
+              takeDamage(getHP(), setHP);
             }}
           >
             DAMAGE
@@ -214,7 +224,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
 
       <div className="box flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="text-2xl">{humanity}</div>
+          <div className="text-2xl">{getHumanity()}</div>
           <div>Humanity (HUM)</div>
         </div>
         <div className="flex flex-col justify-center items-center ml-3">
@@ -222,7 +232,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              incrementHumanity(humanity, setHumanity, stats, setStats);
+              incrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
             }}
           >
             ADD
@@ -238,7 +248,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              decrementHumanity(humanity, setHumanity, stats, setStats);
+              decrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
             }}
           >
             REMOVE
