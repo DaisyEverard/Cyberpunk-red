@@ -14,19 +14,12 @@ import {
   setEffect,
 } from '../utils/commonMethods';
 
-type ProfileProps = {
-  name: string;
-  setName: (value: string) => void;
-  role: string;
-  setRole: (value: string) => void;
-  healthPoints: number;
-};
-
 const allRoles = Object.keys(rolesJson);
 
 // COMPONENT START
 const Profile = () => {
   const {
+    // Destructure only the methods you need from your context.
     getName,
     setName,
     getRole,

@@ -11,6 +11,9 @@ import CharacterProvider from './context/Character';
 
 const App = () => {
   return (
+    // Less code.
+    // Less nested shit.
+    // Happy Rob.
     <CharacterProvider>
       <div className="flex flex-col h-screen w-screen overflow-hidden">
         <Header />

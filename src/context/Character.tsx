@@ -7,7 +7,7 @@ import { calculateHP, calculateHumanity } from '../utils/commonMethods';
 
 export const CharacterContext = createContext<any>(null);
 
-// You touch this perfectly good function declaration and I'mma come beat yo ass.
+// You touch this perfectly good function declaration, George, and I'mma come beat yo ass!
 export default function CharacterProvider({ children }: { children: ReactNode }) {
   const [name, setName] = useState('Johnny Silverhand');
   const [role, setRole] = useState('Medtech');
