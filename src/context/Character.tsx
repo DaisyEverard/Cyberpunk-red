@@ -39,16 +39,12 @@ export default function CharacterProvider({ children }: { children: ReactNode })
     return currentEffects;
   }
 
-  function getData() {
-    return {
-      name,
-      role,
-      stats,
-      HP,
-      humanity,
-      currentSkills,
-      currentEffects,
-    };
+  function someOtherPublicFunction(message: string) {
+    aPrivateFunction(message);
+  }
+
+  function aPrivateFunction(message: string) {
+    console.log(message);
   }
 
   return (
@@ -63,12 +59,13 @@ export default function CharacterProvider({ children }: { children: ReactNode })
         getHP,
         setHP,
         getHumanity,
+        setHumanity,
         setCurrentSkills,
         getCurrentSkills,
         getCurrentEffects,
         setCurrentEffects,
 
-        getData,
+        someOtherPublicFunction,
       }}
     >
       {children}
