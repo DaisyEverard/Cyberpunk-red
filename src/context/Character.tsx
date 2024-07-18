@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from 'react';
+import { PropsWithChildren, createContext, useState } from 'react';
 
 import defaultEffects from '../data/defaultEffects.json';
 import defaultSkills from '../data/defaultSkills.json';
@@ -8,7 +8,8 @@ import { calculateHP, calculateHumanity } from '../utils/commonMethods';
 export const CharacterContext = createContext<any>(null);
 
 // You touch this perfectly good function declaration, George, and I'mma come beat yo ass!
-export default function CharacterProvider({ children }: { children: ReactNode }) {
+// Fix It For Ya :)
+export default function CharacterProvider({ children }: PropsWithChildren) {
   const [name, setName] = useState('Johnny Silverhand');
   const [role, setRole] = useState('Medtech');
   const [stats, setStats] = useState(defaultStats);
