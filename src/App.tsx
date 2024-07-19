@@ -11,7 +11,7 @@ import CharacterProvider from './context/Character';
 
 const App = () => {
   return (
-    // Less code.
+    // Clenaer code.
     // Less nested shit.
     // Happy Rob.
     <CharacterProvider>
