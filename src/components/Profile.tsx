@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useRef } from 'react';
 
 import { EffectsContext, HPContext, HumanityContext, StatsContext } from '../App';
 import rolesJson from '../data/roles.json';
@@ -30,12 +31,13 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
   const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
   const { humanity, setHumanity } = useContext(HumanityContext);
   const { stats, setStats } = useContext(StatsContext);
+  const HPInputRef = useRef(null);
+  const humanityInputRef = useRef(null);
 
   // HEAL METHOD
   const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
-    const HPChangeInput = document.querySelector('#HPChangeInput');
     const HPMax = calculateHPMax(stats);
-    let HPChange = HPChangeInput.value;
+    let HPChange = HPInputRef.current.value;
 
     if (HPChange == '') {
       incrementAnyNumericalState(HP, setHP, HPMax);
@@ -58,13 +60,12 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
       setEffect(currentEffects, setCurrentEffects, false, 'mortally wounded');
     }
 
-    HPChangeInput.value = null;
+    HPInputRef.current.value = null;
   };
 
   // TAKE DAMAGE METHOD
   const takeDamage = (HP: number, setHP: (newHP: number) => void) => {
-    const HPChangeInput = document.querySelector('#HPChangeInput');
-    let HPChange = HPChangeInput.value;
+    let HPChange = HPInputRef.current.value;
 
     if (HPChange == '') {
       decrementAnyNumericalState(HP, setHP);
@@ -97,8 +98,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
     stats: Stats,
     setStats: (stats: Stats) => void,
   ) => {
-    const humanityChangeInput = document.querySelector('#HumanityChangeInput');
-    let humanityChange = humanityChangeInput.value;
+    let humanityChange = humanityInputRef.current.value;
     if (humanityChange == '') {
       humanityChange = 1;
     }
@@ -124,8 +124,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
     stats: Stats,
     setStats: (stats: Stats) => void,
   ) => {
-    const humanityChangeInput = document.querySelector('#HumanityChangeInput');
-    let humanityChange = humanityChangeInput.value;
+    let humanityChange = humanityInputRef.current.value;
     if (humanityChange == '') {
       humanityChange = 1;
     }
@@ -197,7 +196,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
           <input
             className="box w-20 h-10"
             type="number"
-            id="HPChangeInput"
+            ref={HPInputRef}
             min={0}
           ></input>
           <p
@@ -231,7 +230,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
           <input
             className="box w-20 h-10"
             type="number"
-            id="HumanityChangeInput"
+            ref={humanityInputRef}
             min={0}
           ></input>
           <p
