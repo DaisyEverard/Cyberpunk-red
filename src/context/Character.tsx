@@ -52,7 +52,7 @@ export default function CharacterProvider({ children }: PropsWithChildren) {
   }
 
   function someOtherPublicFunction(message: string) {
-    // Obviously you're not limited to just gaving getters and setters.closeModalButton
+    // Obviously you're not limited to just gaving getters and setters.
     // You can also export other methods (to stick with our "class" anaology) which
     // anything else you might need a consuming component to do.
 
