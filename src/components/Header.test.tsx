@@ -7,14 +7,11 @@ import Header from './Header';
 // I need simple examples first, but I don't think I've done this in a very vitest way
 // I didn't want to have to write a data-testid when there's already an id?
 describe('Header', () => {
-  it('renders title correctly', () => {
-    const result = render(<Header />);
+  it('renders title correctly', async () => {
+    render(<Header />);
 
-    const titleDiv = result.container.querySelector('#header');
-    const titleText = titleDiv?.textContent;
+    const text = await screen.findByText('Cyberpunk Red - Character Assistant');
 
-    expect(titleText).toBe('Cyberpunk Red - Character Assistant');
-
-    console.log(titleDiv);
+    expect(text).toBeDefined();
   });
 });
