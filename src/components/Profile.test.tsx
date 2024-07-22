@@ -1,85 +1,84 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { EffectsContext, HPContext, RoleContext, StatsContext } from '../App';
+import { EffectsContext, HPContext, HumanityContext, RoleContext, StatsContext } from '../App';
 import { Effects, Stats } from '../types/types';
-import { calculateHPMax } from '../utils/commonMethods';
+import { calculateHPMax, calculateHumanity } from '../utils/commonMethods';
 import Profile from './Profile';
 
-const DEFAULT_MAX_HP = 35;
-const DEFAULT_STATS = { BODY: 5, WILL: 4 };
+const DEFAULT_STATS = { BODY: 5, WILL: 4, EMP: 3 };
+const DEFAULT_MAX_HP = calculateHPMax(DEFAULT_STATS); // 35
 const DEFAULT_EFFECTS = {
   'seriously wounded': { active: false },
   'mortally wounded': { active: false },
 };
 const DEFAULT_ROLE = 'Medtech';
+const DEFAULT_HUMANITY = calculateHumanity(DEFAULT_STATS); // 30
 
 const renderProfile = (
   stats: Stats = DEFAULT_STATS,
   HP: number = DEFAULT_MAX_HP,
   currentEffects: Effects = DEFAULT_EFFECTS,
   role: string = DEFAULT_ROLE,
+  humanity: number = DEFAULT_HUMANITY,
 ) => {
   const setCurrentEffects = vi.fn();
   const setHP = vi.fn();
   const setStats = vi.fn();
   const setRole = vi.fn();
+  const setHumanity = vi.fn();
 
   const { rerender, debug } = render(
     <StatsContext.Provider value={{ stats, setStats }}>
       <HPContext.Provider value={{ HP, setHP }}>
         <EffectsContext.Provider value={{ currentEffects, setCurrentEffects }}>
           <RoleContext.Provider value={{ role, setRole }}>
-            <Profile />
+            <HumanityContext.Provider value={{ humanity, setHumanity }}>
+              <Profile />
+            </HumanityContext.Provider>
           </RoleContext.Provider>
         </EffectsContext.Provider>
       </HPContext.Provider>
     </StatsContext.Provider>,
   );
 
-  return { rerender, debug, setHP };
+  return { rerender, debug, setHP, setHumanity };
 };
 
 const getDomElements = async () => {
+  // HP
   const healButton = await screen.findByText('HEAL');
   const HPDisplay = await screen.findByTestId('HP-display');
   const HPInput = (await screen.findByTestId('HP-input')) as HTMLInputElement;
   const damageButton = await screen.findByText('DAMAGE');
 
-  return { healButton, HPDisplay, HPInput, damageButton };
+  // HUMANITY
+  const humanityDisplay = await screen.findByTestId('humanity-display');
+  const humanityInput = (await screen.findByTestId('humanity-input')) as HTMLInputElement;
+  const incrementHumanityButton = await screen.findByText('ADD');
+  const decrementHumanityButton = await screen.findByText('REMOVE');
+
+  return {
+    healButton,
+    HPDisplay,
+    HPInput,
+    damageButton,
+    humanityDisplay,
+    humanityInput,
+    incrementHumanityButton,
+    decrementHumanityButton,
+  };
 };
 
 describe('HP Adjustment', async () => {
-  it('heals one hp if input is empty', async () => {
-    const startingHP = 30;
-    const { setHP } = renderProfile(undefined, startingHP);
+  it('renders with correct hp', async () => {
+    const startingHP = 21;
+    renderProfile(undefined, startingHP);
 
-    const { healButton, HPDisplay, HPInput } = await getDomElements();
-
-    const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
-    expect(initialHP).toBe(30);
-    HPInput.value = '';
-
-    fireEvent.click(healButton);
-
-    const expectedHP = initialHP + 1;
-
-    expect(setHP).toHaveBeenCalledWith(expectedHP);
-  });
-
-  it('damages one hp if input is empty', async () => {
-    const { setHP } = renderProfile();
-
-    const { damageButton, HPDisplay, HPInput } = await getDomElements();
+    const { HPDisplay } = await getDomElements();
 
     const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
-    expect(initialHP).toBe(35);
-
-    HPInput.value = '';
-    fireEvent.click(damageButton);
-    const expectedHP = initialHP - 1;
-
-    expect(setHP).toHaveBeenCalledWith(expectedHP);
+    expect(initialHP).toBe(21);
   });
 
   it('heals any HP number in input', async () => {
@@ -87,15 +86,18 @@ describe('HP Adjustment', async () => {
     const { setHP } = renderProfile(undefined, startingHP);
 
     const { healButton, HPDisplay, HPInput } = await getDomElements();
-
     const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
-    expect(initialHP).toBe(20);
-    HPInput.value = '7';
 
+    // empty input
+    HPInput.value = '';
     fireEvent.click(healButton);
+    let expectedHP = initialHP + 1;
+    expect(setHP).toHaveBeenCalledWith(expectedHP);
 
-    const expectedHP = initialHP + 7;
-
+    // populated input
+    HPInput.value = '7';
+    fireEvent.click(healButton);
+    expectedHP = initialHP + 7;
     expect(setHP).toHaveBeenCalledWith(expectedHP);
   });
 
@@ -105,26 +107,31 @@ describe('HP Adjustment', async () => {
     const { damageButton, HPDisplay, HPInput } = await getDomElements();
 
     const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
-    expect(initialHP).toBe(35);
 
+    // empty input
+    HPInput.value = '';
+    fireEvent.click(damageButton);
+    let expectedHP = initialHP - 1;
+    expect(setHP).toHaveBeenCalledWith(expectedHP);
+
+    // populated input
     HPInput.value = '8';
     fireEvent.click(damageButton);
-    const expectedHP = initialHP - 8;
-
+    expectedHP = initialHP - 8; // this does not stack to 9 because setHP is a mock
     expect(setHP).toHaveBeenCalledWith(expectedHP);
   });
 
   it('does not heal above max hp', async () => {
     const { setHP } = renderProfile();
 
-    const { healButton, HPDisplay, HPInput } = await getDomElements();
+    const { healButton, HPInput } = await getDomElements();
 
-    const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
-    expect(initialHP).toBe(35);
     HPInput.value = '';
-
     fireEvent.click(healButton);
+    expect(setHP).toHaveBeenCalledTimes(0);
 
+    HPInput.value = '10';
+    fireEvent.click(healButton);
     expect(setHP).toHaveBeenCalledTimes(0);
   });
 
@@ -132,10 +139,7 @@ describe('HP Adjustment', async () => {
     const startingHP = 0;
     const { setHP } = renderProfile(undefined, startingHP);
 
-    const { damageButton, HPDisplay, HPInput } = await getDomElements();
-
-    const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
-    expect(initialHP).toBe(0);
+    const { damageButton, HPInput } = await getDomElements();
 
     HPInput.value = '';
     fireEvent.click(damageButton);
@@ -144,5 +148,43 @@ describe('HP Adjustment', async () => {
     HPInput.value = '5';
     fireEvent.click(damageButton);
     expect(setHP).toHaveBeenCalledTimes(0);
+  });
+});
+
+describe('Humanity Adjustment', async () => {
+  it('renders with correct Humanity', async () => {
+    renderProfile();
+
+    const { humanityDisplay } = await getDomElements();
+
+    const initialHumanity = parseInt(humanityDisplay.innerHTML);
+    expect(initialHumanity).toBe(30);
+  });
+  it('increases Humanity by 1 if input is empty', async () => {
+    const startingHumanity = 5;
+    const { setHumanity } = renderProfile(undefined, undefined, undefined, undefined, startingHumanity);
+
+    const { humanityDisplay, humanityInput, incrementHumanityButton } = await getDomElements();
+
+    const initialHumanity = parseInt(humanityDisplay.innerHTML);
+    humanityInput.value = '';
+
+    fireEvent.click(incrementHumanityButton);
+    const expectedHumanity = initialHumanity + 1;
+
+    expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
+  });
+  it('decreases Humanity by 1 if input is empty', async () => {
+    const { setHumanity } = renderProfile();
+
+    const { humanityDisplay, humanityInput, decrementHumanityButton } = await getDomElements();
+
+    const initialHumanity = parseInt(humanityDisplay.innerHTML);
+    humanityInput.value = '';
+
+    fireEvent.click(decrementHumanityButton);
+    const expectedHumanity = initialHumanity - 1;
+
+    expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
   });
 });

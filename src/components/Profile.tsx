@@ -211,8 +211,13 @@ const Profile = () => {
 
       <div className="box flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="text-2xl">{humanity}</div>
-          <div>Humanity (HUM)</div>
+          <div
+            className="text-2xl"
+            data-testid="humanity-display"
+          >
+            {humanity}
+          </div>
+          <div data-testid="humanity-input">Humanity (HUM)</div>
         </div>
         <div className="flex flex-col justify-center items-center ml-3">
           <p
