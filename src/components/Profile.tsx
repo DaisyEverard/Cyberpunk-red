@@ -177,7 +177,10 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
 
       <div className="box  flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="text-2xl">
+          <div
+            className="text-2xl"
+            data-testid="health-display"
+          >
             {healthPoints} / {calculateHPMax(stats)}
           </div>
           <div>Health Points (HP)</div>
