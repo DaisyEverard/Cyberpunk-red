@@ -20,13 +20,12 @@ type ProfileProps = {
   setName: (value: string) => void;
   role: string;
   setRole: (value: string) => void;
-  healthPoints: number;
 };
 
 const allRoles = Object.keys(rolesJson);
 
 // COMPONENT START
-const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) => {
+const Profile = ({ name, setName, role, setRole }: ProfileProps) => {
   const { HP, setHP } = useContext(HPContext);
   const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
   const { humanity, setHumanity } = useContext(HumanityContext);
@@ -177,8 +176,11 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
 
       <div className="box  flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="text-2xl">
-            {healthPoints} / {calculateHPMax(stats)}
+          <div
+            className="text-2xl"
+            data-testid="HP-display"
+          >
+            {HP} / {calculateHPMax(stats)}
           </div>
           <div>Health Points (HP)</div>
         </div>
@@ -194,6 +196,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
           </p>
           {/* don't allow negative input */}
           <input
+            data-testid="HP-input"
             className="box w-20 h-10"
             type="number"
             ref={HPInputRef}

@@ -47,7 +47,6 @@ const App = () => {
                         setName={value => setName(value)}
                         role={role}
                         setRole={value => setRole(value)}
-                        healthPoints={HP}
                         humanity={humanity}
                         stats={stats}
                       />
