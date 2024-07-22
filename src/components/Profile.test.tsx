@@ -1,17 +1,14 @@
-import { PropsWithChildren } from 'react';
-
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { EffectsContext, HPContext, RoleContext, StatsContext } from '../App';
 import { Effects, Stats } from '../types/types';
 import { calculateHPMax } from '../utils/commonMethods';
-import Profile, { ProfileProps } from './Profile';
+import Profile from './Profile';
 
-// Profile props = name, setName, role, setRole, healthPoints
 const renderProfile = (
   stats: Stats = { BODY: 5, WILL: 4 },
-  HP: number = 35,
+  HP: number = 35, //max HP for default stats
   currentEffects: Effects = {
     'seriously wounded': { active: false },
     'mortally wounded': { active: false },
@@ -23,7 +20,7 @@ const renderProfile = (
   const setStats = vi.fn();
   const setRole = vi.fn();
 
-  return render(
+  const { rerender, debug } = render(
     <StatsContext.Provider value={{ stats, setStats }}>
       <HPContext.Provider value={{ HP, setHP }}>
         <EffectsContext.Provider value={{ currentEffects, setCurrentEffects }}>
@@ -34,6 +31,8 @@ const renderProfile = (
       </HPContext.Provider>
     </StatsContext.Provider>,
   );
+
+  return { render, debug, setHP };
 };
 
 // const healButton = await screen.findByText('HEAL');
@@ -43,36 +42,38 @@ const renderProfile = (
 describe('HP Adjustment', async () => {
   it('renders with correct HP display', async () => {
     const stats = { BODY: 5, WILL: 4 };
-    renderProfile(stats);
+    const startingHP = 29;
+    renderProfile(stats, startingHP);
 
     const HPDisplay = await screen.findByTestId('HP-display');
     // Because i set this default HP in renderProfile, this doesn't really test anything
     // But it does pass :D
     const expectedMaxHP = calculateHPMax(stats);
-    const expectedHP = expectedMaxHP;
 
-    const expectedHPDisplay = `${expectedHP} / ${expectedMaxHP}`;
+    const expectedHPDisplay = `${startingHP} / ${expectedMaxHP}`;
     const actualHPDisplay = HPDisplay.innerHTML;
 
     expect(actualHPDisplay).toBe(expectedHPDisplay);
   });
 
   it('heals one hp if input is empty', async () => {
-    const { rerender } = renderProfile();
+    const startingHP = 30;
+    const { setHP } = renderProfile(undefined, startingHP);
 
     const healButton = await screen.findByText('HEAL');
     const HPDisplay = await screen.findByTestId('HP-display');
     const HPInput = (await screen.findByTestId('HP-input')) as HTMLInputElement;
 
-    const initialHPDisplayed = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
+    const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
     HPInput.value = '';
 
-    await fireEvent.click(healButton);
+    fireEvent.click(healButton);
 
-    const actualHPDisplay = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
-    const expectedHPDisplayed = initialHPDisplayed + 1;
+    const actualHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
+    const expectedHP = initialHP + 1;
 
-    expect(actualHPDisplay).toBe(expectedHPDisplayed);
+    expect(actualHP).toBe(expectedHP);
+    expect(setHP).toHaveBeenCalledWith(expectedHP);
   });
 });
 
