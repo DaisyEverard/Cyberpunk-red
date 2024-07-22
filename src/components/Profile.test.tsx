@@ -28,7 +28,7 @@ const renderProfile = (
     setRole: vi.fn(),
   };
 
-  render(
+  const { rerender, debug } = render(
     <StatsContext.Provider value={{ stats, setStats }}>
       <HPContext.Provider value={{ HP, setHP }}>
         <EffectsContext.Provider value={{ currentEffects, setCurrentEffects }}>
@@ -37,6 +37,8 @@ const renderProfile = (
       </HPContext.Provider>
     </StatsContext.Provider>,
   );
+
+  return { rerender, debug };
 };
 
 // const healButton = await screen.findByText('HEAL');
@@ -45,10 +47,11 @@ const renderProfile = (
 
 describe('HP Adjustment', async () => {
   it('renders with correct HP display', async () => {
-    renderProfile();
+    const stats = { BODY: 5, WILL: 4 };
+    renderProfile(stats);
 
     const HPDisplay = await screen.findByTestId('HP-display');
-    // Because i set HP as a const at the top, this doesn't really test anything
+    // Because i set this default HP anyway, this doesn't really test anything
     // But it does pass :D
     const expectedMaxHP = calculateHPMax(stats);
     const expectedHP = expectedMaxHP;
@@ -60,7 +63,7 @@ describe('HP Adjustment', async () => {
   });
 
   it('heals one hp if input is empty', async () => {
-    renderProfile();
+    const { rerender } = renderProfile();
 
     const healButton = await screen.findByText('HEAL');
     const HPDisplay = await screen.findByTestId('HP-display');
@@ -70,7 +73,6 @@ describe('HP Adjustment', async () => {
     HPInput.value = '';
 
     fireEvent.click(healButton);
-    await screen.findByTestId('HP-display');
 
     const actualHPDisplay = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
     const expectedHPDisplayed = initialHPDisplayed + 1;
