@@ -15,7 +15,7 @@ import {
   setEffect,
 } from '../utils/commonMethods';
 
-type ProfileProps = {
+export type ProfileProps = {
   name: string;
   setName: (value: string) => void;
   role: string;
