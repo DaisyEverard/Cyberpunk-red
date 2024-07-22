@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { EffectsContext, HPContext, StatsContext } from '../App';
+import { EffectsContext, HPContext, RoleContext, StatsContext } from '../App';
 import { Effects, Stats } from '../types/types';
 import { calculateHPMax } from '../utils/commonMethods';
 import Profile, { ProfileProps } from './Profile';
@@ -16,29 +16,24 @@ const renderProfile = (
     'seriously wounded': { active: false },
     'mortally wounded': { active: false },
   },
+  role: string = 'Medtech',
 ) => {
   const setCurrentEffects = vi.fn();
   const setHP = vi.fn();
   const setStats = vi.fn();
+  const setRole = vi.fn();
 
-  const props = {
-    name: 'test name',
-    setName: vi.fn(),
-    role: 'test role',
-    setRole: vi.fn(),
-  };
-
-  const { rerender, debug } = render(
+  return render(
     <StatsContext.Provider value={{ stats, setStats }}>
       <HPContext.Provider value={{ HP, setHP }}>
         <EffectsContext.Provider value={{ currentEffects, setCurrentEffects }}>
-          <Profile {...props} />
+          <RoleContext.Provider value={{ role, setRole }}>
+            <Profile />
+          </RoleContext.Provider>
         </EffectsContext.Provider>
       </HPContext.Provider>
     </StatsContext.Provider>,
   );
-
-  return { rerender, debug };
 };
 
 // const healButton = await screen.findByText('HEAL');
@@ -72,7 +67,7 @@ describe('HP Adjustment', async () => {
     const initialHPDisplayed = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
     HPInput.value = '';
 
-    fireEvent.click(healButton);
+    await fireEvent.click(healButton);
 
     const actualHPDisplay = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
     const expectedHPDisplayed = initialHPDisplayed + 1;

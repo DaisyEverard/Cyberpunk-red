@@ -23,7 +23,6 @@ export const SkillsContext = createContext({});
 export const EffectsContext = createContext({});
 
 const App = () => {
-  const [name, setName] = useState('Johnny Silverhand');
   const [role, setRole] = useState('Medtech');
   const [stats, setStats] = useState(defaultStats);
   const [HP, setHP] = useState(calculateHP(stats));
@@ -42,14 +41,7 @@ const App = () => {
                   <Header />
                   <div className="flex flex-col items-center overflow-y-scroll my-1">
                     <div className="flex flex-col gap-1 max-w-7xl">
-                      <Profile
-                        name={name}
-                        setName={value => setName(value)}
-                        role={role}
-                        setRole={value => setRole(value)}
-                        humanity={humanity}
-                        stats={stats}
-                      />
+                      <Profile />
                       <Effects />
                       <RoleAbility />
                       <Stats />

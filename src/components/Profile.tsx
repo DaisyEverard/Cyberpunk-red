@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
-import { EffectsContext, HPContext, HumanityContext, StatsContext } from '../App';
+import { EffectsContext, HPContext, HumanityContext, RoleContext, StatsContext } from '../App';
 import rolesJson from '../data/roles.json';
 import { Stats } from '../types/types';
 import DropdownCell from '../utils/DropdownCell';
@@ -15,17 +15,12 @@ import {
   setEffect,
 } from '../utils/commonMethods';
 
-export type ProfileProps = {
-  name: string;
-  setName: (value: string) => void;
-  role: string;
-  setRole: (value: string) => void;
-};
-
 const allRoles = Object.keys(rolesJson);
 
 // COMPONENT START
-const Profile = ({ name, setName, role, setRole }: ProfileProps) => {
+const Profile = () => {
+  const [name, setName] = useState('Johnny Silverhand');
+  const { role, setRole } = useContext(RoleContext);
   const { HP, setHP } = useContext(HPContext);
   const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
   const { humanity, setHumanity } = useContext(HumanityContext);
