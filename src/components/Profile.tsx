@@ -107,6 +107,7 @@ const Profile = () => {
       setStats(newStats);
     }
     setHumanity(humanity + humanityChange);
+    humanityInputRef.current.value = null;
     success = true;
     return success;
   };
@@ -141,6 +142,8 @@ const Profile = () => {
       }
       humanityChange -= 1;
     }
+
+    humanityInputRef.current.value = null;
   };
 
   // COMPONENT BODY

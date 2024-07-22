@@ -174,17 +174,22 @@ describe('Humanity Adjustment', async () => {
 
     expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
   });
-  it('decreases Humanity by 1 if input is empty', async () => {
+  it('decreases Humanity by 1 or number in input', async () => {
     const { setHumanity } = renderProfile();
 
     const { humanityDisplay, humanityInput, decrementHumanityButton } = await getDomElements();
-
     const initialHumanity = parseInt(humanityDisplay.innerHTML);
+
+    // empty input
     humanityInput.value = '';
-
     fireEvent.click(decrementHumanityButton);
-    const expectedHumanity = initialHumanity - 1;
+    let expectedHumanity = initialHumanity - 1;
+    expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
 
+    // populated input
+    humanityInput.value = '5';
+    fireEvent.click(decrementHumanityButton);
+    expectedHumanity = initialHumanity - 5;
     expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
   });
 });
