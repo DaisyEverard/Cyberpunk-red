@@ -82,7 +82,7 @@ const Profile = () => {
       setEffect(currentEffects, setCurrentEffects, true, 'mortally wounded');
     }
 
-    HPChangeInput.value = null;
+    HPInputRef.current.value = null;
   };
 
   // INCREMENT HUMANITY METHOD
