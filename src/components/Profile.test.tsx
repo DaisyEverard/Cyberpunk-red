@@ -40,34 +40,21 @@ const renderProfile = (
   return { rerender, debug, setHP };
 };
 
-// const healButton = await screen.findByText('HEAL');
-// const HPDisplay = await screen.findByTestId('HP-display');
-// const HPInput = (await screen.findByTestId('HP-input')) as HTMLInputElement;
+const getDomElements = async () => {
+  const healButton = await screen.findByText('HEAL');
+  const HPDisplay = await screen.findByTestId('HP-display');
+  const HPInput = (await screen.findByTestId('HP-input')) as HTMLInputElement;
+  const damageButton = await screen.findByText('DAMAGE');
+
+  return { healButton, HPDisplay, HPInput, damageButton };
+};
 
 describe('HP Adjustment', async () => {
-  it('renders with correct HP display', async () => {
-    const stats = DEFAULT_STATS;
-    const startingHP = 29;
-    renderProfile(DEFAULT_STATS, startingHP);
-
-    const HPDisplay = await screen.findByTestId('HP-display');
-    // Because i set this default HP in renderProfile, this doesn't really test anything
-    // But it does pass :D
-    const expectedMaxHP = calculateHPMax(stats);
-
-    const expectedHPDisplay = `${startingHP} / ${expectedMaxHP}`;
-    const actualHPDisplay = HPDisplay.innerHTML;
-
-    expect(actualHPDisplay).toBe(expectedHPDisplay);
-  });
-
   it('heals one hp if input is empty', async () => {
     const startingHP = 30;
     const { setHP } = renderProfile(undefined, startingHP);
 
-    const healButton = await screen.findByText('HEAL');
-    const HPDisplay = await screen.findByTestId('HP-display');
-    const HPInput = (await screen.findByTestId('HP-input')) as HTMLInputElement;
+    const { healButton, HPDisplay, HPInput } = await getDomElements();
 
     const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
     expect(initialHP).toBe(30);
@@ -79,12 +66,11 @@ describe('HP Adjustment', async () => {
 
     expect(setHP).toHaveBeenCalledWith(expectedHP);
   });
+
   it('damages one hp if input is empty', async () => {
     const { setHP } = renderProfile();
 
-    const damageButton = await screen.findByText('DAMAGE');
-    const HPDisplay = await screen.findByTestId('HP-display');
-    const HPInput = (await screen.findByTestId('HP-input')) as HTMLInputElement;
+    const { damageButton, HPDisplay, HPInput } = await getDomElements();
 
     const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
     expect(initialHP).toBe(35);
@@ -95,10 +81,68 @@ describe('HP Adjustment', async () => {
 
     expect(setHP).toHaveBeenCalledWith(expectedHP);
   });
-});
 
-//  it('damages one hp if input is empty', async () => {});
-//  it('heals any hp number in input', async () => {});
-//  it('damages any hp number in input', async () => {});
-//  it('does not heal above max hp', async () => {});
-//  it('does not damage hp below 0', async () => {});
+  it('heals any HP number in input', async () => {
+    const startingHP = 20;
+    const { setHP } = renderProfile(undefined, startingHP);
+
+    const { healButton, HPDisplay, HPInput } = await getDomElements();
+
+    const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
+    expect(initialHP).toBe(20);
+    HPInput.value = '7';
+
+    fireEvent.click(healButton);
+
+    const expectedHP = initialHP + 7;
+
+    expect(setHP).toHaveBeenCalledWith(expectedHP);
+  });
+
+  it('damages any hp number in input', async () => {
+    const { setHP } = renderProfile();
+
+    const { damageButton, HPDisplay, HPInput } = await getDomElements();
+
+    const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
+    expect(initialHP).toBe(35);
+
+    HPInput.value = '8';
+    fireEvent.click(damageButton);
+    const expectedHP = initialHP - 8;
+
+    expect(setHP).toHaveBeenCalledWith(expectedHP);
+  });
+
+  it('does not heal above max hp', async () => {
+    const { setHP } = renderProfile();
+
+    const { healButton, HPDisplay, HPInput } = await getDomElements();
+
+    const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
+    expect(initialHP).toBe(35);
+    HPInput.value = '';
+
+    fireEvent.click(healButton);
+
+    expect(setHP).toHaveBeenCalledTimes(0);
+  });
+
+  it('does not damage hp below 0', async () => {
+    const startingHP = 0;
+    const { setHP } = renderProfile(undefined, startingHP);
+
+    const { damageButton, HPDisplay, HPInput } = await getDomElements();
+
+    const initialHP = parseInt(HPDisplay.innerHTML.split(' / ')[0]);
+    expect(initialHP).toBe(0);
+
+    HPInput.value = '';
+    fireEvent.click(damageButton);
+    expect(setHP).toHaveBeenCalledTimes(0);
+
+    HPInput.value = '5';
+    fireEvent.click(damageButton);
+    expect(setHP).toHaveBeenCalledTimes(0);
+  });
+});
