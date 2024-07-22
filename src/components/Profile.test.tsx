@@ -51,7 +51,7 @@ describe('HP Adjustment', async () => {
     renderProfile(stats);
 
     const HPDisplay = await screen.findByTestId('HP-display');
-    // Because i set this default HP anyway, this doesn't really test anything
+    // Because i set this default HP in renderProfile, this doesn't really test anything
     // But it does pass :D
     const expectedMaxHP = calculateHPMax(stats);
     const expectedHP = expectedMaxHP;
