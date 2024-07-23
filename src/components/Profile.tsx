@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
+import { EffectsContext, HPContext, HumanityContext, RoleContext, StatsContext } from '../App';
 import { CharacterContext } from '../context/Character';
 import rolesJson from '../data/roles.json';
 import { Stats } from '../types/types';
@@ -18,32 +19,30 @@ import {
 const allRoles = Object.keys(rolesJson);
 
 // COMPONENT START
-<<<<<<< HEAD
 const Profile = () => {
-  const {
-    // Destructure only the methods you need from your context.
-    getName,
-    setName,
-    getRole,
-    setRole,
-    getStats,
-    setStats,
-    getHP,
-    setHP,
-    getHumanity,
-    setHumanity,
-    getCurrentEffects,
-    setCurrentEffects,
-  } = useContext(CharacterContext);
-=======
-const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) => {
+  // const {
+  //   // Destructure only the methods you need from your context.
+  //   getName,
+  //   setName,
+  //   getRole,
+  //   setRole,
+  //   getStats,
+  //   setStats,
+  //   getHP,
+  //   setHP,
+  //   getHumanity,
+  //   setHumanity,
+  //   getCurrentEffects,
+  //   setCurrentEffects,
+  // } = useContext(CharacterContext);
+  const [name, setName] = useState('Johnny Silverhand');
+  const { role, setRole } = useContext(RoleContext);
   const { HP, setHP } = useContext(HPContext);
   const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
   const { humanity, setHumanity } = useContext(HumanityContext);
   const { stats, setStats } = useContext(StatsContext);
   const HPInputRef = useRef(null);
   const humanityInputRef = useRef(null);
->>>>>>> main
 
   // HEAL METHOD
   const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
@@ -65,10 +64,10 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
     }
 
     if (!isSeriouslyWounded(stats, HP)) {
-      setEffect(getCurrentEffects(), setCurrentEffects, false, 'seriously wounded');
+      setEffect(currentEffects(), setCurrentEffects, false, 'seriously wounded');
     }
     if (!isMortallyWounded(HP)) {
-      setEffect(getCurrentEffects(), setCurrentEffects, false, 'mortally wounded');
+      setEffect(currentEffects(), setCurrentEffects, false, 'mortally wounded');
     }
 
     HPInputRef.current.value = null;
@@ -92,14 +91,14 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
       }
     }
 
-    if (isSeriouslyWounded(getStats(), HP)) {
-      setEffect(getCurrentEffects(), setCurrentEffects, true, 'seriously wounded');
+    if (isSeriouslyWounded(stats(), HP)) {
+      setEffect(currentEffects(), setCurrentEffects, true, 'seriously wounded');
     }
     if (isMortallyWounded(HP)) {
-      setEffect(getCurrentEffects(), setCurrentEffects, true, 'mortally wounded');
+      setEffect(currentEffects(), setCurrentEffects, true, 'mortally wounded');
     }
 
-    HPChangeInput.value = null;
+    HPInputRef.current.value = null;
   };
 
   // INCREMENT HUMANITY METHOD
@@ -124,6 +123,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
       setStats(newStats);
     }
     setHumanity(humanity + humanityChange);
+    humanityInputRef.current.value = null;
     success = true;
     return success;
   };
@@ -158,6 +158,8 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
       }
       humanityChange -= 1;
     }
+
+    humanityInputRef.current.value = null;
   };
 
   // COMPONENT BODY
@@ -188,8 +190,11 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
 
       <div className="box  flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="text-2xl">
-            {getHP()} / {calculateHPMax(getStats())}
+          <div
+            className="text-2xl"
+            data-testid="HP-display"
+          >
+            {HP} / {calculateHPMax(stats)}
           </div>
           <div>Health Points (HP)</div>
         </div>
@@ -198,13 +203,14 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              heal(getStats(), getHP(), setHP);
+              heal(stats, HP, setHP);
             }}
           >
             HEAL
           </p>
           {/* don't allow negative input */}
           <input
+            data-testid="HP-input"
             className="box w-20 h-10"
             type="number"
             ref={HPInputRef}
@@ -214,7 +220,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              takeDamage(getHP(), setHP);
+              takeDamage(HP, setHP);
             }}
           >
             DAMAGE
@@ -224,7 +230,12 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
 
       <div className="box flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="text-2xl">{getHumanity()}</div>
+          <div
+            className="text-2xl"
+            data-testid="humanity-display"
+          >
+            {humanity}
+          </div>
           <div>Humanity (HUM)</div>
         </div>
         <div className="flex flex-col justify-center items-center ml-3">
@@ -232,7 +243,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              incrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
+              incrementHumanity(humanity, setHumanity, stats, setStats);
             }}
           >
             ADD
@@ -243,6 +254,7 @@ const Profile = ({ name, setName, role, setRole, healthPoints }: ProfileProps) =
             type="number"
             ref={humanityInputRef}
             min={0}
+            data-testid="humanity-input"
           ></input>
           <p
             className="health-button text-damage-red border-damage-red"
