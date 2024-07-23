@@ -210,7 +210,7 @@ describe('Humanity Adjustment', async () => {
 
   // The way the follwing 2 tests were written required access to the stats state
   // Is there a behavioural way to test this?
-  //There is a display but in a different component
+  //There is a display for EMP but in a different component
   it.skip('decreases EMP stat when going down a 10s place', async () => {
     const startingHumanity = 30;
     const { setStats } = renderProfile(undefined, undefined, undefined, undefined, startingHumanity);
