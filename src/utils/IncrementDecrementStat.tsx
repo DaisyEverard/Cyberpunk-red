@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { HPContext, HumanityContext, StatsContext } from '../App';
+import { CharacterContext } from '../context/Character';
 import { Stats } from '../types/types';
 import { calculateHPMax, updateHumanity } from './commonMethods';
 
@@ -11,9 +11,7 @@ type IncrementDecrementStatProps = {
 };
 
 const IncrementDecrementStat = ({ statName, remainingPoints, setRemainingPoints }: IncrementDecrementStatProps) => {
-  const { HP, setHP } = useContext(HPContext);
-  const { stats, setStats } = useContext(StatsContext);
-  const { humanity, setHumanity } = useContext(HumanityContext);
+  const { getStats, setStats, getHP, setHP, setHumanity } = useContext(CharacterContext);
 
   const increment = (
     stats: Stats,
@@ -59,7 +57,7 @@ const IncrementDecrementStat = ({ statName, remainingPoints, setRemainingPoints 
       <button
         onClick={e => {
           e.preventDefault();
-          increment(stats, statName, remainingPoints, setRemainingPoints);
+          increment(getStats(), statName, remainingPoints, setRemainingPoints);
         }}
       >
         +
@@ -67,7 +65,7 @@ const IncrementDecrementStat = ({ statName, remainingPoints, setRemainingPoints 
       <button
         onClick={e => {
           e.preventDefault();
-          decrement(stats, statName, remainingPoints, setRemainingPoints, HP, setHP, calculateHPMax);
+          decrement(getStats(), statName, remainingPoints, setRemainingPoints, getHP(), setHP, calculateHPMax);
         }}
       >
         -

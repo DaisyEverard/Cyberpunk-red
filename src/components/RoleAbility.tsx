@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 
-import { RoleContext } from '../App';
+import { CharacterContext } from '../context/Character';
 import rolesJson from '../data/roles.json';
 import HideableDescriptionCell from '../utils/HideableDescriptionCell';
 
 const RoleAbility = () => {
-  const { role, setRole } = useContext(RoleContext);
-  const abilityObject = rolesJson[role];
+  const { getRole, setRole } = useContext(CharacterContext);
+  const abilityObject = rolesJson[getRole()];
 
   let allSkills: Array<string> = [];
   abilityObject['roleAbilities'].forEach(skill => {

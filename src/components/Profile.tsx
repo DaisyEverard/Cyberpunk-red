@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useRef, useState } from 'react';
 
-import { EffectsContext, HPContext, HumanityContext, RoleContext, StatsContext } from '../App';
+import { CharacterContext } from '../context/Character';
 import rolesJson from '../data/roles.json';
 import { Stats } from '../types/types';
 import DropdownCell from '../utils/DropdownCell';
@@ -19,18 +19,25 @@ const allRoles = Object.keys(rolesJson);
 
 // COMPONENT START
 const Profile = () => {
+  const {
+    getRole,
+    setRole,
+    getStats,
+    setStats,
+    getHP,
+    setHP,
+    getHumanity,
+    setHumanity,
+    getCurrentEffects,
+    setCurrentEffects,
+  } = useContext(CharacterContext);
   const [name, setName] = useState('Johnny Silverhand');
-  const { role, setRole } = useContext(RoleContext);
-  const { HP, setHP } = useContext(HPContext);
-  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
-  const { humanity, setHumanity } = useContext(HumanityContext);
-  const { stats, setStats } = useContext(StatsContext);
   const HPInputRef = useRef(null);
   const humanityInputRef = useRef(null);
 
   // HEAL METHOD
   const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
-    const HPMax = calculateHPMax(stats);
+    const HPMax = calculateHPMax(getStats());
     let HPChange = HPInputRef.current.value;
 
     if (HPChange == '') {
@@ -47,11 +54,11 @@ const Profile = () => {
       }
     }
 
-    if (!isSeriouslyWounded(stats, HP)) {
-      setEffect(currentEffects, setCurrentEffects, false, 'seriously wounded');
+    if (!isSeriouslyWounded(getStats(), HP)) {
+      setEffect(getCurrentEffects(), setCurrentEffects, false, 'seriously wounded');
     }
     if (!isMortallyWounded(HP)) {
-      setEffect(currentEffects, setCurrentEffects, false, 'mortally wounded');
+      setEffect(getCurrentEffects(), setCurrentEffects, false, 'mortally wounded');
     }
 
     HPInputRef.current.value = null;
@@ -75,11 +82,11 @@ const Profile = () => {
       }
     }
 
-    if (isSeriouslyWounded(stats, HP)) {
-      setEffect(currentEffects, setCurrentEffects, true, 'seriously wounded');
+    if (isSeriouslyWounded(getStats(), HP)) {
+      setEffect(getCurrentEffects(), setCurrentEffects, true, 'seriously wounded');
     }
     if (isMortallyWounded(HP)) {
-      setEffect(currentEffects, setCurrentEffects, true, 'mortally wounded');
+      setEffect(getCurrentEffects(), setCurrentEffects, true, 'mortally wounded');
     }
 
     HPInputRef.current.value = null;
@@ -98,18 +105,20 @@ const Profile = () => {
     }
     humanityChange = parseInt(humanityChange);
 
-    let success = false;
-    const startHumanityModulusTen = humanity % 10;
+    while (humanityChange > 0) {
+      const humanityModTen = humanity % 10;
 
-    if (startHumanityModulusTen == 9) {
-      let newStats = { ...stats };
-      newStats['EMP'] += 1;
-      setStats(newStats);
+      if (humanityModTen == 9) {
+        let newStats = { ...stats };
+        newStats['EMP'] += 1;
+        setStats(newStats);
+      }
+      setHumanity(humanity + 1);
+      humanity += 1;
+      humanityChange -= 1;
     }
-    setHumanity(humanity + humanityChange);
+
     humanityInputRef.current.value = null;
-    success = true;
-    return success;
   };
 
   // DECREMENT HUMANITY METHOD
@@ -125,12 +134,13 @@ const Profile = () => {
     }
     humanityChange = parseInt(humanityChange);
 
-    const startHumanityModulusTen = humanity % 10;
     let success = true;
 
     while (humanityChange > 0 && success == true) {
+      const humanityModTen = humanity % 10;
       success = false;
-      if (humanity > 0 && startHumanityModulusTen == 0) {
+
+      if (humanity > 0 && humanityModTen == 0) {
         let newStats = { ...stats };
         newStats['EMP'] -= 1;
         setStats(newStats);
@@ -165,7 +175,7 @@ const Profile = () => {
         <div className=" px-2 flex gap-2 items-center">
           <div>Role:</div>
           <DropdownCell
-            value={role}
+            value={getRole()}
             values={allRoles}
             onChanged={value => setRole(value)}
           />
@@ -178,7 +188,7 @@ const Profile = () => {
             className="text-2xl"
             data-testid="HP-display"
           >
-            {HP} / {calculateHPMax(stats)}
+            {getHP()} / {calculateHPMax(getStats())}
           </div>
           <div>Health Points (HP)</div>
         </div>
@@ -187,7 +197,7 @@ const Profile = () => {
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              heal(stats, HP, setHP);
+              heal(getStats(), getHP(), setHP);
             }}
           >
             HEAL
@@ -204,7 +214,7 @@ const Profile = () => {
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              takeDamage(HP, setHP);
+              takeDamage(getHP(), setHP);
             }}
           >
             DAMAGE
@@ -218,7 +228,7 @@ const Profile = () => {
             className="text-2xl"
             data-testid="humanity-display"
           >
-            {humanity}
+            {getHumanity()}
           </div>
           <div>Humanity (HUM)</div>
         </div>
@@ -227,7 +237,7 @@ const Profile = () => {
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              incrementHumanity(humanity, setHumanity, stats, setStats);
+              incrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
             }}
           >
             ADD
@@ -244,7 +254,7 @@ const Profile = () => {
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              decrementHumanity(humanity, setHumanity, stats, setStats);
+              decrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
             }}
           >
             REMOVE

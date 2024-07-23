@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 
-import { SkillsContext } from '../App';
+import { CharacterContext } from '../context/Character';
 import skillsJson from '../data/skills.json';
 import { SkillsType } from '../types/types';
-import { incrementAnyNumericalState } from './commonMethods';
 
 type IncrementDecrementSkillProps = {
   skillName: string;
@@ -12,7 +11,7 @@ type IncrementDecrementSkillProps = {
 };
 
 const IncrementDecrementSkill = ({ skillName, remainingPoints, setRemainingPoints }: IncrementDecrementSkillProps) => {
-  const { currentSkills, setCurrentSkills } = useContext(SkillsContext);
+  const { getCurrentSkills, setCurrentSkills } = useContext(CharacterContext);
 
   const skillStats = skillsJson.filter(skill => skill['name'] == skillName);
   const cost = skillStats[0]['x2'] ? 2 : 1;
@@ -77,7 +76,7 @@ const IncrementDecrementSkill = ({ skillName, remainingPoints, setRemainingPoint
       <button
         onClick={e => {
           e.preventDefault();
-          increment(currentSkills, setCurrentSkills, skillName, remainingPoints, setRemainingPoints, cost);
+          increment(getCurrentSkills(), setCurrentSkills, skillName, remainingPoints, setRemainingPoints, cost);
         }}
       >
         +
@@ -85,7 +84,7 @@ const IncrementDecrementSkill = ({ skillName, remainingPoints, setRemainingPoint
       <button
         onClick={e => {
           e.preventDefault();
-          decrement(currentSkills, setCurrentSkills, skillName, remainingPoints, setRemainingPoints, cost);
+          decrement(getCurrentSkills(), setCurrentSkills, skillName, remainingPoints, setRemainingPoints, cost);
         }}
       >
         -

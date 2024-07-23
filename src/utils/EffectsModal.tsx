@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 
-import { EffectsContext } from '../App';
+import { CharacterContext } from '../context/Character';
 import { Effects, ModalDisplays } from '../types/types';
 
 type EffectsModalProps = {
@@ -26,9 +26,9 @@ const EffectsModal = ({
   iconMap,
   alt,
 }: EffectsModalProps) => {
-  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
+  const { getCurrentEffects, setCurrentEffects } = useContext(CharacterContext);
   const key = title.toLowerCase();
-  const isActive = currentEffects[key]['active'];
+  const isActive = getCurrentEffects()[key]['active'];
   const [activeStateText, setActiveStateText] = useState(isActive ? 'Deactivate' : 'Activate');
   const [buttonStyles, setButtonStyles] = useState(
     isActive ? 'border-damage-red text-damage-red health-button' : 'border-heal-green text-heal-green health-button',
@@ -91,7 +91,14 @@ const EffectsModal = ({
             className={buttonStyles + ' ' + buttonDisplay}
             onClick={e => {
               e.preventDefault;
-              toggleActiveState(currentEffects, setCurrentEffects, key, isActive, setActiveStateText, setButtonStyles);
+              toggleActiveState(
+                getCurrentEffects(),
+                setCurrentEffects,
+                key,
+                isActive,
+                setActiveStateText,
+                setButtonStyles,
+              );
             }}
           >
             {activeStateText}
