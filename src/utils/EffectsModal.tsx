@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 
-import { EffectsContext } from '../App';
 import { CharacterContext } from '../context/Character';
 import { Effects, ModalDisplays } from '../types/types';
 

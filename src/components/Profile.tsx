@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { useRef, useState } from 'react';
 
-import { EffectsContext } from '../App';
 import { CharacterContext } from '../context/Character';
 import rolesJson from '../data/roles.json';
 import { Stats } from '../types/types';

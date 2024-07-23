@@ -2,7 +2,6 @@
 // Death save = BODY stat
 import { useContext, useState } from 'react';
 
-import { EffectsContext, HPContext } from '../App';
 import bleedSVG from '../assets/icons/bleed.svg';
 import blindSVG from '../assets/icons/blind.svg';
 import burnSVG from '../assets/icons/burn.svg';
