@@ -46,6 +46,11 @@ run using `npm run dev`
 This app uses Vitest
 run the command `npm run test` to run the tests
 
+to run only one test file run `npm run test path/to/file.test.tsx`
+e.g. `npm run test src/components/Profile.test.tsx`
+
+To run only one test in the file, run `????`
+
 ## Contributing
 
 - Daisy (https://github.com/DaisyEverard/)

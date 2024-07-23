@@ -42,7 +42,7 @@ const renderProfile = (
     </StatsContext.Provider>,
   );
 
-  return { rerender, debug, setHP, setHumanity };
+  return { rerender, debug, setHP, setHumanity, setStats };
 };
 
 const getDomElements = async () => {
@@ -160,20 +160,27 @@ describe('Humanity Adjustment', async () => {
     const initialHumanity = parseInt(humanityDisplay.innerHTML);
     expect(initialHumanity).toBe(30);
   });
-  it('increases Humanity by 1 if input is empty', async () => {
+
+  it('increases Humanity by 1 or number in input', async () => {
     const startingHumanity = 5;
     const { setHumanity } = renderProfile(undefined, undefined, undefined, undefined, startingHumanity);
 
     const { humanityDisplay, humanityInput, incrementHumanityButton } = await getDomElements();
-
     const initialHumanity = parseInt(humanityDisplay.innerHTML);
+
+    // empty input
     humanityInput.value = '';
-
     fireEvent.click(incrementHumanityButton);
-    const expectedHumanity = initialHumanity + 1;
+    let expectedHumanity = initialHumanity + 1;
+    expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
 
+    //populated input
+    humanityInput.value = '12';
+    fireEvent.click(incrementHumanityButton);
+    expectedHumanity = initialHumanity + 12;
     expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
   });
+
   it('decreases Humanity by 1 or number in input', async () => {
     const { setHumanity } = renderProfile();
 
@@ -190,5 +197,40 @@ describe('Humanity Adjustment', async () => {
     fireEvent.click(decrementHumanityButton);
     expectedHumanity = initialHumanity - 5;
     expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
+  });
+
+  it('does not decrease below 0 humanity', async () => {
+    const startingHumanity = 0;
+    const { setHumanity } = renderProfile(undefined, undefined, undefined, undefined, startingHumanity);
+
+    const { humanityInput, decrementHumanityButton } = await getDomElements();
+
+    humanityInput.value = '';
+    fireEvent.click(decrementHumanityButton);
+    expect(setHumanity).toHaveBeenCalledTimes(0);
+  });
+
+  it('decreases EMP stat when going down a 10s place', async () => {
+    const startingHumanity = 30;
+    const { setStats } = renderProfile(undefined, undefined, undefined, undefined, startingHumanity);
+
+    const { humanityInput, decrementHumanityButton } = await getDomElements();
+    const expectedStats = { BODY: 5, WILL: 4, EMP: 2 };
+
+    humanityInput.value = '';
+    fireEvent.click(decrementHumanityButton);
+    expect(setStats).toHaveBeenCalledWith(expectedStats);
+  });
+  it('increases EMP stat when going up a 10s place', async () => {
+    const startingHumanity = 19;
+    const startingStats = { BODY: 5, WILL: 4, EMP: 1 };
+    const { setStats } = renderProfile(startingStats, undefined, undefined, undefined, startingHumanity);
+
+    const { humanityInput, incrementHumanityButton } = await getDomElements();
+    const expectedStats = { BODY: 5, WILL: 4, EMP: 2 };
+
+    humanityInput.value = '';
+    fireEvent.click(incrementHumanityButton);
+    expect(setStats).toHaveBeenCalledWith(expectedStats);
   });
 });
