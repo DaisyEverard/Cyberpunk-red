@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useRef, useState } from 'react';
 
-import { EffectsContext, HPContext, HumanityContext, RoleContext, StatsContext } from '../App';
+import { EffectsContext, HPContext, HumanityContext, StatsContext } from '../App';
 import { CharacterContext } from '../context/Character';
 import rolesJson from '../data/roles.json';
 import { Stats } from '../types/types';
@@ -24,8 +24,6 @@ const Profile = () => {
   //   // Destructure only the methods you need from your context.
   //   getName,
   //   setName,
-  //   getRole,
-  //   setRole,
   //   getStats,
   //   setStats,
   //   getHP,
@@ -35,8 +33,8 @@ const Profile = () => {
   //   getCurrentEffects,
   //   setCurrentEffects,
   // } = useContext(CharacterContext);
+  const { getRole, setRole } = useContext(CharacterContext);
   const [name, setName] = useState('Johnny Silverhand');
-  const { role, setRole } = useContext(RoleContext);
   const { HP, setHP } = useContext(HPContext);
   const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
   const { humanity, setHumanity } = useContext(HumanityContext);
@@ -174,7 +172,7 @@ const Profile = () => {
           <div>Name:</div>
           <SimpleEditableTextCell
             className="rounded border"
-            value={getName()}
+            value={name}
             onChange={e => setName(e.target.value)}
           />
         </div>
@@ -260,7 +258,7 @@ const Profile = () => {
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              decrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
+              decrementHumanity(humanity, setHumanity, stats, setStats);
             }}
           >
             REMOVE
