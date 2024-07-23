@@ -220,7 +220,7 @@ const Profile = () => {
           >
             {humanity}
           </div>
-          <div data-testid="humanity-input">Humanity (HUM)</div>
+          <div>Humanity (HUM)</div>
         </div>
         <div className="flex flex-col justify-center items-center ml-3">
           <p
@@ -238,6 +238,7 @@ const Profile = () => {
             type="number"
             ref={humanityInputRef}
             min={0}
+            data-testid="humanity-input"
           ></input>
           <p
             className="health-button text-damage-red border-damage-red"

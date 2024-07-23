@@ -177,7 +177,7 @@ describe('Humanity Adjustment', async () => {
   it('decreases Humanity by 1 or number in input', async () => {
     const { setHumanity } = renderProfile();
 
-    const { humanityDisplay, humanityInput, decrementHumanityButton } = await getDomElements();
+    const { humanityInput, humanityDisplay, decrementHumanityButton } = await getDomElements();
     const initialHumanity = parseInt(humanityDisplay.innerHTML);
 
     // empty input
@@ -185,7 +185,6 @@ describe('Humanity Adjustment', async () => {
     fireEvent.click(decrementHumanityButton);
     let expectedHumanity = initialHumanity - 1;
     expect(setHumanity).toHaveBeenCalledWith(expectedHumanity);
-
     // populated input
     humanityInput.value = '5';
     fireEvent.click(decrementHumanityButton);
