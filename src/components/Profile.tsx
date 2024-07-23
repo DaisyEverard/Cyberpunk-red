@@ -106,9 +106,9 @@ const Profile = () => {
     humanityChange = parseInt(humanityChange);
 
     while (humanityChange > 0) {
-      const startHumanityModulusTen = humanity % 10;
+      const humanityModTen = humanity % 10;
 
-      if (startHumanityModulusTen == 9) {
+      if (humanityModTen == 9) {
         let newStats = { ...stats };
         newStats['EMP'] += 1;
         setStats(newStats);
@@ -134,12 +134,13 @@ const Profile = () => {
     }
     humanityChange = parseInt(humanityChange);
 
-    const startHumanityModulusTen = humanity % 10;
     let success = true;
 
     while (humanityChange > 0 && success == true) {
+      const humanityModTen = humanity % 10;
       success = false;
-      if (humanity > 0 && startHumanityModulusTen == 0) {
+
+      if (humanity > 0 && humanityModTen == 0) {
         let newStats = { ...stats };
         newStats['EMP'] -= 1;
         setStats(newStats);
