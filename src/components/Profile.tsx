@@ -107,6 +107,7 @@ const Profile = () => {
       setStats(newStats);
     }
     setHumanity(humanity + humanityChange);
+    humanityInputRef.current.value = null;
     success = true;
     return success;
   };
@@ -141,6 +142,8 @@ const Profile = () => {
       }
       humanityChange -= 1;
     }
+
+    humanityInputRef.current.value = null;
   };
 
   // COMPONENT BODY
@@ -211,7 +214,12 @@ const Profile = () => {
 
       <div className="box flex justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="text-2xl">{humanity}</div>
+          <div
+            className="text-2xl"
+            data-testid="humanity-display"
+          >
+            {humanity}
+          </div>
           <div>Humanity (HUM)</div>
         </div>
         <div className="flex flex-col justify-center items-center ml-3">
@@ -230,6 +238,7 @@ const Profile = () => {
             type="number"
             ref={humanityInputRef}
             min={0}
+            data-testid="humanity-input"
           ></input>
           <p
             className="health-button text-damage-red border-damage-red"
