@@ -208,6 +208,7 @@ describe('Humanity Adjustment', async () => {
     expect(actualHumanity).toBe(0);
   });
 
+  // SKIPPED TESTS
   // The way the follwing 2 tests were written required access to the stats state
   // Is there a behavioural way to test this?
   //There is a display for EMP but in a different component

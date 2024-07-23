@@ -105,19 +105,20 @@ const Profile = () => {
     }
     humanityChange = parseInt(humanityChange);
 
-    let success = false;
-    const startHumanityModulusTen = humanity % 10;
+    while (humanityChange > 0) {
+      const startHumanityModulusTen = humanity % 10;
 
-    // This doesn't work when increasing more than one at a time.
-    if (startHumanityModulusTen == 9) {
-      let newStats = { ...stats };
-      newStats['EMP'] += 1;
-      setStats(newStats);
+      if (startHumanityModulusTen == 9) {
+        let newStats = { ...stats };
+        newStats['EMP'] += 1;
+        setStats(newStats);
+      }
+      setHumanity(humanity + 1);
+      humanity += 1;
+      humanityChange -= 1;
     }
-    setHumanity(humanity + humanityChange);
+
     humanityInputRef.current.value = null;
-    success = true;
-    return success;
   };
 
   // DECREMENT HUMANITY METHOD
