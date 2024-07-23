@@ -3,6 +3,7 @@ figure out if anything except items lower humanity
 
 - raising humanity with therapy. If humanity goes up a 10s place, this also brings empathy back up.
 - Calculate death save
+- humanity doesn't raise EMP correctly if healing more than 1 at once.
 
 Role Abilities:
 

@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
 
-import { StatsContext } from '../App';
+import { CharacterContext } from '../context/Character';
 import statsJson from '../data/statsDescription.json';
 import HideableDescriptionCell from '../utils/HideableDescriptionCell';
 import IncrementDecrementStat from '../utils/IncrementDecrementStat';
 
 const Stats = () => {
-  const { stats, setStats } = useContext(StatsContext);
+  const { getStats } = useContext(CharacterContext);
 
   const [remainingPoints, setRemainingPoints] = useState(42);
 
@@ -45,8 +45,8 @@ const Stats = () => {
             </tr>
           </thead>
           <tbody>
-            {Object.keys(stats).map((statName, index) => {
-              const level = stats[statName];
+            {Object.keys(getStats()).map((statName, index) => {
+              const level = getStats()[statName];
 
               return (
                 <tr key={index}>

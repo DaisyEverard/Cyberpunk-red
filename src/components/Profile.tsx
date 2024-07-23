@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useRef, useState } from 'react';
 
-import { EffectsContext, HPContext, HumanityContext, StatsContext } from '../App';
+import { EffectsContext } from '../App';
 import { CharacterContext } from '../context/Character';
 import rolesJson from '../data/roles.json';
 import { Stats } from '../types/types';
@@ -20,31 +20,25 @@ const allRoles = Object.keys(rolesJson);
 
 // COMPONENT START
 const Profile = () => {
-  // const {
-  //   // Destructure only the methods you need from your context.
-  //   getName,
-  //   setName,
-  //   getStats,
-  //   setStats,
-  //   getHP,
-  //   setHP,
-  //   getHumanity,
-  //   setHumanity,
-  //   getCurrentEffects,
-  //   setCurrentEffects,
-  // } = useContext(CharacterContext);
-  const { getRole, setRole } = useContext(CharacterContext);
+  const {
+    getRole,
+    setRole,
+    getStats,
+    setStats,
+    getHP,
+    setHP,
+    getHumanity,
+    setHumanity,
+    getCurrentEffects,
+    setCurrentEffects,
+  } = useContext(CharacterContext);
   const [name, setName] = useState('Johnny Silverhand');
-  const { HP, setHP } = useContext(HPContext);
-  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
-  const { humanity, setHumanity } = useContext(HumanityContext);
-  const { stats, setStats } = useContext(StatsContext);
   const HPInputRef = useRef(null);
   const humanityInputRef = useRef(null);
 
   // HEAL METHOD
   const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
-    const HPMax = calculateHPMax(stats);
+    const HPMax = calculateHPMax(getStats());
     let HPChange = HPInputRef.current.value;
 
     if (HPChange == '') {
@@ -61,11 +55,11 @@ const Profile = () => {
       }
     }
 
-    if (!isSeriouslyWounded(stats, HP)) {
-      setEffect(currentEffects(), setCurrentEffects, false, 'seriously wounded');
+    if (!isSeriouslyWounded(getStats(), HP)) {
+      setEffect(getCurrentEffects(), setCurrentEffects, false, 'seriously wounded');
     }
     if (!isMortallyWounded(HP)) {
-      setEffect(currentEffects(), setCurrentEffects, false, 'mortally wounded');
+      setEffect(getCurrentEffects(), setCurrentEffects, false, 'mortally wounded');
     }
 
     HPInputRef.current.value = null;
@@ -89,11 +83,11 @@ const Profile = () => {
       }
     }
 
-    if (isSeriouslyWounded(stats(), HP)) {
-      setEffect(currentEffects(), setCurrentEffects, true, 'seriously wounded');
+    if (isSeriouslyWounded(getStats(), HP)) {
+      setEffect(getCurrentEffects(), setCurrentEffects, true, 'seriously wounded');
     }
     if (isMortallyWounded(HP)) {
-      setEffect(currentEffects(), setCurrentEffects, true, 'mortally wounded');
+      setEffect(getCurrentEffects(), setCurrentEffects, true, 'mortally wounded');
     }
 
     HPInputRef.current.value = null;
@@ -115,6 +109,7 @@ const Profile = () => {
     let success = false;
     const startHumanityModulusTen = humanity % 10;
 
+    // This doesn't work when increasing more than one at a time.
     if (startHumanityModulusTen == 9) {
       let newStats = { ...stats };
       newStats['EMP'] += 1;
@@ -192,7 +187,7 @@ const Profile = () => {
             className="text-2xl"
             data-testid="HP-display"
           >
-            {HP} / {calculateHPMax(stats)}
+            {getHP()} / {calculateHPMax(getStats())}
           </div>
           <div>Health Points (HP)</div>
         </div>
@@ -201,7 +196,7 @@ const Profile = () => {
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              heal(stats, HP, setHP);
+              heal(getStats(), getHP(), setHP);
             }}
           >
             HEAL
@@ -218,7 +213,7 @@ const Profile = () => {
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              takeDamage(HP, setHP);
+              takeDamage(getHP(), setHP);
             }}
           >
             DAMAGE
@@ -232,7 +227,7 @@ const Profile = () => {
             className="text-2xl"
             data-testid="humanity-display"
           >
-            {humanity}
+            {getHumanity()}
           </div>
           <div>Humanity (HUM)</div>
         </div>
@@ -241,7 +236,7 @@ const Profile = () => {
             className="health-button text-heal-green border-heal-green"
             onClick={e => {
               e.preventDefault();
-              incrementHumanity(humanity, setHumanity, stats, setStats);
+              incrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
             }}
           >
             ADD
@@ -258,7 +253,7 @@ const Profile = () => {
             className="health-button text-damage-red border-damage-red"
             onClick={e => {
               e.preventDefault();
-              decrementHumanity(humanity, setHumanity, stats, setStats);
+              decrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
             }}
           >
             REMOVE

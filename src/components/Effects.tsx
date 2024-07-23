@@ -2,7 +2,7 @@
 // Death save = BODY stat
 import { useContext, useState } from 'react';
 
-import { EffectsContext, HPContext, StatsContext } from '../App';
+import { EffectsContext, HPContext } from '../App';
 import bleedSVG from '../assets/icons/bleed.svg';
 import blindSVG from '../assets/icons/blind.svg';
 import burnSVG from '../assets/icons/burn.svg';
@@ -19,6 +19,7 @@ import refreshedSVG from '../assets/icons/refreshed.svg';
 import restedSVG from '../assets/icons/rested.svg';
 import seriouslyWoundedSVG from '../assets/icons/seriously wounded.svg';
 import stunSVG from '../assets/icons/stun.svg';
+import { CharacterContext } from '../context/Character';
 import effectJson from '../data/effects.json';
 import { ModalDisplays } from '../types/types';
 import EffectsModal from '../utils/EffectsModal';
@@ -62,9 +63,7 @@ const defaultModalDisplays: ModalDisplays = {
 };
 
 const Effects = () => {
-  const { HP, setHP } = useContext(HPContext);
-  const { stats, setStats } = useContext(StatsContext);
-  const { currentEffects, setCurrentEffects } = useContext(EffectsContext);
+  const { getCurrentEffects } = useContext(CharacterContext);
 
   const [modalDisplays, setModalDisplays] = useState(defaultModalDisplays);
 
@@ -95,7 +94,7 @@ const Effects = () => {
           {effectJson.map(skill => {
             const skillLowerCase = skill['name'].toLowerCase();
             const svgPath = iconMap[skillLowerCase];
-            const isActive = currentEffects[skillLowerCase]['active'];
+            const isActive = getCurrentEffects()[skillLowerCase]['active'];
 
             let activeStyles = 'h-9';
             if (skill['category'] == 'Positive' && isActive) {
