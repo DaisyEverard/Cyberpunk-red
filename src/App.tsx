@@ -1,8 +1,8 @@
+import Rolls from './components/Dice Rolls/Rolls';
 import Effects from './components/Effects';
 import Header from './components/Header';
 import Profile from './components/Profile';
 import RoleAbility from './components/RoleAbility';
-import Rolls from './components/Rolls';
 import Skills from './components/Skills';
 import Stats from './components/Stats';
 

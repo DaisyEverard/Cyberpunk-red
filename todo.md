@@ -1,3 +1,15 @@
+Rolls:
+
+Initiative roll - REF + d10
+Intimidation roll - reputation + cool + d10
+
+- DEX + evasion + d10
+  https://www.worldanvil.com/w/cyberpunk-red-glodarin/a/rules-cheat-sheet-article
+
+roll to hit: https://www.worldanvil.com/w/cyberpunk-konigskind/a/ranged-combat-article
+Damage roll: based on weapon
+Rate of fire: how many times you get to attack on your turn
+
 Derived Stats:
 figure out if anything except items lower humanity
 
