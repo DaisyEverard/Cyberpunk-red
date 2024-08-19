@@ -2,6 +2,7 @@ import Effects from './components/Effects';
 import Header from './components/Header';
 import Profile from './components/Profile';
 import RoleAbility from './components/RoleAbility';
+import Rolls from './components/Rolls';
 import Skills from './components/Skills';
 import Stats from './components/Stats';
 
@@ -21,6 +22,7 @@ const App = () => {
           <div className="flex flex-col gap-1 max-w-7xl">
             <Profile />
             <Effects />
+            <Rolls />
             <RoleAbility />
             <Stats />
             <Skills />
