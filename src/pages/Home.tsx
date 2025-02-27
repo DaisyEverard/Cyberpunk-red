@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Profile from '../components/Profile';
 import RoleAbility from '../components/RoleAbility';
 import Skills from '../components/Skills';
-import Stats from '../components/Stats';
+import StatsDipslay from '../components/StatsDisplay';
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
         <Effects />
         <Rolls />
         <RoleAbility />
-        <Stats />
+        <StatsDipslay />
         <Skills />
       </div>
     </div>

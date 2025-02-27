@@ -5,7 +5,7 @@ import statsJson from '../data/statsDescription.json';
 import HideableDescriptionCell from '../utils/HideableDescriptionCell';
 import IncrementDecrementStat from '../utils/IncrementDecrementStat';
 
-const Stats = () => {
+const StatsSetup = () => {
   const { getStats } = useContext(CharacterContext);
 
   const [remainingPoints, setRemainingPoints] = useState(42);
@@ -67,4 +67,4 @@ const Stats = () => {
   );
 };
 
-export default Stats;
+export default StatsSetup;
