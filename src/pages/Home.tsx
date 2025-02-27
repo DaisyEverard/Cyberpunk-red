@@ -3,7 +3,7 @@ import Effects from '../components/Effects';
 import Header from '../components/Header';
 import Profile from '../components/Profile';
 import RoleAbility from '../components/RoleAbility';
-import Skills from '../components/Skills';
+import SkillsDisplay from '../components/SkillsDisplay';
 import StatsDipslay from '../components/StatsDisplay';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
         <Rolls />
         <RoleAbility />
         <StatsDipslay />
-        <Skills />
+        <SkillsDisplay />
       </div>
     </div>
   );

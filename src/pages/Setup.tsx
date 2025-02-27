@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import Profile from '../components/Profile';
+import SkillsSetup from '../components/SkillsSetup';
 import StatsSetup from '../components/StatsSetup';
 
 const Setup = () => {
@@ -9,6 +10,7 @@ const Setup = () => {
         <Header />
         <Profile />
         <StatsSetup />
+        <SkillsSetup />
       </div>
     </div>
   );

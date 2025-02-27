@@ -6,13 +6,17 @@ import { SkillsType } from '../types/types';
 import IncrementDecrementSkill from '../utils/IncrementDecrementSkill';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
 
-type SingleSkillTypeTableProps = {
+type SingleSkillTypeSetupTableProps = {
   tableSkillType: string;
   remainingPoints: number;
   setRemainingPoints: (newPoints: number) => void;
 };
 
-const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoints }: SingleSkillTypeTableProps) => {
+const SingleSkillTypeSetupTable = ({
+  tableSkillType,
+  remainingPoints,
+  setRemainingPoints,
+}: SingleSkillTypeSetupTableProps) => {
   const { getCurrentSkills, setCurrentSkills } = useContext(CharacterContext);
 
   const skillsList = [];
@@ -158,4 +162,4 @@ const SingleSkillTypeTable = ({ tableSkillType, remainingPoints, setRemainingPoi
   );
 };
 
-export default SingleSkillTypeTable;
+export default SingleSkillTypeSetupTable;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import SingleSkillTypeTable from './SingleSkillTypeTable';
+import SingleSkillTypeSetupTable from './SingleSkillTypeSetupTable';
 
-const Skills = () => {
+const SkillsSetup = () => {
   const STARTING_SKILL_POINTS = 60;
   const [remainingPoints, setRemainingPoints] = useState(STARTING_SKILL_POINTS);
 
@@ -14,53 +14,53 @@ const Skills = () => {
       </div>
       <div className="flex gap-1">
         <div className="flex flex-col flex-1">
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Awareness'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Body'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Control'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
         </div>
         <div className="flex flex-col flex-1">
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Education'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Fighting'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
         </div>
         <div className="flex flex-col flex-1">
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Performance'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Ranged Weapon'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Social'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
         </div>
         <div className="flex flex-col flex-1">
-          <SingleSkillTypeTable
+          <SingleSkillTypeSetupTable
             tableSkillType={'Technique'}
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
@@ -71,4 +71,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default SkillsSetup;
