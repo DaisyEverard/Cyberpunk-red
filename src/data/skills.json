@@ -1,12 +1,5 @@
 [
   {
-    "name": "Concentration",
-    "category": "Awareness",
-    "description": "Skill of focus and mental control, encompassing feats of memory, recall, ignoring distractions, and physiological mastery.",
-    "base_stat": "WILL",
-    "x2": false
-  },
-  {
     "name": "Conceal/Reveal Object",
     "category": "Awareness",
     "description": "Skill for hiding objects and finding objects that have been hidden. This is the Skill used for concealing weapons under clothing and detecting concealed weapons.",
@@ -32,6 +25,13 @@
     "category": "Awareness",
     "description": "Skill of following a trail by observing tracks and other clues left behind.",
     "base_stat": "INT",
+    "x2": false
+  },
+  {
+    "name": "Concentration",
+    "category": "Awareness",
+    "description": "Skill of focus and mental control, encompassing feats of memory, recall, ignoring distractions, and physiological mastery.",
+    "base_stat": "WILL",
     "x2": false
   },
   {
