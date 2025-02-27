@@ -1,10 +1,19 @@
+import { useLocation } from 'react-router-dom';
+
+import { getPageName } from '../utils/commonMethods';
+
 const Header = () => {
+  const location = useLocation(); // Type is correctly inferred
   return (
     <h1
       id="header"
-      className="bg-main-dark-bg text-main-light-text flex items-center px-4 py-2"
+      className=" 
+      
+      bg-gradient-to-br from-gradient-dark-bg to-gradient-light-bg
+      
+      text-main-light-text px-4 py-2"
     >
-      Cyberpunk Red - Character Assistant
+      {getPageName(location)}
     </h1>
   );
 };

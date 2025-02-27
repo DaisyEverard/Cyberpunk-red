@@ -39,10 +39,15 @@
 }
 
 :root {
+  /* backgrounds */
   --dark-red-bg: #971919;
+  --gradient-dark-bg: #530b0b;
+  --gradient-light-bg: #ff0000;
   --light-red-bg-1: #fcd8d8;
   --light-red-bg-2: #ffb9b9;
   --body-bg-color: #fff;
+  /* text colours */
+  /* fonts */
 }
 
 body {

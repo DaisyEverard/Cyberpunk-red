@@ -79,6 +79,19 @@ const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats: St
   setHumanity(calculateHumanity(newStats));
 };
 
+// GET PAGE NAME
+
+const getPageName = (location: Location): string => {
+  let title = location.pathname.replace('/', ''); // Remove the leading '/'
+  let titleWordArray = title.toLowerCase().split(' ');
+
+  let formattedTitle = titleWordArray
+    .map(word => (word ? word[0].toUpperCase() + word.substring(1) : '')) // Handle empty words
+    .join(' '); // Join back into a string
+
+  return formattedTitle || 'Home';
+};
+
 export {
   decrementAnyNumericalState,
   incrementAnyNumericalState,
@@ -90,4 +103,5 @@ export {
   isSeriouslyWounded,
   isMortallyWounded,
   setEffect,
+  getPageName,
 };

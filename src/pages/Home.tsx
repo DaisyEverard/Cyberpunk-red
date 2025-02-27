@@ -9,7 +9,7 @@ import Stats from '../components/Stats';
 const Home = () => {
   return (
     <div className="flex flex-col items-center overflow-y-scroll my-1">
-      <div className="flex flex-col gap-1 max-w-7xl">
+      <div className="flex flex-col gap-1 max-w-full">
         <Header />
         <Profile />
         <Effects />

@@ -6,6 +6,8 @@ export default {
       colors: {
         'main-dark-bg': '#971919',
         'main-light-text': '#fff',
+        'gradient-dark-bg': '#530b0b',
+        'gradient-light-bg': '#ff0000',
 
         'inactive-grey': '#ccc',
         'heal-green': '#080',
