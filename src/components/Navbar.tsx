@@ -4,20 +4,12 @@ import '../style/navbar.css';
 
 const Navbar = () => {
   return (
-    <div id="navbar">
-      <div>
-        <Link to="/setup">Setup</Link>
-      </div>
-      <div>
-        <Link to="/">Home</Link>
-      </div>
-      <div>
-        <Link to="/inventory">Inventory</Link>
-      </div>
-      <div>
-        <Link to="/combat">Combat</Link>
-      </div>
-    </div>
+    <nav id="navbar">
+      <Link to="/setup">Setup</Link>
+      <Link to="/">Home</Link>
+      <Link to="/inventory">Inventory</Link>
+      <Link to="/combat">Combat</Link>
+    </nav>
   );
 };
 

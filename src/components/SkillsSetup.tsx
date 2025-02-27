@@ -29,8 +29,6 @@ const SkillsSetup = () => {
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
-        </div>
-        <div className="flex flex-col flex-1">
           <SingleSkillTypeSetupTable
             tableSkillType={'Education'}
             remainingPoints={remainingPoints}
@@ -41,8 +39,6 @@ const SkillsSetup = () => {
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
-        </div>
-        <div className="flex flex-col flex-1">
           <SingleSkillTypeSetupTable
             tableSkillType={'Performance'}
             remainingPoints={remainingPoints}
@@ -58,8 +54,6 @@ const SkillsSetup = () => {
             remainingPoints={remainingPoints}
             setRemainingPoints={setRemainingPoints}
           />
-        </div>
-        <div className="flex flex-col flex-1">
           <SingleSkillTypeSetupTable
             tableSkillType={'Technique'}
             remainingPoints={remainingPoints}

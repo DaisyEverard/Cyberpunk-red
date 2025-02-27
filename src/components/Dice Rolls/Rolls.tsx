@@ -1,4 +1,4 @@
-import DiceBox from './DiceBox';
+import RollNumberedDice from './RollNumberedDice';
 
 const Rolls = () => {
   return (
@@ -6,7 +6,8 @@ const Rolls = () => {
       id="rolls"
       className="box flex justify-around"
     >
-      <DiceBox maxNumber={10} />
+      <RollNumberedDice maxNumber={10} />
+      <RollNumberedDice maxNumber={6} />
     </div>
   );
 };

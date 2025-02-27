@@ -4,6 +4,7 @@ import { CharacterContext } from '../context/Character';
 import skillsJson from '../data/skills.json';
 import { SkillsType } from '../types/types';
 import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
+import { RollSkillCheck } from './Dice Rolls/RollSkillCheck';
 
 type SingleSkillTypeDisplayTableProps = {
   tableSkillType: string;
@@ -11,7 +12,6 @@ type SingleSkillTypeDisplayTableProps = {
 
 const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayTableProps) => {
   const { getCurrentSkills, setCurrentSkills } = useContext(CharacterContext);
-
   const skillsList = [];
 
   for (const index in skillsJson) {
@@ -47,6 +47,7 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
           <tr>
             <th>Skill Name</th>
             <th>Level</th>
+            <th>Roll</th>
           </tr>
         </thead>
         <tbody>
@@ -59,6 +60,12 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
               <tr key={skillName}>
                 <td>{skillName}</td>
                 <td>{skillLevel}</td>
+                <td>
+                  <RollSkillCheck
+                    skillName={skillName}
+                    skillLevel={skillLevel}
+                  />
+                </td>
               </tr>
             );
 
@@ -85,9 +92,13 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
                         }}
                       />
                     </td>
-                    <td></td>
                     <td>{optionLevel}</td>
-                    <td></td>
+                    <td>
+                      <RollSkillCheck
+                        skillName={skillName}
+                        skillLevel={optionLevel}
+                      />
+                    </td>
                   </tr>,
                 );
               });

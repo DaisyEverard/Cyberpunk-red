@@ -80,7 +80,6 @@ const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats: St
 };
 
 // GET PAGE NAME
-
 const getPageName = (location: Location): string => {
   let title = location.pathname.replace('/', ''); // Remove the leading '/'
   let titleWordArray = title.toLowerCase().split(' ');
@@ -90,6 +89,24 @@ const getPageName = (location: Location): string => {
     .join(' '); // Join back into a string
 
   return formattedTitle || 'Home';
+};
+
+// DICE ROLLING
+const rollDice = (maxNumber: number) => {
+  const random = Math.random() * maxNumber;
+  return Math.ceil(random);
+};
+
+const rollSkillCheck = (): number[] => {
+  const baseRoll = rollDice(10);
+
+  if (baseRoll == 1) {
+    return [baseRoll, rollDice(10) * -1];
+  }
+  if (baseRoll == 10) {
+    return [baseRoll, rollDice(10)];
+  }
+  return [baseRoll, 0];
 };
 
 export {
@@ -104,4 +121,6 @@ export {
   isMortallyWounded,
   setEffect,
   getPageName,
+  rollDice,
+  rollSkillCheck,
 };
