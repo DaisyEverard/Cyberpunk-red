@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { useRef, useState } from 'react';
 
-import { CharacterContext } from '../context/Character';
-import rolesJson from '../data/roles.json';
-import { Stats } from '../types/types';
-import DropdownCell from '../utils/DropdownCell';
-import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
+import { CharacterContext } from '../../context/Character';
+import rolesJson from '../../data/roles.json';
+import { Stats } from '../../types/types';
+import DropdownCell from '../../utils/DropdownCell';
+import SimpleEditableTextCell from '../../utils/SimpleEditableTextCell';
 import {
   calculateHPMax,
   decrementAnyNumericalState,
@@ -13,7 +13,7 @@ import {
   isMortallyWounded,
   isSeriouslyWounded,
   setEffect,
-} from '../utils/commonMethods';
+} from '../../utils/commonMethods';
 
 const allRoles = Object.keys(rolesJson);
 

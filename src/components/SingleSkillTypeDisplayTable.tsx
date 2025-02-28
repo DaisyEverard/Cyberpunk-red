@@ -40,9 +40,9 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
   };
 
   return (
-    <div className="singleSkillTypeTable">
+    <div className="singleSkillTypeTable max-w-[1000px]">
       <h4>{tableSkillType} Skills:</h4>
-      <table>
+      <table className="table-fixed">
         <thead>
           <tr>
             <th>Skill Name</th>

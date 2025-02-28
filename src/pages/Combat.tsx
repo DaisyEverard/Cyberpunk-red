@@ -1,7 +1,7 @@
 import Rolls from '../components/Dice Rolls/Rolls';
-import Effects from '../components/Effects';
-import Header from '../components/Header';
-import Profile from '../components/Profile';
+import Effects from '../components/common/Effects';
+import Header from '../components/common/Header';
+import Profile from '../components/common/Profile';
 
 const Combat = () => {
   return (

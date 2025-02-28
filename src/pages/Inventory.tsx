@@ -1,5 +1,5 @@
-import Header from '../components/Header';
-import Profile from '../components/Profile';
+import Header from '../components/common/Header';
+import Profile from '../components/common/Profile';
 
 const Inventory = () => {
   return (

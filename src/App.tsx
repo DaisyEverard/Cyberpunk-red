@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Inventory from './pages/Inventory';
 import Setup from './pages/Setup';
 
-import Navbar from './components/Navbar';
+import Navbar from './components/common/Navbar';
 
 import './style/index.css';
 

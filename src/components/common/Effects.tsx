@@ -2,26 +2,26 @@
 // Death save = BODY stat
 import { useContext, useState } from 'react';
 
-import bleedSVG from '../assets/icons/bleed.svg';
-import blindSVG from '../assets/icons/blind.svg';
-import burnSVG from '../assets/icons/burn.svg';
-import crippleSVG from '../assets/icons/cripple.svg';
-import drunkSVG from '../assets/icons/drunk.svg';
-import empSVG from '../assets/icons/emp.svg';
-import energizedSVG from '../assets/icons/energized.svg';
-import hydrationSVG from '../assets/icons/hydration.svg';
-import knockdownSVG from '../assets/icons/knockdown.svg';
-import mortallyWoundedSVG from '../assets/icons/mortally wounded.svg';
-import nourishmentSVG from '../assets/icons/nourishment.svg';
-import poisonSVG from '../assets/icons/poison.svg';
-import refreshedSVG from '../assets/icons/refreshed.svg';
-import restedSVG from '../assets/icons/rested.svg';
-import seriouslyWoundedSVG from '../assets/icons/seriously wounded.svg';
-import stunSVG from '../assets/icons/stun.svg';
-import { CharacterContext } from '../context/Character';
-import effectJson from '../data/effects.json';
-import { ModalDisplays } from '../types/types';
-import EffectsModal from '../utils/modals/EffectsModal';
+import bleedSVG from '../../assets/icons/bleed.svg';
+import blindSVG from '../../assets/icons/blind.svg';
+import burnSVG from '../../assets/icons/burn.svg';
+import crippleSVG from '../../assets/icons/cripple.svg';
+import drunkSVG from '../../assets/icons/drunk.svg';
+import empSVG from '../../assets/icons/emp.svg';
+import energizedSVG from '../../assets/icons/energized.svg';
+import hydrationSVG from '../../assets/icons/hydration.svg';
+import knockdownSVG from '../../assets/icons/knockdown.svg';
+import mortallyWoundedSVG from '../../assets/icons/mortally wounded.svg';
+import nourishmentSVG from '../../assets/icons/nourishment.svg';
+import poisonSVG from '../../assets/icons/poison.svg';
+import refreshedSVG from '../../assets/icons/refreshed.svg';
+import restedSVG from '../../assets/icons/rested.svg';
+import seriouslyWoundedSVG from '../../assets/icons/seriously wounded.svg';
+import stunSVG from '../../assets/icons/stun.svg';
+import { CharacterContext } from '../../context/Character';
+import effectJson from '../../data/effects.json';
+import { ModalDisplays } from '../../types/types';
+import EffectsModal from '../../utils/modals/EffectsModal';
 
 const iconMap = {
   bleed: bleedSVG,

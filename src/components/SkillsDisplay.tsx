@@ -4,7 +4,7 @@ const SkillsDisplay = () => {
   return (
     <div className="box flex flex-col gap-1">
       <div className="flex gap-1">
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 items-center">
           <SingleSkillTypeDisplayTable tableSkillType={'Awareness'} />
           <SingleSkillTypeDisplayTable tableSkillType={'Body'} />
           <SingleSkillTypeDisplayTable tableSkillType={'Control'} />
