@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { BUTTON_STYLE } from '../../constants';
 import { rollDice } from '../../utils/commonMethods';
 
 type RollNumberedDiceProps = {
@@ -18,7 +17,7 @@ const RollNumberedDice = ({ maxNumber }: RollNumberedDiceProps) => {
     <div className="flex flex-col gap-2">
       <button
         onClick={handleButtonOnClick}
-        className={BUTTON_STYLE}
+        className="button"
       >
         D{maxNumber}
       </button>

@@ -62,8 +62,8 @@ body {
   @apply rounded-md border-2 px-2 py-1 text-xs;
 }
 
-. {
-  @apply rounded-md border-2 px-2 py-1 text-xs;
+.button {
+  @apply bg-gradient-to-br from-gradient-dark-bg to-gradient-light-bg text-main-light-text px-4 py-2 rounded-md;
 }
 
 * {

@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 
-import { BUTTON_STYLE } from '../../constants';
 import { CharacterContext } from '../../context/Character';
 import { rollSkillCheck } from '../../utils/commonMethods';
 import RollResultModal from '../../utils/modals/RollResultModal';
@@ -45,7 +44,7 @@ export const RollSkillCheck = ({ skillName, skillLevel }: RollSkillCheckProps) =
         onClick={e => {
           handleButtonOnClick(skillLevel, statLevel, toggleModalDisplay, modalDisplay, setModalDisplay, setRollResult);
         }}
-        className={BUTTON_STYLE + ' max-w-[150px]'}
+        className="button max-w-[150px]"
       >
         Roll
       </button>

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import { BUTTON_STYLE } from '../../constants';
 import '../../style/navbar.css';
 
 const Navbar = () => {
@@ -10,25 +9,25 @@ const Navbar = () => {
       className="bg-white box flex justify-around"
     >
       <Link
-        className={BUTTON_STYLE}
+        className="button"
         to="/setup"
       >
         Setup
       </Link>
       <Link
-        className={BUTTON_STYLE}
+        className="button"
         to="/"
       >
         Home
       </Link>
       <Link
-        className={BUTTON_STYLE}
+        className="button"
         to="/inventory"
       >
         Inventory
       </Link>
       <Link
-        className={BUTTON_STYLE}
+        className="button"
         to="/combat"
       >
         Combat
