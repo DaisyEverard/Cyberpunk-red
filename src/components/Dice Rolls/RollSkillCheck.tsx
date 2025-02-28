@@ -51,6 +51,7 @@ export const RollSkillCheck = ({ skillName, skillLevel }: RollSkillCheckProps) =
       </button>
       <RollResultModal
         title={skillName + ' roll'}
+        statName={baseStatType}
         rollResult={rollResult}
         modalDisplay={modalDisplay}
         setModalDisplay={setModalDisplay}

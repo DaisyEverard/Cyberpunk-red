@@ -1,5 +1,6 @@
 type RollResultModalProps = {
   title: string;
+  statName: string;
   rollResult: number[];
   modalDisplay: string;
   setModalDisplay: (newModalDisplay: string) => void;
@@ -8,12 +9,13 @@ type RollResultModalProps = {
 
 const RollResultModal = ({
   title,
+  statName,
   rollResult,
   modalDisplay,
   setModalDisplay,
   toggleModalDisplay,
 }: RollResultModalProps) => {
-  const getResultDisplay = (rollResult: number[]) => {
+  const getResultDisplay = (rollResult: number[], statName: string) => {
     const [firstRoll, secondRoll, skillMod, statMod] = rollResult;
     const rollTotal = firstRoll + skillMod + statMod + (firstRoll === 1 || firstRoll === 10 ? secondRoll : 0);
 
@@ -21,7 +23,7 @@ const RollResultModal = ({
       <p>
         {firstRoll}
         {firstRoll === 1 || firstRoll === 10 ? ` + ${secondRoll} (Crit)` : ''}
-        {` + ${skillMod} (Skill) + ${statMod} (Stat) = `}
+        {` + ${skillMod} (Skill) + ${statMod} (${statName}) = `}
         <strong>{rollTotal}</strong>
       </p>
     );
@@ -50,7 +52,7 @@ const RollResultModal = ({
           <h2>{key.toUpperCase()}</h2>
 
           {/* the content needs to change */}
-          {getResultDisplay(rollResult)}
+          {getResultDisplay(rollResult, statName)}
         </div>
       </div>
     </div>
