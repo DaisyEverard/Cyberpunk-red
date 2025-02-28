@@ -1,4 +1,4 @@
-import { ModalDisplays } from '../types/types';
+import { ModalDisplays } from '../../types/types';
 
 type DerivedEffectsModalProps = {
   title: string;

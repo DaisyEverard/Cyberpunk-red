@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 
-import { CharacterContext } from '../context/Character';
-import { Effects, ModalDisplays } from '../types/types';
+import { CharacterContext } from '../../context/Character';
+import { Effects, ModalDisplays } from '../../types/types';
 
 type EffectsModalProps = {
   title: string;
