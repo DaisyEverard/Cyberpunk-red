@@ -2,8 +2,8 @@ import { useContext, useState } from 'react';
 
 import { CharacterContext } from '../context/Character';
 import statsJson from '../data/statsDescription.json';
-import HideableDescriptionCell from '../utils/HideableDescriptionCell';
-import IncrementDecrementStat from '../utils/IncrementDecrementStat';
+import IncrementDecrementStat from './table_cells/IncrementDecrementStat';
+import CollapsibleTextBox from './text_boxes/CollapsibleTextBox';
 
 const StatsSetup = () => {
   const { getStats } = useContext(CharacterContext);
@@ -22,7 +22,7 @@ const StatsSetup = () => {
           const key = stat['id'];
           const item = stat['name'];
           return (
-            <HideableDescriptionCell
+            <CollapsibleTextBox
               key={key}
               title={item}
               descriptionArray={descriptionArray}

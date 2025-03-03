@@ -2,7 +2,8 @@ import { useContext, useState } from 'react';
 
 import { CharacterContext } from '../../context/Character';
 import { rollSkillCheck } from '../../utils/commonMethods';
-import RollResultModal from '../../utils/modals/RollResultModal';
+import Button from '../common/Button';
+import RollResultModal from '../modals/RollResultModal';
 
 type RollSkillCheckProps = {
   skillName: string;
@@ -40,14 +41,13 @@ export const RollSkillCheck = ({ skillName, skillLevel }: RollSkillCheckProps) =
 
   return (
     <div className="flex flex-col gap-2 items-center">
-      <button
+      <Button
         onClick={e => {
           handleButtonOnClick(skillLevel, statLevel, toggleModalDisplay, modalDisplay, setModalDisplay, setRollResult);
         }}
-        className="button max-w-[150px]"
       >
         Roll
-      </button>
+      </Button>
       <RollResultModal
         title={skillName + ' roll'}
         statName={baseStatType}

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import { CharacterContext } from '../context/Character';
-import { Stats } from '../types/types';
-import { calculateHPMax, updateHumanity } from './commonMethods';
+import { CharacterContext } from '../../context/Character';
+import { Stats } from '../../types/types';
+import { calculateHPMax, updateHumanity } from '../../utils/commonMethods';
 
 type IncrementDecrementStatProps = {
   statName: string;

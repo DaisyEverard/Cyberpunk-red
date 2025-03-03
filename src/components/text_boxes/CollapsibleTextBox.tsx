@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import '../style/utils.css';
+import '../../style/utils.css';
 
 type HideableDescriptionCellProps = {
   title: string;
   descriptionArray: Array<string>;
 };
-const HideableDescriptionCell = ({ title, descriptionArray }: HideableDescriptionCellProps) => {
+const CollapsibleTextBox = ({ title, descriptionArray }: HideableDescriptionCellProps) => {
   const [plusMinus, setPlusMinus] = useState('+');
   const [boxDisplay, setBoxDisplay] = useState('none');
 
@@ -45,4 +45,4 @@ const HideableDescriptionCell = ({ title, descriptionArray }: HideableDescriptio
   );
 };
 
-export default HideableDescriptionCell;
+export default CollapsibleTextBox;

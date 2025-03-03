@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { CharacterContext } from '../context/Character';
 import statsJson from '../data/statsDescription.json';
-import HideableDescriptionCell from '../utils/HideableDescriptionCell';
+import CollapsibleTextBox from './text_boxes/CollapsibleTextBox';
 
 const StatsDipslay = () => {
   const { getStats } = useContext(CharacterContext);
@@ -19,7 +19,7 @@ const StatsDipslay = () => {
           const key = stat['id'];
           const item = stat['name'];
           return (
-            <HideableDescriptionCell
+            <CollapsibleTextBox
               key={key}
               title={item}
               descriptionArray={descriptionArray}

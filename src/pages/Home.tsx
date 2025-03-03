@@ -1,10 +1,10 @@
-import Rolls from '../components/Dice Rolls/Rolls';
 import RoleAbility from '../components/RoleAbility';
 import SkillsDisplay from '../components/SkillsDisplay';
 import StatsDipslay from '../components/StatsDisplay';
 import Effects from '../components/common/Effects';
 import Header from '../components/common/Header';
 import Profile from '../components/common/Profile';
+import Rolls from '../components/dice_rolls/Rolls';
 
 const Home = () => {
   return (

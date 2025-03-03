@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import { CharacterContext } from '../context/Character';
 import skillsJson from '../data/skills.json';
 import { SkillsType } from '../types/types';
-import IncrementDecrementSkill from '../utils/IncrementDecrementSkill';
-import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
+import IncrementDecrementSkill from './table_cells/IncrementDecrementSkill';
+import EditableTextBox from './text_boxes/EditableTextBox';
 
 type SingleSkillTypeSetupTableProps = {
   tableSkillType: string;
@@ -138,7 +138,7 @@ const SingleSkillTypeSetupTable = ({
                 options.push(
                   <tr className={style}>
                     <td>
-                      <SimpleEditableTextCell
+                      <EditableTextBox
                         className="bg-transparent"
                         value={optionName}
                         onChange={e => {

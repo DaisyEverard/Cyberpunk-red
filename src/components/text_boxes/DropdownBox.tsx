@@ -1,4 +1,4 @@
-import '../style/cells.css';
+import '../../style/cells.css';
 
 type DropdownCellProps = {
   value: string;
@@ -6,7 +6,7 @@ type DropdownCellProps = {
   onChanged: (value: string) => void;
 };
 
-const DropdownCell = ({ value, values, onChanged }: DropdownCellProps) => {
+const DropdownBox = ({ value, values, onChanged }: DropdownCellProps) => {
   return (
     <div className="dropdown">
       <p className="dropbtn">{value}</p>
@@ -26,4 +26,4 @@ const DropdownCell = ({ value, values, onChanged }: DropdownCellProps) => {
   );
 };
 
-export default DropdownCell;
+export default DropdownBox;

@@ -4,8 +4,6 @@ import { useRef, useState } from 'react';
 import { CharacterContext } from '../../context/Character';
 import rolesJson from '../../data/roles.json';
 import { Stats } from '../../types/types';
-import DropdownCell from '../../utils/DropdownCell';
-import SimpleEditableTextCell from '../../utils/SimpleEditableTextCell';
 import {
   calculateHPMax,
   decrementAnyNumericalState,
@@ -14,6 +12,8 @@ import {
   isSeriouslyWounded,
   setEffect,
 } from '../../utils/commonMethods';
+import DropdownBox from '../text_boxes/DropdownBox';
+import EditableTextBox from '../text_boxes/EditableTextBox';
 
 const allRoles = Object.keys(rolesJson);
 
@@ -166,7 +166,7 @@ const Profile = () => {
       <div className="box flex flex-col justify-center flex-1">
         <div className="px-2 flex gap-2 items-center">
           <div>Name:</div>
-          <SimpleEditableTextCell
+          <EditableTextBox
             className="rounded border"
             value={name}
             onChange={e => setName(e.target.value)}
@@ -174,7 +174,7 @@ const Profile = () => {
         </div>
         <div className=" px-2 flex gap-2 items-center">
           <div>Role:</div>
-          <DropdownCell
+          <DropdownBox
             value={getRole()}
             values={allRoles}
             onChanged={value => setRole(value)}

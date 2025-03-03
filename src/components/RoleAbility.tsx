@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { CharacterContext } from '../context/Character';
 import rolesJson from '../data/roles.json';
-import HideableDescriptionCell from '../utils/HideableDescriptionCell';
+import CollapsibleTextBox from './text_boxes/CollapsibleTextBox';
 
 const RoleAbility = () => {
   const { getRole, setRole } = useContext(CharacterContext);
@@ -26,7 +26,7 @@ const RoleAbility = () => {
               const name = ability['name'];
               const description = ability['description'];
               return (
-                <HideableDescriptionCell
+                <CollapsibleTextBox
                   key={index}
                   title={name}
                   descriptionArray={[description]}

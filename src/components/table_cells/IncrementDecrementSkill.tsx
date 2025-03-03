@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import { CharacterContext } from '../context/Character';
-import skillsJson from '../data/skills.json';
-import { SkillsType } from '../types/types';
+import { CharacterContext } from '../../context/Character';
+import skillsJson from '../../data/skills.json';
+import { SkillsType } from '../../types/types';
 
 type IncrementDecrementSkillProps = {
   skillName: string;

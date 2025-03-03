@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import { CharacterContext } from '../context/Character';
 import skillsJson from '../data/skills.json';
 import { SkillsType } from '../types/types';
-import SimpleEditableTextCell from '../utils/SimpleEditableTextCell';
-import { RollSkillCheck } from './Dice Rolls/RollSkillCheck';
+import { RollSkillCheck } from './dice_rolls/RollSkillCheck';
+import EditableTextBox from './text_boxes/EditableTextBox';
 
 type SingleSkillTypeDisplayTableProps = {
   tableSkillType: string;
@@ -84,7 +84,7 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
                 options.push(
                   <tr className={style}>
                     <td>
-                      <SimpleEditableTextCell
+                      <EditableTextBox
                         className="bg-transparent"
                         value={optionName}
                         onChange={e => {

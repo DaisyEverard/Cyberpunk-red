@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import '../../style/navbar.css';
+import Button from './Button';
 
 const Navbar = () => {
   return (
@@ -8,29 +9,17 @@ const Navbar = () => {
       id="navbar"
       className="bg-white box flex justify-around"
     >
-      <Link
-        className="button"
-        to="/setup"
-      >
-        Setup
+      <Link to="/setup">
+        <Button>Setup</Button>
       </Link>
-      <Link
-        className="button"
-        to="/"
-      >
-        Home
+      <Link to="/">
+        <Button>Home</Button>
       </Link>
-      <Link
-        className="button"
-        to="/inventory"
-      >
-        Inventory
+      <Link to="/inventory">
+        <Button>Inventory</Button>
       </Link>
-      <Link
-        className="button"
-        to="/combat"
-      >
-        Combat
+      <Link to="/combat">
+        <Button>Combat</Button>
       </Link>
     </nav>
   );

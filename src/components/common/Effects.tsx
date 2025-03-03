@@ -21,7 +21,7 @@ import stunSVG from '../../assets/icons/stun.svg';
 import { CharacterContext } from '../../context/Character';
 import effectJson from '../../data/effects.json';
 import { ModalDisplays } from '../../types/types';
-import EffectsModal from '../../utils/modals/EffectsModal';
+import EffectsModal from '../modals/EffectsModal';
 
 const iconMap = {
   bleed: bleedSVG,
