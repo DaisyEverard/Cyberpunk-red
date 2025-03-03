@@ -25,14 +25,7 @@ Character Profile Sheet for Cyberpunk Red
 ## Installation
 
 Clone the repo
-Install vite with `npm install vite`
-install vite plugin commonjs - needed to use require() - `npm install vite-plugin-commonjs`
-install vitest with `npm install -D vitest`
-install the jsdom library with `npm install jsdom`
-installing the react router `npm i -D react-router-dom`
-installing clsx `npm i clsx`
-install testing libraries
-`npm install --save-dev @testing-library/jest-dom @testing-library/react @testing-library/user-event`
+Install dependencies listed in requirements.txt with `bash setup.sh`
 run using `npm run dev`
 
 ## Usage

@@ -1,0 +1,10 @@
+vite
+vite-plugin-commonjs
+vitest
+jsdom
+react-router-dom
+clsx
+tailwind-merge
+@testing-library/jest-dom
+@testing-library/react
+@testing-library/user-event

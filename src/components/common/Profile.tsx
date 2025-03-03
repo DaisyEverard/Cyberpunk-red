@@ -14,6 +14,7 @@ import {
 } from '../../utils/commonMethods';
 import DropdownBox from '../text_boxes/DropdownBox';
 import EditableTextBox from '../text_boxes/EditableTextBox';
+import Button from './Button';
 
 const allRoles = Object.keys(rolesJson);
 
@@ -193,15 +194,15 @@ const Profile = () => {
           <div>Health Points (HP)</div>
         </div>
         <div className="flex flex-col justify-center items-center ml-3">
-          <p
-            className="health-button text-heal-green border-heal-green"
+          <Button
+            className="border-2 text-xs px-2 py-1 text-heal-green border-heal-green bg-none"
             onClick={e => {
               e.preventDefault();
               heal(getStats(), getHP(), setHP);
             }}
           >
             HEAL
-          </p>
+          </Button>
           {/* don't allow negative input */}
           <input
             data-testid="HP-input"
@@ -210,15 +211,15 @@ const Profile = () => {
             ref={HPInputRef}
             min={0}
           ></input>
-          <p
-            className="health-button text-damage-red border-damage-red"
+          <Button
+            className="border-2 text-xs px-2 py-1 text-damage-red border-damage-red bg-none"
             onClick={e => {
               e.preventDefault();
               takeDamage(getHP(), setHP);
             }}
           >
             DAMAGE
-          </p>
+          </Button>
         </div>
       </div>
 
@@ -233,15 +234,15 @@ const Profile = () => {
           <div>Humanity (HUM)</div>
         </div>
         <div className="flex flex-col justify-center items-center ml-3">
-          <p
-            className="health-button text-heal-green border-heal-green"
+          <Button
+            className="border-2 text-xs px-2 py-1 text-heal-green border-heal-green bg-none"
             onClick={e => {
               e.preventDefault();
               incrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
             }}
           >
             ADD
-          </p>
+          </Button>
           {/* don't allow negative input */}
           <input
             className="box w-20 h-10"
@@ -250,15 +251,15 @@ const Profile = () => {
             min={0}
             data-testid="humanity-input"
           ></input>
-          <p
-            className="health-button text-damage-red border-damage-red"
+          <Button
+            className="border-2 text-xs px-2 py-1 text-damage-red border-damage-red bg-none"
             onClick={e => {
               e.preventDefault();
               decrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
             }}
           >
             REMOVE
-          </p>
+          </Button>
         </div>
       </div>
     </div>
