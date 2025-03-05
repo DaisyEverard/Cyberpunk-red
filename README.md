@@ -34,7 +34,6 @@ run using `npm run dev`
 - Select you from the dropdown list
 - Find out more about what each Stat is used for by expanding the description box with the (+) button by each stat
 - Assign your stats - The maximum is 8 and the minimum is 2.
-  This will automatically calculate your derived statistics (some day)
 
 ## Testing
 
