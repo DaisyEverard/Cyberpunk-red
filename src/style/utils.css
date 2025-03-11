@@ -45,16 +45,6 @@
   overflow-y: scroll;
 }
 
-.closeModalButton {
-  background-color: var(--dark-red-bg);
-  color: white;
-  font-weight: bolder;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-bottom: 5px;
-}
-
 .modal h2 {
   font-weight: bold;
 }

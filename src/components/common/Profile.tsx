@@ -196,7 +196,7 @@ const Profile = () => {
         <div className="flex flex-col justify-center items-center ml-3">
           <Button
             className="text-heal-green border-heal-green bg-none"
-            variant="backgroundless"
+            variant="noBackground"
             onClick={e => {
               e.preventDefault();
               heal(getStats(), getHP(), setHP);
@@ -213,7 +213,7 @@ const Profile = () => {
             min={0}
           ></input>
           <Button
-            variant="backgroundless"
+            variant="noBackground"
             onClick={e => {
               e.preventDefault();
               takeDamage(getHP(), setHP);
@@ -237,7 +237,7 @@ const Profile = () => {
         <div className="flex flex-col justify-center items-center ml-3">
           <Button
             className="text-heal-green border-heal-green bg-none"
-            variant="backgroundless"
+            variant="noBackground"
             onClick={e => {
               e.preventDefault();
               incrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
@@ -254,7 +254,7 @@ const Profile = () => {
             data-testid="humanity-input"
           ></input>
           <Button
-            variant="backgroundless"
+            variant="noBackground"
             onClick={e => {
               e.preventDefault();
               decrementHumanity(getHumanity(), setHumanity, getStats(), setStats);

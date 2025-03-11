@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 
 import { CharacterContext } from '../../context/Character';
 import { Effects, ModalDisplays } from '../../types/types';
+import Button from '../common/Button';
 
 type EffectsModalProps = {
   title: string;
@@ -30,9 +31,7 @@ const EffectsModal = ({
   const key = title.toLowerCase();
   const isActive = getCurrentEffects()[key]['active'];
   const [activeStateText, setActiveStateText] = useState(isActive ? 'Deactivate' : 'Activate');
-  const [buttonStyles, setButtonStyles] = useState(
-    isActive ? 'border-damage-red text-damage-red health-button' : 'border-heal-green text-heal-green health-button',
-  );
+  const [buttonStyles, setButtonStyles] = useState(isActive ? '' : 'border-heal-green text-heal-green');
 
   let buttonDisplay = 'inline';
   if (title == 'Mortally Wounded' || title == 'Seriously Wounded') {
@@ -51,11 +50,11 @@ const EffectsModal = ({
     if (isActive) {
       newEffects[key]['active'] = false;
       setActiveStateText('Activate');
-      setButtonStyles('border-heal-green text-heal-green health-button');
+      setButtonStyles('border-heal-green text-heal-green');
     } else {
       newEffects[key]['active'] = true;
       setActiveStateText('Deactivate');
-      setButtonStyles('border-damage-red text-damage-red health-button');
+      setButtonStyles('');
     }
     setCurrentEffects(newEffects);
   };
@@ -71,15 +70,15 @@ const EffectsModal = ({
       ></div>
       <div className="modalContainer">
         <div className="modal flex flex-col">
-          <button
+          <Button
+            variant="close"
             onClick={e => {
               e.preventDefault();
               toggleModalDisplays(modalDisplays, setModalDisplays, key);
             }}
-            className="closeModalButton"
           >
             X
-          </button>
+          </Button>
           <img
             src={iconMap[key]}
             alt={alt}
@@ -87,8 +86,9 @@ const EffectsModal = ({
           ></img>
           <h2>{key.toUpperCase()}</h2>
           <p>{content}</p>
-          <button
+          <Button
             className={buttonStyles + ' ' + buttonDisplay}
+            variant="noBackground"
             onClick={e => {
               e.preventDefault;
               toggleActiveState(
@@ -102,7 +102,7 @@ const EffectsModal = ({
             }}
           >
             {activeStateText}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

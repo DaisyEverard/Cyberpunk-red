@@ -1,3 +1,5 @@
+import Button from '../common/Button';
+
 type RollResultModalProps = {
   title: string;
   statName: string;
@@ -39,16 +41,16 @@ const RollResultModal = ({
         }}
       ></div>
       <div className="modalContainer">
-        <div className="modal flex flex-col">
-          <button
+        <div className="modal flex flex-col items-center">
+          <Button
+            variant="close"
             onClick={e => {
               e.preventDefault();
               toggleModalDisplay(modalDisplay, setModalDisplay);
             }}
-            className="closeModalButton"
           >
             X
-          </button>
+          </Button>
           <h2>{key.toUpperCase()}</h2>
 
           {/* the content needs to change */}
