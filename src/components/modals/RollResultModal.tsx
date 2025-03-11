@@ -43,7 +43,7 @@ const RollResultModal = ({
       <div className="modalContainer">
         <div className="modal flex flex-col items-center">
           <Button
-            variant="close"
+            variant="round"
             onClick={e => {
               e.preventDefault();
               toggleModalDisplay(modalDisplay, setModalDisplay);

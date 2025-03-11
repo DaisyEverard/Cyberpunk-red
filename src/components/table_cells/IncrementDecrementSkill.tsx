@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { CharacterContext } from '../../context/Character';
 import skillsJson from '../../data/skills.json';
 import { SkillsType } from '../../types/types';
+import Button from '../common/Button';
 
 type IncrementDecrementSkillProps = {
   skillName: string;
@@ -73,22 +74,25 @@ const IncrementDecrementSkill = ({ skillName, remainingPoints, setRemainingPoint
 
   return (
     <td>
-      <button
+      <Button
+        variant="round"
         onClick={e => {
           e.preventDefault();
           increment(getCurrentSkills(), setCurrentSkills, skillName, remainingPoints, setRemainingPoints, cost);
         }}
       >
         +
-      </button>
-      <button
+      </Button>
+
+      <Button
+        variant="round"
         onClick={e => {
           e.preventDefault();
           decrement(getCurrentSkills(), setCurrentSkills, skillName, remainingPoints, setRemainingPoints, cost);
         }}
       >
         -
-      </button>
+      </Button>
     </td>
   );
 };

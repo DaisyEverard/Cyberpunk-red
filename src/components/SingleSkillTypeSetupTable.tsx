@@ -84,7 +84,7 @@ const SingleSkillTypeSetupTable = ({
             <th>Skill Name</th>
             <th>Cost</th>
             <th>Level</th>
-            <th>adjuster buttons</th>
+            <th>Adjust</th>
           </tr>
         </thead>
         <tbody>

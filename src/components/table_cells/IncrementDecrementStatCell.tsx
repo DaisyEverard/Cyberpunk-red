@@ -3,14 +3,19 @@ import { useContext } from 'react';
 import { CharacterContext } from '../../context/Character';
 import { Stats } from '../../types/types';
 import { calculateHPMax, updateHumanity } from '../../utils/commonMethods';
+import Button from '../common/Button';
 
-type IncrementDecrementStatProps = {
+type IncrementDecrementStatCellProps = {
   statName: string;
   remainingPoints: number;
   setRemainingPoints: (points: number) => void;
 };
 
-const IncrementDecrementStat = ({ statName, remainingPoints, setRemainingPoints }: IncrementDecrementStatProps) => {
+const IncrementDecrementStatCell = ({
+  statName,
+  remainingPoints,
+  setRemainingPoints,
+}: IncrementDecrementStatCellProps) => {
   const { getStats, setStats, getHP, setHP, setHumanity } = useContext(CharacterContext);
 
   const increment = (
@@ -54,24 +59,26 @@ const IncrementDecrementStat = ({ statName, remainingPoints, setRemainingPoints 
 
   return (
     <td>
-      <button
+      <Button
         onClick={e => {
           e.preventDefault();
           increment(getStats(), statName, remainingPoints, setRemainingPoints);
         }}
+        variant="round"
       >
         +
-      </button>
-      <button
+      </Button>
+      <Button
+        variant="round"
         onClick={e => {
           e.preventDefault();
           decrement(getStats(), statName, remainingPoints, setRemainingPoints, getHP(), setHP, calculateHPMax);
         }}
       >
         -
-      </button>
+      </Button>
     </td>
   );
 };
 
-export default IncrementDecrementStat;
+export default IncrementDecrementStatCell;

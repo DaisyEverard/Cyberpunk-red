@@ -71,7 +71,7 @@ const EffectsModal = ({
       <div className="modalContainer">
         <div className="modal flex flex-col">
           <Button
-            variant="close"
+            variant="round"
             onClick={e => {
               e.preventDefault();
               toggleModalDisplays(modalDisplays, setModalDisplays, key);

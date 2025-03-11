@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import '../../style/utils.css';
+import Button from '../common/Button';
 
 type HideableDescriptionCellProps = {
   title: string;
@@ -29,7 +30,7 @@ const CollapsibleTextBox = ({ title, descriptionArray }: HideableDescriptionCell
         }}
       >
         <span>{title}</span>
-        <button className="text-white mr-1 float-right font-bold">{plusMinus}</button>
+        <span className="text-white mr-1 float-right font-bold">{plusMinus}</span>
       </h4>
       {descriptionArray.map((description, index) => {
         return (

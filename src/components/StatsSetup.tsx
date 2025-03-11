@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 
 import { CharacterContext } from '../context/Character';
 import statsJson from '../data/statsDescription.json';
-import IncrementDecrementStat from './table_cells/IncrementDecrementStat';
+import IncrementDecrementStatCell from './table_cells/IncrementDecrementStatCell';
 import CollapsibleTextBox from './text_boxes/CollapsibleTextBox';
 
 const StatsSetup = () => {
@@ -42,6 +42,7 @@ const StatsSetup = () => {
             <tr>
               <th>STAT</th>
               <th>LEVEL</th>
+              <th>ADJUST</th>
             </tr>
           </thead>
           <tbody>
@@ -52,7 +53,7 @@ const StatsSetup = () => {
                 <tr key={index}>
                   <th>{statName}</th>
                   <td>{level}</td>
-                  <IncrementDecrementStat
+                  <IncrementDecrementStatCell
                     statName={statName}
                     setRemainingPoints={setRemainingPoints}
                     remainingPoints={remainingPoints}
