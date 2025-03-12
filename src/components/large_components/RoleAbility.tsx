@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import { CharacterContext } from '../context/Character';
-import rolesJson from '../data/roles.json';
-import CollapsibleTextBox from './text_boxes/CollapsibleTextBox';
+import { CharacterContext } from '../../context/Character';
+import rolesJson from '../../data/roles.json';
+import CollapsibleTextBox from '../text_boxes/CollapsibleTextBox';
 
 const RoleAbility = () => {
   const { getRole, setRole } = useContext(CharacterContext);

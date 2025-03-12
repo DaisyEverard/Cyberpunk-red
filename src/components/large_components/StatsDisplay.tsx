@@ -1,14 +1,11 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
-import { CharacterContext } from '../context/Character';
-import statsJson from '../data/statsDescription.json';
-import IncrementDecrementStatCell from './table_cells/IncrementDecrementStatCell';
-import CollapsibleTextBox from './text_boxes/CollapsibleTextBox';
+import { CharacterContext } from '../../context/Character';
+import statsJson from '../../data/statsDescription.json';
+import CollapsibleTextBox from '../text_boxes/CollapsibleTextBox';
 
-const StatsSetup = () => {
+const StatsDipslay = () => {
   const { getStats } = useContext(CharacterContext);
-
-  const [remainingPoints, setRemainingPoints] = useState(42);
 
   return (
     <div className="flex gap-1">
@@ -31,18 +28,11 @@ const StatsSetup = () => {
         })}
       </div>
       <div className="box flex flex-col flex-1">
-        <div>
-          <p>
-            <strong>Points Remaining:</strong>
-          </p>
-          <p>{remainingPoints}</p>
-        </div>
         <table>
           <thead>
             <tr>
               <th>STAT</th>
               <th>LEVEL</th>
-              <th>ADJUST</th>
             </tr>
           </thead>
           <tbody>
@@ -53,11 +43,6 @@ const StatsSetup = () => {
                 <tr key={index}>
                   <th>{statName}</th>
                   <td>{level}</td>
-                  <IncrementDecrementStatCell
-                    statName={statName}
-                    setRemainingPoints={setRemainingPoints}
-                    remainingPoints={remainingPoints}
-                  />
                 </tr>
               );
             })}
@@ -68,4 +53,4 @@ const StatsSetup = () => {
   );
 };
 
-export default StatsSetup;
+export default StatsDipslay;

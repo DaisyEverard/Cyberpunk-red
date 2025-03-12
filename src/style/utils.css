@@ -10,13 +10,11 @@
 .modal {
   background: white;
   border: 2px solid black;
-  clip-path: polygon(0% 0%, 75% 0%, 89% 30px, 89% 0%, 100% 0, 100% 100%, 0% 100%);
   max-height: 80vh;
   overflow-y: scroll;
 }
 .modalContainer {
   z-index: 2;
-  display: flex;
   position: fixed;
   left: 20px;
   width: 400px;
@@ -26,7 +24,6 @@
   left: 50%;
   margin-left: -200px;
   background-color: var(--dark-red-bg);
-  clip-path: polygon(0% 0%, 75% 0%, 80% 15px, 80% 0%, 100% 0, 100% 100%, 0% 100%);
 }
 .modal,
 .modalContainer {
