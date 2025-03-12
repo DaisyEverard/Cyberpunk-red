@@ -9,7 +9,7 @@ type DropdownCellProps = {
 const DropdownBox = ({ value, values, onChanged }: DropdownCellProps) => {
   return (
     <div className="dropdown">
-      <p className="dropbtn">{value}</p>
+      <p className="px-1 py-1 hover:bg-active-bg-grey">{value}</p>
       <div className="dropdown-content">
         {values.map(role => {
           return (

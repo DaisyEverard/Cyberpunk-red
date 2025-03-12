@@ -19,6 +19,8 @@ export default {
         'skill-option-bg-1': '#b1b1b1',
         'skill-option-bg-2': '#797979',
 
+        'active-bg-grey': '#d5d5d5',
+
         'table-header-bg': '#e3e3e3',
         'table-header-text': '000',
       },

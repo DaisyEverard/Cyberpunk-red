@@ -1,9 +1,4 @@
 /* DROPDOWN CELL */
-.dropbtn {
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -27,7 +22,4 @@
 }
 .dropdown:hover .dropdown-content {
   display: block;
-}
-.dropdown:hover .dropbtn {
-  background-color: var(--light-red-bg-1);
 }
