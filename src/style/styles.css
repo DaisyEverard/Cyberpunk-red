@@ -1,0 +1,7 @@
+/* Hover Reveal */
+.hidden-item {
+  display: none;
+}
+.reveal-trigger:hover .hidden-item {
+  display: block;
+}

@@ -1,5 +1,3 @@
-import '../../style/cells.css';
-
 type TextInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 export const EditableTextBox = ({ placeholder, value, onChange, disabled, className }: TextInputProps) => {
