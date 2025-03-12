@@ -21,27 +21,30 @@ const CollapsibleTextBox = ({ title, descriptionArray }: CollapsibleTextBoxProps
   };
 
   return (
-    <div className="w-full">
-      <h4
+    <div className="w-full bg-active-bg-grey">
+      <div
         onClick={e => {
           e.preventDefault();
           toggleDescription();
         }}
       >
-        <span>{title}</span>
-        <span className="text-white mr-1 float-right font-bold">{plusMinus}</span>
-      </h4>
-      {descriptionArray.map((description, index) => {
-        return (
-          <p
-            className="whitespace-pre-wrap"
-            key={index}
-            style={{ display: boxDisplay }}
-          >
-            {description}
-          </p>
-        );
-      })}
+        <h4>
+          {title}
+          <span className="text-white mr-1 float-right font-bold">{plusMinus}</span>
+        </h4>
+      </div>
+      <div style={{ display: boxDisplay }}>
+        {descriptionArray.map((description, index) => {
+          return (
+            <p
+              className="whitespace-pre-wrap "
+              key={index}
+            >
+              {description}
+            </p>
+          );
+        })}
+      </div>
     </div>
   );
 };
