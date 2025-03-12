@@ -1,11 +1,3 @@
-/* HIDEABLE DESCRIPTION CELL */
-.hideableDescriptionCell {
-  width: 100%;
-}
-.hideableDescriptionCell p {
-  white-space: pre-wrap;
-}
-
 /* SIMPLE MODAL */
 .modal {
   background: white;

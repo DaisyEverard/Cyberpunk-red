@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import '../../style/utils.css';
 
-type HideableDescriptionCellProps = {
+type CollapsibleTextBoxProps = {
   title: string;
   descriptionArray: Array<string>;
 };
-const CollapsibleTextBox = ({ title, descriptionArray }: HideableDescriptionCellProps) => {
+const CollapsibleTextBox = ({ title, descriptionArray }: CollapsibleTextBoxProps) => {
   const [plusMinus, setPlusMinus] = useState('+');
   const [boxDisplay, setBoxDisplay] = useState('none');
 
@@ -21,7 +21,7 @@ const CollapsibleTextBox = ({ title, descriptionArray }: HideableDescriptionCell
   };
 
   return (
-    <div className="hideableDescriptionCell">
+    <div className="w-full">
       <h4
         onClick={e => {
           e.preventDefault();
@@ -34,6 +34,7 @@ const CollapsibleTextBox = ({ title, descriptionArray }: HideableDescriptionCell
       {descriptionArray.map((description, index) => {
         return (
           <p
+            className="whitespace-pre-wrap"
             key={index}
             style={{ display: boxDisplay }}
           >
