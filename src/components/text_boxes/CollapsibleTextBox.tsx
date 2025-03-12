@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import '../../style/utils.css';
-import Button from '../common/Button';
 
 type HideableDescriptionCellProps = {
   title: string;

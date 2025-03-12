@@ -41,13 +41,6 @@
 :root {
   /* backgrounds */
   --dark-red-bg: #971919;
-  --gradient-dark-bg: #530b0b;
-  --gradient-light-bg: #ff0000;
-  --light-red-bg-1: #fcd8d8;
-  --light-red-bg-2: #ffb9b9;
-  --body-bg-color: #fff;
-  /* text colours */
-  /* fonts */
 }
 
 body {
@@ -56,10 +49,6 @@ body {
 
 .box {
   @apply bg-white px-6 py-4 shadow rounded;
-}
-
-.button {
-  @apply bg-gradient-to-br from-gradient-dark-bg to-gradient-light-bg text-main-light-text px-4 py-2 rounded-md;
 }
 
 * {
