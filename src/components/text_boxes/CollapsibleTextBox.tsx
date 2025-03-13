@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import '../../style/utils.css';
-
 type CollapsibleTextBoxProps = {
   title: string;
   descriptionArray: Array<string>;

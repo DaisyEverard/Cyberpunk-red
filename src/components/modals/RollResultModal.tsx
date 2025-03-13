@@ -40,8 +40,8 @@ const RollResultModal = ({
           toggleModalDisplay(modalDisplay, setModalDisplay);
         }}
       ></div>
-      <div className="modalContainer">
-        <div className="modal flex flex-col items-center">
+      <div className="modalContainer px-2 py-2 rounded-lg bg-main-dark-bg fixed w-[400px] top-[20px] left-[50%] ml-[-200px]">
+        <div className="flex flex-col px-2 py-2 rounded-l bg-white border-black border-[2px] max-h-[80vh] overflow-y-scroll">
           <Button
             variant="round"
             onClick={e => {
