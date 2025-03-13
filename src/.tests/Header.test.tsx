@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import Header from './Header';
+import Header from '../components/common/Header';
 
 // I know this is a pointless test
 // I need simple examples first, but I don't think I've done this in a very vitest way

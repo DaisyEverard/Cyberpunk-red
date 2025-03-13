@@ -37,6 +37,7 @@ const SingleSkillTypeSetupTable = ({
     if (skillName == 'Play Instrument') {
       max_skill_points = 6;
     }
+
     const newSkills = { ...currentSkills };
     let n = 1;
     let success = false;

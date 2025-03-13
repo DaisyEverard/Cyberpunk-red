@@ -23,7 +23,9 @@ import effectJson from '../../data/effects.json';
 import { ModalDisplays } from '../../types/types';
 import EffectsModal from '../modals/EffectsModal';
 
-const iconMap = {
+type iconMapType = Record<string, string>;
+
+const iconMap: iconMapType = {
   bleed: bleedSVG,
   blind: blindSVG,
   burn: burnSVG,
