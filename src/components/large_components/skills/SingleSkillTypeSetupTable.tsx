@@ -33,16 +33,15 @@ const SingleSkillTypeSetupTable = ({
     setSkills: (currentSkills: SkillsType) => void,
     skillName: string,
   ) => {
-    if (skillName == 'Martial Arts') {
-      return;
+    let max_skill_points = 5;
+    if (skillName == 'Play Instrument') {
+      max_skill_points = 6;
     }
     const newSkills = { ...currentSkills };
-
-    const MAX_SKILL_POINTS = 6;
     let n = 1;
     let success = false;
 
-    while (success == false && n <= MAX_SKILL_POINTS) {
+    while (success == false && n <= max_skill_points) {
       const optionExists =
         newSkills[skillName]['options'][n]['name'] && newSkills[skillName]['options'][n]['name'] != '';
 
@@ -64,10 +63,6 @@ const SingleSkillTypeSetupTable = ({
     currentSkills: SkillsType,
     setCurrentSkills: (skills: SkillsType) => void,
   ) => {
-    if (skillName == 'Martial Arts') {
-      return;
-    }
-
     const newName = target.value;
     const newSkills = { ...currentSkills };
 
@@ -108,20 +103,21 @@ const SingleSkillTypeSetupTable = ({
               </tr>
             );
 
-            const optionsButton = hasOptions ? (
-              <tr
-                className="font-bold bg-skill-option-bg-1"
-                id="overwrite-nth-of-type-bg-color"
-                onClick={e => {
-                  e.preventDefault();
-                  addNewOption(getCurrentSkills(), setCurrentSkills, skillName);
-                }}
-              >
-                <td colSpan={4}>
-                  <p>+ Option</p>
-                </td>
-              </tr>
-            ) : null;
+            const optionsButton =
+              hasOptions && skillName != 'Martial Arts' ? (
+                <tr
+                  className="font-bold bg-skill-option-bg-1"
+                  id="overwrite-nth-of-type-bg-color"
+                  onClick={e => {
+                    e.preventDefault();
+                    addNewOption(getCurrentSkills(), setCurrentSkills, skillName);
+                  }}
+                >
+                  <td colSpan={4}>
+                    <p>+ Option</p>
+                  </td>
+                </tr>
+              ) : null;
 
             const options = [];
             if (hasOptions) {
