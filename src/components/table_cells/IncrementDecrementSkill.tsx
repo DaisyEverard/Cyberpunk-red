@@ -100,6 +100,7 @@ const IncrementDecrementSkill = ({ skillName, remainingPoints, setRemainingPoint
 export default IncrementDecrementSkill;
 
 // Don't forget the 4 Levels of Language you get free based on the Cultural Origin section of you Lifepath (See The Personals).
+// Should be able to remove options too
 
 // Skills where you have to choose options:
 // Language - at least 2 in Language (Streetslang)
@@ -108,4 +109,4 @@ export default IncrementDecrementSkill;
 
 // Local Expert - at least 2 in Local Expert (Your Home)
 // Instrument - choose an instrument
-// Martial Arts - (Karate, Taekwondo, Judo, aikido) - restrict only to these options?
+// Martial Arts - (Karate, Taekwondo, Judo, aikido) - restrict only to these options
