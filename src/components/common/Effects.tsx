@@ -95,11 +95,11 @@ const Effects = () => {
             const svgPath = iconMap[skillLowerCase];
             const isActive = getCurrentEffects()[skillLowerCase]['active'];
 
-            let activeStyles = 'h-9';
+            let activeStyles = '';
             if (skill['category'] == 'Positive' && isActive) {
-              activeStyles = 'h-9 bg-heal-green border-2 border-black';
+              activeStyles = 'bg-heal-green border-2 border-black';
             } else if (isActive) {
-              activeStyles = 'h-9 bg-damage-red border-2 border-black';
+              activeStyles = 'bg-damage-red border-2 border-black';
             }
 
             return (
@@ -110,7 +110,7 @@ const Effects = () => {
                 <img
                   src={svgPath}
                   alt={skill['alt']}
-                  className={activeStyles}
+                  className={'h-9 px-1 py-1 ' + activeStyles}
                   onClick={e => {
                     e.preventDefault();
                     toggleModalDisplays(modalDisplays, setModalDisplays, skill['name']);
