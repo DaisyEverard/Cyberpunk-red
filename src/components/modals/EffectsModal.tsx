@@ -62,7 +62,7 @@ const EffectsModal = ({
   return (
     <div style={{ display: modalDisplays[key] }}>
       <div
-        className="modalBG"
+        className="fixed top-0 left-0 z-1 opacity-50 bg-white w-full h-full"
         onClick={e => {
           e.preventDefault();
           toggleModalDisplays(modalDisplays, setModalDisplays, key);
@@ -84,7 +84,7 @@ const EffectsModal = ({
             alt={alt}
             style={{ height: '2rem' }}
           ></img>
-          <h2>{key.toUpperCase()}</h2>
+          <h2 className="font-bold">{key.toUpperCase()}</h2>
           <p>{content}</p>
           <Button
             className={buttonStyles + ' ' + buttonDisplay}

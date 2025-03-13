@@ -34,7 +34,7 @@ const RollResultModal = ({
   return (
     <div style={{ display: modalDisplay }}>
       <div
-        className="modalBG"
+        className="fixed top-0 left-0 z-1 opacity-50 bg-white w-full h-full"
         onClick={e => {
           e.preventDefault();
           toggleModalDisplay(modalDisplay, setModalDisplay);
@@ -51,7 +51,7 @@ const RollResultModal = ({
           >
             X
           </Button>
-          <h2>{key.toUpperCase()}</h2>
+          <h2 className="font-bold">{key.toUpperCase()}</h2>
 
           {/* the content needs to change */}
           {getResultDisplay(rollResult, statName)}
