@@ -43,6 +43,13 @@
   --dark-red-bg: #971919;
 }
 
+.hidden-item {
+  @apply hidden;
+}
+.reveal-trigger:hover .hidden-item {
+  @apply block;
+}
+
 body {
   @apply bg-neutral-200 font-montserrat;
 }

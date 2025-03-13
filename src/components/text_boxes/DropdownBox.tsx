@@ -1,5 +1,3 @@
-import '../../style/styles.css';
-
 type DropdownCellProps = {
   value: string;
   values: string[];
