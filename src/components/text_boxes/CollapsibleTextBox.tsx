@@ -13,7 +13,7 @@ const CollapsibleTextBox = ({ title, descriptionArray }: CollapsibleTextBoxProps
   const toggleDescription = () => {
     if (plusMinus == '+') {
       setPlusMinus('-');
-      setBoxDisplay('inline');
+      setBoxDisplay('block');
     } else {
       setPlusMinus('+');
       setBoxDisplay('none');
@@ -33,7 +33,11 @@ const CollapsibleTextBox = ({ title, descriptionArray }: CollapsibleTextBoxProps
           <span className="text-white mr-1 float-right font-bold">{plusMinus}</span>
         </h4>
       </div>
-      <div style={{ display: boxDisplay }}>
+      <div
+        style={{ display: boxDisplay }}
+        className="border-[3px] border-main-dark-bg px-4 py-2"
+        id="Jame(')s Border"
+      >
         {descriptionArray.map((description, index) => {
           return (
             <p
