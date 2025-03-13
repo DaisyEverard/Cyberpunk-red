@@ -1,24 +1,17 @@
 import { useContext } from 'react';
 
-import { CharacterContext } from '../../context/Character';
-import skillsJson from '../../data/skills.json';
-import { SkillsType } from '../../types/types';
-import IncrementDecrementSkill from '../table_cells/IncrementDecrementSkill';
-import EditableTextBox from '../text_boxes/EditableTextBox';
+import { CharacterContext } from '../../../context/Character';
+import skillsJson from '../../../data/skills.json';
+import { SkillsType } from '../../../types/types';
+import { RollSkillCheck } from '../../dice_rolls/RollSkillCheck';
+import EditableTextBox from '../../text_boxes/EditableTextBox';
 
-type SingleSkillTypeSetupTableProps = {
+type SingleSkillTypeDisplayTableProps = {
   tableSkillType: string;
-  remainingPoints: number;
-  setRemainingPoints: (newPoints: number) => void;
 };
 
-const SingleSkillTypeSetupTable = ({
-  tableSkillType,
-  remainingPoints,
-  setRemainingPoints,
-}: SingleSkillTypeSetupTableProps) => {
+const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayTableProps) => {
   const { getCurrentSkills, setCurrentSkills } = useContext(CharacterContext);
-
   const skillsList = [];
 
   for (const index in skillsJson) {
@@ -27,35 +20,6 @@ const SingleSkillTypeSetupTable = ({
       skillsList.push(skillsJson[index]);
     }
   }
-
-  const addNewOption = (
-    currentSkills: SkillsType,
-    setSkills: (currentSkills: SkillsType) => void,
-    skillName: string,
-  ) => {
-    if (skillName == 'Martial Arts') {
-      return;
-    }
-    const newSkills = { ...currentSkills };
-
-    const MAX_SKILL_POINTS = 6;
-    let n = 1;
-    let success = false;
-
-    while (success == false && n <= MAX_SKILL_POINTS) {
-      const optionExists =
-        newSkills[skillName]['options'][n]['name'] && newSkills[skillName]['options'][n]['name'] != '';
-
-      if (optionExists) {
-        n += 1;
-        continue;
-      } else {
-        newSkills[skillName]['options'][n]['name'] = 'New Option';
-        setSkills(newSkills);
-        success = true;
-      }
-    }
-  };
 
   const setOptionName = (
     target: any,
@@ -76,52 +40,34 @@ const SingleSkillTypeSetupTable = ({
   };
 
   return (
-    <div className="singleSkillTypeTable">
+    <div className="singleSkillTypeTable max-w-[1000px]">
       <h4>{tableSkillType} Skills:</h4>
-      <table>
+      <table className="table-fixed">
         <thead>
           <tr>
             <th>Skill Name</th>
-            <th>Cost</th>
             <th>Level</th>
-            <th>Adjust</th>
+            <th>Roll</th>
           </tr>
         </thead>
         <tbody>
           {skillsList.map(skill => {
-            // need to handle cultural origin rows. At least 4 points over 1-4 languages.
             const skillName = skill['name'];
-            const pointCost = skill['x2'] ? 2 : 1;
             const skillLevel = getCurrentSkills()[skillName]['level'];
             const hasOptions = getCurrentSkills()[skillName]['has_options'];
 
             const mainHTMLRow = (
               <tr key={skillName}>
                 <td>{skillName}</td>
-                <td>{pointCost}</td>
                 <td>{skillLevel}</td>
-                <IncrementDecrementSkill
-                  skillName={skillName}
-                  remainingPoints={remainingPoints}
-                  setRemainingPoints={setRemainingPoints}
-                />
-              </tr>
-            );
-
-            const optionsButton = hasOptions ? (
-              <tr
-                className="font-bold bg-skill-option-bg-1"
-                id="overwrite-nth-of-type-bg-color"
-                onClick={e => {
-                  e.preventDefault();
-                  addNewOption(getCurrentSkills(), setCurrentSkills, skillName);
-                }}
-              >
-                <td colSpan={4}>
-                  <p>+ Option</p>
+                <td>
+                  <RollSkillCheck
+                    skillName={skillName}
+                    skillLevel={skillLevel}
+                  />
                 </td>
               </tr>
-            ) : null;
+            );
 
             const options = [];
             if (hasOptions) {
@@ -146,15 +92,19 @@ const SingleSkillTypeSetupTable = ({
                         }}
                       />
                     </td>
-                    <td></td>
                     <td>{optionLevel}</td>
-                    <td></td>
+                    <td>
+                      <RollSkillCheck
+                        skillName={skillName}
+                        skillLevel={optionLevel}
+                      />
+                    </td>
                   </tr>,
                 );
               });
             }
 
-            return [mainHTMLRow, optionsButton, ...options];
+            return [mainHTMLRow, ...options];
           })}
         </tbody>
       </table>
@@ -162,4 +112,4 @@ const SingleSkillTypeSetupTable = ({
   );
 };
 
-export default SingleSkillTypeSetupTable;
+export default SingleSkillTypeDisplayTable;

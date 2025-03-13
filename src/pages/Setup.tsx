@@ -1,7 +1,7 @@
 import Header from '../components/common/Header';
 import Profile from '../components/common/Profile';
-import SkillsSetup from '../components/large_components/SkillsSetup';
-import StatsSetup from '../components/large_components/StatsSetup';
+import SkillsSetup from '../components/large_components/skills/SkillsSetup';
+import StatsSetup from '../components/large_components/stats/StatsSetup';
 
 const Setup = () => {
   return (

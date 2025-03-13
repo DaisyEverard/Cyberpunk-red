@@ -3,8 +3,8 @@ import Header from '../components/common/Header';
 import Profile from '../components/common/Profile';
 import Rolls from '../components/dice_rolls/Rolls';
 import RoleAbility from '../components/large_components/RoleAbility';
-import SkillsDisplay from '../components/large_components/SkillsDisplay';
-import StatsDipslay from '../components/large_components/StatsDisplay';
+import SkillsDisplay from '../components/large_components/skills/SkillsDisplay';
+import StatsDipslay from '../components/large_components/stats/StatsDisplay';
 
 const Home = () => {
   return (
