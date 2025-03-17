@@ -27,9 +27,9 @@ const EffectsModal = ({
   iconMap,
   alt,
 }: EffectsModalProps) => {
-  const { getCurrentEffects, setCurrentEffects } = useContext(CharacterContext);
+  const { state, setCurrentEffects } = useContext(CharacterContext);
   const key = title.toLowerCase();
-  const isActive = getCurrentEffects()[key]['active'];
+  const isActive = state.currentEffects[key]['active'];
   const [activeStateText, setActiveStateText] = useState(isActive ? 'Deactivate' : 'Activate');
   const [buttonStyles, setButtonStyles] = useState(isActive ? '' : 'border-heal-green text-heal-green');
 
@@ -92,7 +92,7 @@ const EffectsModal = ({
             onClick={e => {
               e.preventDefault;
               toggleActiveState(
-                getCurrentEffects(),
+                state.currentEffects,
                 setCurrentEffects,
                 key,
                 isActive,

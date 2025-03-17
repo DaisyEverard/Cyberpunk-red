@@ -10,13 +10,13 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center overflow-y-scroll my-1">
       <div className="flex flex-col gap-1 max-w-full">
-        {/* <Header /> */}
+        <Header />
         <Profile />
-        {/* <Effects /> */}
-        {/* <Rolls /> */}
-        {/* <RoleAbilityPanel /> */}
-        {/* <StatsDipslay /> */}
-        {/* <SkillsDisplay /> */}
+        <Effects />
+        <Rolls />
+        <RoleAbilityPanel />
+        <StatsDipslay />
+        <SkillsDisplay />
       </div>
     </div>
   );

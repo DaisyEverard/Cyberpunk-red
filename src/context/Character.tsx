@@ -15,6 +15,7 @@ type CharacterContextType = {
   setHP: (hp: number) => void;
   setStats: (stats: StatsType) => void;
   setCurrentEffects: (effects: EffectsType) => void;
+  setCurrentSkills: (skills: SkillType) => void;
 };
 
 export const CharacterContext = createContext<CharacterContextType>({} as CharacterContextType);
@@ -35,10 +36,6 @@ export const CharacterFactory = (): CharacterType => {
   };
 };
 
-type CharacterProviderProps = {
-  defaultData: CharacterType;
-};
-
 // You touch this perfectly good function declaration, George, and I'mma come beat yo ass!
 // Fix It For Ya :)
 // Good lad.
@@ -48,63 +45,37 @@ type CharacterProviderProps = {
 // your application.
 
 // Disclaimer: This is probably not production ready code.
-export default function CharacterProvider({ defaultData, children }: PropsWithChildren<CharacterProviderProps>) {
-  const [character, setCharacter] = useState(defaultData);
+export default function CharacterProvider({ children }: PropsWithChildren) {
+  const [character, setCharacter] = useState(CharacterFactory());
 
   // SETTERS
   function setName(name: string) {
-    setCharacter((current: CharacterType) => {
-      console.log('setting the name', name);
-
-      const val = current;
-
-      val.name = 'dave';
-      return val;
-    });
+    setCharacter(current => ({ ...current, name }));
   }
 
   function setRole(role: Role) {
-    setCharacter((current: CharacterType) => {
-      console.log('Set Role', role);
-
-      current.role = role;
-      return current;
-    });
+    setCharacter(current => ({ ...current, role }));
   }
 
   function setStats(stats: StatsType) {
-    setCharacter((current: CharacterType) => {
-      current.stats = stats;
-      return current;
-    });
+    setCharacter(current => ({ ...current, stats }));
   }
 
   function setHP(HP: number) {
-    setCharacter((current: CharacterType) => {
-      current.HP = HP;
-      return current;
-    });
+    setCharacter(current => ({ ...current, HP }));
+    // set dead and critically wounded here instead
   }
 
   function setHumanity(humanity: number) {
-    setCharacter((current: CharacterType) => {
-      current.humanity = humanity;
-      return current;
-    });
+    setCharacter(current => ({ ...current, humanity }));
   }
 
   function setCurrentSkills(currentSkills: SkillType) {
-    setCharacter((current: CharacterType) => {
-      current.currentSkills = currentSkills;
-      return current;
-    });
+    setCharacter(current => ({ ...current, currentSkills }));
   }
 
   function setCurrentEffects(currentEffects: EffectsType) {
-    setCharacter((current: CharacterType) => {
-      current.currentEffects = currentEffects;
-      return current;
-    });
+    setCharacter(current => ({ ...current, currentEffects }));
   }
 
   // OTHER
@@ -144,6 +115,7 @@ export default function CharacterProvider({ defaultData, children }: PropsWithCh
         setHumanity,
         setStats,
         setCurrentEffects,
+        setCurrentSkills,
       }}
     >
       {children}

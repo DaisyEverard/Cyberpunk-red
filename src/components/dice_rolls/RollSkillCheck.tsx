@@ -11,9 +11,9 @@ type RollSkillCheckProps = {
 };
 
 export const RollSkillCheck = ({ skillName, skillLevel }: RollSkillCheckProps) => {
-  const { getCurrentSkills, getStats } = useContext(CharacterContext);
-  const baseStatType = getCurrentSkills()[skillName]['stat_type'];
-  const statLevel = getStats()[baseStatType];
+  const { state } = useContext(CharacterContext);
+  const baseStatType = state.currentSkills[skillName]['stat_type'];
+  const statLevel = state.stats[baseStatType];
 
   const [modalDisplay, setModalDisplay] = useState('none');
   const [rollResult, setRollResult] = useState([0, 0, 0, 0]);

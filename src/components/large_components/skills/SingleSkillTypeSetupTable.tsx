@@ -17,7 +17,7 @@ const SingleSkillTypeSetupTable = ({
   remainingPoints,
   setRemainingPoints,
 }: SingleSkillTypeSetupTableProps) => {
-  const { getCurrentSkills, setCurrentSkills } = useContext(CharacterContext);
+  const { state, setCurrentSkills } = useContext(CharacterContext);
 
   const skillsList = [];
 
@@ -88,8 +88,8 @@ const SingleSkillTypeSetupTable = ({
             // need to handle cultural origin rows. At least 4 points over 1-4 languages.
             const skillName = skill['name'];
             const pointCost = skill['x2'] ? 2 : 1;
-            const skillLevel = getCurrentSkills()[skillName]['level'];
-            const hasOptions = getCurrentSkills()[skillName]['has_options'];
+            const skillLevel = state.currentSkills[skillName]['level'];
+            const hasOptions = state.currentSkills[skillName]['has_options'];
 
             const mainHTMLRow = (
               <tr key={skillName}>
@@ -111,7 +111,7 @@ const SingleSkillTypeSetupTable = ({
                   id="overwrite-nth-of-type-bg-color"
                   onClick={e => {
                     e.preventDefault();
-                    addNewOption(getCurrentSkills(), setCurrentSkills, skillName);
+                    addNewOption(state.currentSkills, setCurrentSkills, skillName);
                   }}
                 >
                   <td colSpan={4}>
@@ -122,7 +122,7 @@ const SingleSkillTypeSetupTable = ({
 
             const options = [];
             if (hasOptions) {
-              Object.entries(getCurrentSkills()[skillName]['options']).map(option => {
+              Object.entries(state.currentSkills[skillName]['options']).map(option => {
                 const optionID = option[0];
                 const optionName = option[1]['name'];
                 const optionLevel = option[1]['level'];
@@ -139,7 +139,7 @@ const SingleSkillTypeSetupTable = ({
                         className="bg-transparent"
                         value={optionName}
                         onChange={e => {
-                          setOptionName(e.target, skillName, optionID, getCurrentSkills(), setCurrentSkills);
+                          setOptionName(e.target, skillName, optionID, state.currentSkills, setCurrentSkills);
                         }}
                       />
                     </td>

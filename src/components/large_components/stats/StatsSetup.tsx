@@ -5,7 +5,7 @@ import IncrementDecrementStatCell from '../../table_cells/IncrementDecrementStat
 import StatsExplaination from './StatsExplaination';
 
 const StatsSetup = () => {
-  const { getStats } = useContext(CharacterContext);
+  const { state } = useContext(CharacterContext);
 
   const [remainingPoints, setRemainingPoints] = useState(42);
 
@@ -28,8 +28,8 @@ const StatsSetup = () => {
             </tr>
           </thead>
           <tbody>
-            {Object.keys(getStats()).map((statName, index) => {
-              const level = getStats()[statName];
+            {Object.keys(state.stats).map((statName, index) => {
+              const level = state.stats[statName];
 
               return (
                 <tr key={index}>

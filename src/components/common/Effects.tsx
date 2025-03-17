@@ -64,7 +64,7 @@ const defaultModalDisplays: ModalDisplays = {
 };
 
 const Effects = () => {
-  const { getCurrentEffects } = useContext(CharacterContext);
+  const { state } = useContext(CharacterContext);
 
   const [modalDisplays, setModalDisplays] = useState(defaultModalDisplays);
 
@@ -95,7 +95,7 @@ const Effects = () => {
           {effectJson.map(skill => {
             const skillLowerCase = skill['name'].toLowerCase();
             const svgPath = iconMap[skillLowerCase];
-            const isActive = getCurrentEffects()[skillLowerCase]['active'];
+            const isActive = state.currentEffects[skillLowerCase]['active'];
 
             let activeStyles = '';
             if (skill['category'] == 'Positive' && isActive) {

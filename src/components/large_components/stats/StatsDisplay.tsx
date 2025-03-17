@@ -4,7 +4,7 @@ import { CharacterContext } from '../../../context/Character';
 import StatsExplaination from './StatsExplaination';
 
 const StatsDipslay = () => {
-  const { getStats } = useContext(CharacterContext);
+  const { state } = useContext(CharacterContext);
 
   return (
     <div className="flex gap-1">
@@ -18,8 +18,8 @@ const StatsDipslay = () => {
             </tr>
           </thead>
           <tbody>
-            {Object.keys(getStats()).map((statName, index) => {
-              const level = getStats()[statName];
+            {Object.keys(state.stats).map((statName, index) => {
+              const level = state.stats[statName];
 
               return (
                 <tr key={index}>

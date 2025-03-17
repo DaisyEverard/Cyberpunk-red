@@ -9,33 +9,29 @@ import Navbar from './components/common/Navbar';
 
 import './style/index.css';
 
-import CharacterProvider, { CharacterFactory } from './context/Character';
-
 const App = () => {
   return (
-    <CharacterProvider defaultData={CharacterFactory()}>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route
-            index
-            element={<Home />}
-          />
-          <Route
-            path="setup"
-            element={<Setup />}
-          />
-          <Route
-            path="inventory"
-            element={<Inventory />}
-          />
-          <Route
-            path="combat"
-            element={<Combat />}
-          />
-        </Routes>
-      </BrowserRouter>
-    </CharacterProvider>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route
+          index
+          element={<Home />}
+        />
+        <Route
+          path="setup"
+          element={<Setup />}
+        />
+        <Route
+          path="inventory"
+          element={<Inventory />}
+        />
+        <Route
+          path="combat"
+          element={<Combat />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

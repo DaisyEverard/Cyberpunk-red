@@ -11,7 +11,7 @@ type SingleSkillTypeDisplayTableProps = {
 };
 
 const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayTableProps) => {
-  const { getCurrentSkills, setCurrentSkills } = useContext(CharacterContext);
+  const { state, setCurrentSkills } = useContext(CharacterContext);
   const skillsList = [];
 
   for (const index in skillsJson) {
@@ -53,8 +53,8 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
         <tbody>
           {skillsList.map(skill => {
             const skillName = skill['name'];
-            const skillLevel = getCurrentSkills()[skillName]['level'];
-            const hasOptions = getCurrentSkills()[skillName]['has_options'];
+            const skillLevel = state.currentSkills[skillName]['level'];
+            const hasOptions = state.currentSkills[skillName]['has_options'];
 
             const mainHTMLRow = (
               <tr key={skillName}>
@@ -71,7 +71,7 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
 
             const options = [];
             if (hasOptions) {
-              Object.entries(getCurrentSkills()[skillName]['options']).map(option => {
+              Object.entries(state.currentSkills[skillName]['options']).map(option => {
                 const optionID = option[0];
                 const optionName = option[1]['name'];
                 const optionLevel = option[1]['level'];
@@ -88,7 +88,7 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
                         className="bg-transparent"
                         value={optionName}
                         onChange={e => {
-                          setOptionName(e.target, skillName, optionID, getCurrentSkills(), setCurrentSkills);
+                          setOptionName(e.target, skillName, optionID, state.currentSkills, setCurrentSkills);
                         }}
                       />
                     </td>

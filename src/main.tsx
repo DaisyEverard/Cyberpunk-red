@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './App.tsx';
+import CharacterProvider from './context/Character.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <CharacterProvider>
+      <App />
+    </CharacterProvider>
   </React.StrictMode>,
 );
