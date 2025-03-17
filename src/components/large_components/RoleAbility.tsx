@@ -1,8 +1,16 @@
 import { useContext } from 'react';
 
 import { CharacterContext } from '../../context/Character';
+import { exec } from '../../data/roles/exec';
 import { fixer } from '../../data/roles/fixer';
+import { lawman } from '../../data/roles/lawman';
+import { media } from '../../data/roles/media';
+import { medtech } from '../../data/roles/medtech';
+import { netrunner } from '../../data/roles/netrunner';
+import { nomad } from '../../data/roles/nomad';
+import { rockerboy } from '../../data/roles/rockerboy';
 import { solo } from '../../data/roles/solo';
+import { tech } from '../../data/roles/tech';
 import { Role } from '../../types/Role';
 import { RoleAbility } from '../../types/types';
 import CollapsibleTextBox from '../text_boxes/CollapsibleTextBox';
@@ -11,10 +19,26 @@ const GetRoleAbility = (role: Role): RoleAbility => {
   console.log(role);
 
   switch (role) {
-    case Role.Solo:
-      return solo;
+    case Role.Exec:
+      return exec;
     case Role.Fixer:
       return fixer;
+    case Role.Lawman:
+      return lawman;
+    case Role.Media:
+      return media;
+    case Role.Medtech:
+      return medtech;
+    case Role.Netrunner:
+      return netrunner;
+    case Role.Nomad:
+      return nomad;
+    case Role.Rockerboy:
+      return rockerboy;
+    case Role.Solo:
+      return solo;
+    case Role.Tech:
+      return tech;
     default:
       return solo;
   }

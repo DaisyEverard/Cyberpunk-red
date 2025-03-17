@@ -1,5 +1,12 @@
 export enum Role {
-  Solo = 'Solo',
-  Medtech = 'Medtech',
+  Exec = 'Exec',
   Fixer = 'Fixer',
+  Lawman = 'Lawman',
+  Media = 'Media',
+  Medtech = 'Medtech',
+  Netrunner = 'Netrunner',
+  Nomad = 'Nomad',
+  Rockerboy = 'Rockerboy',
+  Solo = 'Solo',
+  Tech = 'Tech',
 }
