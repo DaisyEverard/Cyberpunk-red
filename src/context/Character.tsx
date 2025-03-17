@@ -5,7 +5,13 @@ import defaultSkills from '../data/defaultSkills.json';
 import defaultStats from '../data/defaultStats.json';
 import { Role } from '../types/Role';
 import { CharacterType, EffectsType, SkillType, StatsType } from '../types/types';
-import { calculateHP, calculateHumanity } from '../utils/commonMethods';
+import {
+  calculateHP,
+  calculateHumanity,
+  isMortallyWounded,
+  isSeriouslyWounded,
+  setEffect,
+} from '../utils/commonMethods';
 
 type CharacterContextType = {
   state: CharacterType;
@@ -62,7 +68,16 @@ export default function CharacterProvider({ children }: PropsWithChildren) {
   }
 
   function setHP(HP: number) {
-    setCharacter(current => ({ ...current, HP }));
+    setCharacter(current => {
+      if (!isSeriouslyWounded(current.stats, HP)) {
+        setEffect(current.currentEffects, setCurrentEffects, false, 'seriously wounded');
+      }
+      if (!isMortallyWounded(HP)) {
+        setEffect(current.currentEffects, setCurrentEffects, false, 'mortally wounded');
+      }
+
+      return { ...current, HP };
+    });
     // set dead and critically wounded here instead
   }
 

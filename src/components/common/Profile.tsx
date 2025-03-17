@@ -43,13 +43,6 @@ const Profile = () => {
       }
     }
 
-    if (!isSeriouslyWounded(state.stats, HP)) {
-      setEffect(state.currentEffects, setCurrentEffects, false, 'seriously wounded');
-    }
-    if (!isMortallyWounded(HP)) {
-      setEffect(state.currentEffects, setCurrentEffects, false, 'mortally wounded');
-    }
-
     HPInputRef.current.value = null;
   };
 
