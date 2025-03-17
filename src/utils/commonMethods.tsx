@@ -1,4 +1,4 @@
-import { Effects, Stats } from '../types/types';
+import { EffectsType, StatsType } from '../types/types';
 
 // INCREMENT / DECREMENT
 const incrementAnyNumericalState = (currentState: number, setState: (newState: number) => void, max: number = 999) => {
@@ -27,20 +27,20 @@ const decrementAnyNumericalState = (currentState: number, setState: (newState: n
 };
 
 // CALCULATIONS
-const calculateHPMax = (stats: Stats) => {
+const calculateHPMax = (stats: StatsType) => {
   const bodyWillAverage = Math.ceil((stats['BODY'] + stats['WILL']) / 2);
   return 10 + 5 * bodyWillAverage;
 };
-const calculateHP = (stats: Stats) => {
+const calculateHP = (stats: StatsType) => {
   const maxHP = calculateHPMax(stats);
   return maxHP;
 };
-const calculateHumanity = (stats: Stats) => {
+const calculateHumanity = (stats: StatsType) => {
   return 10 * stats['EMP'];
 };
 
 // BOOLEAN STAT CHECKS
-const isSeriouslyWounded = (stats: Stats, HP: number) => {
+const isSeriouslyWounded = (stats: StatsType, HP: number) => {
   const HPMax = calculateHPMax(stats);
   const seriouslyWoundedThreshold = Math.ceil(HPMax / 2);
   if (HP <= seriouslyWoundedThreshold) {
@@ -61,8 +61,8 @@ const isMortallyWounded = (HP: number) => {
 
 // TOGGLE EFFECTS
 const setEffect = (
-  effects: Effects,
-  setEffects: (newEffects: Effects) => void,
+  effects: EffectsType,
+  setEffects: (newEffects: EffectsType) => void,
   trueOrFalse: boolean,
   effectName: string,
 ) => {
@@ -72,10 +72,10 @@ const setEffect = (
 };
 
 // DERIVED STAT UPDATERS
-const updateHP = (setHP: (newHP: number) => void, newStats: Stats) => {
+const updateHP = (setHP: (newHP: number) => void, newStats: StatsType) => {
   setHP(calculateHP(newStats));
 };
-const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats: Stats) => {
+const updateHumanity = (setHumanity: (newHumanity: number) => void, newStats: StatsType) => {
   setHumanity(calculateHumanity(newStats));
 };
 

@@ -1,12 +1,28 @@
 import { useContext } from 'react';
 
 import { CharacterContext } from '../../context/Character';
-import rolesJson from '../../data/roles.json';
+import { fixer } from '../../data/roles/fixer';
+import { solo } from '../../data/roles/solo';
+import { Role } from '../../types/Role';
+import { RoleAbility } from '../../types/types';
 import CollapsibleTextBox from '../text_boxes/CollapsibleTextBox';
 
-const RoleAbility = () => {
-  const { getRole, setRole } = useContext(CharacterContext);
-  const abilityObject = rolesJson[getRole()];
+const GetRoleAbility = (role: Role): RoleAbility => {
+  console.log(role);
+
+  switch (role) {
+    case Role.Solo:
+      return solo;
+    case Role.Fixer:
+      return fixer;
+    default:
+      return solo;
+  }
+};
+
+const RoleAbilityPanel = () => {
+  const { state: character } = useContext(CharacterContext);
+  const abilityObject = GetRoleAbility(character.role);
 
   let allSkills: Array<string> = [];
   abilityObject['roleAbilities'].forEach(skill => {
@@ -63,4 +79,4 @@ const RoleAbility = () => {
   );
 };
 
-export default RoleAbility;
+export default RoleAbilityPanel;

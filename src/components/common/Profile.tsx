@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import { useRef, useState } from 'react';
+import React, { useContext } from 'react';
+import { useRef } from 'react';
 
 import { CharacterContext } from '../../context/Character';
-import rolesJson from '../../data/roles.json';
-import { Stats } from '../../types/types';
+import { Role } from '../../types/Role';
+import { StatsType } from '../../types/types';
 import {
   calculateHPMax,
   decrementAnyNumericalState,
@@ -16,29 +16,17 @@ import DropdownBox from '../text_boxes/DropdownBox';
 import EditableTextBox from '../text_boxes/EditableTextBox';
 import Button from './Button';
 
-const allRoles = Object.keys(rolesJson);
+const allRoles = Object.values(Role);
 
 // COMPONENT START
 const Profile = () => {
-  const {
-    getRole,
-    setRole,
-    getStats,
-    setStats,
-    getHP,
-    setHP,
-    getHumanity,
-    setHumanity,
-    getCurrentEffects,
-    setCurrentEffects,
-  } = useContext(CharacterContext);
-  const [name, setName] = useState('Johnny Silverhand');
+  const { state, setRole, setName, setHP, setHumanity, setStats, setCurrentEffects } = useContext(CharacterContext);
   const HPInputRef = useRef(null);
   const humanityInputRef = useRef(null);
 
   // HEAL METHOD
-  const heal = (stats: Stats, HP: number, setHP: (newHP: number) => void) => {
-    const HPMax = calculateHPMax(getStats());
+  const heal = (stats: StatsType, HP: number, setHP: (newHP: number) => void) => {
+    const HPMax = calculateHPMax(state.stats);
     let HPChange = HPInputRef.current.value;
 
     if (HPChange == '') {
@@ -55,11 +43,11 @@ const Profile = () => {
       }
     }
 
-    if (!isSeriouslyWounded(getStats(), HP)) {
-      setEffect(getCurrentEffects(), setCurrentEffects, false, 'seriously wounded');
+    if (!isSeriouslyWounded(state.stats, HP)) {
+      setEffect(state.currentEffects, setCurrentEffects, false, 'seriously wounded');
     }
     if (!isMortallyWounded(HP)) {
-      setEffect(getCurrentEffects(), setCurrentEffects, false, 'mortally wounded');
+      setEffect(state.currentEffects, setCurrentEffects, false, 'mortally wounded');
     }
 
     HPInputRef.current.value = null;
@@ -83,11 +71,11 @@ const Profile = () => {
       }
     }
 
-    if (isSeriouslyWounded(getStats(), HP)) {
-      setEffect(getCurrentEffects(), setCurrentEffects, true, 'seriously wounded');
+    if (isSeriouslyWounded(state.stats, HP)) {
+      setEffect(state.currentEffects, setCurrentEffects, true, 'seriously wounded');
     }
     if (isMortallyWounded(HP)) {
-      setEffect(getCurrentEffects(), setCurrentEffects, true, 'mortally wounded');
+      setEffect(state.currentEffects, setCurrentEffects, true, 'mortally wounded');
     }
 
     HPInputRef.current.value = null;
@@ -97,8 +85,8 @@ const Profile = () => {
   const incrementHumanity = (
     humanity: number,
     setHumanity: (newHumanity: number) => void,
-    stats: Stats,
-    setStats: (stats: Stats) => void,
+    stats: StatsType,
+    setStats: (stats: StatsType) => void,
   ) => {
     let humanityChange = humanityInputRef.current.value;
     if (humanityChange == '') {
@@ -126,8 +114,8 @@ const Profile = () => {
   const decrementHumanity = (
     humanity: number,
     setHumanity: (newHumanity: number) => void,
-    stats: Stats,
-    setStats: (stats: Stats) => void,
+    stats: StatsType,
+    setStats: (stats: StatsType) => void,
   ) => {
     let humanityChange = humanityInputRef.current.value;
     if (humanityChange == '') {
@@ -157,6 +145,10 @@ const Profile = () => {
     humanityInputRef.current.value = null;
   };
 
+  const handleNameTextBoxOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
   // COMPONENT BODY
   return (
     <div className="flex gap-1">
@@ -169,16 +161,19 @@ const Profile = () => {
           <div>Name:</div>
           <EditableTextBox
             className="rounded border"
-            value={name}
-            onChange={e => setName(e.target.value)}
+            value={state.name}
+            onChange={handleNameTextBoxOnChange}
           />
         </div>
         <div className=" px-2 flex gap-2 items-center">
           <div>Role:</div>
           <DropdownBox
-            value={getRole()}
+            value={state.role}
             values={allRoles}
-            onChanged={value => setRole(value)}
+            onChanged={value => {
+              console.log(value);
+              setRole(value as Role);
+            }}
           />
         </div>
       </div>
@@ -189,7 +184,7 @@ const Profile = () => {
             className="text-2xl"
             data-testid="HP-display"
           >
-            {getHP()} / {calculateHPMax(getStats())}
+            {state.HP} / {calculateHPMax(state.stats)}
           </div>
           <div>Health Points (HP)</div>
         </div>
@@ -199,7 +194,7 @@ const Profile = () => {
             variant="noBackground"
             onClick={e => {
               e.preventDefault();
-              heal(getStats(), getHP(), setHP);
+              heal(state.stats, state.HP, setHP);
             }}
           >
             HEAL
@@ -216,7 +211,7 @@ const Profile = () => {
             variant="noBackground"
             onClick={e => {
               e.preventDefault();
-              takeDamage(getHP(), setHP);
+              takeDamage(state.HP, setHP);
             }}
           >
             DAMAGE
@@ -230,7 +225,7 @@ const Profile = () => {
             className="text-2xl"
             data-testid="humanity-display"
           >
-            {getHumanity()}
+            {state.humanity}
           </div>
           <div>Humanity (HUM)</div>
         </div>
@@ -240,7 +235,7 @@ const Profile = () => {
             variant="noBackground"
             onClick={e => {
               e.preventDefault();
-              incrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
+              incrementHumanity(state.humanity, setHumanity, state.stats, setStats);
             }}
           >
             ADD
@@ -257,7 +252,7 @@ const Profile = () => {
             variant="noBackground"
             onClick={e => {
               e.preventDefault();
-              decrementHumanity(getHumanity(), setHumanity, getStats(), setStats);
+              decrementHumanity(state.humanity, setHumanity, state.stats, setStats);
             }}
           >
             REMOVE

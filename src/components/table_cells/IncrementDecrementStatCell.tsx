@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { CharacterContext } from '../../context/Character';
-import { Stats } from '../../types/types';
+import { StatsType } from '../../types/types';
 import { calculateHPMax, updateHumanity } from '../../utils/commonMethods';
 import Button from '../common/Button';
 
@@ -19,7 +19,7 @@ const IncrementDecrementStatCell = ({
   const { getStats, setStats, getHP, setHP, setHumanity } = useContext(CharacterContext);
 
   const increment = (
-    stats: Stats,
+    stats: StatsType,
     statName: string,
     remainingPoints: number,
     setRemainingPoints: (points: number) => void,
@@ -34,13 +34,13 @@ const IncrementDecrementStatCell = ({
     }
   };
   const decrement = (
-    stats: Stats,
+    stats: StatsType,
     statName: string,
     remainingPoints: number,
     setRemainingPoints: (points: number) => void,
     HP: number,
     setHP: (HP: number) => void,
-    calculateHPMax: (stats: Stats) => number,
+    calculateHPMax: (stats: StatsType) => number,
   ) => {
     if (stats[statName] > 2) {
       const newStats = { ...stats };

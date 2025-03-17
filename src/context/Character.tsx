@@ -3,9 +3,41 @@ import { PropsWithChildren, createContext, useState } from 'react';
 import defaultEffects from '../data/defaultEffects.json';
 import defaultSkills from '../data/defaultSkills.json';
 import defaultStats from '../data/defaultStats.json';
+import { Role } from '../types/Role';
+import { CharacterType, EffectsType, SkillType, StatsType } from '../types/types';
 import { calculateHP, calculateHumanity } from '../utils/commonMethods';
 
-export const CharacterContext = createContext<any>(null);
+type CharacterContextType = {
+  state: CharacterType;
+  setRole: (role: Role) => void;
+  setName: (name: string) => void;
+  setHumanity: (humanity: number) => void;
+  setHP: (hp: number) => void;
+  setStats: (stats: StatsType) => void;
+  setCurrentEffects: (effects: EffectsType) => void;
+};
+
+export const CharacterContext = createContext<CharacterContextType>({} as CharacterContextType);
+
+export const CharacterFactory = (): CharacterType => {
+  const stats = defaultStats;
+  const hp = calculateHP(stats);
+  const humanity = calculateHumanity(stats);
+
+  return {
+    name: 'Bob',
+    role: Role.Fixer,
+    stats,
+    HP: hp,
+    humanity,
+    currentEffects: defaultEffects,
+    currentSkills: defaultSkills,
+  };
+};
+
+type CharacterProviderProps = {
+  defaultData: CharacterType;
+};
 
 // You touch this perfectly good function declaration, George, and I'mma come beat yo ass!
 // Fix It For Ya :)
@@ -16,41 +48,66 @@ export const CharacterContext = createContext<any>(null);
 // your application.
 
 // Disclaimer: This is probably not production ready code.
-export default function CharacterProvider({ children }: PropsWithChildren) {
-  const [name, setName] = useState('Johnny Silverhand');
-  const [role, setRole] = useState('Medtech');
-  const [stats, setStats] = useState(defaultStats);
-  const [HP, setHP] = useState(calculateHP(stats));
-  const [humanity, setHumanity] = useState(calculateHumanity(stats));
-  const [currentSkills, setCurrentSkills] = useState(defaultSkills);
-  const [currentEffects, setCurrentEffects] = useState(defaultEffects);
+export default function CharacterProvider({ defaultData, children }: PropsWithChildren<CharacterProviderProps>) {
+  const [character, setCharacter] = useState(defaultData);
 
-  function getName() {
-    // Maybe not strictly necessary to have getters and setters like this, but
-    // a bit more explicit. Obviously these can do other things besides just
-    // returning the state values above.
+  // SETTERS
+  function setName(name: string) {
+    setCharacter((current: CharacterType) => {
+      console.log('setting the name', name);
 
-    return name;
-  }
-  function getRole() {
-    return role;
-  }
-  function getStats() {
-    return stats;
-  }
-  function getHP() {
-    return HP;
-  }
-  function getHumanity() {
-    return humanity;
-  }
-  function getCurrentSkills() {
-    return currentSkills;
-  }
-  function getCurrentEffects() {
-    return currentEffects;
+      const val = current;
+
+      val.name = 'dave';
+      return val;
+    });
   }
 
+  function setRole(role: Role) {
+    setCharacter((current: CharacterType) => {
+      console.log('Set Role', role);
+
+      current.role = role;
+      return current;
+    });
+  }
+
+  function setStats(stats: StatsType) {
+    setCharacter((current: CharacterType) => {
+      current.stats = stats;
+      return current;
+    });
+  }
+
+  function setHP(HP: number) {
+    setCharacter((current: CharacterType) => {
+      current.HP = HP;
+      return current;
+    });
+  }
+
+  function setHumanity(humanity: number) {
+    setCharacter((current: CharacterType) => {
+      current.humanity = humanity;
+      return current;
+    });
+  }
+
+  function setCurrentSkills(currentSkills: SkillType) {
+    setCharacter((current: CharacterType) => {
+      current.currentSkills = currentSkills;
+      return current;
+    });
+  }
+
+  function setCurrentEffects(currentEffects: EffectsType) {
+    setCharacter((current: CharacterType) => {
+      current.currentEffects = currentEffects;
+      return current;
+    });
+  }
+
+  // OTHER
   function someOtherPublicFunction(message: string) {
     // Obviously you're not limited to just gaving getters and setters.
     // You can also export other methods (to stick with our "class" anaology) which
@@ -80,23 +137,13 @@ export default function CharacterProvider({ children }: PropsWithChildren) {
         // to the components consuming this context. Anything inside
         // the provider will be able to access these with the useContext
         // hook.
-
-        getName,
+        state: character,
         setName,
-        getRole,
         setRole,
-        getStats,
-        setStats,
-        getHP,
         setHP,
-        getHumanity,
         setHumanity,
-        setCurrentSkills,
-        getCurrentSkills,
-        getCurrentEffects,
+        setStats,
         setCurrentEffects,
-
-        someOtherPublicFunction,
       }}
     >
       {children}

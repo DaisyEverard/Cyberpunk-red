@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import CharacterProvider, { CharacterContext } from '../context/Character';
-import { Effects, Stats } from '../types/types';
+import { EffectsType, StatsType } from '../types/types';
 import { calculateHPMax, calculateHumanity } from '../utils/commonMethods';
 import Profile from './Profile';
 

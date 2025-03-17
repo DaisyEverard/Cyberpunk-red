@@ -9,11 +9,11 @@ import Navbar from './components/common/Navbar';
 
 import './style/index.css';
 
-import CharacterProvider from './context/Character';
+import CharacterProvider, { CharacterFactory } from './context/Character';
 
 const App = () => {
   return (
-    <CharacterProvider>
+    <CharacterProvider defaultData={CharacterFactory()}>
       <BrowserRouter>
         <Navbar />
         <Routes>

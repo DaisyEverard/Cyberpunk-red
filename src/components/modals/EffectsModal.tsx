@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 
 import { CharacterContext } from '../../context/Character';
-import { Effects, ModalDisplays } from '../../types/types';
+import { EffectsType, ModalDisplays } from '../../types/types';
 import Button from '../common/Button';
 
 type EffectsModalProps = {
@@ -39,8 +39,8 @@ const EffectsModal = ({
   }
 
   const toggleActiveState = (
-    currentEffects: Effects,
-    setCurrentEffects: (effects: Effects) => void,
+    currentEffects: EffectsType,
+    setCurrentEffects: (effects: EffectsType) => void,
     key: string,
     isActive: boolean,
     setActiveStateText: (text: string) => void,
