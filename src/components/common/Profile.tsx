@@ -25,7 +25,7 @@ const Profile = () => {
   const humanityInputRef = useRef(null);
 
   // HEAL METHOD
-  const heal = (stats: StatsType, HP: number, setHP: (newHP: number) => void) => {
+  const heal = (HP: number, setHP: (newHP: number) => void) => {
     const HPMax = calculateHPMax(state.stats);
     let HPChange = HPInputRef.current.value;
 
@@ -187,7 +187,7 @@ const Profile = () => {
             variant="noBackground"
             onClick={e => {
               e.preventDefault();
-              heal(state.stats, state.HP, setHP);
+              heal(state.HP, setHP);
             }}
           >
             HEAL

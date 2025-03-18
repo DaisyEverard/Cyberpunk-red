@@ -4,6 +4,7 @@ import { getPageName } from '../../utils/commonMethods';
 
 const Header = () => {
   const location = useLocation(); // Type is correctly inferred
+
   return (
     <h1
       id="header"

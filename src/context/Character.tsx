@@ -83,13 +83,13 @@ export default function CharacterProvider({ children }: PropsWithChildren) {
   }
 
   // OTHER
-  function someOtherPublicFunction(message: string) {
-    aPrivateFunction(message);
-  }
+  // function someOtherPublicFunction(message: string) {
+  //   aPrivateFunction(message);
+  // }
 
-  function aPrivateFunction(message: string) {
-    console.log(message);
-  }
+  // function aPrivateFunction(message: string) {
+  //   console.log(message);
+  // }
 
   return (
     <CharacterContext.Provider

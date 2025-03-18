@@ -16,7 +16,7 @@ const IncrementDecrementStatCell = ({
   remainingPoints,
   setRemainingPoints,
 }: IncrementDecrementStatCellProps) => {
-  const { getStats, setStats, getHP, setHP, setHumanity } = useContext(CharacterContext);
+  const { setStats, setHP, setHumanity, state } = useContext(CharacterContext);
 
   const increment = (
     stats: StatsType,
@@ -62,7 +62,7 @@ const IncrementDecrementStatCell = ({
       <Button
         onClick={e => {
           e.preventDefault();
-          increment(getStats(), statName, remainingPoints, setRemainingPoints);
+          increment(state.stats, statName, remainingPoints, setRemainingPoints);
         }}
         variant="round"
       >
@@ -72,7 +72,7 @@ const IncrementDecrementStatCell = ({
         variant="round"
         onClick={e => {
           e.preventDefault();
-          decrement(getStats(), statName, remainingPoints, setRemainingPoints, getHP(), setHP, calculateHPMax);
+          decrement(state.stats, statName, remainingPoints, setRemainingPoints, state.HP, setHP, calculateHPMax);
         }}
       >
         -
