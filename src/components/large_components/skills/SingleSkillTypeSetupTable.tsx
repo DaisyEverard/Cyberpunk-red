@@ -60,12 +60,13 @@ const SingleSkillTypeSetupTable = ({
   const setOptionName = (
     target: any,
     skillName: string,
-    optionID: number,
+    optionIDString: string,
     currentSkills: SkillsType,
     setCurrentSkills: (skills: SkillsType) => void,
   ) => {
     const newName = target.value;
     const newSkills = { ...currentSkills };
+    const optionID = parseInt(optionIDString);
 
     newSkills[skillName]['options'][optionID]['name'] = newName;
     setCurrentSkills(newSkills);
@@ -124,7 +125,6 @@ const SingleSkillTypeSetupTable = ({
             if (hasOptions) {
               Object.entries(state.currentSkills[skillName]['options']).map(option => {
                 const optionID = option[0];
-                console.log(optionID);
                 const optionName = option[1]['name'];
                 const optionLevel = option[1]['level'];
 
