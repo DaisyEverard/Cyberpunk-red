@@ -91,11 +91,16 @@ const Profile = () => {
     stats: StatsType,
     setStats: (stats: StatsType) => void,
   ) => {
-    let humanityChange = humanityInputRef.current.value;
-    if (humanityChange == '') {
+    let humanityChangeString = '';
+    let humanityChange = 0;
+    if (humanityInputRef.current) {
+      humanityChangeString = humanityInputRef.current.value;
+    }
+
+    if (humanityChangeString == '') {
       humanityChange = 1;
     }
-    humanityChange = parseInt(humanityChange);
+    humanityChange = parseInt(humanityChangeString);
 
     while (humanityChange > 0) {
       const humanityModTen = humanity % 10;
@@ -110,7 +115,9 @@ const Profile = () => {
       humanityChange -= 1;
     }
 
-    humanityInputRef.current.value = null;
+    if (humanityInputRef.current) {
+      humanityInputRef.current.value = '';
+    }
   };
 
   // DECREMENT HUMANITY METHOD
@@ -120,11 +127,17 @@ const Profile = () => {
     stats: StatsType,
     setStats: (stats: StatsType) => void,
   ) => {
-    let humanityChange = humanityInputRef.current.value;
-    if (humanityChange == '') {
+    let humanityChangeString = '';
+    let humanityChange = 0;
+
+    if (humanityInputRef.current) {
+      humanityChangeString = humanityInputRef.current.value;
+    }
+
+    if (humanityChangeString == '') {
       humanityChange = 1;
     }
-    humanityChange = parseInt(humanityChange);
+    humanityChange = parseInt(humanityChangeString);
 
     let success = true;
 
@@ -145,7 +158,9 @@ const Profile = () => {
       humanityChange -= 1;
     }
 
-    humanityInputRef.current.value = null;
+    if (humanityInputRef.current) {
+      humanityInputRef.current.value = '';
+    }
   };
 
   const handleNameTextBoxOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
