@@ -121,7 +121,7 @@ const SingleSkillTypeSetupTable = ({
                 </tr>
               ) : null;
 
-            const options = [];
+            const options: JSX.Element[] = [];
             if (hasOptions) {
               Object.entries(state.currentSkills[skillName]['options']).map(option => {
                 const optionID = option[0];

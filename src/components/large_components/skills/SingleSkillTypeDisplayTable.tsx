@@ -70,7 +70,7 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
               </tr>
             );
 
-            const options = [];
+            const options: JSX.Element[] = [];
             if (hasOptions) {
               Object.entries(state.currentSkills[skillName]['options']).map(option => {
                 const optionID: string = option[0];
