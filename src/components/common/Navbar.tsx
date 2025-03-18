@@ -17,6 +17,9 @@ const Navbar = () => {
       <Link to="/combat">
         <Button>Combat</Button>
       </Link>
+      <Link to="/loadSave">
+        <Button>Load/Save</Button>
+      </Link>
     </nav>
   );
 };
