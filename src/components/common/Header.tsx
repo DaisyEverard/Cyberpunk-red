@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { getPageName } from '../../utils/commonMethods';
 
 const Header = () => {
-  const location = useLocation(); // Type is correctly inferred
+  const location = useLocation() as unknown as Location;
 
   return (
     <h1

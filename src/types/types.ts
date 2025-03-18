@@ -5,7 +5,13 @@ export type EffectsType = Record<string, EffectType>;
 
 export type ModalDisplays = Record<string, string>;
 
-export type SkillType = Record<string, any>;
+export type SkillOption = { name: string; level: number };
+export type SkillType = {
+  level: number;
+  has_options: boolean;
+  stat_type: string;
+  options: Record<string, SkillOption>;
+};
 export type SkillsType = Record<string, SkillType>;
 
 export type StatsType = Record<string, number>;

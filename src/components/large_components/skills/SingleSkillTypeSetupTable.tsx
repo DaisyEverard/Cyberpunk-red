@@ -86,9 +86,9 @@ const SingleSkillTypeSetupTable = ({
         <tbody>
           {skillsList.map(skill => {
             // need to handle cultural origin rows. At least 4 points over 1-4 languages.
-            const skillName = skill['name'];
-            const pointCost = skill['x2'] ? 2 : 1;
-            const skillLevel = state.currentSkills[skillName]['level'];
+            const skillName: string = skill['name'];
+            const pointCost: number = skill['x2'] ? 2 : 1;
+            const skillLevel: number = state.currentSkills[skillName]['level'];
             const hasOptions = state.currentSkills[skillName]['has_options'];
 
             const mainHTMLRow = (
@@ -124,6 +124,7 @@ const SingleSkillTypeSetupTable = ({
             if (hasOptions) {
               Object.entries(state.currentSkills[skillName]['options']).map(option => {
                 const optionID = option[0];
+                console.log(optionID);
                 const optionName = option[1]['name'];
                 const optionLevel = option[1]['level'];
 
