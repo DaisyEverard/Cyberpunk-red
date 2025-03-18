@@ -24,7 +24,7 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
   const setOptionName = (
     target: any,
     skillName: string,
-    optionID: number,
+    optionIDString: string,
     currentSkills: SkillsType,
     setCurrentSkills: (skills: SkillsType) => void,
   ) => {
@@ -34,6 +34,7 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
 
     const newName = target.value;
     const newSkills = { ...currentSkills };
+    const optionID = parseInt(optionIDString);
 
     newSkills[skillName]['options'][optionID]['name'] = newName;
     setCurrentSkills(newSkills);
@@ -72,9 +73,9 @@ const SingleSkillTypeDisplayTable = ({ tableSkillType }: SingleSkillTypeDisplayT
             const options = [];
             if (hasOptions) {
               Object.entries(state.currentSkills[skillName]['options']).map(option => {
-                const optionID = option[0];
-                const optionName = option[1]['name'];
-                const optionLevel = option[1]['level'];
+                const optionID: string = option[0];
+                const optionName: string = option[1]['name'];
+                const optionLevel: number = option[1]['level'];
 
                 let style = 'option-tr hidden';
                 if (optionName != '') {
