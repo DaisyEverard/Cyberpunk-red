@@ -4,7 +4,7 @@ import defaultEffects from '../data/defaultEffects.json';
 import defaultSkills from '../data/defaultSkills.json';
 import defaultStats from '../data/defaultStats.json';
 import { Role } from '../types/Role';
-import { CharacterType, EffectsType, SkillType, StatsType } from '../types/types';
+import { CharacterType, EffectsType, SkillType, SkillsType, StatsType } from '../types/types';
 import {
   calculateHP,
   calculateHumanity,
@@ -21,7 +21,7 @@ type CharacterContextType = {
   setHP: (hp: number) => void;
   setStats: (stats: StatsType) => void;
   setCurrentEffects: (effects: EffectsType) => void;
-  setCurrentSkills: (skills: SkillType) => void;
+  setCurrentSkills: (skills: SkillsType) => void;
 };
 
 export const CharacterContext = createContext<CharacterContextType>({} as CharacterContextType);
