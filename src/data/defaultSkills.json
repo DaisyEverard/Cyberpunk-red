@@ -2,72 +2,86 @@
   "Conceal/Reveal Object": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Lip Reading": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Perception": {
     "level": 2,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Tracking": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Accounting": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Animal Handling": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Bureaucracy": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Business": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Composition": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Criminology": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Cryptography": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Deduction": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Education": {
     "level": 2,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Gamble": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Language": {
     "level": 2,
@@ -103,7 +117,8 @@
   "Library Search": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Local Expert": {
     "level": 2,
@@ -139,82 +154,98 @@
   "Science": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Tactics": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Wilderness Survival": {
     "level": 0,
     "has_options": false,
-    "stat_type": "INT"
+    "stat_type": "INT",
+    "options": {}
   },
   "Concentration": {
     "level": 2,
     "has_options": false,
-    "stat_type": "WILL"
+    "stat_type": "WILL",
+    "options": {}
   },
   "Endurance": {
     "level": 0,
     "has_options": false,
-    "stat_type": "WILL"
+    "stat_type": "WILL",
+    "options": {}
   },
   "Resist Torture/Drugs": {
     "level": 0,
     "has_options": false,
-    "stat_type": "WILL"
+    "stat_type": "WILL",
+    "options": {}
   },
   "Acting": {
     "level": 0,
     "has_options": false,
-    "stat_type": "COOL"
+    "stat_type": "COOL",
+    "options": {}
   },
   "Bribery": {
     "level": 0,
     "has_options": false,
-    "stat_type": "COOL"
+    "stat_type": "COOL",
+    "options": {}
   },
   "Interrogation": {
     "level": 0,
     "has_options": false,
-    "stat_type": "COOL"
+    "stat_type": "COOL",
+    "options": {}
   },
   "Persuasion": {
     "level": 2,
     "has_options": false,
-    "stat_type": "COOL"
+    "stat_type": "COOL",
+    "options": {}
   },
   "Personal Grooming": {
     "level": 0,
     "has_options": false,
-    "stat_type": "COOL"
+    "stat_type": "COOL",
+    "options": {}
   },
   "Streetwise": {
     "level": 0,
     "has_options": false,
-    "stat_type": "COOL"
+    "stat_type": "COOL",
+    "options": {}
   },
   "Trading": {
     "level": 0,
     "has_options": false,
-    "stat_type": "COOL"
+    "stat_type": "COOL",
+    "options": {}
   },
   "Wardrobe & Style": {
     "level": 0,
     "has_options": false,
-    "stat_type": "COOL"
+    "stat_type": "COOL",
+    "options": {}
   },
   "Conversation": {
     "level": 2,
     "has_options": false,
-    "stat_type": "EMP"
+    "stat_type": "EMP",
+    "options": {}
   },
   "Human Perception": {
     "level": 2,
     "has_options": false,
-    "stat_type": "EMP"
+    "stat_type": "EMP",
+    "options": {}
   },
   "Play Instrument": {
     "level": 0,
@@ -250,152 +281,182 @@
   "Air Vehicle Tech": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Basic Tech": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Cybertech": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Demolitions": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Electronics/Security Tech": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "First Aid": {
     "level": 2,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Forgery": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Land Vehicle Tech": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Paint/Draw/Sculpt": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Paramedic": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Photography/Film": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Pick Lock": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Pick Pocket": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Sea Vehicle Tech": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Weaponstech": {
     "level": 0,
     "has_options": false,
-    "stat_type": "TECH"
+    "stat_type": "TECH",
+    "options": {}
   },
   "Archery": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Autofire": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Handgun": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Heavy Weapons": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Shoulder Arms": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Drive Land Vehicle": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Pilot Air Vehicle": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Pilot Sea Vehicle": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Riding": {
     "level": 0,
     "has_options": false,
-    "stat_type": "REF"
+    "stat_type": "REF",
+    "options": {}
   },
   "Athletics": {
     "level": 2,
     "has_options": false,
-    "stat_type": "DEX"
+    "stat_type": "DEX",
+    "options": {}
   },
   "Contortionist": {
     "level": 0,
     "has_options": false,
-    "stat_type": "DEX"
+    "stat_type": "DEX",
+    "options": {}
   },
   "Dance": {
     "level": 0,
     "has_options": false,
-    "stat_type": "DEX"
+    "stat_type": "DEX",
+    "options": {}
   },
   "Stealth": {
     "level": 2,
     "has_options": false,
-    "stat_type": "DEX"
+    "stat_type": "DEX",
+    "options": {}
   },
   "Brawling": {
     "level": 2,
     "has_options": false,
-    "stat_type": "DEX"
+    "stat_type": "DEX",
+    "options": {}
   },
   "Evasion": {
     "level": 0,
     "has_options": false,
-    "stat_type": "DEX"
+    "stat_type": "DEX",
+    "options": {}
   },
   "Martial Arts": {
     "level": 0,
@@ -423,6 +484,7 @@
   "Melee Weapon": {
     "level": 0,
     "has_options": false,
-    "stat_type": "DEX"
+    "stat_type": "DEX",
+    "options": {}
   }
 }

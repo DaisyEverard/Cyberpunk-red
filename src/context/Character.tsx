@@ -4,7 +4,7 @@ import defaultEffects from '../data/defaultEffects.json';
 import defaultSkills from '../data/defaultSkills.json';
 import defaultStats from '../data/defaultStats.json';
 import { Role } from '../types/Role';
-import { CharacterType, EffectsType, SkillType, SkillsType, StatsType } from '../types/types';
+import { CharacterType, EffectsType, SkillsType, StatsType } from '../types/types';
 import {
   calculateHP,
   calculateHumanity,
