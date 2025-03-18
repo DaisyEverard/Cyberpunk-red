@@ -74,7 +74,7 @@ export default function CharacterProvider({ children }: PropsWithChildren) {
     setCharacter(current => ({ ...current, humanity }));
   }
 
-  function setCurrentSkills(currentSkills: SkillType) {
+  function setCurrentSkills(currentSkills: SkillsType) {
     setCharacter(current => ({ ...current, currentSkills }));
   }
 
