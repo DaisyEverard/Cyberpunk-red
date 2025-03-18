@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const exec: RoleAbility = {
+export const exec: RoleAbilities = {
   roleDescription: 'Slick business raiders and multi-millionaires',
   roleName: 'Teamwork',
   roleAbilities: [

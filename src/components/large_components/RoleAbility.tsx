@@ -12,10 +12,10 @@ import { rockerboy } from '../../data/roles/rockerboy';
 import { solo } from '../../data/roles/solo';
 import { tech } from '../../data/roles/tech';
 import { Role } from '../../types/Role';
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 import CollapsibleTextBox from '../text_boxes/CollapsibleTextBox';
 
-const GetRoleAbility = (role: Role): RoleAbility => {
+const GetRoleAbility = (role: Role): RoleAbilities => {
   console.log(role);
 
   switch (role) {

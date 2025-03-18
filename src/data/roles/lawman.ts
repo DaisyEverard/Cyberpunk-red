@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const lawman: RoleAbility = {
+export const lawman: RoleAbilities = {
   roleName: 'Backup',
   roleDescription: 'Cops. Maximum lawmen on mean 21st century streets.',
   roleAbilities: [

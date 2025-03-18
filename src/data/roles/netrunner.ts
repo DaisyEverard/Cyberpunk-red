@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const netrunner: RoleAbility = {
+export const netrunner: RoleAbilities = {
   roleName: 'Interface',
   roleDescription: 'Cybernetic computer hackers',
   roleAbilities: [

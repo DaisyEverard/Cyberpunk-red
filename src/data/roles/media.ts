@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const media: RoleAbility = {
+export const media: RoleAbilities = {
   roleName: 'Credibility',
   roleDescription: 'Newsmen and reporters who go to the wall for the truth',
   roleAbilities: [

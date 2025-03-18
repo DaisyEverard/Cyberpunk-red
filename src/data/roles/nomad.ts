@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const nomad: RoleAbility = {
+export const nomad: RoleAbilities = {
   roleName: 'Moto',
   roleDescription: 'Road warriors and Gypsies who roam the highways',
   roleAbilities: [

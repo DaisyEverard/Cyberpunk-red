@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const fixer: RoleAbility = {
+export const fixer: RoleAbilities = {
   roleName: 'Operator',
   roleDescription: 'Deal makers, smugglers, organizers and information brokers.',
   roleAbilities: [

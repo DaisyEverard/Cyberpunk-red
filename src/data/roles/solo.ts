@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const solo: RoleAbility = {
+export const solo: RoleAbilities = {
   roleName: 'Combat Awareness',
   roleDescription:
     'With Combat Awareness, a Solo can call up their training to have an enhanced situational awareness of the battlefield. When combat begins (before Initiative is rolled), anytime outside of combat, or in combat with an Action, a Solo may divide the total number of points they have in their Combat Awareness Role Ability among 6 different abilities. If a Solo chooses to not change their point assignments, their previous ones persist. Activating some abilities will cost the Solo more points than others',

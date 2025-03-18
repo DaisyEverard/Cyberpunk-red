@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const medtech: RoleAbility = {
+export const medtech: RoleAbilities = {
   roleName: 'Medicine',
   roleDescription:
     'Medtech\'s are the medical doctors. They take care of those human and those who have become more "machine" than human with their medical expertise and technical knowledge of cyberware implants.[1]',

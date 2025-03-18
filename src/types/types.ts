@@ -20,9 +20,10 @@ export type CharacterType = {
   currentEffects: EffectsType;
 };
 
-export type RoleAbility = {
+export type RoleAbility = Record<string, string>;
+export type RoleAbilities = {
   roleName: string;
   roleDescription: string;
-  roleAbilities: Object[];
+  roleAbilities: RoleAbility[];
   levels: Object;
 };

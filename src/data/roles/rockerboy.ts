@@ -1,6 +1,6 @@
-import { RoleAbility } from '../../types/types';
+import { RoleAbilities } from '../../types/types';
 
-export const rockerboy: RoleAbility = {
+export const rockerboy: RoleAbilities = {
   roleName: 'Charismatic Impact',
   roleDescription:
     "A Rockerboy can only use their Charismatic Impact Role Ability on Fans. Assuming you aren't in combat, you can make people who aren't currently fans into fans (unless they actively dislike you) by rolling Charismatic Impact + 1d10 vs. a DV8 for a Single Person, DV10 for a Small Group of up to 6, or DV12 for a Huge Group. If they succeed, the fan or group of fans puts their best effort toward the favor the Rockerboy asked for. If they fail, the Rockerboy can't ask for the same favor again from those fans for a week",
