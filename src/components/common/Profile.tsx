@@ -21,19 +21,22 @@ const allRoles = Object.values(Role);
 // COMPONENT START
 const Profile = () => {
   const { state, setRole, setName, setHP, setHumanity, setStats, setCurrentEffects } = useContext(CharacterContext);
-  const HPInputRef = useRef(null);
-  const humanityInputRef = useRef(null);
+  const HPInputRef = useRef<HTMLInputElement>(null);
+  const humanityInputRef = useRef<HTMLInputElement>(null);
 
   // HEAL METHOD
   const heal = (HP: number, setHP: (newHP: number) => void) => {
     const HPMax = calculateHPMax(state.stats);
-    let HPChange = HPInputRef.current.value;
+    let HPChangeString = '';
+    if (HPInputRef.current) {
+      HPChangeString = HPInputRef.current.value;
+    }
 
-    if (HPChange == '') {
+    if (HPChangeString == '') {
       incrementAnyNumericalState(HP, setHP, HPMax);
       HP += 1;
     } else {
-      HPChange = parseInt(HPChange);
+      let HPChange = parseInt(HPChangeString);
 
       let success = true;
       while (HPChange > 0 && success) {
@@ -43,18 +46,23 @@ const Profile = () => {
       }
     }
 
-    HPInputRef.current.value = null;
+    if (HPInputRef.current) {
+      HPInputRef.current.value = '';
+    }
   };
 
   // TAKE DAMAGE METHOD
   const takeDamage = (HP: number, setHP: (newHP: number) => void) => {
-    let HPChange = HPInputRef.current.value;
+    let HPChangeString = '';
+    if (HPInputRef.current) {
+      HPChangeString = HPInputRef.current.value;
+    }
 
-    if (HPChange == '') {
+    if (HPChangeString == '') {
       decrementAnyNumericalState(HP, setHP);
       HP -= 1;
     } else {
-      HPChange = parseInt(HPChange);
+      let HPChange = parseInt(HPChangeString);
 
       let success = true;
       while (HPChange > 0 && success) {
@@ -71,7 +79,9 @@ const Profile = () => {
       setEffect(state.currentEffects, setCurrentEffects, true, 'mortally wounded');
     }
 
-    HPInputRef.current.value = null;
+    if (HPInputRef.current) {
+      HPInputRef.current.value = '';
+    }
   };
 
   // INCREMENT HUMANITY METHOD

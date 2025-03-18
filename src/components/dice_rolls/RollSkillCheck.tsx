@@ -42,7 +42,7 @@ export const RollSkillCheck = ({ skillName, skillLevel }: RollSkillCheckProps) =
   return (
     <div className="flex flex-col gap-2 items-center">
       <Button
-        onClick={e => {
+        onClick={() => {
           handleButtonOnClick(skillLevel, statLevel, toggleModalDisplay, modalDisplay, setModalDisplay, setRollResult);
         }}
       >
