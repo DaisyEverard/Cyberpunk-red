@@ -1,30 +1,33 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
-import { handleGet } from '../../../utils/apiCalls';
+import { CharacterContext } from '../../../context/Character';
+import { CharacterType } from '../../../types/types';
+import { NameAndID, handleGet, handleGetNamesAndIDs } from '../../../utils/apiCalls';
 import Button from '../../common/Button';
 
 const LoadCharacter = () => {
-  const [allNames, setAllNames] = useState<string[]>([]);
+  const [namesAndIDs, setNamesAndIDs] = useState<NameAndID[]>([]);
+  const { setState } = useContext(CharacterContext);
 
-  const handleCharacterLoad = () => {
+  const handleCharacterLoad = async (id: string, setState: (state: CharacterType) => void) => {
     console.log('loaded character');
-    // get document
-  };
-
-  const handleRefreshList = async (setAllNames: (allNames: string[]) => void) => {
-    const [data, err] = await handleGet('characters/names');
+    const path = 'document/by_id/' + id;
+    const [data, err] = await handleGet(path);
     if (err) {
       throw err;
     }
 
-    const dataObj = data as Record<string, string>[];
-    const allNames: string[] = [];
+    const dataObj = data as CharacterType;
+    setState(dataObj);
+  };
 
-    for (const [_, nameObj] of Object.entries(dataObj)) {
-      allNames.push(nameObj['name']);
+  const handleRefreshList = async (setNamesAndIDs: (namesAndIDs: NameAndID[]) => void) => {
+    try {
+      const res = await handleGetNamesAndIDs();
+      setNamesAndIDs(res.data);
+    } catch (error) {
+      throw Error('Bad Tings Happen');
     }
-
-    setAllNames(allNames);
   };
 
   return (
@@ -35,14 +38,14 @@ const LoadCharacter = () => {
           <p>Please click on a character's name to load their data. THIS WILL OVERWRITE THE DATA IN YOUR BROWSER</p>
 
           <ul>
-            {allNames.map(name => {
+            {namesAndIDs.map(character => {
               return (
-                <li key={name}>
+                <li key={character._id}>
                   <Button
                     variant="noBackground"
-                    onClick={handleCharacterLoad}
+                    onClick={() => handleCharacterLoad(character._id, setState)}
                   >
-                    {name}
+                    {character.name}
                   </Button>
                 </li>
               );
@@ -51,7 +54,7 @@ const LoadCharacter = () => {
 
           <Button
             onClick={() => {
-              handleRefreshList(setAllNames);
+              handleRefreshList(setNamesAndIDs);
             }}
           >
             Refresh Character List

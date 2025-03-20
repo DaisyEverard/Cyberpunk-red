@@ -1,5 +1,14 @@
 import { axiosBaseClient as axios } from './axios';
 
+export type NameAndID = {
+  _id: string;
+  name: string;
+};
+
+const handleGetNamesAndIDs = async () => {
+  return await axios.get<NameAndID[]>('characters/names_and_ids');
+};
+
 const handleGet = async (path: string): Promise<[any, Error | null]> => {
   let response = '';
   let error = null;
@@ -36,4 +45,4 @@ const handlePost = async (path: string, body: string): Promise<[any, Error | nul
   return [response, error];
 };
 
-export { handlePost, handleGet };
+export { handlePost, handleGet, handleGetNamesAndIDs };

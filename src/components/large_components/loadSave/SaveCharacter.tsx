@@ -32,7 +32,7 @@ const SaveCharacter = () => {
               handleSaveCharacter(state, setID);
             }}
           >
-            Save New Character
+            Save
           </Button>
         </div>
       </div>
