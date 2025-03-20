@@ -1,14 +1,11 @@
-import axios from 'axios';
+import { axiosBaseClient as axios } from './axios';
 
-const handleGet = async (path: string): Promise<[string, Error | null]> => {
-  const BASE_URL = 'http://localhost:8080/';
-  //   path = 'hp/by_name/Johnny%20Silverhand'
-
+const handleGet = async (path: string): Promise<[any, Error | null]> => {
   let response = '';
   let error = null;
 
   await axios
-    .get(BASE_URL + path)
+    .get(path)
     .then(res => {
       response = res.data;
     })
@@ -19,41 +16,24 @@ const handleGet = async (path: string): Promise<[string, Error | null]> => {
   return [response, error];
 };
 
-const handlePost = async (path: string, body: Record<string, any>): Promise<[string, Error | null]> => {
-  const BASE_URL = 'http://localhost:8080/';
-  //   path = 'hp/by_name/Johnny%20Silverhand'
-
+const handlePost = async (path: string, body: string): Promise<[any, Error | null]> => {
   let response = '';
   let error = null;
 
-  await axios
-    .post(BASE_URL + path, body)
-    .then(res => {
-      response = res.data;
-    })
-    .catch(err => {
-      error = err;
-    });
-
-  return [response, error];
-};
-
-const handleAPICall = async (
-  path: string,
-  method: string,
-  body: Record<string, any> = {},
-): Promise<[string, Error | null]> => {
-  switch (method) {
-    case 'GET':
-      return await handleGet(path);
-      break;
-    case 'POST':
-      return await handlePost(path, body);
-      break;
-    default:
-      return ['', new Error(`invalid method "${method}" provided`)];
-      break;
+  if (!body) {
+    return ['', new Error(`no body provided to post request`)];
   }
+
+  await axios
+    .post(path, body)
+    .then(res => {
+      response = res.data;
+    })
+    .catch(err => {
+      error = err;
+    });
+
+  return [response, error];
 };
 
-export { handleAPICall };
+export { handlePost, handleGet };

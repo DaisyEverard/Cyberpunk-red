@@ -17,6 +17,7 @@ export type SkillsType = Record<string, SkillType>;
 export type StatsType = Record<string, number>;
 
 export type CharacterType = {
+  id?: string;
   name: string;
   role: Role;
   stats: StatsType;

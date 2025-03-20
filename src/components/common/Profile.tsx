@@ -189,7 +189,6 @@ const Profile = () => {
             value={state.role}
             values={allRoles}
             onChanged={value => {
-              console.log(value);
               setRole(value as Role);
             }}
           />
