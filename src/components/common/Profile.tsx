@@ -96,11 +96,11 @@ const Profile = () => {
     if (humanityInputRef.current) {
       humanityChangeString = humanityInputRef.current.value;
     }
+    humanityChange = parseInt(humanityChangeString);
 
     if (humanityChangeString == '') {
       humanityChange = 1;
     }
-    humanityChange = parseInt(humanityChangeString);
 
     while (humanityChange > 0) {
       const humanityModTen = humanity % 10;
@@ -134,10 +134,11 @@ const Profile = () => {
       humanityChangeString = humanityInputRef.current.value;
     }
 
+    humanityChange = parseInt(humanityChangeString);
+
     if (humanityChangeString == '') {
       humanityChange = 1;
     }
-    humanityChange = parseInt(humanityChangeString);
 
     let success = true;
 

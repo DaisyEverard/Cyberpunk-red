@@ -10,7 +10,6 @@ const LoadCharacter = () => {
   const { setState } = useContext(CharacterContext);
 
   const handleCharacterLoad = async (id: string, setState: (state: CharacterType) => void) => {
-    console.log('loaded character');
     const path = 'document/by_id/' + id;
     const [data, err] = await handleGet(path);
     if (err) {
