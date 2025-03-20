@@ -6,16 +6,18 @@ import { handlePost } from '../../../utils/apiCalls';
 import Button from '../../common/Button';
 
 const SaveCharacter = () => {
-  const { state } = useContext(CharacterContext);
+  const { state, setID } = useContext(CharacterContext);
 
-  const handleSaveNewCharacter = async (state: CharacterType) => {
-    console.log(state);
-
+  const handleSaveCharacter = async (state: CharacterType, setID: (id: string) => void) => {
     const [response, err] = await handlePost('document', JSON.stringify(state));
+
     if (err) {
       throw err;
     }
 
+    if (response.Id) {
+      setID(response.Id);
+    }
     console.log(response);
   };
   return (
@@ -27,7 +29,7 @@ const SaveCharacter = () => {
 
           <Button
             onClick={() => {
-              handleSaveNewCharacter(state);
+              handleSaveCharacter(state, setID);
             }}
           >
             Save New Character

@@ -15,6 +15,7 @@ import {
 
 type CharacterContextType = {
   state: CharacterType;
+  setID: (id: string) => void;
   setRole: (role: Role) => void;
   setName: (name: string) => void;
   setHumanity: (humanity: number) => void;
@@ -44,6 +45,10 @@ export const CharacterFactory = (): CharacterType => {
 
 export default function CharacterProvider({ children }: PropsWithChildren) {
   const [character, setCharacter] = useState(CharacterFactory());
+
+  function setID(id: string) {
+    setCharacter(current => ({ ...current, id }));
+  }
 
   function setName(name: string) {
     setCharacter(current => ({ ...current, name }));
@@ -95,6 +100,7 @@ export default function CharacterProvider({ children }: PropsWithChildren) {
     <CharacterContext.Provider
       value={{
         state: character,
+        setID,
         setName,
         setRole,
         setHP,
