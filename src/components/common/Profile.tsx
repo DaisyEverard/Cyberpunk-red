@@ -202,7 +202,7 @@ const Profile = () => {
             className="text-2xl"
             data-testid="HP-display"
           >
-            {state.HP} / {calculateHPMax(state.stats)}
+            {state.hp} / {calculateHPMax(state.stats)}
           </div>
           <div>Health Points (HP)</div>
         </div>
@@ -212,7 +212,7 @@ const Profile = () => {
             variant="noBackground"
             onClick={e => {
               e.preventDefault();
-              heal(state.HP, setHP);
+              heal(state.hp, setHP);
             }}
           >
             HEAL
@@ -229,7 +229,7 @@ const Profile = () => {
             variant="noBackground"
             onClick={e => {
               e.preventDefault();
-              takeDamage(state.HP, setHP);
+              takeDamage(state.hp, setHP);
             }}
           >
             DAMAGE

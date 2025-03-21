@@ -7,7 +7,7 @@ import Button from '../../common/Button';
 
 const LoadCharacter = () => {
   const [namesAndIDs, setNamesAndIDs] = useState<NameAndID[]>([]);
-  const { setState } = useContext(CharacterContext);
+  const { setState, state } = useContext(CharacterContext);
 
   const handleCharacterLoad = async (id: string, setState: (state: CharacterType) => void) => {
     const path = 'document/by_id/' + id;
@@ -16,8 +16,19 @@ const LoadCharacter = () => {
       throw err;
     }
 
-    const dataObj = data as CharacterType;
+    const dataObj: CharacterType = {
+      id: data._id,
+      name: data.name,
+      role: data.role,
+      stats: data.stats,
+      hp: data.hp,
+      humanity: data.humanity,
+      currentSkills: data.currentSkills,
+      currentEffects: data.currentEffect,
+    };
+
     setState(dataObj);
+    console.log('loaded data set to state:', dataObj);
   };
 
   const handleRefreshList = async (setNamesAndIDs: (namesAndIDs: NameAndID[]) => void) => {
@@ -37,18 +48,22 @@ const LoadCharacter = () => {
           <p>Please click on a character's name to load their data. THIS WILL OVERWRITE THE DATA IN YOUR BROWSER</p>
 
           <ul>
-            {namesAndIDs.map(character => {
-              return (
-                <li key={character._id}>
-                  <Button
-                    variant="noBackground"
-                    onClick={() => handleCharacterLoad(character._id, setState)}
-                  >
-                    {character.name}
-                  </Button>
-                </li>
-              );
-            })}
+            {namesAndIDs ? (
+              namesAndIDs.map(character => {
+                return (
+                  <li key={character._id}>
+                    <Button
+                      variant="noBackground"
+                      onClick={() => handleCharacterLoad(character._id, setState)}
+                    >
+                      {character.name}
+                    </Button>
+                  </li>
+                );
+              })
+            ) : (
+              <li>NO CHARACTERS FOUND</li>
+            )}
           </ul>
 
           <Button

@@ -34,6 +34,13 @@ const SaveCharacter = () => {
           >
             Save
           </Button>
+          <Button
+            onClick={() => {
+              console.log(state);
+            }}
+          >
+            See State
+          </Button>
         </div>
       </div>
     </div>

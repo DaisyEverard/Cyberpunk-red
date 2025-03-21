@@ -16,8 +16,6 @@ import { RoleAbilities } from '../../types/types';
 import CollapsibleTextBox from '../text_boxes/CollapsibleTextBox';
 
 const GetRoleAbility = (role: Role): RoleAbilities => {
-  console.log(role);
-
   switch (role) {
     case Role.Exec:
       return exec;

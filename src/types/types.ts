@@ -21,7 +21,7 @@ export type CharacterType = {
   name: string;
   role: Role;
   stats: StatsType;
-  HP: number;
+  hp: number;
   humanity: number;
   currentSkills: SkillsType;
   currentEffects: EffectsType;

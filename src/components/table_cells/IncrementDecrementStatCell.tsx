@@ -72,7 +72,7 @@ const IncrementDecrementStatCell = ({
         variant="round"
         onClick={e => {
           e.preventDefault();
-          decrement(state.stats, statName, remainingPoints, setRemainingPoints, state.HP, setHP, calculateHPMax);
+          decrement(state.stats, statName, remainingPoints, setRemainingPoints, state.hp, setHP, calculateHPMax);
         }}
       >
         -

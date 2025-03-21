@@ -1,6 +1,6 @@
 [
   {
-    "name": "Hydration",
+    "name": "hydration",
     "description": "After consuming a refreshing beverage, your max Stamina is increased by 10% and your Stamina Regeneration rate is increased by 50% for 450 seconds. This duration can be increased by up to 50% with the Innovation perk",
     "category": "Positive",
     "alt": "Glass filled with liquid"

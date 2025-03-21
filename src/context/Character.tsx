@@ -37,7 +37,7 @@ export const CharacterFactory = (): CharacterType => {
     name: 'Bob',
     role: Role.Fixer,
     stats,
-    HP: hp,
+    hp: hp,
     humanity,
     currentEffects: defaultEffects,
     currentSkills: defaultSkills,
@@ -48,11 +48,11 @@ export default function CharacterProvider({ children }: PropsWithChildren) {
   const [character, setCharacter] = useState(CharacterFactory());
 
   function setState(state: CharacterType) {
-    setCharacter(current => current);
+    setCharacter(state);
   }
 
   function setID(id: string) {
-    setCharacter(current => ({ ...current, id }));
+    setCharacter(current => ({ ...current, id: id }));
   }
 
   function setName(name: string) {
@@ -76,7 +76,7 @@ export default function CharacterProvider({ children }: PropsWithChildren) {
         setEffect(current.currentEffects, setCurrentEffects, false, 'mortally wounded');
       }
 
-      return { ...current, HP };
+      return { ...current, hp: HP };
     });
   }
 
