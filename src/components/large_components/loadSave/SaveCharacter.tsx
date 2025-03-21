@@ -10,6 +10,14 @@ const SaveCharacter = () => {
 
   const handleSaveNewCharacter = async (state: CharacterType, setID: (id: string) => void) => {
     console.log('creating new character');
+
+    const [response, err] = await handlePost('document/new', JSON.stringify(state));
+
+    if (err) {
+      throw err;
+    }
+    setID(response.Id);
+    console.log(response);
   };
 
   const handleOverwriteCharacter = async (state: CharacterType, setID: (id: string) => void) => {
@@ -33,14 +41,14 @@ const SaveCharacter = () => {
 
           <Button
             onClick={() => {
-              handleSaveNewCharacter(state, setID);
+              handleOverwriteCharacter(state, setID);
             }}
           >
             Overwrite Existing Character
           </Button>
           <Button
             onClick={() => {
-              handleOverwriteCharacter(state, setID);
+              handleSaveNewCharacter(state, setID);
             }}
           >
             Create New Character
