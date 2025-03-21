@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react';
 
+import { AxiosError } from 'axios';
+
 import { CharacterContext } from '../../../context/Character';
 import { CharacterType } from '../../../types/types';
-import { NameAndID, handleGet, handleGetNamesAndIDs } from '../../../utils/apiCalls';
+import { NameAndID, handleDeleteCharacter, handleGet, handleGetNamesAndIDs } from '../../../utils/apiCalls';
 import Button from '../../common/Button';
 
 const LoadCharacter = () => {
@@ -10,25 +12,35 @@ const LoadCharacter = () => {
   const { setState } = useContext(CharacterContext);
 
   const handleCharacterLoad = async (id: string, setState: (state: CharacterType) => void) => {
-    const path = 'document/by_id/' + id;
-    const [data, err] = await handleGet(path);
-    if (err) {
-      throw err;
+    try {
+      const path = 'document/by_id/' + id;
+      const [data, _] = await handleGet(path);
+      const dataObj: CharacterType = {
+        id: data._id,
+        name: data.name,
+        role: data.role,
+        stats: data.stats,
+        hp: data.hp,
+        humanity: data.humanity,
+        currentSkills: data.currentSkills,
+        currentEffects: data.currentEffects,
+      };
+
+      setState(dataObj);
+      console.log('loaded data set to state:', dataObj);
+    } catch (error) {
+      throw error;
     }
+  };
 
-    const dataObj: CharacterType = {
-      id: data._id,
-      name: data.name,
-      role: data.role,
-      stats: data.stats,
-      hp: data.hp,
-      humanity: data.humanity,
-      currentSkills: data.currentSkills,
-      currentEffects: data.currentEffects,
-    };
-
-    setState(dataObj);
-    console.log('loaded data set to state:', dataObj);
+  const handleCharacterDelete = async (id: string, setState: (state: CharacterType) => void) => {
+    try {
+      const res = await handleDeleteCharacter(id);
+      // setState(/*default state */)
+      // remove deleted from namesAndIDs list
+    } catch (error) {
+      throw error;
+    }
   };
 
   const handleRefreshList = async (setNamesAndIDs: (namesAndIDs: NameAndID[]) => void) => {
@@ -36,7 +48,7 @@ const LoadCharacter = () => {
       const res = await handleGetNamesAndIDs();
       setNamesAndIDs(res.data);
     } catch (error) {
-      throw Error('Bad Tings Happen');
+      throw Error('Something went wrong refreshing list');
     }
   };
 
@@ -45,26 +57,45 @@ const LoadCharacter = () => {
       <div className="flex gap-1">
         <div className="flex flex-col flex-1 items-center">
           <h4 className="bg-none">Load Character</h4>
-          <p>Please click on a character's name to load their data. THIS WILL OVERWRITE THE DATA IN YOUR BROWSER</p>
 
-          <ul>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Load</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+          </table>
+          <tbody>
             {namesAndIDs ? (
               namesAndIDs.map(character => {
                 return (
-                  <li key={character._id}>
-                    <Button
-                      variant="noBackground"
-                      onClick={() => handleCharacterLoad(character._id, setState)}
-                    >
-                      {character.name}
-                    </Button>
-                  </li>
+                  <tr key={character._id}>
+                    <td>{character.name}</td>
+                    <td>
+                      <Button
+                        variant="noBackground"
+                        onClick={() => handleCharacterLoad(character._id, setState)}
+                      >
+                        LOAD
+                      </Button>
+                    </td>
+                    <td>
+                      <Button
+                        variant="noBackground"
+                        onClick={() => handleCharacterDelete(character._id, setState)}
+                      >
+                        DELETE
+                      </Button>
+                    </td>
+                  </tr>
                 );
               })
             ) : (
-              <li>NO CHARACTERS FOUND</li>
+              <tr>NO CHARACTERS FOUND</tr>
             )}
-          </ul>
+          </tbody>
 
           <Button
             onClick={() => {

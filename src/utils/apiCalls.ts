@@ -5,6 +5,12 @@ export type NameAndID = {
   name: string;
 };
 
+const handleDeleteCharacter = async (id: string) => {
+  const body = { id: id };
+  console.log(body);
+  return await axios.post('document/delete', JSON.stringify(body));
+};
+
 const handleGetNamesAndIDs = async () => {
   return await axios.get<NameAndID[]>('characters/names_and_ids');
 };
@@ -45,4 +51,4 @@ const handlePost = async (path: string, body: string): Promise<[any, Error | nul
   return [response, error];
 };
 
-export { handlePost, handleGet, handleGetNamesAndIDs };
+export { handlePost, handleGet, handleGetNamesAndIDs, handleDeleteCharacter };
