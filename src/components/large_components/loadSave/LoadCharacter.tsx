@@ -7,7 +7,7 @@ import Button from '../../common/Button';
 
 const LoadCharacter = () => {
   const [namesAndIDs, setNamesAndIDs] = useState<NameAndID[]>([]);
-  const { setState, state } = useContext(CharacterContext);
+  const { setState } = useContext(CharacterContext);
 
   const handleCharacterLoad = async (id: string, setState: (state: CharacterType) => void) => {
     const path = 'document/by_id/' + id;
@@ -24,7 +24,7 @@ const LoadCharacter = () => {
       hp: data.hp,
       humanity: data.humanity,
       currentSkills: data.currentSkills,
-      currentEffects: data.currentEffect,
+      currentEffects: data.currentEffects,
     };
 
     setState(dataObj);

@@ -1,8 +1,5 @@
 import { Role } from './Role';
 
-export type EffectType = Record<string, boolean>;
-export type EffectsType = Record<string, EffectType>;
-
 export type ModalDisplays = Record<string, string>;
 
 export type SkillOption = { name: string; level: number };
@@ -15,6 +12,9 @@ export type SkillType = {
 export type SkillsType = Record<string, SkillType>;
 
 export type StatsType = Record<string, number>;
+
+export type EffectType = Record<string, boolean>;
+export type EffectsType = Record<string, EffectType>;
 
 export type CharacterType = {
   id?: string;
