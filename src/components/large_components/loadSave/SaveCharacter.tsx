@@ -8,8 +8,12 @@ import Button from '../../common/Button';
 const SaveCharacter = () => {
   const { state, setID } = useContext(CharacterContext);
 
-  const handleSaveCharacter = async (state: CharacterType, setID: (id: string) => void) => {
-    const [response, err] = await handlePost('document', JSON.stringify(state));
+  const handleSaveNewCharacter = async (state: CharacterType, setID: (id: string) => void) => {
+    console.log('creating new character');
+  };
+
+  const handleOverwriteCharacter = async (state: CharacterType, setID: (id: string) => void) => {
+    const [response, err] = await handlePost('document/existing', JSON.stringify(state));
 
     if (err) {
       throw err;
@@ -29,17 +33,24 @@ const SaveCharacter = () => {
 
           <Button
             onClick={() => {
-              handleSaveCharacter(state, setID);
+              handleSaveNewCharacter(state, setID);
             }}
           >
-            Save
+            Overwrite Existing Character
+          </Button>
+          <Button
+            onClick={() => {
+              handleOverwriteCharacter(state, setID);
+            }}
+          >
+            Create New Character
           </Button>
           <Button
             onClick={() => {
               console.log(state);
             }}
           >
-            See State
+            Log State To Console
           </Button>
         </div>
       </div>
