@@ -1,14 +1,28 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { CharacterContext } from '../../../context/Character';
 import { CharacterType } from '../../../types/types';
-import { handlePost } from '../../../utils/apiCalls';
+import { NameAndID, handlePost } from '../../../utils/apiCalls';
 import Button from '../../common/Button';
 
-const SaveCharacter = () => {
+type SaveCharacterProps = {
+  namesAndIDs: NameAndID[];
+  setNamesAndIDs: (namesAndIDs: NameAndID[]) => void;
+};
+
+const SaveCharacter = ({ namesAndIDs, setNamesAndIDs }: SaveCharacterProps) => {
   const { state, setID } = useContext(CharacterContext);
 
-  const handleSaveNewCharacter = async (state: CharacterType, setID: (id: string) => void) => {
+  useEffect(() => {
+    console.log('namesAndIDs updated:', namesAndIDs);
+  }, [namesAndIDs]);
+
+  const handleSaveNewCharacter = async (
+    state: CharacterType,
+    setID: (id: string) => void,
+    namesAndIDs: NameAndID[],
+    setNamesAndIDs: (namesAndIDs: NameAndID[]) => void,
+  ) => {
     console.log('creating new character');
 
     const [response, err] = await handlePost('document/new', JSON.stringify(state));
@@ -16,11 +30,20 @@ const SaveCharacter = () => {
     if (err) {
       throw err;
     }
+    const newNameAndID = { _id: response.Id, name: state.name };
+    namesAndIDs.push(newNameAndID);
+    setNamesAndIDs([...namesAndIDs]);
+
     setID(response.Id);
     console.log(response);
   };
 
-  const handleOverwriteCharacter = async (state: CharacterType, setID: (id: string) => void) => {
+  const handleOverwriteCharacter = async (
+    state: CharacterType,
+    setID: (id: string) => void,
+    namesAndIDs: NameAndID[],
+    setNamesAndIDs: (namesAndIDs: NameAndID[]) => void,
+  ) => {
     const [response, err] = await handlePost('document/existing', JSON.stringify(state));
 
     if (err) {
@@ -28,6 +51,10 @@ const SaveCharacter = () => {
     }
 
     if (response.Id) {
+      const newNameAndID = { _id: response.Id, name: state.name };
+      namesAndIDs.push(newNameAndID);
+      setNamesAndIDs([...namesAndIDs]);
+
       setID(response.Id);
     }
     console.log(response);
@@ -41,14 +68,14 @@ const SaveCharacter = () => {
 
           <Button
             onClick={() => {
-              handleOverwriteCharacter(state, setID);
+              handleOverwriteCharacter(state, setID, namesAndIDs, setNamesAndIDs);
             }}
           >
             Overwrite Existing Character
           </Button>
           <Button
             onClick={() => {
-              handleSaveNewCharacter(state, setID);
+              handleSaveNewCharacter(state, setID, namesAndIDs, setNamesAndIDs);
             }}
           >
             Create New Character

@@ -1,15 +1,27 @@
-import { useContext, useState } from 'react';
-
-import { AxiosError } from 'axios';
+import { useContext } from 'react';
 
 import { CharacterContext } from '../../../context/Character';
 import { CharacterType } from '../../../types/types';
 import { NameAndID, handleDeleteCharacter, handleGet, handleGetNamesAndIDs } from '../../../utils/apiCalls';
 import Button from '../../common/Button';
 
-const LoadCharacter = () => {
-  const [namesAndIDs, setNamesAndIDs] = useState<NameAndID[]>([]);
+type LoadCharacterProps = {
+  namesAndIDs: NameAndID[];
+  setNamesAndIDs: (namesAndIDs: NameAndID[]) => void;
+};
+
+const LoadCharacter = ({ namesAndIDs, setNamesAndIDs }: LoadCharacterProps) => {
   const { setState } = useContext(CharacterContext);
+
+  const removeFromNamesAndIDs = (id: string, namesAndIDs: NameAndID[]): NameAndID[] => {
+    namesAndIDs.forEach((character, i) => {
+      if (character._id == id) {
+        namesAndIDs.splice(i, 1);
+        return namesAndIDs;
+      }
+    });
+    return namesAndIDs;
+  };
 
   const handleCharacterLoad = async (id: string, setState: (state: CharacterType) => void) => {
     try {
@@ -33,11 +45,16 @@ const LoadCharacter = () => {
     }
   };
 
-  const handleCharacterDelete = async (id: string, setState: (state: CharacterType) => void) => {
+  const handleCharacterDelete = async (
+    id: string,
+    setState: (state: CharacterType) => void,
+    setNamesAndIDs: (namesAndIDs: NameAndID[]) => void,
+  ) => {
     try {
-      const res = await handleDeleteCharacter(id);
+      await handleDeleteCharacter(id);
+      const newNamesAndIDs = [...removeFromNamesAndIDs(id, namesAndIDs)];
+      setNamesAndIDs(newNamesAndIDs);
       // setState(/*default state */)
-      // remove deleted from namesAndIDs list
     } catch (error) {
       throw error;
     }
@@ -84,7 +101,7 @@ const LoadCharacter = () => {
                     <td>
                       <Button
                         variant="noBackground"
-                        onClick={() => handleCharacterDelete(character._id, setState)}
+                        onClick={() => handleCharacterDelete(character._id, setState, setNamesAndIDs)}
                       >
                         DELETE
                       </Button>

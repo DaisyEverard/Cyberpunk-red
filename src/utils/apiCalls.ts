@@ -7,7 +7,6 @@ export type NameAndID = {
 
 const handleDeleteCharacter = async (id: string) => {
   const body = { id: id };
-  console.log(body);
   return await axios.post('document/delete', JSON.stringify(body));
 };
 
