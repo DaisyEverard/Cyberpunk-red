@@ -3,11 +3,12 @@ import { Role } from './Role';
 export type ModalDisplays = Record<string, string>;
 
 export type SkillOption = { name: string; level: number };
+export type SkillOptions = Record<string, SkillOption>;
 export type SkillType = {
   level: number;
   has_options: boolean;
   stat_type: string;
-  options: Record<string, SkillOption>;
+  options: SkillOptions;
 };
 export type SkillsType = Record<string, SkillType>;
 
@@ -34,3 +35,20 @@ export type RoleAbilities = {
   roleAbilities: RoleAbility[];
   levels: Object;
 };
+
+// BACKEND TYPES
+export type Stat = { name: string; level: number };
+export type APIStatsType = Stat[];
+
+export type APIEffectsType = APIEffect[];
+export type APIEffect = { name: string; active: boolean };
+
+export type APISkillOptions = SkillOption[];
+export type APISkillType = {
+  name: string;
+  level: number;
+  has_options: boolean;
+  stat_type: string;
+  options: APISkillOptions;
+};
+export type APISkillsType = APISkillType[];
