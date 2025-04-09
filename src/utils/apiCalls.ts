@@ -1,17 +1,16 @@
 import { axiosBaseClient as axios } from './axios';
 
 export type NameAndID = {
-  _id: string;
+  id: string;
   name: string;
 };
 
 const handleDeleteCharacter = async (id: string) => {
-  const body = { id: id };
-  return await axios.post('document/delete', JSON.stringify(body));
+  return await axios.delete('character/' + id);
 };
 
 const handleGetNamesAndIDs = async () => {
-  return await axios.get<NameAndID[]>('characters/names_and_ids');
+  return await axios.get<NameAndID[]>('character/names_and_ids');
 };
 
 const handleGet = async (path: string): Promise<[any, Error | null]> => {

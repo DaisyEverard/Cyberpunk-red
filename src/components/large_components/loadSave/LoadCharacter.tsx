@@ -3,6 +3,11 @@ import { useContext } from 'react';
 import { CharacterContext } from '../../../context/Character';
 import { CharacterType } from '../../../types/types';
 import { NameAndID, handleDeleteCharacter, handleGet, handleGetNamesAndIDs } from '../../../utils/apiCalls';
+import {
+  convertAPIEffectsToEffects,
+  convertAPISkillsToSkills,
+  convertAPIStatsToStats,
+} from '../../../utils/convertMaps';
 import Button from '../../common/Button';
 
 type LoadCharacterProps = {
@@ -15,7 +20,7 @@ const LoadCharacter = ({ namesAndIDs, setNamesAndIDs }: LoadCharacterProps) => {
 
   const removeFromNamesAndIDs = (id: string, namesAndIDs: NameAndID[]): NameAndID[] => {
     namesAndIDs.forEach((character, i) => {
-      if (character._id == id) {
+      if (character.id == id) {
         namesAndIDs.splice(i, 1);
         return namesAndIDs;
       }
@@ -25,17 +30,17 @@ const LoadCharacter = ({ namesAndIDs, setNamesAndIDs }: LoadCharacterProps) => {
 
   const handleCharacterLoad = async (id: string, setState: (state: CharacterType) => void) => {
     try {
-      const path = 'document/by_id/' + id;
+      const path = 'character/id/' + id;
       const [data, _] = await handleGet(path);
       const dataObj: CharacterType = {
-        id: data._id,
+        id: data.id,
         name: data.name,
         role: data.role,
-        stats: data.stats,
+        stats: convertAPIStatsToStats(data.stats),
         hp: data.hp,
         humanity: data.humanity,
-        currentSkills: data.currentSkills,
-        currentEffects: data.currentEffects,
+        currentSkills: convertAPISkillsToSkills(data.currentSkills),
+        currentEffects: convertAPIEffectsToEffects(data.currentEffects),
       };
 
       setState(dataObj);
@@ -88,12 +93,12 @@ const LoadCharacter = ({ namesAndIDs, setNamesAndIDs }: LoadCharacterProps) => {
             {namesAndIDs ? (
               namesAndIDs.map(character => {
                 return (
-                  <tr key={character._id}>
+                  <tr key={character.id}>
                     <td>{character.name}</td>
                     <td>
                       <Button
                         variant="noBackground"
-                        onClick={() => handleCharacterLoad(character._id, setState)}
+                        onClick={() => handleCharacterLoad(character.id, setState)}
                       >
                         LOAD
                       </Button>
@@ -101,7 +106,7 @@ const LoadCharacter = ({ namesAndIDs, setNamesAndIDs }: LoadCharacterProps) => {
                     <td>
                       <Button
                         variant="noBackground"
-                        onClick={() => handleCharacterDelete(character._id, setState, setNamesAndIDs)}
+                        onClick={() => handleCharacterDelete(character.id, setState, setNamesAndIDs)}
                       >
                         DELETE
                       </Button>

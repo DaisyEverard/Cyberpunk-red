@@ -30,7 +30,7 @@ const SaveCharacter = ({ namesAndIDs, setNamesAndIDs }: SaveCharacterProps) => {
     if (err) {
       throw err;
     }
-    const newNameAndID = { _id: response.Id, name: state.name };
+    const newNameAndID = { id: response.Id, name: state.name };
     namesAndIDs.push(newNameAndID);
     setNamesAndIDs([...namesAndIDs]);
 
@@ -51,7 +51,7 @@ const SaveCharacter = ({ namesAndIDs, setNamesAndIDs }: SaveCharacterProps) => {
     }
 
     if (response.Id) {
-      const newNameAndID = { _id: response.Id, name: state.name };
+      const newNameAndID = { id: response.Id, name: state.name };
       namesAndIDs.push(newNameAndID);
       setNamesAndIDs([...namesAndIDs]);
 
