@@ -1,3 +1,4 @@
+import { APICharacterType } from '../types/types';
 import { axiosBaseClient as axios } from './axios';
 
 export type NameAndID = {
@@ -37,8 +38,17 @@ const handlePost = async (path: string, body: string): Promise<[any, Error | nul
     return ['', new Error(`no body provided to post request`)];
   }
 
+  axios.interceptors.request.use(request => {
+    console.log('starting request', JSON.stringify(request, null, 2));
+    return request;
+  });
+
   await axios
-    .post(path, body)
+    .post(path, body, {
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
     .then(res => {
       response = res.data;
     })

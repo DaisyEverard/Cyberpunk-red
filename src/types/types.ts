@@ -52,3 +52,14 @@ export type APISkillType = {
   options: APISkillOptions;
 };
 export type APISkillsType = APISkillType[];
+
+export type APICharacterType = {
+  id?: string;
+  name: string;
+  role: Role;
+  stats: APIStatsType;
+  hp: number;
+  humanity: number;
+  currentSkills: APISkillsType;
+  currentEffects: APIEffectsType;
+};

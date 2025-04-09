@@ -1,8 +1,13 @@
 import { useContext, useEffect } from 'react';
 
 import { CharacterContext } from '../../../context/Character';
-import { CharacterType } from '../../../types/types';
+import { APICharacterType, CharacterType } from '../../../types/types';
 import { NameAndID, handlePost } from '../../../utils/apiCalls';
+import {
+  convertEffectsToAPIEffects,
+  convertSkillsToAPISkills,
+  convertStatsToAPIStats,
+} from '../../../utils/convertMaps';
 import Button from '../../common/Button';
 
 type SaveCharacterProps = {
@@ -25,16 +30,29 @@ const SaveCharacter = ({ namesAndIDs, setNamesAndIDs }: SaveCharacterProps) => {
   ) => {
     console.log('creating new character');
 
-    const [response, err] = await handlePost('document/new', JSON.stringify(state));
+    const newAPICharacter: APICharacterType = {
+      id: state.id,
+      name: state.name,
+      role: state.role,
+      stats: convertStatsToAPIStats(state.stats),
+      hp: state.hp,
+      humanity: state.humanity,
+      currentSkills: convertSkillsToAPISkills(state.currentSkills),
+      currentEffects: convertEffectsToAPIEffects(state.currentEffects),
+    };
+
+    console.log(newAPICharacter);
+
+    const [response, err] = await handlePost('character/new', JSON.stringify(newAPICharacter, null, 2));
 
     if (err) {
       throw err;
     }
-    const newNameAndID = { id: response.Id, name: state.name };
+    const newNameAndID = { id: response.id, name: state.name };
     namesAndIDs.push(newNameAndID);
     setNamesAndIDs([...namesAndIDs]);
 
-    setID(response.Id);
+    setID(response.id);
     console.log(response);
   };
 
@@ -44,18 +62,29 @@ const SaveCharacter = ({ namesAndIDs, setNamesAndIDs }: SaveCharacterProps) => {
     namesAndIDs: NameAndID[],
     setNamesAndIDs: (namesAndIDs: NameAndID[]) => void,
   ) => {
-    const [response, err] = await handlePost('document/existing', JSON.stringify(state));
+    const newAPICharacter: APICharacterType = {
+      id: state.id,
+      name: state.name,
+      role: state.role,
+      stats: convertStatsToAPIStats(state.stats),
+      hp: state.hp,
+      humanity: state.humanity,
+      currentSkills: convertSkillsToAPISkills(state.currentSkills),
+      currentEffects: convertEffectsToAPIEffects(state.currentEffects),
+    };
+
+    const [response, err] = await handlePost('character/update', JSON.stringify(newAPICharacter));
 
     if (err) {
       throw err;
     }
 
     if (response.Id) {
-      const newNameAndID = { id: response.Id, name: state.name };
+      const newNameAndID = { id: response.id, name: state.name };
       namesAndIDs.push(newNameAndID);
       setNamesAndIDs([...namesAndIDs]);
 
-      setID(response.Id);
+      setID(response.id);
     }
     console.log(response);
   };
