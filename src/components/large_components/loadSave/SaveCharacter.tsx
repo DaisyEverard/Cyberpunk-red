@@ -2,7 +2,8 @@ import { useContext, useEffect } from 'react';
 
 import { CharacterContext } from '../../../context/Character';
 import { APICharacterType, CharacterType } from '../../../types/types';
-import { NameAndID, handlePost } from '../../../utils/apiCalls';
+import { NameAndID, handlePost, handlePut } from '../../../utils/apiCalls';
+import { removeFromNamesAndIDs } from '../../../utils/commonMethods';
 import {
   convertEffectsToAPIEffects,
   convertSkillsToAPISkills,
@@ -73,17 +74,18 @@ const SaveCharacter = ({ namesAndIDs, setNamesAndIDs }: SaveCharacterProps) => {
       currentEffects: convertEffectsToAPIEffects(state.currentEffects),
     };
 
-    const [response, err] = await handlePost('character/update', JSON.stringify(newAPICharacter));
+    const [response, err] = await handlePut('character/update', JSON.stringify(newAPICharacter));
 
     if (err) {
       throw err;
     }
 
-    if (response.Id) {
+    if (response.id) {
       const newNameAndID = { id: response.id, name: state.name };
-      namesAndIDs.push(newNameAndID);
-      setNamesAndIDs([...namesAndIDs]);
 
+      let newNamesAndIDs = [...removeFromNamesAndIDs(response.id, namesAndIDs)];
+      newNamesAndIDs.push(newNameAndID);
+      setNamesAndIDs([...newNamesAndIDs]);
       setID(response.id);
     }
     console.log(response);

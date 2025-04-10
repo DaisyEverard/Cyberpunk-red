@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { CharacterContext } from '../../../context/Character';
 import { CharacterType } from '../../../types/types';
 import { NameAndID, handleDeleteCharacter, handleGet, handleGetNamesAndIDs } from '../../../utils/apiCalls';
+import { removeFromNamesAndIDs } from '../../../utils/commonMethods';
 import {
   convertAPIEffectsToEffects,
   convertAPISkillsToSkills,
@@ -17,16 +18,6 @@ type LoadCharacterProps = {
 
 const LoadCharacter = ({ namesAndIDs, setNamesAndIDs }: LoadCharacterProps) => {
   const { setState } = useContext(CharacterContext);
-
-  const removeFromNamesAndIDs = (id: string, namesAndIDs: NameAndID[]): NameAndID[] => {
-    namesAndIDs.forEach((character, i) => {
-      if (character.id == id) {
-        namesAndIDs.splice(i, 1);
-        return namesAndIDs;
-      }
-    });
-    return namesAndIDs;
-  };
 
   const handleCharacterLoad = async (id: string, setState: (state: CharacterType) => void) => {
     try {

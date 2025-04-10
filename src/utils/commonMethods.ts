@@ -1,3 +1,5 @@
+import { NameAndID } from './apiCalls';
+
 import { EffectsType, StatsType } from '../types/types';
 
 // INCREMENT / DECREMENT
@@ -109,6 +111,17 @@ const rollSkillCheck = (): number[] => {
   return [baseRoll, 0];
 };
 
+// Names And IDs
+const removeFromNamesAndIDs = (id: string, namesAndIDs: NameAndID[]): NameAndID[] => {
+  namesAndIDs.forEach((character, i) => {
+    if (character.id == id) {
+      namesAndIDs.splice(i, 1);
+      return namesAndIDs;
+    }
+  });
+  return namesAndIDs;
+};
+
 export {
   decrementAnyNumericalState,
   incrementAnyNumericalState,
@@ -123,4 +136,5 @@ export {
   getPageName,
   rollDice,
   rollSkillCheck,
+  removeFromNamesAndIDs,
 };

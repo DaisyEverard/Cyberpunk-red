@@ -59,4 +59,33 @@ const handlePost = async (path: string, body: string): Promise<[any, Error | nul
   return [response, error];
 };
 
-export { handlePost, handleGet, handleGetNamesAndIDs, handleDeleteCharacter };
+const handlePut = async (path: string, body: string): Promise<[any, Error | null]> => {
+  let response = '';
+  let error = null;
+
+  if (!body) {
+    return ['', new Error(`no body provided to post request`)];
+  }
+
+  axios.interceptors.request.use(request => {
+    console.log('starting request', JSON.stringify(request, null, 2));
+    return request;
+  });
+
+  await axios
+    .put(path, body, {
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    .then(res => {
+      response = res.data;
+    })
+    .catch(err => {
+      error = err;
+    });
+
+  return [response, error];
+};
+
+export { handlePost, handleGet, handleGetNamesAndIDs, handleDeleteCharacter, handlePut };
